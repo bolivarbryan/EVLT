@@ -1,0 +1,744 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		236D1BAB75AED873346D37DB /* Pods_EVLT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6B748C5C30D032D3DEE4B1 /* Pods_EVLT.framework */; };
+		610D37AF1D6F4E5C0096C4C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 610D37AE1D6F4E5C0096C4C7 /* main.m */; };
+		610D37B21D6F4E5C0096C4C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 610D37B11D6F4E5C0096C4C7 /* AppDelegate.m */; };
+		610D37B51D6F4E5C0096C4C7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 610D37B41D6F4E5C0096C4C7 /* ViewController.m */; };
+		610D37B81D6F4E5C0096C4C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 610D37B61D6F4E5C0096C4C7 /* Main.storyboard */; };
+		610D37BB1D6F4E5C0096C4C7 /* EVLT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 610D37B91D6F4E5C0096C4C7 /* EVLT.xcdatamodeld */; };
+		610D37BD1D6F4E5C0096C4C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 610D37BC1D6F4E5C0096C4C7 /* Assets.xcassets */; };
+		610D37C01D6F4E5C0096C4C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 610D37BE1D6F4E5C0096C4C7 /* LaunchScreen.storyboard */; };
+		610D37CB1D6F4E5C0096C4C7 /* EVLTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 610D37CA1D6F4E5C0096C4C7 /* EVLTTests.m */; };
+		613302F11D7032E90056CB09 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613302F01D7032E90056CB09 /* MapKit.framework */; };
+		613302F31D7032F30056CB09 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613302F21D7032F30056CB09 /* CoreLocation.framework */; };
+		613303021D7035AD0056CB09 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 613302FC1D7035AD0056CB09 /* CalendarViewController.m */; };
+		613303031D7035AD0056CB09 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 613302FF1D7035AD0056CB09 /* MapViewController.m */; };
+		613303041D7035AD0056CB09 /* TechnicienStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 613303011D7035AD0056CB09 /* TechnicienStoryboard.storyboard */; };
+		613303081D703DCE0056CB09 /* AdministratifStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 613303071D703DCE0056CB09 /* AdministratifStoryboard.storyboard */; };
+		6133031A1D7047510056CB09 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 613303161D7047510056CB09 /* DashboardViewController.m */; };
+		6133031B1D7047510056CB09 /* EncaissementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 613303191D7047510056CB09 /* EncaissementsViewController.m */; };
+		6133031F1D7047730056CB09 /* ProggramationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6133031E1D7047730056CB09 /* ProggramationViewController.m */; };
+		613303261D7048410056CB09 /* SAVStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 613303251D7048410056CB09 /* SAVStoryboard.storyboard */; };
+		6133032A1D7048FA0056CB09 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 613303291D7048FA0056CB09 /* HomeViewController.m */; };
+		6133032F1D704B950056CB09 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6133032E1D704B950056CB09 /* ContactsViewController.m */; };
+		613303341D704BE50056CB09 /* CommercialStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 613303331D704BE50056CB09 /* CommercialStoryboard.storyboard */; };
+		613303371D70590C0056CB09 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 613303361D70590C0056CB09 /* LoginViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		610D37C71D6F4E5C0096C4C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 610D37A21D6F4E5C0096C4C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 610D37A91D6F4E5C0096C4C7;
+			remoteInfo = EVLT;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0F016E0E50FE3260450AFA73 /* Pods-EVLT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVLT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EVLT/Pods-EVLT.debug.xcconfig"; sourceTree = "<group>"; };
+		610D37AA1D6F4E5C0096C4C7 /* EVLT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EVLT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		610D37AE1D6F4E5C0096C4C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		610D37B01D6F4E5C0096C4C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		610D37B11D6F4E5C0096C4C7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		610D37B31D6F4E5C0096C4C7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		610D37B41D6F4E5C0096C4C7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		610D37B71D6F4E5C0096C4C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		610D37BA1D6F4E5C0096C4C7 /* EVLT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EVLT.xcdatamodel; sourceTree = "<group>"; };
+		610D37BC1D6F4E5C0096C4C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		610D37BF1D6F4E5C0096C4C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		610D37C11D6F4E5C0096C4C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		610D37C61D6F4E5C0096C4C7 /* EVLTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EVLTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		610D37CA1D6F4E5C0096C4C7 /* EVLTTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EVLTTests.m; sourceTree = "<group>"; };
+		610D37CC1D6F4E5C0096C4C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		613302F01D7032E90056CB09 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		613302F21D7032F30056CB09 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		613302FB1D7035AD0056CB09 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		613302FC1D7035AD0056CB09 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		613302FE1D7035AD0056CB09 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		613302FF1D7035AD0056CB09 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		613303011D7035AD0056CB09 /* TechnicienStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TechnicienStoryboard.storyboard; sourceTree = "<group>"; };
+		613303071D703DCE0056CB09 /* AdministratifStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AdministratifStoryboard.storyboard; path = Administratif/Views/AdministratifStoryboard.storyboard; sourceTree = "<group>"; };
+		613303151D7047510056CB09 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
+		613303161D7047510056CB09 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
+		613303181D7047510056CB09 /* EncaissementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncaissementsViewController.h; sourceTree = "<group>"; };
+		613303191D7047510056CB09 /* EncaissementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncaissementsViewController.m; sourceTree = "<group>"; };
+		6133031D1D7047730056CB09 /* ProggramationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProggramationViewController.h; path = Proggramation/ProggramationViewController.h; sourceTree = "<group>"; };
+		6133031E1D7047730056CB09 /* ProggramationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProggramationViewController.m; path = Proggramation/ProggramationViewController.m; sourceTree = "<group>"; };
+		613303251D7048410056CB09 /* SAVStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SAVStoryboard.storyboard; path = SAV/Views/SAVStoryboard.storyboard; sourceTree = "<group>"; };
+		613303281D7048FA0056CB09 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = SAV/Controllers/Home/HomeViewController.h; sourceTree = "<group>"; };
+		613303291D7048FA0056CB09 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = SAV/Controllers/Home/HomeViewController.m; sourceTree = "<group>"; };
+		6133032D1D704B950056CB09 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsViewController.h; path = SAV/Controllers/Contacts/ContactsViewController.h; sourceTree = "<group>"; };
+		6133032E1D704B950056CB09 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactsViewController.m; path = SAV/Controllers/Contacts/ContactsViewController.m; sourceTree = "<group>"; };
+		613303331D704BE50056CB09 /* CommercialStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CommercialStoryboard.storyboard; path = Commercial/Views/CommercialStoryboard.storyboard; sourceTree = "<group>"; };
+		613303351D70590C0056CB09 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Commercial/Controllers/Login/LoginViewController.h; sourceTree = "<group>"; };
+		613303361D70590C0056CB09 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Commercial/Controllers/Login/LoginViewController.m; sourceTree = "<group>"; };
+		9A6B748C5C30D032D3DEE4B1 /* Pods_EVLT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EVLT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B93934DE5237D757C237D074 /* Pods-EVLT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVLT.release.xcconfig"; path = "Pods/Target Support Files/Pods-EVLT/Pods-EVLT.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		610D37A71D6F4E5C0096C4C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				613302F31D7032F30056CB09 /* CoreLocation.framework in Frameworks */,
+				613302F11D7032E90056CB09 /* MapKit.framework in Frameworks */,
+				236D1BAB75AED873346D37DB /* Pods_EVLT.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		610D37C31D6F4E5C0096C4C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4404CB52F16D5F0E1D1B999A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				613302F21D7032F30056CB09 /* CoreLocation.framework */,
+				613302F01D7032E90056CB09 /* MapKit.framework */,
+				9A6B748C5C30D032D3DEE4B1 /* Pods_EVLT.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		610D37A11D6F4E5C0096C4C7 = {
+			isa = PBXGroup;
+			children = (
+				610D37AC1D6F4E5C0096C4C7 /* EVLT */,
+				610D37C91D6F4E5C0096C4C7 /* EVLTTests */,
+				610D37AB1D6F4E5C0096C4C7 /* Products */,
+				7055F448626C800106607F31 /* Pods */,
+				4404CB52F16D5F0E1D1B999A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		610D37AB1D6F4E5C0096C4C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				610D37AA1D6F4E5C0096C4C7 /* EVLT.app */,
+				610D37C61D6F4E5C0096C4C7 /* EVLTTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		610D37AC1D6F4E5C0096C4C7 /* EVLT */ = {
+			isa = PBXGroup;
+			children = (
+				613303301D704BBD0056CB09 /* Commercial */,
+				613303201D7047C90056CB09 /* SAV */,
+				613303051D703D870056CB09 /* Administratif */,
+				613302F81D7035AD0056CB09 /* Technicien */,
+				610D37B01D6F4E5C0096C4C7 /* AppDelegate.h */,
+				610D37B11D6F4E5C0096C4C7 /* AppDelegate.m */,
+				610D37B31D6F4E5C0096C4C7 /* ViewController.h */,
+				610D37B41D6F4E5C0096C4C7 /* ViewController.m */,
+				610D37B61D6F4E5C0096C4C7 /* Main.storyboard */,
+				610D37BC1D6F4E5C0096C4C7 /* Assets.xcassets */,
+				610D37BE1D6F4E5C0096C4C7 /* LaunchScreen.storyboard */,
+				610D37C11D6F4E5C0096C4C7 /* Info.plist */,
+				610D37B91D6F4E5C0096C4C7 /* EVLT.xcdatamodeld */,
+				610D37AD1D6F4E5C0096C4C7 /* Supporting Files */,
+			);
+			path = EVLT;
+			sourceTree = "<group>";
+		};
+		610D37AD1D6F4E5C0096C4C7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				610D37AE1D6F4E5C0096C4C7 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		610D37C91D6F4E5C0096C4C7 /* EVLTTests */ = {
+			isa = PBXGroup;
+			children = (
+				610D37CA1D6F4E5C0096C4C7 /* EVLTTests.m */,
+				610D37CC1D6F4E5C0096C4C7 /* Info.plist */,
+			);
+			path = EVLTTests;
+			sourceTree = "<group>";
+		};
+		613302F81D7035AD0056CB09 /* Technicien */ = {
+			isa = PBXGroup;
+			children = (
+				613302F91D7035AD0056CB09 /* Controllers */,
+				613303001D7035AD0056CB09 /* Views */,
+			);
+			path = Technicien;
+			sourceTree = "<group>";
+		};
+		613302F91D7035AD0056CB09 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				613302FA1D7035AD0056CB09 /* Calendar */,
+				613302FD1D7035AD0056CB09 /* Map */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		613302FA1D7035AD0056CB09 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				613302FB1D7035AD0056CB09 /* CalendarViewController.h */,
+				613302FC1D7035AD0056CB09 /* CalendarViewController.m */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		613302FD1D7035AD0056CB09 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				613302FE1D7035AD0056CB09 /* MapViewController.h */,
+				613302FF1D7035AD0056CB09 /* MapViewController.m */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		613303001D7035AD0056CB09 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				613303011D7035AD0056CB09 /* TechnicienStoryboard.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		613303051D703D870056CB09 /* Administratif */ = {
+			isa = PBXGroup;
+			children = (
+				613303131D7047510056CB09 /* Controllers */,
+				613303061D703DB10056CB09 /* Views */,
+			);
+			name = Administratif;
+			sourceTree = "<group>";
+		};
+		613303061D703DB10056CB09 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				613303071D703DCE0056CB09 /* AdministratifStoryboard.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		613303131D7047510056CB09 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6133031C1D70475E0056CB09 /* Proggramation */,
+				613303141D7047510056CB09 /* Dashboard */,
+				613303171D7047510056CB09 /* Encaissements */,
+			);
+			name = Controllers;
+			path = Administratif/Controllers;
+			sourceTree = "<group>";
+		};
+		613303141D7047510056CB09 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				613303151D7047510056CB09 /* DashboardViewController.h */,
+				613303161D7047510056CB09 /* DashboardViewController.m */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		613303171D7047510056CB09 /* Encaissements */ = {
+			isa = PBXGroup;
+			children = (
+				613303181D7047510056CB09 /* EncaissementsViewController.h */,
+				613303191D7047510056CB09 /* EncaissementsViewController.m */,
+			);
+			path = Encaissements;
+			sourceTree = "<group>";
+		};
+		6133031C1D70475E0056CB09 /* Proggramation */ = {
+			isa = PBXGroup;
+			children = (
+				6133031D1D7047730056CB09 /* ProggramationViewController.h */,
+				6133031E1D7047730056CB09 /* ProggramationViewController.m */,
+			);
+			name = Proggramation;
+			sourceTree = "<group>";
+		};
+		613303201D7047C90056CB09 /* SAV */ = {
+			isa = PBXGroup;
+			children = (
+				613303271D7048CB0056CB09 /* Controllers */,
+				613303241D70482C0056CB09 /* Views */,
+			);
+			name = SAV;
+			sourceTree = "<group>";
+		};
+		613303241D70482C0056CB09 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				613303251D7048410056CB09 /* SAVStoryboard.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		613303271D7048CB0056CB09 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6133032C1D704B540056CB09 /* Contacts */,
+				6133032B1D704B4A0056CB09 /* Home */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		6133032B1D704B4A0056CB09 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				613303281D7048FA0056CB09 /* HomeViewController.h */,
+				613303291D7048FA0056CB09 /* HomeViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		6133032C1D704B540056CB09 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				6133032D1D704B950056CB09 /* ContactsViewController.h */,
+				6133032E1D704B950056CB09 /* ContactsViewController.m */,
+			);
+			name = Contacts;
+			sourceTree = "<group>";
+		};
+		613303301D704BBD0056CB09 /* Commercial */ = {
+			isa = PBXGroup;
+			children = (
+				613303321D704BC80056CB09 /* Controllers */,
+				613303311D704BC40056CB09 /* Views */,
+			);
+			name = Commercial;
+			sourceTree = "<group>";
+		};
+		613303311D704BC40056CB09 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				613303331D704BE50056CB09 /* CommercialStoryboard.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		613303321D704BC80056CB09 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				613303351D70590C0056CB09 /* LoginViewController.h */,
+				613303361D70590C0056CB09 /* LoginViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		7055F448626C800106607F31 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0F016E0E50FE3260450AFA73 /* Pods-EVLT.debug.xcconfig */,
+				B93934DE5237D757C237D074 /* Pods-EVLT.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		610D37A91D6F4E5C0096C4C7 /* EVLT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 610D37CF1D6F4E5C0096C4C7 /* Build configuration list for PBXNativeTarget "EVLT" */;
+			buildPhases = (
+				798E58FD6E8FE92683DE7C42 /* [CP] Check Pods Manifest.lock */,
+				610D37A61D6F4E5C0096C4C7 /* Sources */,
+				610D37A71D6F4E5C0096C4C7 /* Frameworks */,
+				610D37A81D6F4E5C0096C4C7 /* Resources */,
+				FC972488E6629B0943BDB99E /* [CP] Embed Pods Frameworks */,
+				84A5D8ADD47F42E2C70A2DC7 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EVLT;
+			productName = EVLT;
+			productReference = 610D37AA1D6F4E5C0096C4C7 /* EVLT.app */;
+			productType = "com.apple.product-type.application";
+		};
+		610D37C51D6F4E5C0096C4C7 /* EVLTTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 610D37D21D6F4E5C0096C4C7 /* Build configuration list for PBXNativeTarget "EVLTTests" */;
+			buildPhases = (
+				610D37C21D6F4E5C0096C4C7 /* Sources */,
+				610D37C31D6F4E5C0096C4C7 /* Frameworks */,
+				610D37C41D6F4E5C0096C4C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				610D37C81D6F4E5C0096C4C7 /* PBXTargetDependency */,
+			);
+			name = EVLTTests;
+			productName = EVLTTests;
+			productReference = 610D37C61D6F4E5C0096C4C7 /* EVLTTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		610D37A21D6F4E5C0096C4C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = EVLT;
+				TargetAttributes = {
+					610D37A91D6F4E5C0096C4C7 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					610D37C51D6F4E5C0096C4C7 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 610D37A91D6F4E5C0096C4C7;
+					};
+				};
+			};
+			buildConfigurationList = 610D37A51D6F4E5C0096C4C7 /* Build configuration list for PBXProject "EVLT" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 610D37A11D6F4E5C0096C4C7;
+			productRefGroup = 610D37AB1D6F4E5C0096C4C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				610D37A91D6F4E5C0096C4C7 /* EVLT */,
+				610D37C51D6F4E5C0096C4C7 /* EVLTTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		610D37A81D6F4E5C0096C4C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				613303341D704BE50056CB09 /* CommercialStoryboard.storyboard in Resources */,
+				610D37C01D6F4E5C0096C4C7 /* LaunchScreen.storyboard in Resources */,
+				613303041D7035AD0056CB09 /* TechnicienStoryboard.storyboard in Resources */,
+				610D37BD1D6F4E5C0096C4C7 /* Assets.xcassets in Resources */,
+				610D37B81D6F4E5C0096C4C7 /* Main.storyboard in Resources */,
+				613303261D7048410056CB09 /* SAVStoryboard.storyboard in Resources */,
+				613303081D703DCE0056CB09 /* AdministratifStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		610D37C41D6F4E5C0096C4C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		798E58FD6E8FE92683DE7C42 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		84A5D8ADD47F42E2C70A2DC7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EVLT/Pods-EVLT-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC972488E6629B0943BDB99E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EVLT/Pods-EVLT-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		610D37A61D6F4E5C0096C4C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6133032F1D704B950056CB09 /* ContactsViewController.m in Sources */,
+				610D37BB1D6F4E5C0096C4C7 /* EVLT.xcdatamodeld in Sources */,
+				6133031B1D7047510056CB09 /* EncaissementsViewController.m in Sources */,
+				6133031F1D7047730056CB09 /* ProggramationViewController.m in Sources */,
+				6133032A1D7048FA0056CB09 /* HomeViewController.m in Sources */,
+				610D37B51D6F4E5C0096C4C7 /* ViewController.m in Sources */,
+				610D37B21D6F4E5C0096C4C7 /* AppDelegate.m in Sources */,
+				6133031A1D7047510056CB09 /* DashboardViewController.m in Sources */,
+				613303371D70590C0056CB09 /* LoginViewController.m in Sources */,
+				613303031D7035AD0056CB09 /* MapViewController.m in Sources */,
+				613303021D7035AD0056CB09 /* CalendarViewController.m in Sources */,
+				610D37AF1D6F4E5C0096C4C7 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		610D37C21D6F4E5C0096C4C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				610D37CB1D6F4E5C0096C4C7 /* EVLTTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		610D37C81D6F4E5C0096C4C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 610D37A91D6F4E5C0096C4C7 /* EVLT */;
+			targetProxy = 610D37C71D6F4E5C0096C4C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		610D37B61D6F4E5C0096C4C7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				610D37B71D6F4E5C0096C4C7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		610D37BE1D6F4E5C0096C4C7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				610D37BF1D6F4E5C0096C4C7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		610D37CD1D6F4E5C0096C4C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		610D37CE1D6F4E5C0096C4C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		610D37D01D6F4E5C0096C4C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F016E0E50FE3260450AFA73 /* Pods-EVLT.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EVLT/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.EVLT;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		610D37D11D6F4E5C0096C4C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B93934DE5237D757C237D074 /* Pods-EVLT.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EVLT/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.EVLT;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		610D37D31D6F4E5C0096C4C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				ENABLE_BITCODE = YES;
+				INFOPLIST_FILE = EVLTTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.EVLTTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EVLT.app/EVLT";
+			};
+			name = Debug;
+		};
+		610D37D41D6F4E5C0096C4C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				ENABLE_BITCODE = YES;
+				INFOPLIST_FILE = EVLTTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.EVLTTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EVLT.app/EVLT";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		610D37A51D6F4E5C0096C4C7 /* Build configuration list for PBXProject "EVLT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				610D37CD1D6F4E5C0096C4C7 /* Debug */,
+				610D37CE1D6F4E5C0096C4C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		610D37CF1D6F4E5C0096C4C7 /* Build configuration list for PBXNativeTarget "EVLT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				610D37D01D6F4E5C0096C4C7 /* Debug */,
+				610D37D11D6F4E5C0096C4C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		610D37D21D6F4E5C0096C4C7 /* Build configuration list for PBXNativeTarget "EVLTTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				610D37D31D6F4E5C0096C4C7 /* Debug */,
+				610D37D41D6F4E5C0096C4C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		610D37B91D6F4E5C0096C4C7 /* EVLT.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				610D37BA1D6F4E5C0096C4C7 /* EVLT.xcdatamodel */,
+			);
+			currentVersion = 610D37BA1D6F4E5C0096C4C7 /* EVLT.xcdatamodel */;
+			path = EVLT.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 610D37A21D6F4E5C0096C4C7 /* Project object */;
+}
