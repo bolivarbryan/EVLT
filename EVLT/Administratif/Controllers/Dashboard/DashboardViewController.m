@@ -18,8 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIColor *color = [UIColor hex:@"#3b5998"];
-    
+    self.navigationController.title  = @"Administratif";
 }
 
 - (void)didReceiveMemoryWarning {

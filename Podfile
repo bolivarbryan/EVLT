@@ -7,5 +7,9 @@ target 'EVLT' do
     pod "CalendarView"
     pod 'JTCalendar', '~> 2.0'
     pod 'Hue'
-
+    pod "EKVideoController"
+    pod "MBProgressHUD"
+    pod "DZNEmptyDataSet"
+    pod 'FoldingCell'
+    pod "IQKeyboardManager"
 end

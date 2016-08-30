@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DropBoxManager.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //DROPBOX
+    DBSession *dbSession = [[DBSession alloc]
+                            initWithAppKey:@"5fzj65nhs3znvf6"
+                            appSecret:@"3mekuljd36n2750"
+                            root:kDBRootAppFolder]; // either kDBRootAppFolder or kDBRootDropbox
+    [DBSession setSharedSession:dbSession];
+    // Override point for customization after application launch.
+    self.technicianStore = [[TechnicianStore alloc] init];
+    self.projectManager = [[TECProjectManager alloc] init];
+    
     return YES;
 }
 
@@ -36,6 +48,14 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    [self.projectManager updateProjects];
+    [self.projectManager updateClients];
+    [self.projectManager updateAllCoords];
+    
+    self.projets = [self.projectManager projectsForCurrentTechnician];
+    self.clients = [self.projectManager clientsForCurrentTechnician];
+    self.coords = [self.projectManager coords];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

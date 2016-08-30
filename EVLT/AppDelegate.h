@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "TechnicianStore.h"
+#import "TECProjectManager.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -20,6 +22,12 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+@property (strong, nonatomic) TechnicianStore *technicianStore;
+@property (strong, nonatomic) TECProjectManager *projectManager;
+
+@property (strong, nonatomic) NSArray *projets;
+@property (strong, nonatomic) NSArray *clients;
+@property (strong, nonatomic) NSArray *coords;
 
 @end
 

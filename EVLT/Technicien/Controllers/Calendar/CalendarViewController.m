@@ -25,6 +25,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationController.title  = @"Technicien";
+    self.title = NSLocalizedString(@"Calendar", nil);
     // Do any additional setup after loading the view.
     _calendarManager = [JTCalendarManager new];
     _calendarManager.delegate = self;
