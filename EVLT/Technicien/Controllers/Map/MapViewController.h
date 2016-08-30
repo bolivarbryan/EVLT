@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "Projet.h"
+#import "Projet2.h"
 
 @interface MapViewController : UIViewController
 {

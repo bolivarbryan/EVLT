@@ -8,11 +8,11 @@
 
 #import "MapViewController.h"
 #import "AppDelegate.h"
-#import "Projet.h"
-#import "TECProjectAnnotation.h"
-#import "Client.h"
+#import "Projet2.h"
+#import "TECProjectAnnotation2.h"
+#import "Client2.h"
 
-//#import "detailProjetBisViewController.h"
+//#import "detailProjetBisViewController2.h"
 
 
 

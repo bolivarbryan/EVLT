@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "TechnicianStore.h"
-#import "TECProjectManager.h"
+#import "TechnicianStore2.h"
+#import "TECProjectManager2.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
