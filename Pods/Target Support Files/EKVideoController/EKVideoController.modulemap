@@ -1,6 +1,0 @@
-framework module EKVideoController {
-  umbrella header "EKVideoController-umbrella.h"
-
-  export *
-  module * { export * }
-}

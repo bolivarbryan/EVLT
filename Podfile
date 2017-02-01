@@ -1,15 +1,24 @@
-use_frameworks!
-target 'EVLT' do
-	pod 'GoogleAPIClient/Calendar', '~> 1.0.2'
-   	pod 'GTMOAuth2', '~> 1.1.0'
-	pod  "Dropbox-iOS-SDK"
-    pod "AFNetworking"
-    pod "CalendarView"
-    pod 'JTCalendar', '~> 2.0'
-    pod 'Hue'
-    pod "EKVideoController"
-    pod "MBProgressHUD"
-    pod "DZNEmptyDataSet"
-    pod 'FoldingCell'
-    pod "IQKeyboardManager"
+#Uncomment this line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'EVLT-Swift' do
+  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for EVLT-Swift
+
+  pod 'JTCalendar', '~> 2.0'
+  pod 'Alamofire', '~> 4.0'
+  pod 'DateTools'
+  pod 'SDWebImage', '~>3.8'
+  pod 'DGActivityIndicatorView'
+  pod 'MXParallaxHeader'
+  pod 'Toaster', '~> 2.0'
+  pod 'SwiftyJSON'
+
+  target 'EVLT-SwiftTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
 end
