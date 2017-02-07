@@ -170,9 +170,14 @@ class APIRequests: NSObject {
         }
     }
     
-    class func startFilling(){
+    class func startFilling(completion: ((_ result : [Client] ) -> Void)?){
         APIRequests.simplePost(endpoint: serverURL + APIstartFilling, parameters: [:]){ response in
-            printResponse(response: response as AnyObject)
+            var clients: [Client] = []
+            for clientDictionary in response["response"] as! Array<Dictionary<String, Any>> {
+                let client = Client(dictionary: clientDictionary)
+                clients.append(client)
+            }
+            completion!(clients)
         }
     }
     
