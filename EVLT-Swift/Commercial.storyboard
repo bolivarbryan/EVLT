@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="67" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="czH-vH-ICf">
-                                <rect key="frame" x="0.0" y="44" width="375" height="515"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="68" id="R7s-U4-76c" customClass="ProductCellTableViewCell" customModule="EVLT_Swift" customModuleProvider="target">
@@ -61,14 +61,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Search Client" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ8-lu-nhN">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Pq0-ZT-Vsl">
                                 <rect key="frame" x="8" y="567" width="359" height="29"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="Fv2-j3-ts3"/>
+                                </constraints>
                                 <segments>
                                     <segment title="VISIT"/>
                                     <segment title="APPOINTMENT"/>
@@ -81,15 +79,12 @@
                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Pq0-ZT-Vsl" firstAttribute="top" secondItem="czH-vH-ICf" secondAttribute="bottom" constant="8" id="9YA-Ya-Gt4"/>
-                            <constraint firstAttribute="trailing" secondItem="dQ8-lu-nhN" secondAttribute="trailing" id="9qc-29-Y1O"/>
                             <constraint firstAttribute="trailing" secondItem="czH-vH-ICf" secondAttribute="trailing" id="BWI-VM-TtI"/>
-                            <constraint firstItem="czH-vH-ICf" firstAttribute="top" secondItem="dRJ-YF-Nmx" secondAttribute="bottom" constant="44" id="Qb7-Vc-Aey"/>
-                            <constraint firstItem="dQ8-lu-nhN" firstAttribute="top" secondItem="dRJ-YF-Nmx" secondAttribute="bottom" id="ZUl-5u-Glk"/>
+                            <constraint firstItem="czH-vH-ICf" firstAttribute="top" secondItem="dRJ-YF-Nmx" secondAttribute="bottom" id="Qb7-Vc-Aey"/>
                             <constraint firstItem="czH-vH-ICf" firstAttribute="leading" secondItem="Rl8-dE-WsP" secondAttribute="leading" id="Zzd-EP-x4I"/>
                             <constraint firstAttribute="trailing" secondItem="Pq0-ZT-Vsl" secondAttribute="trailing" constant="8" id="bXN-nc-v5v"/>
                             <constraint firstItem="tTx-bK-KCx" firstAttribute="top" secondItem="Pq0-ZT-Vsl" secondAttribute="bottom" constant="8" id="hZP-5P-XdY"/>
                             <constraint firstItem="Pq0-ZT-Vsl" firstAttribute="leading" secondItem="Rl8-dE-WsP" secondAttribute="leading" constant="8" id="sQv-bw-j6y"/>
-                            <constraint firstItem="dQ8-lu-nhN" firstAttribute="leading" secondItem="Rl8-dE-WsP" secondAttribute="leading" id="uQc-tt-skH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Commercial" id="CgS-o0-rhH"/>
@@ -498,7 +493,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="68" id="jhE-b6-RRw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="68" id="jhE-b6-RRw" customClass="ProductCellTableViewCell" customModule="EVLT_Swift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jhE-b6-RRw" id="DA3-9w-hhx">
@@ -527,6 +522,10 @@
                                                 <constraint firstItem="mqT-dN-2VT" firstAttribute="leading" secondItem="DA3-9w-hhx" secondAttribute="leading" constant="10" id="sKb-Jb-cdq"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="mqT-dN-2VT" id="kx9-ye-yhx"/>
+                                            <outlet property="subtitleLabel" destination="EIt-Jz-6yE" id="Qk9-Sh-6mW"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SubmitCell" id="jG4-YP-ugD">
                                         <rect key="frame" x="0.0" y="96" width="375" height="67"/>
@@ -2180,6 +2179,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ljP-lq-il5"/>
+        <segue reference="BTC-tA-QJL"/>
     </inferredMetricsTieBreakers>
 </document>

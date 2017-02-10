@@ -293,6 +293,93 @@ class APIRequests: NSObject {
         }
     }
     
+    class func basicPost(endpoint: String, params:Array<Dictionary<String, Any>>, completion: @escaping (_ result: JSON) -> Void){
+        let headers = [
+            "content-type": "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
+            "authorization": "Token 2184328b4a5ffaca35902fd70fd3e7e96777cba0",
+            "cache-control": "no-cache",
+            "postman-token": "cb15bb06-0b30-3f5b-6d2b-2d85273d1185"
+        ]
+ 
+        let boundary = "----WebKitFormBoundary7MA4YWxkTrZu0gW"
+        
+        var body = ""
+        var error: NSError? = nil
+        for param in params {
+            let paramName = param["name"]!
+            body += "--\(boundary)\r\n"
+            body += "Content-Disposition:form-data; name=\"\(paramName)\""
+            if let filename = param["fileName"] {
+                let contentType = param["content-type"]!
+                do {
+                    let fileContent = try String(contentsOfFile: filename as! String, encoding: String.Encoding.utf8)
+                    if (error != nil) {
+                        print(error)
+                    }
+                    body += "; filename=\"\(filename)\"\r\n"
+                    body += "Content-Type: \(contentType)\r\n\r\n"
+                    body += fileContent
+                } catch {
+                    
+                }
+                
+            } else if let paramValue = param["value"] {
+                body += "\r\n\r\n\(paramValue)"
+            }
+        }
+        
+        let request = NSMutableURLRequest(url: NSURL(string: endpoint)! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                let json = JSON(data: data!)
+                print(json)
+                completion(json)
+            }
+        })
+        
+        dataTask.resume()
+    }
+    
+    
+    class func importProjectWithClientID(clientID:String, completion: @escaping (_ result: Array<Dictionary<String, Any>>) -> Void){
+        let parameters = [
+            [
+                "name": "client_id",
+                "value": clientID
+            ]
+        ]
+        
+        let url = "http://www.envertlaterre.fr/PHP/import_projet.php"
+        
+        basicPost(endpoint: url, params: parameters) { (result) in
+            print(result.dictionaryValue["chantiers"]?.arrayObject )
+            
+            if  let chantiers = result.dictionaryValue["chantiers"]?.arrayObject {
+                print(chantiers)
+                
+                //get my own chantier
+                var chantierObjects:[Dictionary<String, Any>] = []
+                for chantier in chantiers as! Array<Dictionary<String, Any>> {
+                    print(chantier)
+                    if chantier["client_id"] as! String == clientID {
+                        chantierObjects.append(chantier)
+                    }
+                }
+                completion(chantierObjects)
+            }
+        }
+        
+    }
+    
     class func importProject(){
         let headers = [
             "cache-control": "no-cache",

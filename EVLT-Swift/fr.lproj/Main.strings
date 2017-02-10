@@ -1,0 +1,27 @@
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "2sQ-ed-6Zs"; */
+"2sQ-ed-6Zs.normalTitle" = "Login";
+
+/* Class = "UITabBarItem"; title = "Technician"; ObjectID = "8VB-JK-sPI"; */
+"8VB-JK-sPI.title" = "Technician";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "BHn-Za-oLq"; */
+"BHn-Za-oLq.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "En Vert La Terre"; ObjectID = "WZ4-MC-qkR"; */
+"WZ4-MC-qkR.text" = "En Vert La Terre";
+
+/* Class = "UITextField"; placeholder = "Usename"; ObjectID = "cx4-fW-uL6"; */
+"cx4-fW-uL6.placeholder" = "Usename";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "g0i-zD-b0H"; */
+"g0i-zD-b0H.title" = "Item";
+
+/* Class = "UILabel"; text = "En Vert La terre 2016."; ObjectID = "nCd-X3-RqK"; */
+"nCd-X3-RqK.text" = "En Vert La terre 2016.";
+
+/* Class = "UITabBarItem"; title = "SAV"; ObjectID = "qyO-DD-bLd"; */
+"qyO-DD-bLd.title" = "SAV";
+
+/* Class = "UITabBarItem"; title = "Commercial"; ObjectID = "u0p-pb-nJy"; */
+"u0p-pb-nJy.title" = "Commercial";

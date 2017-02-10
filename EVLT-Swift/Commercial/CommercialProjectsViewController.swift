@@ -9,12 +9,20 @@
 import UIKit
 
 class CommercialProjectsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-
+    var client: Client!
+    var chantiers: [Dictionary<String, Any>] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureTableView()
         
+        APIRequests.importProjectWithClientID(clientID: client.clientID) { (results) in
+            self.chantiers = results
+            DispatchQueue.main.async {
+                print(self.chantiers.count)
+                self.tableView.reloadData()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,11 +37,13 @@ class CommercialProjectsViewController: UIViewController, UITableViewDataSource,
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
-    let totalCells = 5
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < totalCells - 1 {
-            let cell =  tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath)
-            
+        if indexPath.row <= chantiers.count - 1 {
+            let cell =  tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCellTableViewCell
+            cell.nameLabel.text = chantiers[indexPath.row]["type"] as? String
+            cell.subtitleLabel.text =  "Status: \(chantiers[indexPath.row]["statut"]!)"
+
             return cell
         }else{
             let cell =  tableView.dequeueReusableCell(withIdentifier: "SubmitCell", for: indexPath)
@@ -44,11 +54,11 @@ class CommercialProjectsViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return totalCells
+        return chantiers.count + 1
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row < totalCells - 1 {
+        if indexPath.row < chantiers.count - 1 {
             self.performSegue(withIdentifier: "segue", sender: self)
         }
     }

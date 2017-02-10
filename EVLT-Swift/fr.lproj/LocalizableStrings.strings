@@ -1,0 +1,11 @@
+/* 
+  LocalizableStrings.strings
+  EVLT-Swift
+
+  Created by Bryan on 10/02/17.
+  Copyright © 2017 Wiredelta. All rights reserved.
+*/
+
+"login.ok" = "Ok";
+"login.success" = "Login Successful";
+"login.welcome" = "Welcome";
