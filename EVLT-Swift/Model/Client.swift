@@ -39,6 +39,6 @@ struct Client {
 
 extension Client {
     func fullName() -> String {
-        return "\(self.name) \(self.lastName)".trimmingCharacters(in: CharacterSet.whitespacesAndNewlines )
+        return "\(self.lastName) \(self.name)".trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 }

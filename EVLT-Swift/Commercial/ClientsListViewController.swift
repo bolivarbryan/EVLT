@@ -73,9 +73,9 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
         let cell =  tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCellTableViewCell
         
         if searchController.isActive && searchController.searchBar.text != "" {
-            cell.nameLabel.text = filteredClients[indexPath.row].fullName()
+            cell.nameLabel.text = filteredClients[indexPath.row].fullName().capitalized
         }else{
-            cell.nameLabel.text = clients[indexPath.row].fullName()
+            cell.nameLabel.text = clients[indexPath.row].fullName().capitalized
         }
         
         //cell.subtitleLabel.text = clients[indexPath.row]
@@ -96,7 +96,7 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
 
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredClients = clients.filter { client in
-            return client.name.lowercased().contains(searchText.lowercased())
+            return client.lastName.lowercased().contains(searchText.lowercased())
         }
         
         tableView.reloadData()
