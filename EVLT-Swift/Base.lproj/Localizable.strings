@@ -6,6 +6,6 @@
   Copyright © 2017 Wiredelta. All rights reserved.
 */
 
-"login.ok" = "Okss";
+"login.ok" = "Ok";
 "login.success" = "Login Successful";
 "login.welcome" = "Welcome";

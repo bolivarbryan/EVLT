@@ -14,7 +14,11 @@ class AdministrativeMainViewController: UIViewController {
         super.viewDidLoad()
         self.getAdministrativeData()
     }
-
+    
+    override func awakeFromNib() {
+        self.navigationController?.tabBarItem.image = UIImage(named: "layer")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

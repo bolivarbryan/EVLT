@@ -7,5 +7,5 @@
 */
 
 "login.ok" = "Ok";
-"login.success" = "Login Successful";
-"login.welcome" = "Welcome";
+"login.success" = "Connexion réussie";
+"login.welcome" = "Bienvenue";

@@ -1,30 +1,27 @@
 //
-//  MapViewController.swift
+//  SAVViewController.swift
 //  EVLT-Swift
 //
-//  Created by Bryan A Bolivar M on 10/30/16.
-//  Copyright © 2016 Wiredelta. All rights reserved.
+//  Created by Bryan on 10/02/17.
+//  Copyright © 2017 Wiredelta. All rights reserved.
 //
 
 import UIKit
-import MapKit
-class MapViewController: UIViewController {
 
-    @IBOutlet weak var mapView: MKMapView!
+class SAVViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
+    
+    override func awakeFromNib() {
+        self.navigationController?.tabBarItem.image = UIImage(named: "plier")
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    override func awakeFromNib() {
-        self.navigationController?.tabBarItem.image = UIImage(named: "man")
-    }
 
     /*
     // MARK: - Navigation

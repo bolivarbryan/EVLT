@@ -22,6 +22,10 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
         self.setupSearchEngine()
     }
     
+    override func awakeFromNib() {
+        self.navigationController?.tabBarItem.image = UIImage(named: "briefcase")
+    }
+    
     func setupSearchEngine(){
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false

@@ -106,7 +106,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="bv0-SS-Akg">
             <objects>
-                <tabBarController id="26o-fg-DWG" sceneMemberID="viewController">
+                <tabBarController id="26o-fg-DWG" customClass="TabBarController" customModule="EVLT_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="BwD-Nb-HoN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -127,7 +127,7 @@
         <scene sceneID="nQU-8s-XZK">
             <objects>
                 <viewControllerPlaceholder storyboardName="Technician" id="FRy-dC-PcJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Technician" id="8VB-JK-sPI"/>
+                    <tabBarItem key="tabBarItem" title="Technician" image="man" selectedImage="man" id="8VB-JK-sPI"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y6u-Zz-0pz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -137,7 +137,7 @@
         <scene sceneID="fu5-VC-ehL">
             <objects>
                 <viewControllerPlaceholder storyboardName="Commercial" id="Wdp-sS-E7V" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Commercial" id="u0p-pb-nJy"/>
+                    <tabBarItem key="tabBarItem" title="Commercial" image="briefcase" id="u0p-pb-nJy"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czF-eb-lPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -147,7 +147,7 @@
         <scene sceneID="cK8-Qe-SPt">
             <objects>
                 <viewControllerPlaceholder storyboardName="SAV" id="B4q-UY-BPO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="SAV" id="qyO-DD-bLd"/>
+                    <tabBarItem key="tabBarItem" title="SAV" image="plier" selectedImage="plier" id="qyO-DD-bLd"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zdx-Nb-PcG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -157,7 +157,7 @@
         <scene sceneID="HHE-r8-DJt">
             <objects>
                 <viewControllerPlaceholder storyboardName="Administrative" id="Dad-3l-sS2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="g0i-zD-b0H"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="layer" selectedImage="layer" id="g0i-zD-b0H"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLE-ic-VHW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -165,6 +165,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="briefcase" width="30" height="30"/>
+        <image name="layer" width="30" height="30"/>
         <image name="logotest2" width="80" height="80"/>
+        <image name="man" width="30" height="30"/>
+        <image name="plier" width="30" height="30"/>
     </resources>
 </document>
