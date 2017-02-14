@@ -15,13 +15,30 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
 
     @IBOutlet weak var searchBar: UISearchBar!
     var selectedClient: Client!
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ClientsListViewController.getCommercialData), for: UIControlEvents.valueChanged)
+        
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureTableView()
         self.getCommercialData()
         self.setupSearchEngine()
+        
+        self.tableView.backgroundView = self.refreshControl
+        
+        let newButton = UIBarButtonItem(title: kNewClient, style: .done, target: self, action: #selector(new))
+        self.navigationItem.rightBarButtonItem = newButton
+        
     }
     
+    func new() {
+        self.performSegue(withIdentifier: "newClientSegue", sender: self)
+    }
     override func awakeFromNib() {
         self.navigationController?.tabBarItem.image = UIImage(named: "briefcase")
     }
@@ -30,10 +47,8 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.backgroundColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 255/255.0, alpha: 1.0)
-        
         searchController.searchBar.barTintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 255/255.0, alpha: 1.0)
         searchController.searchBar.tintColor = UIColor.white
-        
         searchController.searchBar.isTranslucent = false
         
         definesPresentationContext = true
@@ -49,6 +64,7 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
         APIRequests.startFilling { (clients) in
             self.clients = clients
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
     

@@ -42,6 +42,14 @@ let kLoginSegue = "LoginSegue"
 
 //Strings
 
+
 let kOkString = NSLocalizedString("login.ok", comment: "Ok")
 let kSuccessLogin = NSLocalizedString("login.success", comment: "Login Successful")
 let kWelcomeLogin = NSLocalizedString("login.welcome", comment: "Welcome")
+let kNewClient = NSLocalizedString("clients.button.new.client", comment: "New Client")
+let kLogout = NSLocalizedString("settings.logout", comment: "Logout")
+let kSettingsTitle = NSLocalizedString("settings.title", comment: "")
+let kAlertCancel = NSLocalizedString("alert.cancel", comment: "Cancel")
+let kAlertOk = NSLocalizedString("alert.confirm", comment: "Confirm")
+let kLogoutConfirm = NSLocalizedString("confirm.logout", comment: "Confirm")
+let kEmptyForm = NSLocalizedString("message.empty.form", comment: "Confirm")

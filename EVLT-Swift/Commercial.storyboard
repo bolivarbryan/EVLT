@@ -90,7 +90,7 @@
                     <navigationItem key="navigationItem" title="Commercial" id="CgS-o0-rhH"/>
                     <connections>
                         <outlet property="tableView" destination="czH-vH-ICf" id="nLq-mv-Im1"/>
-                        <segue destination="IHS-fH-kT2" kind="show" id="9yr-xe-RKL"/>
+                        <segue destination="IHS-fH-kT2" kind="show" identifier="newClientSegue" id="9yr-xe-RKL"/>
                         <segue destination="qAo-tN-20Q" kind="show" identifier="segue" id="faq-Er-bbG"/>
                     </connections>
                 </viewController>

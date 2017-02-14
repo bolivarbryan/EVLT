@@ -9,3 +9,10 @@
 "login.ok" = "Ok";
 "login.success" = "Login Successful";
 "login.welcome" = "Welcome";
+"clients.button.new.client" = "New Client";
+"settings.logout" = "Logout";
+"settings.title" = "More";
+"alert.cancel" = "Cancel";
+"alert.confirm" = "Ok";
+"confirm.logout" = "Are You sure you want to logout?";
+"message.empty.form" = "Please complete all fields in form";

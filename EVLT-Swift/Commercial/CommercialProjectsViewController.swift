@@ -12,19 +12,30 @@ class CommercialProjectsViewController: UIViewController, UITableViewDataSource,
     var client: Client!
     var chantiers: [Dictionary<String, Any>] = []
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(CommercialProjectsViewController.reload), for: UIControlEvents.valueChanged)
+        
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureTableView()
-        
+        self.tableView.backgroundView = self.refreshControl
+        reload()
+    }
+
+    func reload() {
         APIRequests.importProjectWithClientID(clientID: client.clientID) { (results) in
             self.chantiers = results
             DispatchQueue.main.async {
                 print(self.chantiers.count)
                 self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
             }
         }
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

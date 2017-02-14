@@ -20,6 +20,8 @@
 		935C35811E49682E00C12449 /* ProductCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C35801E49682E00C12449 /* ProductCellTableViewCell.swift */; };
 		9373DEE11DF6F95C00321E47 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373DEE01DF6F95C00321E47 /* LoginViewController.swift */; };
 		9373DEE31DF6FA8500321E47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373DEE21DF6FA8500321E47 /* User.swift */; };
+		939E73151E53AB72003197BC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E73141E53AB72003197BC /* SettingsViewController.swift */; };
+		939E73181E53B16B003197BC /* ELVTAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E73171E53B16B003197BC /* ELVTAlert.swift */; };
 		93B741A61E3974D600DDB4FA /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B741A51E3974D600DDB4FA /* Project.swift */; };
 		93D8AFA31DC9FFE800F3A4B4 /* APIRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D8AFA21DC9FFE800F3A4B4 /* APIRequests.swift */; };
 		93D8AFA51DCA004200F3A4B4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D8AFA41DCA004200F3A4B4 /* Constants.swift */; };
@@ -94,6 +96,8 @@
 		935C35801E49682E00C12449 /* ProductCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCellTableViewCell.swift; path = Commercial/Cells/ProductCellTableViewCell.swift; sourceTree = "<group>"; };
 		9373DEE01DF6F95C00321E47 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controller/LoginViewController.swift; sourceTree = "<group>"; };
 		9373DEE21DF6FA8500321E47 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
+		939E73141E53AB72003197BC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		939E73171E53B16B003197BC /* ELVTAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ELVTAlert.swift; path = Facade/ELVTAlert.swift; sourceTree = "<group>"; };
 		93B741A51E3974D600DDB4FA /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Model/Project.swift; sourceTree = "<group>"; };
 		93D8AFA21DC9FFE800F3A4B4 /* APIRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequests.swift; sourceTree = "<group>"; };
 		93D8AFA41DCA004200F3A4B4 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -197,8 +201,17 @@
 				93FA55FE1DC697CF00C07EB7 /* Technician */,
 				9373DEE01DF6F95C00321E47 /* LoginViewController.swift */,
 				93EE1D631E4DC7B6001CBCF0 /* TabBarController.swift */,
+				939E73141E53AB72003197BC /* SettingsViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		939E73161E53B148003197BC /* Facade */ = {
+			isa = PBXGroup;
+			children = (
+				939E73171E53B16B003197BC /* ELVTAlert.swift */,
+			);
+			name = Facade;
 			sourceTree = "<group>";
 		};
 		93D8AFA11DC9FFC800F3A4B4 /* API */ = {
@@ -235,6 +248,7 @@
 		93FA55D61DC6962D00C07EB7 /* EVLT-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				939E73161E53B148003197BC /* Facade */,
 				9373DEDF1DF6F93E00321E47 /* Controller */,
 				93353E7D1DE7614F00C69F4E /* Model */,
 				93D8AFA11DC9FFC800F3A4B4 /* API */,
@@ -553,6 +567,7 @@
 				93FA561F1DC7A50800C07EB7 /* NewProjectViewController.swift in Sources */,
 				93FA56041DC6986D00C07EB7 /* CalendarViewController.swift in Sources */,
 				93353E831DE7698E00C69F4E /* Serializer.swift in Sources */,
+				939E73151E53AB72003197BC /* SettingsViewController.swift in Sources */,
 				93D8AFA31DC9FFE800F3A4B4 /* APIRequests.swift in Sources */,
 				93FA56021DC6983200C07EB7 /* ProjectViewController.swift in Sources */,
 				93FA55DA1DC6962D00C07EB7 /* ViewController.swift in Sources */,
@@ -561,6 +576,7 @@
 				93FA561D1DC7A3D400C07EB7 /* CommercialProjectsViewController.swift in Sources */,
 				93FA560A1DC6A23B00C07EB7 /* HeatingNetworlViewController.swift in Sources */,
 				9373DEE11DF6F95C00321E47 /* LoginViewController.swift in Sources */,
+				939E73181E53B16B003197BC /* ELVTAlert.swift in Sources */,
 				93EE1D641E4DC7B6001CBCF0 /* TabBarController.swift in Sources */,
 				93353E851DE76FB200C69F4E /* Price.swift in Sources */,
 				93FA56111DC71A6F00C07EB7 /* AdministrativeProgrammingViewController.swift in Sources */,
