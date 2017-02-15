@@ -62,6 +62,7 @@ class APIRequests: NSObject {
         aiView.addSubview(activityIndicatorView!)
         UIApplication.shared.keyWindow?.addSubview(aiView)
         aiView.isHidden = false
+        print(parameters)
         
         Alamofire.request(endpoint, method: .post, parameters: parameters as? Parameters, encoding:  JSONEncoding.default, headers: nil).response { (complete) in
             if let data = complete.data, let utf8Text = String(data: data, encoding: .utf8) {
@@ -79,9 +80,7 @@ class APIRequests: NSObject {
                         print(error)
                         completion!(["error":"Response Error" as AnyObject] )
                         Toast(text: "Response Error").show()
-
                     }
-                    
                 }
             }
             aiView.isHidden = true
@@ -89,8 +88,48 @@ class APIRequests: NSObject {
         }
     }
     
-    //  MARK: - REQUESTS
+    //NEW CLIENT
+    //TODO: move this code
+    class func sendForm(postData: NSMutableData, completion: ((_ result : [String:AnyObject]) -> Void)?){
     
+        var activityIndicatorView = DGActivityIndicatorView(type: DGActivityIndicatorAnimationType.lineScalePulseOutRapid, tintColor: UIColor.white, size: 50)
+        let aiView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
+        
+        activityIndicatorView = DGActivityIndicatorView(type: DGActivityIndicatorAnimationType.lineScalePulseOutRapid, tintColor: UIColor.white, size: 50)
+        activityIndicatorView?.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+        activityIndicatorView?.startAnimating()
+        aiView.backgroundColor = UIColor(white: 0, alpha: 0.3)
+        aiView.addSubview(activityIndicatorView!)
+        UIApplication.shared.keyWindow?.addSubview(aiView)
+        aiView.isHidden = false
+        
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://www.envertlaterre.fr/PHP/nouveau_client.php?")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.httpBody = postData as Data
+    
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+                aiView.isHidden = true
+                activityIndicatorView?.removeFromSuperview()
+            } else {
+                let json = JSON(data: data!)
+                print(json)
+                completion!(json.dictionaryObject! as [String : AnyObject])
+                aiView.isHidden = true
+                activityIndicatorView?.removeFromSuperview()
+            }
+        })
+        
+        dataTask.resume()
+    }
+    
+    
+    //  MARK: - REQUESTS
     class func login(username: String, password: String, completion: ((_ result : User ) -> Void)?){
         
         //using Postman api
@@ -256,11 +295,56 @@ class APIRequests: NSObject {
         }
     }
     
-    class func newClient(firstName: String, lastName: String, addressNumber: String, street:String, postalCode: String, city: String, cellphone: String, phone: String, email: String){
+    class func newClient(firstName: String, lastName: String, addressNumber: String, street:String, postalCode: String, city: String, cellphone: String, phone: String, email: String, latidude: String, longitude: String, completion: ((_ result : Client ) -> Void)?){
         
-        APIRequests.simplePost(endpoint: serverURL + APInewClient, parameters: [:]){ response in
+        let user = User(dictionary: UserDefaults.standard.dictionary(forKey: KSessionData)!)
+        
+        let params = [
+                      "commercial":user.username,
+                      "client_id":"",
+                      "nom":lastName,
+                      "prenom":firstName,
+                      "numero":addressNumber,
+                      "rue":city,
+                      "codePostal":postalCode,
+                      "ville":city,
+                      "latitude":latidude,
+                      "longitude":longitude,
+                      "telFixe": phone,
+                      "telPortable":cellphone,
+                      "email": email,
+                      "statut": "CREATION"
+                      ]
+        
+
+        
+        
+        let postData = NSMutableData(data:"&statut=CREATION".data(using: String.Encoding.utf8)!)
+        postData.append("&commercial=\(user.username)".data(using: String.Encoding.utf8)!)
+        postData.append("&nom=\(lastName)".data(using: String.Encoding.utf8)!)
+        postData.append("&prenom=\(firstName)".data(using: String.Encoding.utf8)!)
+        postData.append("&numero=\(addressNumber)".data(using: String.Encoding.utf8)!)
+        postData.append("&rue=\(street)".data(using: String.Encoding.utf8)!)
+        postData.append("&codePostal=\(postalCode)".data(using: String.Encoding.utf8)!)
+        postData.append("&ville=\(city)".data(using: String.Encoding.utf8)!)
+        postData.append("&latitude=\(latidude)".data(using: String.Encoding.utf8)!)
+        postData.append("&longitude=\(longitude)".data(using: String.Encoding.utf8)!)
+        postData.append("&telFixe=\(phone)".data(using: String.Encoding.utf8)!)
+        postData.append("&telPortable=\(cellphone)".data(using: String.Encoding.utf8)!)
+        
+        
+     
+        print(postData)
+        APIRequests.sendForm(postData: postData){ response in
             printResponse(response: response as AnyObject)
+           
+            let client = Client(name: firstName, lastName: lastName, clientID: response["client_id"] as! String, commercialActiveString: "OUI", commercial: user.username )
+            completion!(client)
         }
+        
+
+        
+
     }
     
     class func deleteRequest(){
@@ -268,7 +352,6 @@ class APIRequests: NSObject {
             printResponse(response: response as AnyObject)
         }
     }
-    
     
     class func newProject(){
         APIRequests.simplePost(endpoint: serverURL + APInewProject, parameters: [:]){ response in

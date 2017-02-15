@@ -63,13 +63,25 @@ class CommercialProjectsViewController: UIViewController, UITableViewDataSource,
         }
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "projectsSegue" {
+            if let vc = (segue.destination as! UINavigationController).childViewControllers[0] as? NewProjectViewController {
+                vc.client = self.client
+            }
+            
+            
+            
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chantiers.count + 1
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row < chantiers.count - 1 {
+        if indexPath.row == chantiers.count  {
+            self.performSegue(withIdentifier: "projectsSegue", sender: self)
+        }else{
             self.performSegue(withIdentifier: "segue", sender: self)
         }
     }

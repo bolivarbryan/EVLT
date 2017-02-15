@@ -519,6 +519,7 @@
                         <outlet property="postalCodeTxt" destination="1OW-EP-5Jz" id="w6T-vX-SGp"/>
                         <outlet property="scrollView" destination="kkD-Ei-IQE" id="j8L-1q-bAe"/>
                         <outlet property="streetTxt" destination="Rwj-9F-pjh" id="MLM-Uw-woD"/>
+                        <segue destination="edU-No-cKu" kind="show" identifier="projectsSegue" id="iQ7-ec-VHq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Gt-IF-xVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -599,6 +600,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="qAo-tN-20Q" id="UB3-aF-PfL"/>
+                                    <outlet property="delegate" destination="qAo-tN-20Q" id="zR4-Eu-9sq"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -612,7 +617,7 @@
                     <navigationItem key="navigationItem" title="Projects" id="Rf6-FT-3wA"/>
                     <connections>
                         <outlet property="tableView" destination="xCc-zt-WIt" id="3JF-Qa-MIP"/>
-                        <segue destination="ppd-Kz-8r8" kind="presentation" id="AlS-fu-zDU"/>
+                        <segue destination="ppd-Kz-8r8" kind="presentation" identifier="projectsSegue" id="AlS-fu-zDU"/>
                         <segue destination="5mx-P4-YVF" kind="show" identifier="segue" id="ljP-lq-il5"/>
                     </connections>
                 </viewController>
@@ -642,22 +647,13 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kOS-8h-KHa" id="Xea-K7-q8r">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solar Energy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxA-js-kKt">
-                                                    <rect key="frame" x="10" y="10" width="355" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="YxA-js-kKt" firstAttribute="leading" secondItem="Xea-K7-q8r" secondAttribute="leading" constant="10" id="7hZ-6h-fMl"/>
-                                                <constraint firstAttribute="trailing" secondItem="YxA-js-kKt" secondAttribute="trailing" constant="10" id="kFz-ys-Lr6"/>
-                                                <constraint firstItem="YxA-js-kKt" firstAttribute="top" secondItem="Xea-K7-q8r" secondAttribute="top" constant="10" id="kHp-Kd-epy"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="edU-No-cKu" id="joV-dP-dbG"/>
+                                    <outlet property="delegate" destination="edU-No-cKu" id="zcm-L1-ycj"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -670,12 +666,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Project" id="a9G-js-S01"/>
                     <connections>
+                        <outlet property="tableView" destination="Yqu-pT-8WE" id="dHv-zO-CaJ"/>
                         <segue destination="5mx-P4-YVF" kind="show" identifier="segue" id="BTC-tA-QJL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uts-6S-ut8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1622" y="1654"/>
+            <point key="canvasLocation" x="1622" y="1621"/>
         </scene>
         <!--Status-->
         <scene sceneID="IEU-OV-Gc0">
@@ -2227,6 +2224,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BTC-tA-QJL"/>
+        <segue reference="ljP-lq-il5"/>
+        <segue reference="iE2-k0-tBE"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,18 +9,26 @@
 import UIKit
 
 class NewProjectViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
+    @IBOutlet weak var tableView: UITableView!
+    var client:Client!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureTableView()
+        
+        let back = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(goBack))
+        
+        self.navigationItem.leftBarButtonItem = back
     }
-
+    func goBack() {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
     //MARK: tableview
-    @IBOutlet weak var tableView: UITableView!
     
     func configureTableView() {
         self.tableView.delegate = self
@@ -29,12 +37,12 @@ class NewProjectViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath)
-        
+        cell.textLabel?.text = "Solar Energy"
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 1
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

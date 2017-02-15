@@ -12,6 +12,7 @@
 		7A4B055CDDB52E9D337CCB05 /* Pods_EVLT_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3881983169C1AE03D032A60D /* Pods_EVLT_Swift.framework */; };
 		8239A19770A4D3E0C812DEA4 /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0542F57ED55C6CBD7C565307 /* BuddyBuildSDK.framework */; };
 		8DA2F7117F6D36345DB0F1F1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B6B3BFCA9F4D31B710FA5AD /* CoreTelephony.framework */; };
+		9330976E1E54B771008E0E89 /* EvltLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330976D1E54B771008E0E89 /* EvltLocationManager.swift */; };
 		93353E7F1DE761A000C69F4E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353E7E1DE761A000C69F4E /* Place.swift */; };
 		93353E811DE7629100C69F4E /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353E801DE7629100C69F4E /* Coordinate.swift */; };
 		93353E831DE7698E00C69F4E /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353E821DE7698E00C69F4E /* Serializer.swift */; };
@@ -89,6 +90,7 @@
 		733A5BD0A20F886B5E216704 /* Pods-EVLT-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVLT-Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-EVLT-Swift/Pods-EVLT-Swift.release.xcconfig"; sourceTree = "<group>"; };
 		7CCDD66A6E795CDCA3F716F9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		85E8ED67539680B15E4926C4 /* Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		9330976D1E54B771008E0E89 /* EvltLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EvltLocationManager.swift; path = Singleton/EvltLocationManager.swift; sourceTree = "<group>"; };
 		93353E7E1DE761A000C69F4E /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Model/Place.swift; sourceTree = "<group>"; };
 		93353E801DE7629100C69F4E /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coordinate.swift; path = Model/Coordinate.swift; sourceTree = "<group>"; };
 		93353E821DE7698E00C69F4E /* Serializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Serializer.swift; path = Model/Serializer.swift; sourceTree = "<group>"; };
@@ -172,6 +174,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9330976C1E54B754008E0E89 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				9330976D1E54B771008E0E89 /* EvltLocationManager.swift */,
+			);
+			name = Singleton;
+			sourceTree = "<group>";
+		};
 		93353E7D1DE7614F00C69F4E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +260,7 @@
 		93FA55D61DC6962D00C07EB7 /* EVLT-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				9330976C1E54B754008E0E89 /* Singleton */,
 				939E73161E53B148003197BC /* Facade */,
 				9373DEDF1DF6F93E00321E47 /* Controller */,
 				93353E7D1DE7614F00C69F4E /* Model */,
@@ -578,6 +589,7 @@
 				935C35811E49682E00C12449 /* ProductCellTableViewCell.swift in Sources */,
 				93FA561D1DC7A3D400C07EB7 /* CommercialProjectsViewController.swift in Sources */,
 				93FA560A1DC6A23B00C07EB7 /* HeatingNetworlViewController.swift in Sources */,
+				9330976E1E54B771008E0E89 /* EvltLocationManager.swift in Sources */,
 				9373DEE11DF6F95C00321E47 /* LoginViewController.swift in Sources */,
 				939E73181E53B16B003197BC /* ELVTAlert.swift in Sources */,
 				93EE1D641E4DC7B6001CBCF0 /* TabBarController.swift in Sources */,

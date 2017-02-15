@@ -10,59 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EVLT-Swift/APIRequests.swift"
-            timestampString = "507077982.458931"
+            timestampString = "508879663.467154"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "simplePost(endpoint:parameters:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static EVLT_Swift.APIRequests.(simplePost (endpoint : Swift.String, parameters : __ObjC.NSDictionary, completion : Swift.Optional&lt;(__ObjC.NSDictionary) -&gt; ()&gt;) -&gt; ()).(closure #1)"
-                  moduleName = "EVLT-Swift"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bryan/Documents/Projects/gitlab/evlt/EVLT-Swift/APIRequests.swift"
-                  timestampString = "501696361.782836"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "1711">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static EVLT_Swift.APIRequests.(simplePost (endpoint : Swift.String, parameters : __ObjC.NSDictionary, completion : Swift.Optional&lt;(__ObjC.NSDictionary) -&gt; ()&gt;) -&gt; ()).(closure #1)"
-                  moduleName = "EVLT-Swift"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bryan/Documents/Projects/gitlab/evlt/EVLT-Swift/APIRequests.swift"
-                  timestampString = "501696361.783972"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "3014">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EVLT-Swift/APIRequests.swift"
-            timestampString = "508127554.280962"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "importAllCoordinates(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EVLT-Swift/APIRequests.swift"
-            timestampString = "507078313.757994"
+            timestampString = "508879663.467154"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "login(username:password:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EVLT-Swift/APIRequests.swift"
-            timestampString = "508866422.867743"
+            timestampString = "508879663.467154"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "402"
-            endingLineNumber = "402"
+            startingLineNumber = "485"
+            endingLineNumber = "485"
             landmarkName = "importProject()"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EVLT-Swift/NewClientViewController.swift"
-            timestampString = "508864678.183751"
+            timestampString = "508880113.975001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "textFieldShouldBeginEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,12 +106,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EVLT-Swift/NewClientViewController.swift"
-            timestampString = "508864678.183751"
+            timestampString = "508880113.975001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "textfieldValueChanged(textField:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EVLT-Swift/APIRequests.swift"
+            timestampString = "508873546.416263"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "simplePost(endpoint:parameters:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static EVLT_Swift.APIRequests.(simplePost (endpoint : Swift.String, parameters : __ObjC.NSDictionary, completion : Swift.Optional&lt;(Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; ()&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "EVLT-Swift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bryan/Documents/Projects/EVLT-Github/EVLT/EVLT-Swift/APIRequests.swift"
+                  timestampString = "508872536.914159"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "133">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static EVLT_Swift.APIRequests.(simplePost (endpoint : Swift.String, parameters : __ObjC.NSDictionary, completion : Swift.Optional&lt;(Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; ()&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "EVLT-Swift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bryan/Documents/Projects/EVLT-Github/EVLT/EVLT-Swift/APIRequests.swift"
+                  timestampString = "508872536.916472"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "219">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EVLT-Swift/APIRequests.swift"
+            timestampString = "508873937.730857"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "simplePost(endpoint:parameters:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

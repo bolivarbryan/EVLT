@@ -19,7 +19,7 @@ class NewClientViewController: UIViewController {
     @IBOutlet weak var phoneTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    var selectedClient: Client!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = kNewClient
@@ -38,7 +38,18 @@ class NewClientViewController: UIViewController {
     func save() {
         if isValidForm() == true {
             //proceed to save user
-            
+            let formattedAddress = "\(address.text!) \(streetTxt.text!),\(postalCodeTxt.text!) \(cityTxt.text!)"
+            EvltLocationManager.forwardGeocoding(address: formattedAddress, completion: { (lat, lng) in
+                APIRequests.newClient(firstName: self.firstNameTxt.text!, lastName: self.lastNameTxt.text!, addressNumber: self.address.text!, street: self.streetTxt.text!, postalCode: self.postalCodeTxt.text!, city: self.cityTxt.text!, cellphone: self.cellPhoneTxt.text!, phone: self.phoneTxt.text!, email: self.emailTxt.text!, latidude: lat, longitude: lng, completion: { (client) in
+                    
+                    print("created: \(client) ")
+                    //proceed to see new project view
+                    self.selectedClient = client
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "projectsSegue", sender: self)
+                    }
+                })
+            })
         }else{
             ELVTAlert.showMessage(controller: self, message: kEmptyForm, completion: { (done) in
                 
@@ -134,15 +145,18 @@ class NewClientViewController: UIViewController {
         }
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "projectsSegue" {
+            let vc = segue.destination as! NewProjectViewController
+            vc.client = selectedClient
+        }
+        
     }
-    */
+
 
 }
 
