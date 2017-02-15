@@ -68,9 +68,6 @@ class CommercialProjectsViewController: UIViewController, UITableViewDataSource,
             if let vc = (segue.destination as! UINavigationController).childViewControllers[0] as? NewProjectViewController {
                 vc.client = self.client
             }
-            
-            
-            
         }
     }
     

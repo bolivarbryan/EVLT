@@ -18,3 +18,5 @@
 "message.empty.form" = "Please complete all fields in form";
 "hello.string" = "Hello ";
 "save.string" = "Save";
+"email.invalid" = "Your Email is invalid.";
+"cellphone.invalid" = "Invalid Cellphone number";

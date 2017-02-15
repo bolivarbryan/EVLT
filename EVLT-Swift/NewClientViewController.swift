@@ -25,7 +25,8 @@ class NewClientViewController: UIViewController {
         self.title = kNewClient
         let newButton = UIBarButtonItem(title: kSaveString, style: .done, target: self, action: #selector(save))
         self.navigationItem.rightBarButtonItem = newButton
-     
+        self.phoneTxt.delegate = self
+        self.cellPhoneTxt.delegate = self
         capitalizeTextField(textFields: [firstNameTxt, lastNameTxt, address, streetTxt, postalCodeTxt, cityTxt, cellPhoneTxt, phoneTxt])
     }
     
@@ -51,10 +52,26 @@ class NewClientViewController: UIViewController {
                 })
             })
         }else{
-            ELVTAlert.showMessage(controller: self, message: kEmptyForm, completion: { (done) in
-                
-            })
+            if !isValidEmail(testStr: self.emailTxt.text!) {
+                ELVTAlert.showMessage(controller: self, message: kInvalidEmail, completion: { (done) in  
+                })
+            }else{
+                ELVTAlert.showMessage(controller: self, message: kEmptyForm, completion: { (done) in })
+            }
         }
+    }
+    
+    func isValidEmail(testStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
+    
+    func validate(value: String) -> Bool {
+        let PHONE_REGEX = "^\\d{3}-\\d{3}-\\d{4}$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+        let result =  phoneTest.evaluate(with: value)
+        return result
     }
     
     func isValidForm() -> Bool {
@@ -68,6 +85,8 @@ class NewClientViewController: UIViewController {
         isValid = (self.cellPhoneTxt.text?.characters.count)! > 0
         isValid = (self.phoneTxt.text?.characters.count)! > 0
         isValid = (self.emailTxt.text?.characters.count)! > 0
+        isValid = isValidEmail(testStr: self.emailTxt.text!)
+        
         return isValid
     }
 
@@ -158,6 +177,8 @@ class NewClientViewController: UIViewController {
     }
 
 
+    
+    
 }
 
 extension NewClientViewController: UITextFieldDelegate {
@@ -172,5 +193,11 @@ extension NewClientViewController: UITextFieldDelegate {
     
     func textfieldValueChanged(textField: UITextField) {
         textField.text = textField.text?.capitalized
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = CharacterSet.decimalDigits
+        let characterSet = CharacterSet(charactersIn: string)
+        return allowedCharacters.isSuperset(of: characterSet)
     }
 }
