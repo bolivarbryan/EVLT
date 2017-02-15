@@ -256,7 +256,8 @@ class APIRequests: NSObject {
         }
     }
     
-    class func newClient(){
+    class func newClient(firstName: String, lastName: String, addressNumber: String, street:String, postalCode: String, city: String, cellphone: String, phone: String, email: String){
+        
         APIRequests.simplePost(endpoint: serverURL + APInewClient, parameters: [:]){ response in
             printResponse(response: response as AnyObject)
         }

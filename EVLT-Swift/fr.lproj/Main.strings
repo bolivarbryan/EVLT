@@ -12,7 +12,7 @@
 "WZ4-MC-qkR.text" = "En Vert La Terre";
 
 /* Class = "UITextField"; placeholder = "Usename"; ObjectID = "cx4-fW-uL6"; */
-"cx4-fW-uL6.placeholder" = "Usename";
+"cx4-fW-uL6.placeholder" = "Username";
 
 /* Class = "UITabBarItem"; title = "Item"; ObjectID = "g0i-zD-b0H"; */
 "g0i-zD-b0H.title" = "Item";
@@ -25,3 +25,5 @@
 
 /* Class = "UITabBarItem"; title = "Commercial"; ObjectID = "u0p-pb-nJy"; */
 "u0p-pb-nJy.title" = "Commercial";
+
+"QAG-8k-JPp.title" = "Paramètres";

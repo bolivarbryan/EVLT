@@ -208,11 +208,11 @@
             </objects>
             <point key="canvasLocation" x="2057" y="123"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Settings-->
         <scene sceneID="Rlh-cg-5oF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="azR-0B-IzN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="QAG-8k-JPp"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="more" id="QAG-8k-JPp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="jSp-1k-o5Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -234,6 +234,7 @@
         <image name="layer" width="30" height="30"/>
         <image name="logotest2" width="80" height="80"/>
         <image name="man" width="30" height="30"/>
+        <image name="more" width="51" height="15"/>
         <image name="plier" width="30" height="30"/>
     </resources>
 </document>

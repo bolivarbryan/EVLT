@@ -29,7 +29,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R7s-U4-76c" id="RuF-1F-txe">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azK-HJ-JuX">
@@ -101,7 +101,7 @@
         <!--New Client-->
         <scene sceneID="pER-tR-vWq">
             <objects>
-                <viewController title="New Client" id="IHS-fH-kT2" sceneMemberID="viewController">
+                <viewController title="New Client" id="IHS-fH-kT2" customClass="NewClientViewController" customModule="EVLT_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="la2-bf-hEL"/>
                         <viewControllerLayoutGuide type="bottom" id="8Kg-Cp-gk9"/>
@@ -114,7 +114,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdY-Kh-KfA">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="653"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTb-OI-4Jn">
                                                 <rect key="frame" x="20" y="40.5" width="335" height="50"/>
@@ -126,7 +126,11 @@
                                                                 <rect key="frame" x="8" y="2" width="323" height="44"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                <connections>
+                                                                    <action selector="focusOnField:" destination="IHS-fH-kT2" eventType="editingDidBegin" id="1i4-7p-oGm"/>
+                                                                    <action selector="nextField:" destination="IHS-fH-kT2" eventType="editingDidEndOnExit" id="Ela-w9-7I5"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -157,7 +161,11 @@
                                                                 <rect key="frame" x="8" y="2" width="323" height="44"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                <connections>
+                                                                    <action selector="focusOnField:" destination="IHS-fH-kT2" eventType="editingDidBegin" id="TAc-XZ-Rrc"/>
+                                                                    <action selector="nextField:" destination="IHS-fH-kT2" eventType="editingDidEndOnExit" id="lUp-PR-hc8"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -194,7 +202,11 @@
                                                                 <rect key="frame" x="8" y="2" width="323" height="44"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                <connections>
+                                                                    <action selector="focusOnField:" destination="IHS-fH-kT2" eventType="editingDidBegin" id="Hej-bd-amJ"/>
+                                                                    <action selector="nextField:" destination="IHS-fH-kT2" eventType="editingDidEndOnExit" id="hfk-Yw-Egf"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -225,7 +237,11 @@
                                                                 <rect key="frame" x="8" y="2" width="323" height="44"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                <connections>
+                                                                    <action selector="focusOnField:" destination="IHS-fH-kT2" eventType="editingDidBegin" id="9Xb-2B-KZx"/>
+                                                                    <action selector="nextField:" destination="IHS-fH-kT2" eventType="editingDidEndOnExit" id="pRE-56-qCx"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -262,7 +278,11 @@
                                                                 <rect key="frame" x="8" y="2" width="323" height="44"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                <connections>
+                                                                    <action selector="focusOnField:" destination="IHS-fH-kT2" eventType="editingDidBegin" id="h1P-NN-oj5"/>
+                                                                    <action selector="nextField:" destination="IHS-fH-kT2" eventType="editingDidEndOnExit" id="erY-V0-Lja"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -293,7 +313,11 @@
                                                                 <rect key="frame" x="8" y="2" width="323" height="44"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                <connections>
+                                                                    <action selector="focusOnField:" destination="IHS-fH-kT2" eventType="editingDidBegin" id="Jid-re-Eqr"/>
+                                                                    <action selector="nextField:" destination="IHS-fH-kT2" eventType="editingDidEndOnExit" id="lce-lA-1Og"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -324,7 +348,11 @@
                                                                 <rect key="frame" x="8" y="2" width="323" height="44"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                <connections>
+                                                                    <action selector="focusOnField:" destination="IHS-fH-kT2" eventType="editingDidBegin" id="ts6-SQ-Mhq"/>
+                                                                    <action selector="nextField:" destination="IHS-fH-kT2" eventType="editingDidEndOnExit" id="Wtc-To-jqH"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -355,7 +383,11 @@
                                                                 <rect key="frame" x="8" y="2" width="323" height="44"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                <connections>
+                                                                    <action selector="focusOnField:" destination="IHS-fH-kT2" eventType="editingDidBegin" id="J4g-0c-iHg"/>
+                                                                    <action selector="nextField:" destination="IHS-fH-kT2" eventType="editingDidEndOnExit" id="zea-OF-J1n"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -386,7 +418,11 @@
                                                                 <rect key="frame" x="8" y="2" width="323" height="44"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="send"/>
+                                                                <connections>
+                                                                    <action selector="focusOnField:" destination="IHS-fH-kT2" eventType="editingDidBegin" id="8RC-1i-0lh"/>
+                                                                    <action selector="nextField:" destination="IHS-fH-kT2" eventType="editingDidEndOnExit" id="N3o-ae-iCt"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -429,7 +465,7 @@
                                             <constraint firstAttribute="trailing" secondItem="1QG-CF-Nfx" secondAttribute="trailing" constant="20" id="Cqy-Th-VRa"/>
                                             <constraint firstItem="uqF-4q-DJ3" firstAttribute="leading" secondItem="zdY-Kh-KfA" secondAttribute="leading" constant="20" id="Fk8-zA-5D7"/>
                                             <constraint firstItem="u0T-tG-mY9" firstAttribute="leading" secondItem="zdY-Kh-KfA" secondAttribute="leading" constant="20" id="HQ5-iB-4Yd"/>
-                                            <constraint firstAttribute="height" constant="603" id="MyN-Qw-HlQ"/>
+                                            <constraint firstAttribute="height" constant="653" id="MyN-Qw-HlQ"/>
                                             <constraint firstAttribute="trailing" secondItem="92x-PE-QC0" secondAttribute="trailing" constant="20" id="QJD-Qx-oip"/>
                                             <constraint firstItem="92x-PE-QC0" firstAttribute="leading" secondItem="zdY-Kh-KfA" secondAttribute="leading" constant="20" id="QWf-yW-Igw"/>
                                             <constraint firstAttribute="trailing" secondItem="u0T-tG-mY9" secondAttribute="trailing" constant="20" id="SC9-CB-Ys4"/>
@@ -472,6 +508,18 @@
                             <constraint firstAttribute="trailing" secondItem="kkD-Ei-IQE" secondAttribute="trailing" id="yuD-bv-78E"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="address" destination="JOO-aA-wMC" id="omT-Qy-vB8"/>
+                        <outlet property="cellPhoneTxt" destination="KfD-Yd-F2o" id="yWy-Ov-0HA"/>
+                        <outlet property="cityTxt" destination="Uiz-Hb-PYx" id="vS4-IM-DH6"/>
+                        <outlet property="emailTxt" destination="Iz0-3M-eCc" id="Ha6-r4-f9V"/>
+                        <outlet property="firstNameTxt" destination="uFD-6F-Cuc" id="3tY-NC-5NX"/>
+                        <outlet property="lastNameTxt" destination="R5S-Xi-ATp" id="iuy-MC-LIA"/>
+                        <outlet property="phoneTxt" destination="5Lw-KC-Q9U" id="GCg-cW-4od"/>
+                        <outlet property="postalCodeTxt" destination="1OW-EP-5Jz" id="w6T-vX-SGp"/>
+                        <outlet property="scrollView" destination="kkD-Ei-IQE" id="j8L-1q-bAe"/>
+                        <outlet property="streetTxt" destination="Rwj-9F-pjh" id="MLM-Uw-woD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Gt-IF-xVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -497,7 +545,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jhE-b6-RRw" id="DA3-9w-hhx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqT-dN-2VT">
@@ -531,7 +579,7 @@
                                         <rect key="frame" x="0.0" y="96" width="375" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jG4-YP-ugD" id="WPo-od-bIF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Project" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtD-2d-ghE">
@@ -592,7 +640,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kOS-8h-KHa" id="Xea-K7-q8r">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solar Energy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxA-js-kKt">
@@ -649,7 +697,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6KB-Fb-Pn7" id="RKh-Ch-xoK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1387,7 +1435,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="157"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ueW-Cm-7ts" id="Mdx-kq-WHF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="157"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBM-kf-Rky">
@@ -1485,7 +1533,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eyK-bA-lZ4" id="4c8-q8-lVT">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Annexes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2j-2D-O68">
@@ -1799,7 +1847,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bl9-Uk-3zV" id="oY8-TC-NIl">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Annexes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ab9-BE-F5O">
@@ -1879,7 +1927,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y9C-5h-TH2" id="2dp-pP-TWa">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

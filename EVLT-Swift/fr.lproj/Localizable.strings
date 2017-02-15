@@ -10,9 +10,11 @@
 "login.success" = "Connexion réussie";
 "login.welcome" = "Bienvenue";
 "clients.button.new.client" = "Nouveau";
-"settings.logout" = "Connectez - Out";
+"settings.logout" = "Déconnexion";
 "settings.title" = "Paramètres";
 "alert.cancel" = "Annuler";
 "alert.confirm" = "D'accord";
 "confirm.logout" = "Êtes-vous sûr de vouloir vous déconnecter?";
 "message.empty.form" = "Veuillez remplir tous les champs du formulaire";
+"hello.string" = "Bonjour ";
+"save.string" = "Sauvegarder";

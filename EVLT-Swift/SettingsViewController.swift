@@ -31,7 +31,7 @@ extension SettingsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let user = User(dictionary: UserDefaults.standard.value(forKey: KSessionData) as! Dictionary<String, Any>)
-        return "Hello \(user.profil)."
+        return kHelloString + "\(user.profil)."
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {

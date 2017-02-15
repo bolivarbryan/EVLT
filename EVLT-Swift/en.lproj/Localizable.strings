@@ -16,3 +16,5 @@
 "alert.confirm" = "Ok";
 "confirm.logout" = "Are You sure you want to logout?";
 "message.empty.form" = "Please complete all fields in form";
+"hello.string" = "Hello ";
+"save.string" = "Save";
