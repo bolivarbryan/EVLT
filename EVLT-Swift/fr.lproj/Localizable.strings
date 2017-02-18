@@ -20,3 +20,15 @@
 "save.string" = "Sauvegarder";
 "email.invalid" = "Email invalide";
 "cellphone.invalid" = "Numéro de téléphone cellulaire invalide";
+"Pellets" = "Granulés";
+"Wood logs" = "Bois bûches";
+"Gas" = "Gaz";
+"Fuel" = "Fioul";
+"Thermal" = "Thermique";
+"PV" = "PV";
+"Stove" = "Poêle";
+"Boiler" = "Chaudière"; 
+"Heat Pump" = "Pompe à chaleur";
+"Thermodynamic balloon" = "Ballon thermodynamique";
+"Solar" = "Solaire" ;
+"Back" = "Arrière";

@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol NewClientDelegate {
+    func clientSuccessfullyCreated()
+    func clientCanceled()
+}
+
 class NewClientViewController: UIViewController {
     @IBOutlet weak var firstNameTxt: UITextField!
     @IBOutlet weak var lastNameTxt: UITextField!
@@ -19,7 +24,9 @@ class NewClientViewController: UIViewController {
     @IBOutlet weak var phoneTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
+    var delegate: NewClientDelegate!
     var selectedClient: Client!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = kNewClient
@@ -47,7 +54,10 @@ class NewClientViewController: UIViewController {
                     //proceed to see new project view
                     self.selectedClient = client
                     DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "projectsSegue", sender: self)
+                        self.delegate.clientSuccessfullyCreated()
+                        self.navigationController?.popViewController(animated: true)
+                        
+                        //self.performSegue(withIdentifier: "projectsSegue", sender: self)
                     }
                 })
             })
@@ -169,10 +179,10 @@ class NewClientViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "projectsSegue" {
-            let vc = segue.destination as! NewProjectViewController
-            vc.client = selectedClient
-        }
+//        if segue.identifier == "projectsSegue" {
+//            let vc = segue.destination as! NewProjectViewController
+//            vc.client = selectedClient
+//        }
         
     }
 

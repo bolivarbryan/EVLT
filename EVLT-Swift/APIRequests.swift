@@ -64,7 +64,13 @@ class APIRequests: NSObject {
         aiView.isHidden = false
         print(parameters)
         
-        Alamofire.request(endpoint, method: .post, parameters: parameters as? Parameters, encoding:  JSONEncoding.default, headers: nil).response { (complete) in
+        
+        
+        let headers = [
+            "Content-Type": "application/x-www-form-urlencoded"
+        ]
+ 
+        Alamofire.request(endpoint, method: .post, parameters: parameters as? Parameters, encoding:  JSONEncoding.default, headers: headers).response { (complete) in
             if let data = complete.data, let utf8Text = String(data: data, encoding: .utf8) {
                 print(utf8Text)
                 if let appsDictionary = Serializer.convertStringToDictionary(text: utf8Text) {
@@ -84,13 +90,14 @@ class APIRequests: NSObject {
                 }
             }
             aiView.isHidden = true
-            activityIndicatorView?.removeFromSuperview()
+            DispatchQueue.main.async {
+                activityIndicatorView?.removeFromSuperview()
+            }
         }
     }
     
-    //NEW CLIENT
     //TODO: move this code
-    class func sendForm(postData: NSMutableData, completion: ((_ result : [String:AnyObject]) -> Void)?){
+    class func sendForm(url: String, postData: NSMutableData, completion: ((_ result : [String:AnyObject]) -> Void)?){
     
         var activityIndicatorView = DGActivityIndicatorView(type: DGActivityIndicatorAnimationType.lineScalePulseOutRapid, tintColor: UIColor.white, size: 50)
         let aiView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
@@ -104,7 +111,7 @@ class APIRequests: NSObject {
         aiView.isHidden = false
         
         
-        let request = NSMutableURLRequest(url: NSURL(string: "http://www.envertlaterre.fr/PHP/nouveau_client.php?")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
         request.httpMethod = "POST"
@@ -119,9 +126,15 @@ class APIRequests: NSObject {
             } else {
                 let json = JSON(data: data!)
                 print(json)
-                completion!(json.dictionaryObject! as [String : AnyObject])
+                if let dict = json.dictionaryObject {
+                    completion!(json.dictionaryObject! as [String : AnyObject])
+                }else{
+                    completion!(["results": json.arrayObject as AnyObject])
+                }
                 aiView.isHidden = true
-                activityIndicatorView?.removeFromSuperview()
+                DispatchQueue.main.async {
+                    activityIndicatorView?.removeFromSuperview()
+                }
             }
         })
         
@@ -259,10 +272,27 @@ class APIRequests: NSObject {
         }
     }
     
-    class func coordinatesSite(){
-        APIRequests.simplePost(endpoint: serverURL + APIcoordinatesSite, parameters: [:]){ response in
-            
+    class func coordinatesSite(project:Project, place: Place, status: String, completion: @escaping (_ results: Any) -> Void ) {
+
+        let postData = NSMutableData()
+        postData.append("chantier_id=\(project.chantier_id)".data(using: String.Encoding.utf8)!)
+        postData.append("&statut=\(status)".data(using: String.Encoding.utf8)!)
+        postData.append("&numero=\(place.number)".data(using: String.Encoding.utf8)!)
+        postData.append("&rue=\(place.street)".data(using: String.Encoding.utf8)!)
+        postData.append("&codePostal=\(place.postalCode)".data(using: String.Encoding.utf8)!)
+        postData.append("&ville=\(place.city)".data(using: String.Encoding.utf8)!)
+        postData.append("&latitude=\(place.coordinate.latitude)".data(using: String.Encoding.utf8)!)
+        postData.append("&longitude=\(place.coordinate.longitude)".data(using: String.Encoding.utf8)!)
+     
+        let url = serverURL + APIcoordinatesSite + "?"
+        print(project)
+        print(place)
+        
+        APIRequests.sendForm(url: url, postData: postData){ response in
+            printResponse(response: response as AnyObject)
+           completion(response as AnyObject)
         }
+        
     }
     
     class func projectNetwork(){
@@ -277,9 +307,19 @@ class APIRequests: NSObject {
         }
     }
     
-    class func importProjectDetails(){
-        APIRequests.simplePost(endpoint: serverURL + APIimportProjectDetails, parameters: [:]){ response in
+    class func importProjectDetails(chantierID: String, completion: @escaping (_ project: Project?, _ place: Place?) -> Void){
+        
+        let postData = NSMutableData(data:"chantier_id=\(chantierID)".data(using: String.Encoding.utf8)!)
+        
+        APIRequests.sendForm(url:serverURL + APIimportProjectDetails + "?", postData: postData){ response in
             printResponse(response: response as AnyObject)
+            //maping object
+            let projectObject = Project(dictionaryObject: response)
+            
+            let emptyCoordinate = Coordinate(latitude: 0, longitude: 0)
+            let place = Place(siteID: 0, postalCode: Int(response["code_postal"] as! String) ?? 0, coordinate: emptyCoordinate, number: Int(response["numero"] as! String) ?? 0, street: response["rue"] as! String, city: response["ville"] as! String, coordinateSiteId: 0)
+            
+            completion(projectObject, place)
         }
     }
     
@@ -316,9 +356,6 @@ class APIRequests: NSObject {
                       "statut": "CREATION"
                       ]
         
-
-        
-        
         let postData = NSMutableData(data:"&statut=CREATION".data(using: String.Encoding.utf8)!)
         postData.append("&commercial=\(user.username)".data(using: String.Encoding.utf8)!)
         postData.append("&nom=\(lastName)".data(using: String.Encoding.utf8)!)
@@ -335,7 +372,7 @@ class APIRequests: NSObject {
         
      
         print(postData)
-        APIRequests.sendForm(postData: postData){ response in
+        APIRequests.sendForm(url: "http://www.envertlaterre.fr/PHP/nouveau_client.php?", postData: postData){ response in
             printResponse(response: response as AnyObject)
            
             let client = Client(name: firstName, lastName: lastName, clientID: response["client_id"] as! String, commercialActiveString: "OUI", commercial: user.username )
@@ -353,10 +390,16 @@ class APIRequests: NSObject {
         }
     }
     
-    class func newProject(){
-        APIRequests.simplePost(endpoint: serverURL + APInewProject, parameters: [:]){ response in
+    class func newProject(type: String, client: Client, completion:@escaping (_ results: Any) -> Void){
+        
+        let postData = NSMutableData(data:"type=\(type)".data(using: String.Encoding.utf8)!)
+        postData.append("&client_id=\(client.clientID)".data(using: String.Encoding.utf8)!)
+
+        APIRequests.sendForm(url:serverURL + APInewProject + "?", postData: postData){ response in
             printResponse(response: response as AnyObject)
+            completion(response as AnyObject)
         }
+        
     }
     
     class func projectStatus(){

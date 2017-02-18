@@ -14,6 +14,8 @@ enum PriceTCC: String {
 
 enum ProjectStatus: String {
     case active = "actif"
+    case visitFait = "visite faite"
+    case accepted = "accepte"
 }
 
 enum ProjectAdminStatus: String {
@@ -46,6 +48,30 @@ class Project {
         self.status = status
         self.chantier_id = chantier_id
         self.statut_administratif = statut_administratif
+    }
+    
+    init(dictionaryObject: Dictionary<String, Any>) {
+        print(dictionaryObject)
+        self.tva = Float(dictionaryObject["tva"] as! String) ?? 0
+        self.prix_ht = Int(dictionaryObject["prix_ht"] as! String) ?? 0
+        self.type = dictionaryObject["type"] as! String
+        self.date_contact = Date()
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "yyyy-MM-dd"
+        if let date = formatter.date(from: dictionaryObject["date"] as! String){
+            self.date_contact = date
+        }
+        
+        self.statut_technicien = dictionaryObject["statut"] as! String
+        
+        self.client_id = 0
+        self.contact = ""
+        self.status = ProjectStatus.init(rawValue: (dictionaryObject["statut"] as! String).lowercased()) ?? .active
+
+        self.chantier_id = Int(dictionaryObject["chantier_id"] as! String)!
+        self.statut_administratif = .toBeProggramed
+        self.prix_ttc = PriceTCC.init(rawValue: dictionaryObject["prix_ttc"] as! String) ?? .notAvailable
     }
 }
 

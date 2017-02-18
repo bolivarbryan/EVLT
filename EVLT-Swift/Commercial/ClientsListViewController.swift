@@ -74,6 +74,9 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
         if segue.identifier == "segue" {
             let vc = segue.destination as! CommercialProjectsViewController
             vc.client = selectedClient
+        }else if segue.identifier == "newClientSegue" {
+            let vc = segue.destination as! NewClientViewController
+            vc.delegate = self
         }
     }
 
@@ -124,6 +127,25 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
 extension ClientsListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
+}
+
+extension ClientsListViewController: NewClientDelegate {
+    
+    func clientSuccessfullyCreated() {
+        //reload data and select the last item from array of clients
+        APIRequests.startFilling { (clients) in
+            self.clients = clients
+            self.tableView.reloadData()
+            self.selectedClient = clients[clients.count - 1]
+             DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "segue", sender: self)
+            }
+        }
+    }
+    
+    func clientCanceled() {
+        
     }
 }
 

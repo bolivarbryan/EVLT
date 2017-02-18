@@ -9,8 +9,10 @@
 import UIKit
 
 class CommercialProjectsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     var client: Client!
     var chantiers: [Dictionary<String, Any>] = []
+    var selectedProject: Project? = nil
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -67,7 +69,12 @@ class CommercialProjectsViewController: UIViewController, UITableViewDataSource,
         if segue.identifier == "projectsSegue" {
             if let vc = (segue.destination as! UINavigationController).childViewControllers[0] as? NewProjectViewController {
                 vc.client = self.client
+                vc.delegate = self
             }
+        }else if segue.identifier == "segue" {
+            let vc = segue.destination as! CommercialProjectDetailsViewController
+            vc.project = self.selectedProject
+            vc.client = self.client
         }
     }
     
@@ -79,8 +86,33 @@ class CommercialProjectsViewController: UIViewController, UITableViewDataSource,
         if indexPath.row == chantiers.count  {
             self.performSegue(withIdentifier: "projectsSegue", sender: self)
         }else{
+            let chantier = self.chantiers[indexPath.row]
+            //FIXME: get real values
+            let project = Project(tva: 0, prix_ttc: .notAvailable, type: chantier["type"] as! String, date_contact: Date(), statut_technicien: "", client_id: Int(self.client.clientID)!, contact: "", status: .visitFait, chantier_id: Int(chantier["chantier_id"] as! String)!, statut_administratif: .toBeProggramed, prix_ht: 0)
+            self.selectedProject = project
+            
             self.performSegue(withIdentifier: "segue", sender: self)
         }
     }
 
+}
+
+extension CommercialProjectsViewController: NewProjectDelegate {
+    func projectSuccessfullyCreated() {
+        APIRequests.importProjectWithClientID(clientID: client.clientID) { (results) in
+            self.chantiers = results
+            DispatchQueue.main.async {
+                print(self.chantiers.count)
+                self.tableView.reloadData()
+                let chantier = self.chantiers[self.chantiers.count - 1]
+                let project = Project(tva: 0, prix_ttc: .notAvailable, type: chantier["type"] as! String, date_contact: Date(), statut_technicien: "", client_id: Int(self.client.clientID)!, contact: "", status: .visitFait, chantier_id: Int(chantier["chantier_id"] as! String)!, statut_administratif: .toBeProggramed, prix_ht: 0)
+                self.selectedProject = project
+                self.performSegue(withIdentifier: "segue", sender: self)
+            }
+        }
+    }
+    
+    func projectCanceled() {
+       
+    }
 }

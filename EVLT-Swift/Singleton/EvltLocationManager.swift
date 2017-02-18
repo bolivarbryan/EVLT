@@ -41,6 +41,7 @@ class EvltLocationManager {
         CLGeocoder().geocodeAddressString(address, completionHandler: { (placemarks, error) in
             if error != nil {
                 print(error ?? "error!!")
+                completion("\(0)", "\(0)")
                 return
             }
             if (placemarks?.count)! > 0 {
