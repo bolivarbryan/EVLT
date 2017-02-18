@@ -122,8 +122,10 @@ class APIRequests: NSObject {
             if (error != nil) {
                 print(error)
                 aiView.isHidden = true
-                activityIndicatorView?.removeFromSuperview()
-            } else {
+                DispatchQueue.main.async {
+                    activityIndicatorView?.removeFromSuperview()
+                }
+                } else {
                 let json = JSON(data: data!)
                 print(json)
                 if let dict = json.dictionaryObject {
@@ -329,10 +331,20 @@ class APIRequests: NSObject {
         }
     }
     
-    class func zonesProject(){
-        APIRequests.simplePost(endpoint: serverURL + APIzonesProject, parameters: [:]){ response in
+    class func zonesProject(projectID: String, completion: @escaping (_ results: [Zone]) -> Void ) {
+
+        let postData = NSMutableData()
+        postData.append("chantier_id=\(projectID)".data(using: String.Encoding.utf8)!)
+          postData.append("&action=OUVRE".data(using: String.Encoding.utf8)!)
+      
+        let url = serverURL + APIzonesProject + "?" + "chantier_id=\(projectID)" + "&action=OUVRE"
+        
+        APIRequests.sendForm(url: url, postData: postData){ response in
             printResponse(response: response as AnyObject)
+            var zones:[Zone] = []
+            completion(zones)
         }
+        
     }
     
     class func newClient(firstName: String, lastName: String, addressNumber: String, street:String, postalCode: String, city: String, cellphone: String, phone: String, email: String, latidude: String, longitude: String, completion: ((_ result : Client ) -> Void)?){

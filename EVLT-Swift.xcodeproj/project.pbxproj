@@ -26,6 +26,9 @@
 		93B741A61E3974D600DDB4FA /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B741A51E3974D600DDB4FA /* Project.swift */; };
 		93D29DAD1E58B24D00B49572 /* CommercialProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29DAC1E58B24D00B49572 /* CommercialProjectDetailsViewController.swift */; };
 		93D29DAF1E58B51E00B49572 /* CommercialContactInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29DAE1E58B51E00B49572 /* CommercialContactInformationViewController.swift */; };
+		93D29DB51E58F56000B49572 /* ZonesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29DB41E58F56000B49572 /* ZonesViewController.swift */; };
+		93D29DB71E58F6FE00B49572 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29DB61E58F6FE00B49572 /* Zone.swift */; };
+		93D29DB91E5901B800B49572 /* ZoneDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29DB81E5901B800B49572 /* ZoneDetailsViewController.swift */; };
 		93D2C25F1E54821000DC8321 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D2C25E1E54821000DC8321 /* Assets.xcassets */; };
 		93D2C2611E5482EB00DC8321 /* NewClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D2C2601E5482EB00DC8321 /* NewClientViewController.swift */; };
 		93D8AFA31DC9FFE800F3A4B4 /* APIRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D8AFA21DC9FFE800F3A4B4 /* APIRequests.swift */; };
@@ -106,6 +109,9 @@
 		93B741A51E3974D600DDB4FA /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Model/Project.swift; sourceTree = "<group>"; };
 		93D29DAC1E58B24D00B49572 /* CommercialProjectDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommercialProjectDetailsViewController.swift; path = Commercial/CommercialProjectDetailsViewController.swift; sourceTree = "<group>"; };
 		93D29DAE1E58B51E00B49572 /* CommercialContactInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommercialContactInformationViewController.swift; path = Commercial/CommercialContactInformationViewController.swift; sourceTree = "<group>"; };
+		93D29DB41E58F56000B49572 /* ZonesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZonesViewController.swift; path = Commercial/ZonesViewController.swift; sourceTree = "<group>"; };
+		93D29DB61E58F6FE00B49572 /* Zone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Zone.swift; path = Model/Zone.swift; sourceTree = "<group>"; };
+		93D29DB81E5901B800B49572 /* ZoneDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZoneDetailsViewController.swift; path = Commercial/ZoneDetailsViewController.swift; sourceTree = "<group>"; };
 		93D2C25E1E54821000DC8321 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93D2C2601E5482EB00DC8321 /* NewClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewClientViewController.swift; sourceTree = "<group>"; };
 		93D8AFA21DC9FFE800F3A4B4 /* APIRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequests.swift; sourceTree = "<group>"; };
@@ -196,6 +202,7 @@
 				9373DEE21DF6FA8500321E47 /* User.swift */,
 				93B741A51E3974D600DDB4FA /* Project.swift */,
 				935C357D1E4963FD00C12449 /* Client.swift */,
+				93D29DB61E58F6FE00B49572 /* Zone.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -329,6 +336,8 @@
 				93D2C2601E5482EB00DC8321 /* NewClientViewController.swift */,
 				93D29DAC1E58B24D00B49572 /* CommercialProjectDetailsViewController.swift */,
 				93D29DAE1E58B51E00B49572 /* CommercialContactInformationViewController.swift */,
+				93D29DB41E58F56000B49572 /* ZonesViewController.swift */,
+				93D29DB81E5901B800B49572 /* ZoneDetailsViewController.swift */,
 			);
 			name = Commercial;
 			sourceTree = "<group>";
@@ -604,6 +613,7 @@
 				93FA56111DC71A6F00C07EB7 /* AdministrativeProgrammingViewController.swift in Sources */,
 				93FA56081DC6A14300C07EB7 /* TechnicianCommentsViewController.swift in Sources */,
 				93FA56151DC71D1300C07EB7 /* AdministrativePaymentViewController.swift in Sources */,
+				93D29DB51E58F56000B49572 /* ZonesViewController.swift in Sources */,
 				93353E811DE7629100C69F4E /* Coordinate.swift in Sources */,
 				93FA56191DC75C7700C07EB7 /* ClientsListViewController.swift in Sources */,
 				93FA55E01DC6962D00C07EB7 /* EVLT_Swift.xcdatamodeld in Sources */,
@@ -614,9 +624,11 @@
 				93FA56001DC697FD00C07EB7 /* MapViewController.swift in Sources */,
 				93E35DCB1E0191D600D6ED5E /* PersistencyManager.swift in Sources */,
 				93FA56061DC699B400C07EB7 /* ProjectUpdatesViewController.swift in Sources */,
+				93D29DB91E5901B800B49572 /* ZoneDetailsViewController.swift in Sources */,
 				93EE1D621E4DC73F001CBCF0 /* SAVViewController.swift in Sources */,
 				93353E7F1DE761A000C69F4E /* Place.swift in Sources */,
 				93B741A61E3974D600DDB4FA /* Project.swift in Sources */,
+				93D29DB71E58F6FE00B49572 /* Zone.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

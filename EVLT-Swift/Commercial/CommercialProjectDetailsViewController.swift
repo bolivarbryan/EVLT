@@ -12,7 +12,7 @@ class CommercialProjectDetailsViewController: UIViewController {
     var project: Project!
     var client: Client!
     var currentPlace: Place!
-    
+    var zones:[Zone]!
     //Contact information
     @IBOutlet weak var streetLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
@@ -56,6 +56,16 @@ class CommercialProjectDetailsViewController: UIViewController {
             }
         }
         
+        APIRequests.zonesProject(projectID: "\(self.project.chantier_id)") { (zones) in
+            print(zones)
+            self.zones = zones
+            DispatchQueue.main.async {
+                self.zonesLabel.text = "\(self.zones.count) " + NSLocalizedString("Zone", comment: "")
+                if self.zones.count != 1 {
+                    self.zonesLabel.text?.append("s")
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,22 +76,25 @@ class CommercialProjectDetailsViewController: UIViewController {
                 self.addressLabel.text = "\(self.currentPlace.postalCode), \(self.currentPlace.city)"
                 self.nameLabel.text = "\(self.client.fullName())"
             }
-      
-            
-            
         }
     }
-    
-
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddressSegue"{
-            var vc = segue.destination as! CommercialContactInformationViewController
+        
+        switch segue.identifier! {
+        case "AddressSegue":
+            let vc = segue.destination as! CommercialContactInformationViewController
             vc.place = currentPlace
             vc.project = self.project
+        case "ZonesSegue":
+            let vc = segue.destination as! ZonesViewController
+            vc.zones = self.zones
+
+        default:
+            print("no selection")
         }
     }
     
