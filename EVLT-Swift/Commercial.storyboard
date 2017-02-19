@@ -1542,6 +1542,7 @@
         <!--Zone Details View Controller-->
         <scene sceneID="Ocv-KT-bfs">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kvg-8b-fFG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="8th-5Y-jSh" customClass="ZoneDetailsViewController" customModule="EVLT_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mtj-rQ-IyG"/>
@@ -1826,7 +1827,6 @@
                         <outlet property="wallsLabel" destination="rVt-J0-DL0" id="luV-yh-VyS"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kvg-8b-fFG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5292" y="-838"/>
         </scene>

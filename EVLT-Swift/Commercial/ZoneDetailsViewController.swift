@@ -10,6 +10,7 @@ import UIKit
 
 class ZoneDetailsViewController: UIViewController {
     var zone:Zone?
+    var project: Project
     
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var volumeLabel: UITextField!
@@ -28,12 +29,30 @@ class ZoneDetailsViewController: UIViewController {
     }
 
     func new() {
-        //API Request
+        var validForm = true
         
-        //saved
-        DispatchQueue.main.async {
-            _ = self.navigationController?.popViewController(animated: true)
+        validForm = nameLabel.text!.characters.count > 0
+        validForm = volumeLabel.text!.characters.count > 0
+        validForm = wallsLabel.text!.characters.count > 0
+        validForm = atticLabel.text!.characters.count > 0
+        validForm = groundStaffLabel.text!.characters.count > 0
+        validForm = carpentryLabel.text!.characters.count > 0
+
+        if validForm == true {
+            //API Request
+            let zoneObject = Zone(name: self.nameLabel.text!, volume: self.volumeLabel.text!, walls: self.wallsLabel.text! , attic: self.atticLabel.text! , groundStaff: self.groundStaffLabel.text! , carpentry: self.carpentryLabel.text!)
+            
+            APIRequests.createZoneProject(projectID: "\(self.project.chantier_id)", zone: zoneObject, completion: { (zones) in
+                //saved
+                DispatchQueue.main.async {
+                    _ = self.navigationController?.popViewController(animated: true)
+                }
+            })
+            
+        } else {
+            ELVTAlert.showMessage(controller: self, message: NSLocalizedString("All fields are required", comment: ""), completion: { (done) in})
         }
+       
         
     }
     
