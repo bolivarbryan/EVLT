@@ -10,7 +10,7 @@ import UIKit
 
 class ZoneDetailsViewController: UIViewController {
     var zone:Zone?
-    var project: Project
+    var project: Project!
     
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var volumeLabel: UITextField!
