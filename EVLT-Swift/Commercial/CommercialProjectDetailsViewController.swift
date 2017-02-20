@@ -52,6 +52,7 @@ class CommercialProjectDetailsViewController: UIViewController {
             print(projectObject.1! as Place)
             if let place = projectObject.1 {
                 self.currentPlace = place
+            
                 completion(nil)
             }
         }
@@ -71,11 +72,9 @@ class CommercialProjectDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchProjectDetails { (projectObject) in
-            DispatchQueue.main.async {
-                self.streetLabel.text = "\(self.currentPlace.number), \(self.currentPlace.street)"
-                self.addressLabel.text = "\(self.currentPlace.postalCode), \(self.currentPlace.city)"
-                self.nameLabel.text = "\(self.client.fullName())"
-            }
+            self.streetLabel.text = "\(self.currentPlace.number), \(self.currentPlace.street)"
+            self.addressLabel.text = "\(self.currentPlace.postalCode), \(self.currentPlace.city)"
+            self.nameLabel.text = "\(self.client.fullName())"
         }
     }
     
@@ -92,7 +91,7 @@ class CommercialProjectDetailsViewController: UIViewController {
         case "ZonesSegue":
             let vc = segue.destination as! ZonesViewController
             vc.zones = self.zones
-
+            vc.project = self.project
         default:
             print("no selection")
         }

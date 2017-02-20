@@ -342,18 +342,40 @@ class APIRequests: NSObject {
         APIRequests.sendForm(url: url, postData: postData){ response in
             printResponse(response: response as AnyObject)
             var zones:[Zone] = []
+            
+            //parsing data
+            if let results = response["results"] as? Array<Dictionary<String, Any>> {
+                for zoneObject in results {
+                    var zone = Zone(name: zoneObject["nom_zone"] as! String, volume: zoneObject["volume_zone"] as! String, walls: zoneObject["iso_murs"] as! String, attic: zoneObject["iso_combles"] as! String, groundStaff: zoneObject["iso_rampants"] as! String, carpentry: zoneObject["menuiseries"] as! String)
+                    zone.projectID = zoneObject["chantier_id"] as? String
+                    zone.zoneID = zoneObject["zone_id"] as? String
+
+                    zones.append(zone)
+                }
+            }
+            
             completion(zones)
         }
         
     }
     
-    class func createZoneProject(projectID: String, zone: Zone, completion: @escaping (_ results: [Zone]) -> Void ) {
+    class func createZoneProject(action: String,  projectID: String, zone: Zone, completion: @escaping (_ results: [Zone]) -> Void ) {
         
         let postData = NSMutableData()
         postData.append("chantier_id=\(projectID)".data(using: String.Encoding.utf8)!)
-        postData.append("&action=NOUVEAU".data(using: String.Encoding.utf8)!)
+        postData.append("&action=\(action)".data(using: String.Encoding.utf8)!)
+        postData.append("&combles=\(zone.attic)".data(using: String.Encoding.utf8)!)
+        postData.append("&rampants=\(zone.groundStaff)".data(using: String.Encoding.utf8)!)
+        postData.append("&volume=\(zone.volume)".data(using: String.Encoding.utf8)!)
+        postData.append("&menuiseries=\(zone.carpentry)".data(using: String.Encoding.utf8)!)
+        postData.append("&nom=\(zone.name)".data(using: String.Encoding.utf8)!)
+        postData.append("&murs=\(zone.walls)".data(using: String.Encoding.utf8)!)
         
-        let url = serverURL + APIzonesProject + "?" + "chantier_id=\(projectID)" + "&action=OUVRE"
+        if let id = zone.zoneID {
+            postData.append("&zone_id=\(id)".data(using: String.Encoding.utf8)!)
+
+        }
+        let url = serverURL + APIzonesProject + "?" + "chantier_id=\(projectID)" + "&action=\(action)"
         
         APIRequests.sendForm(url: url, postData: postData){ response in
             printResponse(response: response as AnyObject)

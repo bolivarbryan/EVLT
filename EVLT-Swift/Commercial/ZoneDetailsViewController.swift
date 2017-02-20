@@ -26,6 +26,15 @@ class ZoneDetailsViewController: UIViewController {
         
         let newButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(new))
         self.navigationItem.rightBarButtonItem = newButton
+        
+        if let z = zone{
+            self.nameLabel.text = z.name
+            self.atticLabel.text = z.attic
+            self.volumeLabel.text = z.volume
+            self.wallsLabel.text = z.walls
+            self.groundStaffLabel.text = z.groundStaff
+            self.carpentryLabel.text = z.carpentry
+        }
     }
 
     func new() {
@@ -40,9 +49,14 @@ class ZoneDetailsViewController: UIViewController {
 
         if validForm == true {
             //API Request
-            let zoneObject = Zone(name: self.nameLabel.text!, volume: self.volumeLabel.text!, walls: self.wallsLabel.text! , attic: self.atticLabel.text! , groundStaff: self.groundStaffLabel.text! , carpentry: self.carpentryLabel.text!)
-            
-            APIRequests.createZoneProject(projectID: "\(self.project.chantier_id)", zone: zoneObject, completion: { (zones) in
+            var zoneObject = Zone(name: self.nameLabel.text!, volume: self.volumeLabel.text!, walls: self.wallsLabel.text! , attic: self.atticLabel.text! , groundStaff: self.groundStaffLabel.text! , carpentry: self.carpentryLabel.text!)
+            var action = "NOUVEAU"
+            if zone != nil {
+                action = "EXISTE"
+                zoneObject.zoneID = zone?.zoneID
+                zoneObject.projectID = zone?.projectID
+            }
+            APIRequests.createZoneProject(action: action, projectID: "\(self.project.chantier_id)", zone: zoneObject, completion: { (zones) in
                 //saved
                 DispatchQueue.main.async {
                     _ = self.navigationController?.popViewController(animated: true)

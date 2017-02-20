@@ -15,4 +15,15 @@ struct Zone {
     var attic: String //combles
     var groundStaff: String //rampants
     var carpentry: String // Menuiserie
+    var projectID: String?
+    var zoneID: String?
+    
+    init(name: String, volume: String, walls: String, attic: String, groundStaff: String, carpentry: String) {
+        self.name = name
+        self.volume = volume
+        self.walls = walls
+        self.attic = attic
+        self.groundStaff = groundStaff
+        self.carpentry = carpentry
+    }
 }

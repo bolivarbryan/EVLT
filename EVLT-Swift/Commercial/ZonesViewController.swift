@@ -11,6 +11,8 @@ import UIKit
 class ZonesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var zones: [Zone]!
+    var project: Project!
+    var selectedZone: Zone? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,12 +21,13 @@ class ZonesViewController: UIViewController {
     }
     
     func new() {
+        self.selectedZone = nil
         self.performSegue(withIdentifier: "NewSegue", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //fetchData()
+        fetchData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,23 +39,30 @@ class ZonesViewController: UIViewController {
         
         //api request
         
-        //parse data
-        
-        DispatchQueue.main.async {
-            self.zones = []
-            self.tableView.reloadData()
+        APIRequests.zonesProject(projectID: "\(self.project.chantier_id)") { (zones) in
+            print(zones)
+            self.zones = zones
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+      
         }
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "NewSegue" {
+            let vc = segue.destination as! ZoneDetailsViewController
+            vc.project = self.project
+            vc.zone = self.selectedZone
+        }
     }
-    */
+ 
 
 }
 
@@ -64,11 +74,11 @@ extension ZonesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ZonesCell") as! ZonesCell
         cell.name.text = zones[indexPath.row].name
-        cell.volumeLabel.text = zones[indexPath.row].volume
-        cell.wallLabel.text = zones[indexPath.row].walls
-        cell.loftLabel.text = zones[indexPath.row].attic
-        cell.rampantsLabel.text = zones[indexPath.row].groundStaff
-        cell.woodworkLabel.text = zones[indexPath.row].carpentry
+        cell.volumeLabel.text = "Volume: " + zones[indexPath.row].volume
+        cell.wallLabel.text = "Murs: " +  zones[indexPath.row].walls
+        cell.loftLabel.text = "Combles: " +  zones[indexPath.row].attic
+        cell.rampantsLabel.text = "Rampants:" + zones[indexPath.row].groundStaff
+        cell.woodworkLabel.text = "Menuiseries: " + zones[indexPath.row].carpentry
         return cell
     }
     
@@ -79,6 +89,8 @@ extension ZonesViewController: UITableViewDataSource {
 
 extension ZonesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedZone = zones[indexPath.row]
+        self.performSegue(withIdentifier: "NewSegue", sender: self)
     }
 }
 
