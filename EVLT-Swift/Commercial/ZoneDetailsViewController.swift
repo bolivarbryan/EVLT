@@ -40,12 +40,36 @@ class ZoneDetailsViewController: UIViewController {
     func new() {
         var validForm = true
         
-        validForm = nameLabel.text!.characters.count > 0
-        validForm = volumeLabel.text!.characters.count > 0
-        validForm = wallsLabel.text!.characters.count > 0
-        validForm = atticLabel.text!.characters.count > 0
-        validForm = groundStaffLabel.text!.characters.count > 0
-        validForm = carpentryLabel.text!.characters.count > 0
+//        validForm = nameLabel.text!.characters.count > 0
+//        validForm = volumeLabel.text!.characters.count > 0
+//        validForm = wallsLabel.text!.characters.count > 0
+//        validForm = atticLabel.text!.characters.count > 0
+//        validForm = groundStaffLabel.text!.characters.count > 0
+//        validForm = carpentryLabel.text!.characters.count > 0
+        
+        if nameLabel.text == "" {
+            nameLabel.text = "N/A"
+        }
+
+        if volumeLabel.text == "" {
+            volumeLabel.text = "N/A"
+        }
+
+        if wallsLabel.text == "" {
+            wallsLabel.text = "N/A"
+        }
+
+        if atticLabel.text == "" {
+            atticLabel.text = "N/A"
+        }
+
+        if groundStaffLabel.text == "" {
+            groundStaffLabel.text = "N/A"
+        }
+
+        if carpentryLabel.text == "" {
+            carpentryLabel.text = "N/A"
+        }
 
         if validForm == true {
             //API Request

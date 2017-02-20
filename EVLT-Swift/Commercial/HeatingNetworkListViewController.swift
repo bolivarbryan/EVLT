@@ -16,7 +16,8 @@ class HeatingNetworkListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         let newButton = UIBarButtonItem(title: NSLocalizedString("New", comment: ""), style: .done, target: self, action: #selector(new))
         self.navigationItem.rightBarButtonItem = newButton
     }
@@ -36,7 +37,6 @@ class HeatingNetworkListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     func fetchData() {
         APIRequests.getHeatingNetwork(projectID: "\(self.project.chantier_id)") { (response) in
             DispatchQueue.main.async {
@@ -53,10 +53,9 @@ class HeatingNetworkListViewController: UIViewController {
         if segue.identifier == "NewNetWorkSegue" {
             let vc = segue.destination as! HeatingNetworkDetailsViewController
             vc.project = self.project
+            vc.network = self.selectedNetwork
         }
     }
- 
-
 }
 
 extension HeatingNetworkListViewController: UITableViewDataSource {
@@ -77,10 +76,14 @@ extension HeatingNetworkListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
+
 }
 
 extension HeatingNetworkListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedNetwork = networks[indexPath.row]
+        self.performSegue(withIdentifier: "NewNetWorkSegue", sender: self)
+    }
 }
 
 class AnexeCell: UITableViewCell {

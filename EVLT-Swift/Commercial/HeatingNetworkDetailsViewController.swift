@@ -27,6 +27,13 @@ class HeatingNetworkDetailsViewController: UIViewController {
         self.copperTxt.addTarget(self, action: #selector(next(_:)), for: .editingDidEndOnExit)
         self.diameterTxt.addTarget(self, action: #selector(next(_:)), for: .editingDidEndOnExit)
         
+        
+        if let n = self.network {
+            self.name.text = n.name
+            self.existingTxt.text = n.existing
+            self.copperTxt.text = n.material
+            self.diameterTxt.text = n.diameter
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,11 +44,31 @@ class HeatingNetworkDetailsViewController: UIViewController {
     func new() {
         var validForm = true
         
-        validForm = name.text!.characters.count > 0
-        validForm = existingTxt.text!.characters.count > 0
-        validForm = copperTxt.text!.characters.count > 0
-        validForm = diameterTxt.text!.characters.count > 0
-       
+//        validForm = name.text!.characters.count > 0
+//        validForm = existingTxt.text!.characters.count > 0
+//        validForm = copperTxt.text!.characters.count > 0
+//        validForm = diameterTxt.text!.characters.count > 0
+//       
+        if name.text == "" {
+          name.text = "N/A"
+        }
+        
+        if existingTxt.text == "" {
+            existingTxt.text = "N/A"
+        }
+        
+        if copperTxt.text == "" {
+            copperTxt.text = "N/A"
+        }
+        
+        if diameterTxt.text == "" {
+            diameterTxt.text = "N/A"
+        }
+        
+        name.text = name.text ?? "N/A"
+        existingTxt.text = existingTxt.text ?? "N/A"
+        copperTxt.text = copperTxt.text ?? "N/A"
+        diameterTxt.text = diameterTxt.text ?? "N/A"
         
         if validForm == true {
             //API Request
