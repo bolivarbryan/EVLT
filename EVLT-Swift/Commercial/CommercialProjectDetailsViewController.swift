@@ -13,6 +13,8 @@ class CommercialProjectDetailsViewController: UIViewController {
     var client: Client!
     var currentPlace: Place!
     var zones:[Zone]!
+    var networks: [Network]!
+    
     //Contact information
     @IBOutlet weak var streetLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
@@ -67,14 +69,28 @@ class CommercialProjectDetailsViewController: UIViewController {
                 }
             }
         }
+        
+        APIRequests.getHeatingNetwork(projectID: "\(self.project.chantier_id)") { (response) in
+            DispatchQueue.main.async {
+                self.networks = response
+                self.heatingLabel.text = "\(self.networks.count) " + NSLocalizedString("Heating Network", comment: "")
+                if self.networks.count != 1 {
+                    self.heatingLabel.text?.append("s")
+                }
+            }
+        }
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchProjectDetails { (projectObject) in
+            DispatchQueue.main.async {
             self.streetLabel.text = "\(self.currentPlace.number), \(self.currentPlace.street)"
             self.addressLabel.text = "\(self.currentPlace.postalCode), \(self.currentPlace.city)"
             self.nameLabel.text = "\(self.client.fullName())"
+             }
         }
     }
     
@@ -82,19 +98,25 @@ class CommercialProjectDetailsViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        switch segue.identifier! {
-        case "AddressSegue":
-            let vc = segue.destination as! CommercialContactInformationViewController
-            vc.place = currentPlace
-            vc.project = self.project
-        case "ZonesSegue":
-            let vc = segue.destination as! ZonesViewController
-            vc.zones = self.zones
-            vc.project = self.project
-        default:
-            print("no selection")
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "AddressSegue":
+                let vc = segue.destination as! CommercialContactInformationViewController
+                vc.place = currentPlace
+                vc.project = self.project
+            case "ZonesSegue":
+                let vc = segue.destination as! ZonesViewController
+                vc.zones = self.zones
+                vc.project = self.project
+            case "HeatingSegue":
+                let vc = segue.destination as! HeatingNetworkListViewController
+                vc.networks = self.networks
+                vc.project = self.project
+            default:
+                print("no selection")
+            }
         }
+     
     }
     
 

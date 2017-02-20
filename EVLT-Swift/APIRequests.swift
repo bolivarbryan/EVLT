@@ -330,6 +330,60 @@ class APIRequests: NSObject {
             printResponse(response: response as AnyObject)
         }
     }
+  
+    class func getHeatingNetwork(projectID: String, completion: @escaping (_ results: [Network]) -> Void ) {
+        
+        let postData = NSMutableData()
+        postData.append("chantier_id=\(projectID)".data(using: String.Encoding.utf8)!)
+        postData.append("&action=OUVRE".data(using: String.Encoding.utf8)!)
+        
+        let url = serverURL + APIprojectNetwork + "?" + "chantier_id=\(projectID)" + "&action=OUVRE"
+        
+        APIRequests.sendForm(url: url, postData: postData){ response in
+            printResponse(response: response as AnyObject)
+            var networks:[Network] = []
+            
+            //parsing data
+            if let results = response["results"] as? Array<Dictionary<String, Any>> {
+                for networkObject in results {
+                    
+                    var network = Network(existing: networkObject["reseau_existant"] as! String, radiators:  networkObject["reseau_radiateur"] as! String, material:  networkObject["reseau_cuivre"] as! String, diameter:  networkObject["reseau_diametre"] as! String)
+                    network.name = networkObject["nom_reseau"] as? String
+                    network.netWorkId = networkObject["reseau_id"] as? String
+                    networks.append(network)
+                }
+            }
+            
+            completion(networks)
+        }
+        
+    }
+    
+    class func createNetwork(action: String,  projectID: String, network: Network, completion: @escaping (_ results: [Network]) -> Void ) {
+        
+        let postData = NSMutableData()
+        postData.append("chantier_id=\(projectID)".data(using: String.Encoding.utf8)!)
+        postData.append("&action=\(action)".data(using: String.Encoding.utf8)!)
+        postData.append("&type=ECS".data(using: String.Encoding.utf8)!)
+        postData.append("&nom=\(network.name!)".data(using: String.Encoding.utf8)!)
+        postData.append("&existe=\(network.existing)".data(using: String.Encoding.utf8)!)
+        postData.append("&radiateur=\(network.radiators)".data(using: String.Encoding.utf8)!)
+        postData.append("&cuivre=\(network.material)".data(using: String.Encoding.utf8)!)
+        postData.append("&diametre=\(network.diameter)".data(using: String.Encoding.utf8)!)
+        
+        if let id = network.netWorkId {
+            postData.append("&reseau_id=\(id)".data(using: String.Encoding.utf8)!)
+            
+        }
+        let url = serverURL + APIprojectNetwork + "?" + "chantier_id=\(projectID)" + "&action=\(action)"
+        
+        APIRequests.sendForm(url: url, postData: postData){ response in
+            printResponse(response: response as AnyObject)
+            let networks:[Network] = []
+            completion(networks)
+        }
+        
+    }
     
     class func zonesProject(projectID: String, completion: @escaping (_ results: [Zone]) -> Void ) {
 

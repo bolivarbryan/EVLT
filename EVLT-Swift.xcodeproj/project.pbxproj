@@ -19,6 +19,9 @@
 		93353E851DE76FB200C69F4E /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353E841DE76FB200C69F4E /* Price.swift */; };
 		935C357E1E4963FD00C12449 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C357D1E4963FD00C12449 /* Client.swift */; };
 		935C35811E49682E00C12449 /* ProductCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C35801E49682E00C12449 /* ProductCellTableViewCell.swift */; };
+		935FCD3A1E5A900F0045BAE1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935FCD391E5A900F0045BAE1 /* Network.swift */; };
+		935FCD3C1E5A90E20045BAE1 /* HeatingNetworkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935FCD3B1E5A90E20045BAE1 /* HeatingNetworkListViewController.swift */; };
+		935FCD3E1E5A90F80045BAE1 /* HeatingNetworkDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935FCD3D1E5A90F80045BAE1 /* HeatingNetworkDetailsViewController.swift */; };
 		9373DEE11DF6F95C00321E47 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373DEE01DF6F95C00321E47 /* LoginViewController.swift */; };
 		9373DEE31DF6FA8500321E47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373DEE21DF6FA8500321E47 /* User.swift */; };
 		939E73151E53AB72003197BC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E73141E53AB72003197BC /* SettingsViewController.swift */; };
@@ -102,6 +105,9 @@
 		93353E841DE76FB200C69F4E /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Price.swift; path = Model/Price.swift; sourceTree = "<group>"; };
 		935C357D1E4963FD00C12449 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Client.swift; path = Model/Client.swift; sourceTree = "<group>"; };
 		935C35801E49682E00C12449 /* ProductCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCellTableViewCell.swift; path = Commercial/Cells/ProductCellTableViewCell.swift; sourceTree = "<group>"; };
+		935FCD391E5A900F0045BAE1 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = Model/Network.swift; sourceTree = "<group>"; };
+		935FCD3B1E5A90E20045BAE1 /* HeatingNetworkListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeatingNetworkListViewController.swift; path = Commercial/HeatingNetworkListViewController.swift; sourceTree = "<group>"; };
+		935FCD3D1E5A90F80045BAE1 /* HeatingNetworkDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeatingNetworkDetailsViewController.swift; path = Commercial/HeatingNetworkDetailsViewController.swift; sourceTree = "<group>"; };
 		9373DEE01DF6F95C00321E47 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controller/LoginViewController.swift; sourceTree = "<group>"; };
 		9373DEE21DF6FA8500321E47 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
 		939E73141E53AB72003197BC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +209,7 @@
 				93B741A51E3974D600DDB4FA /* Project.swift */,
 				935C357D1E4963FD00C12449 /* Client.swift */,
 				93D29DB61E58F6FE00B49572 /* Zone.swift */,
+				935FCD391E5A900F0045BAE1 /* Network.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -338,6 +345,8 @@
 				93D29DAE1E58B51E00B49572 /* CommercialContactInformationViewController.swift */,
 				93D29DB41E58F56000B49572 /* ZonesViewController.swift */,
 				93D29DB81E5901B800B49572 /* ZoneDetailsViewController.swift */,
+				935FCD3B1E5A90E20045BAE1 /* HeatingNetworkListViewController.swift */,
+				935FCD3D1E5A90F80045BAE1 /* HeatingNetworkDetailsViewController.swift */,
 			);
 			name = Commercial;
 			sourceTree = "<group>";
@@ -595,6 +604,7 @@
 				9373DEE31DF6FA8500321E47 /* User.swift in Sources */,
 				93FA561F1DC7A50800C07EB7 /* NewProjectViewController.swift in Sources */,
 				93FA56041DC6986D00C07EB7 /* CalendarViewController.swift in Sources */,
+				935FCD3C1E5A90E20045BAE1 /* HeatingNetworkListViewController.swift in Sources */,
 				93353E831DE7698E00C69F4E /* Serializer.swift in Sources */,
 				939E73151E53AB72003197BC /* SettingsViewController.swift in Sources */,
 				93D8AFA31DC9FFE800F3A4B4 /* APIRequests.swift in Sources */,
@@ -618,6 +628,7 @@
 				93FA56191DC75C7700C07EB7 /* ClientsListViewController.swift in Sources */,
 				93FA55E01DC6962D00C07EB7 /* EVLT_Swift.xcdatamodeld in Sources */,
 				93D29DAD1E58B24D00B49572 /* CommercialProjectDetailsViewController.swift in Sources */,
+				935FCD3A1E5A900F0045BAE1 /* Network.swift in Sources */,
 				93D29DAF1E58B51E00B49572 /* CommercialContactInformationViewController.swift in Sources */,
 				93FA560C1DC6A9B200C07EB7 /* ECSNetworkViewController.swift in Sources */,
 				935C357E1E4963FD00C12449 /* Client.swift in Sources */,
@@ -625,6 +636,7 @@
 				93E35DCB1E0191D600D6ED5E /* PersistencyManager.swift in Sources */,
 				93FA56061DC699B400C07EB7 /* ProjectUpdatesViewController.swift in Sources */,
 				93D29DB91E5901B800B49572 /* ZoneDetailsViewController.swift in Sources */,
+				935FCD3E1E5A90F80045BAE1 /* HeatingNetworkDetailsViewController.swift in Sources */,
 				93EE1D621E4DC73F001CBCF0 /* SAVViewController.swift in Sources */,
 				93353E7F1DE761A000C69F4E /* Place.swift in Sources */,
 				93B741A61E3974D600DDB4FA /* Project.swift in Sources */,
