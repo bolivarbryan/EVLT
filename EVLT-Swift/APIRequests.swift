@@ -484,8 +484,6 @@ class APIRequests: NSObject {
         }
         
 
-        
-
     }
     
     class func deleteRequest(){

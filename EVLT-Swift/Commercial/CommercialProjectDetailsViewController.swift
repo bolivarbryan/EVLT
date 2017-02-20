@@ -40,7 +40,15 @@ class CommercialProjectDetailsViewController: UIViewController {
         super.viewDidLoad()
         print("Project: \(project.type)")
       
+        let newButton = UIBarButtonItem(title: NSLocalizedString("Edit", comment: ""), style: .done, target: self, action: #selector(edit))
+        self.navigationItem.rightBarButtonItem = newButton
+    
     }
+    
+    func edit() {
+        self.performSegue(withIdentifier: "EditProjectSegue", sender: self)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -110,6 +118,9 @@ class CommercialProjectDetailsViewController: UIViewController {
             case "HeatingSegue":
                 let vc = segue.destination as! HeatingNetworkListViewController
                 vc.networks = self.networks
+                vc.project = self.project
+            case "EditProjectSegue":
+                let vc = segue.destination as! NewProjectViewController
                 vc.project = self.project
             default:
                 print("no selection")

@@ -18,6 +18,7 @@ class NewProjectViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var tableView: UITableView!
     var client:Client!
     var kAddString = NSLocalizedString("Add...", comment: "")
+    var project: Project? = nil
     
     let projects = [(title: "Projects", values: ["Chaudière gaz", "Chaudière fioul", "Chaudière bois", "Chaudière granulés", "Pompe à chaleur", "Insert bois", "Insert granulés", "Poêle à bois", "Poêle à granulés", "Ballon ECS", "Ballon thermodynamique", "Plancher chauffant", "Réseau de radiateurs", "Sanitaire", "Plomberie"]), (title: "Other", values: ["Add..."])]
     
@@ -30,42 +31,77 @@ class NewProjectViewController: UIViewController, UITableViewDataSource, UITable
         self.navigationItem.leftBarButtonItem = back
         let done = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(save))
         self.navigationItem.rightBarButtonItem = done
+        
+        if self.project != nil {
+            self.title = NSLocalizedString("Edit", comment: "")
+            self.navigationItem.backBarButtonItem?.title = "Cancel"
+            var i = 0
+            
+            for projectObject in projects[0].values {
+                if self.project?.type == projectObject {
+                    self.currentSelection = (title: projects[0].title, value: projects[0].values[i])
+                }
+                i = i + 1
+            }
+            
+            if self.currentSelection == nil {
+                self.currentSelection = (title: projects[1].title, value: projects[1].values[0])
+            }
+        }
+
     }
     
     func goBack() {
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        if self.project != nil {
+            _ = self.navigationController?.popViewController(animated: true)
+        }else {
+            self.navigationController?.dismiss(animated: true, completion: nil)
+
+        }
     }
 
     func save() {
-        //data for create new project
-        if self.currentSelection?.value == kAddString {
-            //ask for new name
-            ELVTAlert.showFormWithFields(controller: self,message: NSLocalizedString("Name of the project", comment: "") , fields: ["Nom"], completion: { (values) in
-                if values.count > 0 {
-                    let string = "Installation \(values[0])"
-                    
-                    APIRequests.newProject(type: string, client: self.client) { (results) in
-                        print(results)
-                        DispatchQueue.main.async {
-                            self.delegate.projectSuccessfullyCreated()
-                            self.navigationController?.dismiss(animated: true, completion: nil)
-                            //self.performSegue(withIdentifier: "segue", sender: self)
+        if currentSelection != nil {
+            //data for create new project
+            if self.currentSelection?.value == kAddString {
+                //ask for new name
+                ELVTAlert.showFormWithFields(controller: self,message: NSLocalizedString("Name of the project", comment: "") , fields: ["Nom"], completion: { (values) in
+                    if values.count > 0 {
+                        let string = "Installation \(values[0])"
+                        
+                        //FIXME: complete edit
+                        
+                        APIRequests.newProject(type: string, client: self.client) { (results) in
+                            print(results)
+                            DispatchQueue.main.async {
+                                self.delegate.projectSuccessfullyCreated()
+                                if self.project != nil {
+                                    _ = self.navigationController?.popViewController(animated: true)
+                                }else {
+                                    self.navigationController?.dismiss(animated: true, completion: nil)
+                                    
+                                }
+                            }
                         }
                     }
-                }
-            })
-        }else {
-            let string = "Installation \(self.currentSelection!.value)"
-            
-            APIRequests.newProject(type: string, client: self.client) { (results) in
-                print(results)
-                DispatchQueue.main.async {
-                    self.delegate.projectSuccessfullyCreated()
-                    self.navigationController?.dismiss(animated: true, completion: nil)
-                    //self.performSegue(withIdentifier: "segue", sender: self)
+                })
+            }else {
+                
+                let string = "Installation \(self.currentSelection!.value)"
+                
+                APIRequests.newProject(type: string, client: self.client) { (results) in
+                    print(results)
+                    DispatchQueue.main.async {
+                        self.delegate.projectSuccessfullyCreated()
+                        self.navigationController?.dismiss(animated: true, completion: nil)
+                        //self.performSegue(withIdentifier: "segue", sender: self)
+                    }
                 }
             }
+        }else{
+            ELVTAlert.showMessage(controller: self, message: NSLocalizedString("Select an option first", comment: ""), completion: { (done) in })
         }
+        
         
     }
     
