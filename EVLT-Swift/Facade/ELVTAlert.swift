@@ -45,4 +45,38 @@ struct ELVTAlert {
         }
     }
 
+    static func showFormWithFields(controller: UIViewController, message:String,  fields: [String], completion: @escaping  (_ results: Array<String>) -> Void) {
+        let alertController = UIAlertController(title: "", message: message, preferredStyle: .alert)
+       
+        let loginAction = UIAlertAction(title: NSLocalizedString("Save", comment: ""), style: .default) { [weak alertController] _ in
+            if let alertController = alertController {
+                var fieldObjects:[String] = []
+                for field in alertController.textFields! {
+                    fieldObjects.append(field.text!)
+                }
+                
+                completion(fieldObjects)
+            }
+        }
+        
+        for field in fields {
+            alertController.addTextField { textField in
+                textField.placeholder = field
+                
+                NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { notification in
+                    loginAction.isEnabled = textField.text != ""
+                }
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
+        
+        alertController.addAction(loginAction)
+        alertController.addAction(cancelAction)
+        controller.present(alertController, animated: true) {
+            
+        }
+    }
+        
+    
 }

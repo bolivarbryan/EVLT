@@ -17,8 +17,9 @@ class NewProjectViewController: UIViewController, UITableViewDataSource, UITable
     var delegate: NewProjectDelegate!
     @IBOutlet weak var tableView: UITableView!
     var client:Client!
+    var kAddString = NSLocalizedString("Add...", comment: "")
     
-    let projects = [(title: "Projects", values: ["Stove", "Boiler", "Heat Pump", "Thermodynamic balloon", "Solar" ]), (title: "Energy", values: ["Pellets", "Wood logs", "Gas", "Fuel", "Thermal", "PV" ])]
+    let projects = [(title: "Projects", values: ["Chaudière gaz", "Chaudière fioul", "Chaudière bois", "Chaudière granulés", "Pompe à chaleur", "Insert bois", "Insert granulés", "Poêle à bois", "Poêle à granulés", "Ballon ECS", "Ballon thermodynamique", "Plancher chauffant", "Réseau de radiateurs", "Sanitaire", "Plomberie"]), (title: "Other", values: ["Add..."])]
     
     var currentSelection:(title: String, value: String)? = nil
     
@@ -37,17 +38,35 @@ class NewProjectViewController: UIViewController, UITableViewDataSource, UITable
 
     func save() {
         //data for create new project
-        
-        let string = "Installation \(self.currentSelection!.value)"
-        
-        APIRequests.newProject(type: string, client: self.client) { (results) in
-            print(results)
-            DispatchQueue.main.async {
-                self.delegate.projectSuccessfullyCreated()
-                self.navigationController?.dismiss(animated: true, completion: nil)
-                //self.performSegue(withIdentifier: "segue", sender: self)
+        if self.currentSelection?.value == kAddString {
+            //ask for new name
+            ELVTAlert.showFormWithFields(controller: self,message: NSLocalizedString("Name of the project", comment: "") , fields: ["Nom"], completion: { (values) in
+                if values.count > 0 {
+                    let string = "Installation \(values[0])"
+                    
+                    APIRequests.newProject(type: string, client: self.client) { (results) in
+                        print(results)
+                        DispatchQueue.main.async {
+                            self.delegate.projectSuccessfullyCreated()
+                            self.navigationController?.dismiss(animated: true, completion: nil)
+                            //self.performSegue(withIdentifier: "segue", sender: self)
+                        }
+                    }
+                }
+            })
+        }else {
+            let string = "Installation \(self.currentSelection!.value)"
+            
+            APIRequests.newProject(type: string, client: self.client) { (results) in
+                print(results)
+                DispatchQueue.main.async {
+                    self.delegate.projectSuccessfullyCreated()
+                    self.navigationController?.dismiss(animated: true, completion: nil)
+                    //self.performSegue(withIdentifier: "segue", sender: self)
+                }
             }
         }
+        
     }
     
     override func didReceiveMemoryWarning() {
