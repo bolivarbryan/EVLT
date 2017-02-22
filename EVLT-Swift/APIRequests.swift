@@ -356,7 +356,7 @@ class APIRequests: NSObject {
         }
     }
   
-    class func getHeatingNetwork(projectID: String, completion: @escaping (_ results: [Network]) -> Void ) {
+    class func getHeatingNetwork(type: String, projectID: String, completion: @escaping (_ results: [Network]) -> Void ) {
         
         let postData = NSMutableData()
         postData.append("chantier_id=\(projectID)".data(using: String.Encoding.utf8)!)
@@ -371,15 +371,50 @@ class APIRequests: NSObject {
             //parsing data
             if let results = response["results"] as? Array<Dictionary<String, Any>> {
                 for networkObject in results {
-                    
-                    var network = Network(existing: networkObject["reseau_existant"] as! String, radiators:  networkObject["reseau_radiateur"] as! String, material:  networkObject["reseau_cuivre"] as! String, diameter:  networkObject["reseau_diametre"] as! String)
-                    network.name = networkObject["nom_reseau"] as? String
-                    network.netWorkId = networkObject["reseau_id"] as? String
-                    networks.append(network)
+                    print(networkObject)
+                    if (networkObject["type_reseau"] as! String) == "chauffage" {
+                        var network = Network(existing: networkObject["reseau_existant"] as! String, radiators:  networkObject["reseau_radiateur"] as! String, material:  networkObject["reseau_cuivre"] as! String, diameter:  networkObject["reseau_diametre"] as! String)
+                        network.name = networkObject["nom_reseau"] as? String
+                        network.netWorkId = networkObject["reseau_id"] as? String
+                        networks.append(network)
+                    }
                 }
             }
             
             completion(networks)
+        }
+        
+    }
+    
+    class func getECS(type: String, projectID: String, completion: @escaping (_ results: [ECS]) -> Void ) {
+        
+        let postData = NSMutableData()
+        postData.append("chantier_id=\(projectID)".data(using: String.Encoding.utf8)!)
+        postData.append("&action=OUVRE".data(using: String.Encoding.utf8)!)
+        
+        let url = serverURL + APIprojectNetwork + "?" + "chantier_id=\(projectID)" + "&action=OUVRE"
+        
+        APIRequests.sendForm(url: url, postData: postData){ response in
+            printResponse(response: response as AnyObject)
+            var ecsObjects:[ECS] = []
+            
+            //parsing data
+            if let results = response["results"] as? Array<Dictionary<String, Any>> {
+                for networkObject in results {
+                    
+                    if (networkObject["type_reseau"] as! String) == "ECS" {
+                        var ecs = ECS(name: networkObject["nom_reseau"] as! String, existant: networkObject["reseau_existant"] as! String, diameter:  networkObject["reseau_diametre"] as! String, material: networkObject["reseau_cuivre"] as! String)
+                            
+                        ecs.ecsID = networkObject["reseau_id"] as! String
+                        ecs.radiateur = networkObject["reseau_radiateur"] as! String
+                            
+                        
+                        ecsObjects.append(ecs)
+                    }
+                }
+            }
+            
+            completion(ecsObjects)
         }
         
     }
@@ -389,7 +424,7 @@ class APIRequests: NSObject {
         let postData = NSMutableData()
         postData.append("chantier_id=\(projectID)".data(using: String.Encoding.utf8)!)
         postData.append("&action=\(action)".data(using: String.Encoding.utf8)!)
-        postData.append("&type=ECS".data(using: String.Encoding.utf8)!)
+        postData.append("&type=chauffage".data(using: String.Encoding.utf8)!)
         postData.append("&nom=\(network.name!)".data(using: String.Encoding.utf8)!)
         postData.append("&existe=\(network.existing)".data(using: String.Encoding.utf8)!)
         postData.append("&radiateur=\(network.radiators)".data(using: String.Encoding.utf8)!)

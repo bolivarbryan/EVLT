@@ -39,6 +39,17 @@ class CommercialNoECSListViewController: UIViewController {
             vc.project = self.project
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        APIRequests.getECS(type: "ECS", projectID: "\(self.project.chantier_id)") { (response) in
+            DispatchQueue.main.async {
+                self.ecsObjects = response
+                self.tableView.reloadData()
+            }
+        }
+    }
 
 }
 

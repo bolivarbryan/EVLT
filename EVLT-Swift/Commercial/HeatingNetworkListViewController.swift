@@ -38,7 +38,7 @@ class HeatingNetworkListViewController: UIViewController {
     }
     
     func fetchData() {
-        APIRequests.getHeatingNetwork(projectID: "\(self.project.chantier_id)") { (response) in
+        APIRequests.getHeatingNetwork(type: "chauffage", projectID: "\(self.project.chantier_id)") { (response) in
             DispatchQueue.main.async {
                 self.networks = response
                 self.tableView.reloadData()

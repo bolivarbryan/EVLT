@@ -14,6 +14,7 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
     var currentPlace: Place!
     var zones:[Zone]!
     var networks: [Network]!
+    var ecsObjects: [ECS] = []
     
     //Contact information
     @IBOutlet weak var streetLabel: UILabel!
@@ -78,10 +79,21 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
             }
         }
         
-        APIRequests.getHeatingNetwork(projectID: "\(self.project.chantier_id)") { (response) in
+        APIRequests.getHeatingNetwork(type: "chauffage", projectID: "\(self.project.chantier_id)") { (response) in
             DispatchQueue.main.async {
                 self.networks = response
                 self.heatingLabel.text = "\(self.networks.count) " + NSLocalizedString("Heating Network", comment: "")
+                if self.networks.count != 1 {
+                    self.heatingLabel.text?.append("s")
+                }
+            }
+        }
+        
+        
+        APIRequests.getECS(type: "ECS", projectID: "\(self.project.chantier_id)") { (response) in
+            DispatchQueue.main.async {
+                self.ecsObjects = response
+                self.ecsLabel.text = "\(self.ecsObjects.count) " + NSLocalizedString("No ECS Networks", comment: "")
                 if self.networks.count != 1 {
                     self.heatingLabel.text?.append("s")
                 }
