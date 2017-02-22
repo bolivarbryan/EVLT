@@ -74,9 +74,9 @@ class ZoneDetailsViewController: UIViewController {
         if validForm == true {
             //API Request
             var zoneObject = Zone(name: self.nameLabel.text!, volume: self.volumeLabel.text!, walls: self.wallsLabel.text! , attic: self.atticLabel.text! , groundStaff: self.groundStaffLabel.text! , carpentry: self.carpentryLabel.text!)
-            var action = "NOUVEAU"
+            var action = kActionTypeNew
             if zone != nil {
-                action = "EXISTE"
+                action = kActionTypeUpdate
                 zoneObject.zoneID = zone?.zoneID
                 zoneObject.projectID = zone?.projectID
             }

@@ -12,7 +12,7 @@ class CommercialNoECSListViewController: UIViewController {
 
     var ecs: ECS? = nil
     var ecsObjects: [ECS]! = []
-    
+    var project: Project!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +34,10 @@ class CommercialNoECSListViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "NewECSSegue"{
+        let vc = segue.destination as! ECSViewController
+            vc.project = self.project
+        }
     }
 
 }
@@ -73,9 +75,20 @@ class ESCCell: UITableViewCell {
     @IBOutlet weak var diameterLabel: UILabel!
 }
 
+//TODO: separate model in other file
 struct ECS {
     var name: String
     var existant: String
     var diameter: String
     var material: String
+    var radiateur: String = "N/A"
+    var ecsID: String? = nil
+    var type:String = "ECS"
+    
+    init(name:String, existant: String, diameter: String, material: String) {
+        self.name = name
+        self.existant = existant
+        self.diameter = diameter
+        self.material = material
+    }
 }

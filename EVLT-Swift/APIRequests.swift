@@ -297,10 +297,35 @@ class APIRequests: NSObject {
         
     }
     
-    class func projectNetwork(){
-        APIRequests.simplePost(endpoint: serverURL + APIprojectNetwork, parameters: [:]){ response in
-            printResponse(response: response as AnyObject)
+    class func projectNetwork(ecs: ECS, action: String, chantierID: String, completion: @escaping () -> Void){
+        print(ecs)
+        print(action)
+        print(chantierID)
+        
+        let postData = NSMutableData()
+        postData.append("chantier_id=\(chantierID)".data(using: String.Encoding.utf8)!)
+        postData.append("&action=\(action)".data(using: String.Encoding.utf8)!)
+        
+        postData.append("&type=\(ecs.type)".data(using: String.Encoding.utf8)!)
+        postData.append("&nom=\(ecs.name)".data(using: String.Encoding.utf8)!)
+        postData.append("&existe=\(ecs.existant)".data(using: String.Encoding.utf8)!)
+        postData.append("&radiateur=\(ecs.radiateur)".data(using: String.Encoding.utf8)!)
+        postData.append("&cuivre=\(ecs.material)".data(using: String.Encoding.utf8)!)
+        postData.append("&diametre=\(ecs.diameter)".data(using: String.Encoding.utf8)!)
+
+        
+        if action == kActionTypeUpdate {
+            postData.append("&reseau_id=\(ecs.ecsID)".data(using: String.Encoding.utf8)!)
         }
+        
+        
+        let url = serverURL + APIprojectNetwork + "?"
+        
+        APIRequests.sendForm(url: url, postData: postData){ response in
+            printResponse(response: response as AnyObject)
+            completion()
+        }
+      
     }
     
     class func getDate(){

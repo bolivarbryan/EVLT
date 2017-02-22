@@ -31,6 +31,9 @@ let APInewClient = "nouveau_client.php"
 let APInewProject = "nouveau_projet.php"
 let APIprojectStatus = "statut_projet.php"
 
+let kActionTypeNew = "NOUVEAU"
+let kActionTypeUpdate = "EXISTE"
+
 
 //session Keys
 
@@ -58,3 +61,4 @@ let kSaveString = NSLocalizedString("save.string", comment: "Save")
 let kInvalidEmail = NSLocalizedString("email.invalid", comment: "Invalid email")
 let kcellphoneInvalid = NSLocalizedString("cellphone.invalid", comment: "Invalid cellphone")
 let kNewZone = NSLocalizedString("New zone", comment: "New zone")
+

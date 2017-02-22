@@ -124,6 +124,10 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
                 vc.project = self.project
                 vc.client = self.client
                 vc.delegate = self
+            case "ECSSegue":
+                let vc = segue.destination as! CommercialNoECSListViewController
+                vc.project = self.project
+
             default:
                 print("no selection")
             }

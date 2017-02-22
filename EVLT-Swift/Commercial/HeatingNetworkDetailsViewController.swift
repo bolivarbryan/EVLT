@@ -75,9 +75,9 @@ class HeatingNetworkDetailsViewController: UIViewController {
             var netWorkObject = Network(existing: self.existingTxt.text!, radiators: "N/A", material: self.copperTxt.text!, diameter: self.diameterTxt.text!)
             
             netWorkObject.name = self.name.text
-            var action = "NOUVEAU"
+            var action = kActionTypeNew
             if network != nil {
-                action = "EXISTE"
+                action = kActionTypeUpdate
                 netWorkObject.projectId = network?.projectId
                 netWorkObject.netWorkId = network?.netWorkId
             }

@@ -13,17 +13,57 @@ class ECSViewController: UIViewController {
     var name: String = NSLocalizedString("Name", comment: "")
     var existant: Bool = false
     var material: String = ""
-    var diametre: String = "Insert a diameter"
+    var diametre: String = "Insérer un Diametre"
     let materials = [NSLocalizedString("Copper", comment: ""), "PER", NSLocalizedString("Steel", comment: "")]
     
-    let kCellIdentifier = "cellIdentifier"
+    let kCellIdentifier = "cellIdentifier"    
+    var selectedIndexPath:IndexPath? = nil
+    var project: Project!
+    var ecs: ECS? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let newButton = UIBarButtonItem(title: NSLocalizedString("Save", comment: ""), style: .done, target: self, action: #selector(new))
+        self.navigationItem.rightBarButtonItem = newButton
+       
     }
-
+    
+    func new() {
+        //SAVE ECS
+        if material == "" {
+            material = "N/A"
+        }
+        
+        if diametre == "Insérer un Diametre" {
+            diametre == "NC"
+        }
+        
+        var existantString = "existant"
+        if existant == false {
+            existantString = "a creer"
+        }
+        
+        if name == "" {
+            name = "N/A"
+        }
+        
+        var action = kActionTypeNew
+        
+        if let e = ecs {
+            action = kActionTypeUpdate
+        }
+        
+        var ecsObject = ECS(name: name, existant: existantString, diameter: diametre, material: material)
+        ecsObject.radiateur = "N/A"
+        
+        APIRequests.projectNetwork(ecs: ecsObject, action: action, chantierID: "\(self.project.chantier_id)") {
+            
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
     
 }
@@ -58,12 +98,17 @@ extension ECSViewController: UITableViewDataSource{
         case 1:
             return "Existant?"
         case 2:
-            return "Material"
+            return "Choisir le matériel"
         case 3:
             return "Diametre"
         default:
             return ""
         }
+    }
+    
+    func toggleExistant() {
+        existant = !existant
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,14 +118,19 @@ extension ECSViewController: UITableViewDataSource{
             //insert a name
             let cell = UITableViewCell(style: .default, reuseIdentifier: kCellIdentifier)
             cell.textLabel?.text = name
+            cell.textLabel?.textColor = UIColor.gray
             return cell
         case 1:
             //existant
             let cell = tableView.dequeueReusableCell(withIdentifier: "SwitchCell") as! SwitchCell
             
             cell.fieldNameLabel.text = NSLocalizedString("Existant?", comment: "")
-            
+            cell.fieldNameLabel?.textColor = UIColor.gray
+
             cell.switchField.isOn = self.existant
+            
+            cell.switchField.addTarget(self, action: #selector(toggleExistant), for: .valueChanged)
+            
             return cell
             
         case 2:
@@ -88,12 +138,22 @@ extension ECSViewController: UITableViewDataSource{
             //insert a name
             let cell = UITableViewCell(style: .default, reuseIdentifier: kCellIdentifier)
             cell.textLabel?.text = self.materials[indexPath.row]
+            cell.textLabel?.textColor = UIColor.gray
+
+            if indexPath == selectedIndexPath {
+             cell.accessoryType = .checkmark
+            }else {
+             cell.accessoryType = .none
+            }
+            
             return cell
             
         case 3:
             //diametre
             let cell = UITableViewCell(style: .default, reuseIdentifier: kCellIdentifier)
             cell.textLabel?.text = diametre
+            cell.textLabel?.textColor = UIColor.gray
+
             return cell
         default:
             //this never should be called
@@ -107,17 +167,39 @@ extension ECSViewController: UITableViewDataSource{
 
 extension ECSViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: use actionpicker for fill form and reload tableview
-        
+        switch indexPath.section {
+        case 0:
+            ELVTAlert.showFormWithFields(controller: self, message: "Insérer un nom", fields: ["Nom"], completion: { (strings) in
+                if let s = strings.last {
+                    self.name = s
+                    DispatchQueue.main.async {
+                        self.tableView.reloadRows(at: [indexPath], with: .fade)
+                    }
+                }
+            })
+        case 2:
+            self.material = self.materials[indexPath.row]
+            self.selectedIndexPath = indexPath
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        case 3:
+            ELVTAlert.showFormWithFields(controller: self, message: "Insérer un Diametre", fields: ["Diametre"], completion: { (strings) in
+                if let s = strings.last {
+                    self.diametre = s
+                    DispatchQueue.main.async {
+                        self.tableView.reloadRows(at: [indexPath], with: .fade)
+                    }
+                }
+            })
+        default: break
+        }
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
-class FormTableViewCell: UITableViewCell {
-    
-}
-
+//TODO: Move SwitchCell to its own File
 class SwitchCell: UITableViewCell {
     @IBOutlet weak var fieldNameLabel: UILabel!
     @IBOutlet weak var switchField: UISwitch!
-    
 }
