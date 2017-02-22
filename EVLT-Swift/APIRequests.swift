@@ -492,11 +492,16 @@ class APIRequests: NSObject {
         }
     }
     
-    class func newProject(type: String, client: Client, completion:@escaping (_ results: Any) -> Void){
+    class func newProject(edit:Bool, type: String, client: Client, completion:@escaping (_ results: Any) -> Void){
         
         let postData = NSMutableData(data:"type=\(type)".data(using: String.Encoding.utf8)!)
         postData.append("&client_id=\(client.clientID)".data(using: String.Encoding.utf8)!)
-
+        
+        if edit == true {
+            postData.append("&action=EXISTE".data(using: String.Encoding.utf8)!)
+        }
+        
+        
         APIRequests.sendForm(url:serverURL + APInewProject + "?", postData: postData){ response in
             printResponse(response: response as AnyObject)
             completion(response as AnyObject)

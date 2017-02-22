@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommercialProjectDetailsViewController: UIViewController {
+class CommercialProjectDetailsViewController: UIViewController, NewProjectDelegate {
     var project: Project!
     var client: Client!
     var currentPlace: Place!
@@ -122,6 +122,8 @@ class CommercialProjectDetailsViewController: UIViewController {
             case "EditProjectSegue":
                 let vc = segue.destination as! NewProjectViewController
                 vc.project = self.project
+                vc.client = self.client
+                vc.delegate = self
             default:
                 print("no selection")
             }
@@ -129,5 +131,12 @@ class CommercialProjectDetailsViewController: UIViewController {
      
     }
     
-
+    //Delegates for new project
+    func projectCanceled() {
+        
+    }
+    
+    func projectSuccessfullyCreated() {
+        
+    }
 }

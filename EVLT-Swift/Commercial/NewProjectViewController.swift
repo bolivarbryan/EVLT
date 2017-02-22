@@ -61,25 +61,26 @@ class NewProjectViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     func save() {
+        let edit = (project != nil)
+        
         if currentSelection != nil {
             //data for create new project
             if self.currentSelection?.value == kAddString {
                 //ask for new name
                 ELVTAlert.showFormWithFields(controller: self,message: NSLocalizedString("Name of the project", comment: "") , fields: ["Nom"], completion: { (values) in
                     if values.count > 0 {
-                        let string = "Installation \(values[0])"
+                        let string = "\(values[0])"
                         
                         //FIXME: complete edit
                         
-                        APIRequests.newProject(type: string, client: self.client) { (results) in
+                        APIRequests.newProject(edit:edit, type: string, client: self.client) { (results) in
                             print(results)
                             DispatchQueue.main.async {
                                 self.delegate.projectSuccessfullyCreated()
-                                if self.project != nil {
+                                if edit == true {
                                     _ = self.navigationController?.popViewController(animated: true)
                                 }else {
                                     self.navigationController?.dismiss(animated: true, completion: nil)
-                                    
                                 }
                             }
                         }
@@ -87,14 +88,17 @@ class NewProjectViewController: UIViewController, UITableViewDataSource, UITable
                 })
             }else {
                 
-                let string = "Installation \(self.currentSelection!.value)"
+                let string = "\(self.currentSelection!.value)"
                 
-                APIRequests.newProject(type: string, client: self.client) { (results) in
+                APIRequests.newProject(edit: edit, type: string, client: self.client) { (results) in
                     print(results)
                     DispatchQueue.main.async {
                         self.delegate.projectSuccessfullyCreated()
-                        self.navigationController?.dismiss(animated: true, completion: nil)
-                        //self.performSegue(withIdentifier: "segue", sender: self)
+                        if edit == true {
+                            _ = self.navigationController?.popViewController(animated: true)
+                        }else {
+                            self.navigationController?.dismiss(animated: true, completion: nil)
+                        }
                     }
                 }
             }
