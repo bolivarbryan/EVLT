@@ -35,6 +35,44 @@ class NewClientViewController: UIViewController {
         self.phoneTxt.delegate = self
         self.cellPhoneTxt.delegate = self
         capitalizeTextField(textFields: [firstNameTxt, lastNameTxt, address, streetTxt, postalCodeTxt, cityTxt, cellPhoneTxt, phoneTxt])
+        
+        self.firstNameTxt.addTarget(self, action: #selector(next(_:)), for: .editingDidEndOnExit)
+        self.lastNameTxt.addTarget(self, action: #selector(next(_:)), for: .editingDidEndOnExit)
+        self.address.addTarget(self, action: #selector(next(_:)), for: .editingDidEndOnExit)
+        self.streetTxt.addTarget(self, action: #selector(next(_:)), for: .editingDidEndOnExit)
+        self.postalCodeTxt.addTarget(self, action: #selector(next(_:)), for: .editingDidEndOnExit)
+        self.cityTxt.addTarget(self, action: #selector(next(_:)), for: .editingDidEndOnExit)
+        self.cellPhoneTxt.addTarget(self, action: #selector(next(_:)), for: .editingDidEndOnExit)
+        self.phoneTxt.addTarget(self, action: #selector(next(_:)), for: .editingDidEndOnExit)
+        self.emailTxt.addTarget(self, action: #selector(next(_:)), for: .editingDidEndOnExit)
+        
+
+    }
+    
+    @IBAction func next(_ sender: UITextField)  {
+        switch sender {
+        case firstNameTxt:
+            lastNameTxt.becomeFirstResponder()
+        case lastNameTxt:
+            address.becomeFirstResponder()
+        case address:
+            streetTxt.becomeFirstResponder()
+        case streetTxt:
+            postalCodeTxt.becomeFirstResponder()
+        case postalCodeTxt:
+            cityTxt.becomeFirstResponder()
+        case cityTxt:
+            cellPhoneTxt.becomeFirstResponder()
+        case cellPhoneTxt:
+            phoneTxt.becomeFirstResponder()
+        case phoneTxt:
+            emailTxt.becomeFirstResponder()
+        case emailTxt:
+            self.view.endEditing(true)
+    
+        default:
+            print("none")
+        }
     }
     
     func capitalizeTextField(textFields: [UITextField]){
@@ -206,8 +244,22 @@ extension NewClientViewController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
         let allowedCharacters = CharacterSet.decimalDigits
         let characterSet = CharacterSet(charactersIn: string)
-        return allowedCharacters.isSuperset(of: characterSet)
+        var valid = allowedCharacters.isSuperset(of: characterSet)
+        
+        if valid == false {
+            //newline
+            let allowedCharacters = CharacterSet.newlines
+            let characterSet = CharacterSet(charactersIn: string)
+            valid = allowedCharacters.isSuperset(of: characterSet)
+        }
+        
+        return valid
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
     }
 }
