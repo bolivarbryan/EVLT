@@ -94,9 +94,7 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
             DispatchQueue.main.async {
                 self.ecsObjects = response
                 self.ecsLabel.text = "\(self.ecsObjects.count) " + NSLocalizedString("No ECS Networks", comment: "")
-                if self.networks.count != 1 {
-                    self.heatingLabel.text?.append("s")
-                }
+                
             }
         }
         
