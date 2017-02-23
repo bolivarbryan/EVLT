@@ -26,6 +26,15 @@ class ECSViewController: UIViewController {
         
         let newButton = UIBarButtonItem(title: NSLocalizedString("Save", comment: ""), style: .done, target: self, action: #selector(new))
         self.navigationItem.rightBarButtonItem = newButton
+        
+        //came for edit?
+        if let e = ecs {
+            name = e.name
+            existant = e.existant == "existant"
+            material = e.material
+            diametre = e.diameter
+            self.tableView.reloadData()
+        }
        
     }
     
@@ -143,7 +152,13 @@ extension ECSViewController: UITableViewDataSource{
             let cell = UITableViewCell(style: .default, reuseIdentifier: kCellIdentifier)
             cell.textLabel?.text = self.materials[indexPath.row].name
             cell.textLabel?.textColor = UIColor.gray
-
+            
+            if selectedIndexPath == nil {
+                if self.materials[indexPath.row].name == material {
+                    self.selectedIndexPath = indexPath
+                }
+            }
+            
             if indexPath == selectedIndexPath {
              cell.accessoryType = .checkmark
             }else {

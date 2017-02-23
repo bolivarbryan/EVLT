@@ -31,7 +31,11 @@ class HeatingNetworkDetailsViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = newButton
 
         if let n = self.network {
-            
+            self.material = n.material
+            self.diametre = n.diameter
+            self.name = n.name!
+            self.existant = (n.existing  == "existant")
+            self.tableView.reloadData()
         }
     }
 
@@ -153,6 +157,12 @@ extension HeatingNetworkDetailsViewController: UITableViewDataSource{
             let cell = UITableViewCell(style: .default, reuseIdentifier: kCellIdentifier)
             cell.textLabel?.text = self.materials[indexPath.row].name
             cell.textLabel?.textColor = UIColor.gray
+            
+            if selectedIndexPath == nil {
+                if self.materials[indexPath.row].name == material {
+                    self.selectedIndexPath = indexPath
+                }
+            }
             
             if indexPath == selectedIndexPath {
                 cell.accessoryType = .checkmark

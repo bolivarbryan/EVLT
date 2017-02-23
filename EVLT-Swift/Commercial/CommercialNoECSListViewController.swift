@@ -37,6 +37,7 @@ class CommercialNoECSListViewController: UIViewController {
         if segue.identifier == "NewECSSegue"{
         let vc = segue.destination as! ECSViewController
             vc.project = self.project
+            vc.ecs = self.ecs
         }
     }
     
@@ -76,6 +77,8 @@ extension CommercialNoECSListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //details
         tableView.deselectRow(at: indexPath, animated: true)
+        self.ecs = ecsObjects[indexPath.row]
+        self.performSegue(withIdentifier: "NewECSSegue", sender: self)
     }
 }
 
