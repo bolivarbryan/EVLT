@@ -75,6 +75,7 @@ extension CommercialNoECSListViewController: UITableViewDataSource {
 extension CommercialNoECSListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //details
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

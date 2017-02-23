@@ -13,8 +13,8 @@ class ECSViewController: UIViewController {
     var name: String = NSLocalizedString("Name", comment: "")
     var existant: Bool = false
     var material: String = ""
-    var diametre: String = "Insérer un Diametre"
-    let materials = [NSLocalizedString("Copper", comment: ""), "PER", NSLocalizedString("Steel", comment: "")]
+    var diametre: String = "Insérer un diametre"
+    let materials = [(name: NSLocalizedString("Copper", comment: ""), values:["10","12","14","15","16","18","20","22","18","32","35"] ), (name:"PER", values: ["16","20","25"]), (name:NSLocalizedString("Steel", comment: ""), values: ["12 x 17","15 x 21","20 x 27","26 x 34","33 x 42","40 x 49", "50 x 60"])]
     
     let kCellIdentifier = "cellIdentifier"    
     var selectedIndexPath:IndexPath? = nil
@@ -37,8 +37,8 @@ class ECSViewController: UIViewController {
             material = "N/A"
         }
         
-        if diametre == "Insérer un Diametre" {
-            diametre == "NC"
+        if diametre == "Insérer un diametre" {
+            diametre = "NC"
         }
         
         var existantString = "existant"
@@ -60,7 +60,9 @@ class ECSViewController: UIViewController {
         ecsObject.radiateur = "N/A"
         
         APIRequests.projectNetwork(ecs: ecsObject, action: action, chantierID: "\(self.project.chantier_id)") {
-            
+            DispatchQueue.main.async {
+                _ = self.navigationController?.popViewController(animated: true)
+            }
         }
     }
     
@@ -139,7 +141,7 @@ extension ECSViewController: UITableViewDataSource{
             //material
             //insert a name
             let cell = UITableViewCell(style: .default, reuseIdentifier: kCellIdentifier)
-            cell.textLabel?.text = self.materials[indexPath.row]
+            cell.textLabel?.text = self.materials[indexPath.row].name
             cell.textLabel?.textColor = UIColor.gray
 
             if indexPath == selectedIndexPath {
@@ -180,20 +182,17 @@ extension ECSViewController: UITableViewDelegate {
                 }
             })
         case 2:
-            self.material = self.materials[indexPath.row]
+            self.material = self.materials[indexPath.row].name
             self.selectedIndexPath = indexPath
             DispatchQueue.main.async {
+                self.diametre = self.materials[(self.selectedIndexPath?.row)!].values[0]
                 self.tableView.reloadData()
             }
         case 3:
-            ELVTAlert.showFormWithFields(controller: self, message: "Insérer un Diametre", fields: ["Diametre"], completion: { (strings) in
-                if let s = strings.last {
-                    self.diametre = s
-                    DispatchQueue.main.async {
-                        self.tableView.reloadRows(at: [indexPath], with: .fade)
-                    }
-                }
-            })
+            if self.selectedIndexPath != nil {
+            EVLTPicker.sharedInstance.showPicker(inController: self, withMessage: "Insérer un diametre", values: self.materials[(self.selectedIndexPath?.row)!].values)
+            EVLTPicker.sharedInstance.evltPickerDelegate = self
+        }
         default: break
         }
         self.tableView.deselectRow(at: indexPath, animated: true)
@@ -204,4 +203,14 @@ extension ECSViewController: UITableViewDelegate {
 class SwitchCell: UITableViewCell {
     @IBOutlet weak var fieldNameLabel: UILabel!
     @IBOutlet weak var switchField: UISwitch!
+}
+
+extension ECSViewController: EvltPickerDelegate {
+    func pickerDismissed(index: Int?) {
+        self.diametre = self.materials[(self.selectedIndexPath?.row)!].values[index!]
+        DispatchQueue.main.async {
+            self.tableView.reloadRows(at: [self.selectedIndexPath!], with: .fade)
+        }
+        self.tableView.reloadData()
+    }
 }
