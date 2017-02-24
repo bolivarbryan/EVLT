@@ -18,6 +18,21 @@ class TechnicianCommentsViewController: UIViewController {
         if self.project.comments != nil {
             self.textView.text = project.comments!
         }
+        let newButton = UIBarButtonItem(title: NSLocalizedString("Save", comment: ""), style: .done, target: self, action: #selector(new))
+        self.navigationItem.rightBarButtonItem = newButton
+    }
+    
+    
+    
+    func new() {
+        if let comment = self.textView.text {
+            // api request
+            APIRequests.saveComment(project: project, comment: comment, completion: { (result) in
+                DispatchQueue.main.async {
+                    _ = self.navigationController?.popViewController(animated: true)
+                }
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -268,10 +268,20 @@ class APIRequests: NSObject {
         }
     }
     
-    class func commentaires(){
-        APIRequests.simplePost(endpoint: serverURL + APIcommentaires, parameters: [:]){ response in
+    class func saveComment(project: Project, comment: String, completion: @escaping (_ results: Any) -> Void ) {
+        
+        let postData = NSMutableData()
+        postData.append("chantier_id=\(project.chantier_id)".data(using: String.Encoding.utf8)!)
+        postData.append("&statut=FERME".data(using: String.Encoding.utf8)!)
+        postData.append("&commentaire=\(comment)".data(using: String.Encoding.utf8)!)
+        
+        let url = serverURL + APIcommentaires + "?"
+       
+        APIRequests.sendForm(url: url, postData: postData){ response in
             printResponse(response: response as AnyObject)
+            completion(response as AnyObject)
         }
+        
     }
     
     class func coordinatesSite(project:Project, place: Place, status: String, completion: @escaping (_ results: Any) -> Void ) {
