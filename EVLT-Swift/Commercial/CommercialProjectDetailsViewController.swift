@@ -115,6 +115,7 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
                         let date = EVLTDateFormatter.stringFromDate(date: p.date_contact)
                         self.dateLabel.text = "\(p.duree_chantier!) \(p.unite_temps!), \(date)"
                     }
+                    self.commentsLabel.text = p.comments!
                 }
               
              }
@@ -149,6 +150,9 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
                 vc.project = self.project
             case "DateSegue":
                 let vc = segue.destination as! DateViewController
+                vc.project = self.project
+            case "CommentsSegue":
+                let vc = segue.destination as! TechnicianCommentsViewController
                 vc.project = self.project
 
             default:

@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EVLT-Swift/Commercial/CommercialProjectDetailsViewController.swift"
-            timestampString = "509643106.133475"
+            timestampString = "509650619.830356"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "CommercialProjectDetailsViewController"
             landmarkType = "3">
          </BreakpointContent>

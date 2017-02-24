@@ -9,11 +9,15 @@
 import UIKit
 
 class TechnicianCommentsViewController: UIViewController {
-
+    var project: Project!
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if self.project.comments != nil {
+            self.textView.text = project.comments!
+        }
     }
 
     override func didReceiveMemoryWarning() {

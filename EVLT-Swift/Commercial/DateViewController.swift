@@ -17,7 +17,7 @@ class DateViewController: UIViewController {
     let hourOptions = ["Heure(s)", "Jour(s)", "Semaine(s)"]
     
     //max number of hours, change its value for your requirements
-    let kMaxCount = 999
+    let kMaxCount = 20
     
     var project: Project!
     var date: Date! = Date()

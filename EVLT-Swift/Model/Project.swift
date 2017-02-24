@@ -38,6 +38,7 @@ class Project {
     var date_contact: Date
     var unite_temps: String?
     var duree_chantier: String?
+    var comments: String?
     
     init(tva: Float, prix_ttc: PriceTCC, type: String, date_contact:Date, statut_technicien:String, client_id: Int, contact:String, status: ProjectStatus, chantier_id: Int, statut_administratif: ProjectAdminStatus,  prix_ht: Int ) {
         self.tva = tva
@@ -79,6 +80,7 @@ class Project {
         self.date_contact = EVLTDateFormatter.dateFromSring(string: dictionaryObject["date"] as! String)
         self.unite_temps = dictionaryObject["unite_temps"] as! String
         self.duree_chantier = dictionaryObject["duree_chantier"] as! String
+        self.comments = dictionaryObject["commentaire"] as! String
     }
 }
 

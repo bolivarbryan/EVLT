@@ -27,6 +27,8 @@
 		9373DEE31DF6FA8500321E47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373DEE21DF6FA8500321E47 /* User.swift */; };
 		938678901E607BB700BF6BD7 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9386788F1E607BB700BF6BD7 /* DateViewController.swift */; };
 		938678921E60809D00BF6BD7 /* EVLTDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938678911E60809D00BF6BD7 /* EVLTDateFormatter.swift */; };
+		9388A7C51E608E5D00AC7597 /* TechnicianSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9388A7C41E608E5D00AC7597 /* TechnicianSelectionViewController.swift */; };
+		9388A7C71E60A71C00AC7597 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9388A7C61E60A71C00AC7597 /* CommentsViewController.swift */; };
 		93907C261E5D2624004F4216 /* CommercialNoECSListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93907C251E5D2624004F4216 /* CommercialNoECSListViewController.swift */; };
 		93907C281E5D2D01004F4216 /* ECSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93907C271E5D2D01004F4216 /* ECSViewController.swift */; };
 		939E73151E53AB72003197BC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E73141E53AB72003197BC /* SettingsViewController.swift */; };
@@ -118,6 +120,8 @@
 		9373DEE21DF6FA8500321E47 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
 		9386788F1E607BB700BF6BD7 /* DateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateViewController.swift; path = Commercial/DateViewController.swift; sourceTree = "<group>"; };
 		938678911E60809D00BF6BD7 /* EVLTDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EVLTDateFormatter.swift; path = Facade/EVLTDateFormatter.swift; sourceTree = "<group>"; };
+		9388A7C41E608E5D00AC7597 /* TechnicianSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TechnicianSelectionViewController.swift; path = Commercial/TechnicianSelectionViewController.swift; sourceTree = "<group>"; };
+		9388A7C61E60A71C00AC7597 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentsViewController.swift; path = Commercial/CommentsViewController.swift; sourceTree = "<group>"; };
 		93907C251E5D2624004F4216 /* CommercialNoECSListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommercialNoECSListViewController.swift; path = Commercial/CommercialNoECSListViewController.swift; sourceTree = "<group>"; };
 		93907C271E5D2D01004F4216 /* ECSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ECSViewController.swift; path = Commercial/ECSViewController.swift; sourceTree = "<group>"; };
 		939E73141E53AB72003197BC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -362,6 +366,8 @@
 				93907C251E5D2624004F4216 /* CommercialNoECSListViewController.swift */,
 				93907C271E5D2D01004F4216 /* ECSViewController.swift */,
 				9386788F1E607BB700BF6BD7 /* DateViewController.swift */,
+				9388A7C41E608E5D00AC7597 /* TechnicianSelectionViewController.swift */,
+				9388A7C61E60A71C00AC7597 /* CommentsViewController.swift */,
 			);
 			name = Commercial;
 			sourceTree = "<group>";
@@ -639,6 +645,7 @@
 				93FA56111DC71A6F00C07EB7 /* AdministrativeProgrammingViewController.swift in Sources */,
 				93907C261E5D2624004F4216 /* CommercialNoECSListViewController.swift in Sources */,
 				93FA56081DC6A14300C07EB7 /* TechnicianCommentsViewController.swift in Sources */,
+				9388A7C51E608E5D00AC7597 /* TechnicianSelectionViewController.swift in Sources */,
 				93706A9D1E5DDF740017670D /* EVLTPicker.swift in Sources */,
 				93FA56151DC71D1300C07EB7 /* AdministrativePaymentViewController.swift in Sources */,
 				93D29DB51E58F56000B49572 /* ZonesViewController.swift in Sources */,
@@ -660,6 +667,7 @@
 				93353E7F1DE761A000C69F4E /* Place.swift in Sources */,
 				93B741A61E3974D600DDB4FA /* Project.swift in Sources */,
 				93D29DB71E58F6FE00B49572 /* Zone.swift in Sources */,
+				9388A7C71E60A71C00AC7597 /* CommentsViewController.swift in Sources */,
 				938678921E60809D00BF6BD7 /* EVLTDateFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
