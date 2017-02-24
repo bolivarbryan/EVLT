@@ -58,16 +58,18 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
 
     func fetchProjectDetails(completion: @escaping (_ completion: Project?) -> Void) {
         
+        //Project Details
         APIRequests.importProjectDetails(chantierID: "\(self.project.chantier_id)") { (projectObject) in
             print(projectObject.0! as Project)
             print(projectObject.1! as Place)
+            self.project = projectObject.0! as Project
             if let place = projectObject.1 {
                 self.currentPlace = place
-            
                 completion(nil)
             }
         }
         
+        //Zones Project
         APIRequests.zonesProject(projectID: "\(self.project.chantier_id)") { (zones) in
             print(zones)
             self.zones = zones
@@ -79,6 +81,7 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
             }
         }
         
+        //Heating network
         APIRequests.getHeatingNetwork(type: "chauffage", projectID: "\(self.project.chantier_id)") { (response) in
             DispatchQueue.main.async {
                 self.networks = response
@@ -89,7 +92,7 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
             }
         }
         
-        
+        //ECS
         APIRequests.getECS(type: "ECS", projectID: "\(self.project.chantier_id)") { (response) in
             DispatchQueue.main.async {
                 self.ecsObjects = response
@@ -104,9 +107,16 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
         super.viewWillAppear(animated)
         fetchProjectDetails { (projectObject) in
             DispatchQueue.main.async {
-            self.streetLabel.text = "\(self.currentPlace.number), \(self.currentPlace.street)"
-            self.addressLabel.text = "\(self.currentPlace.postalCode), \(self.currentPlace.city)"
-            self.nameLabel.text = "\(self.client.fullName())"
+                self.streetLabel.text = "\(self.currentPlace.number), \(self.currentPlace.street)"
+                self.addressLabel.text = "\(self.currentPlace.postalCode), \(self.currentPlace.city)"
+                self.nameLabel.text = "\(self.client.fullName())"
+                if let p = self.project {
+                    if p.duree_chantier != "" {
+                        let date = EVLTDateFormatter.stringFromDate(date: p.date_contact)
+                        self.dateLabel.text = "\(p.duree_chantier!) \(p.unite_temps!), \(date)"
+                    }
+                }
+              
              }
         }
     }
@@ -136,6 +146,9 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
                 vc.delegate = self
             case "ECSSegue":
                 let vc = segue.destination as! CommercialNoECSListViewController
+                vc.project = self.project
+            case "DateSegue":
+                let vc = segue.destination as! DateViewController
                 vc.project = self.project
 
             default:

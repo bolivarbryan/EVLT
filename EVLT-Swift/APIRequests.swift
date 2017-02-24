@@ -334,6 +334,24 @@ class APIRequests: NSObject {
         }
     }
     
+    class func createDateOfProject(project: Project, status: String, date: String, unit: String, duration: String, completion: @escaping (_ result: Any?) -> Void) {
+        
+        let postData = NSMutableData()
+        postData.append("chantier_id=\(project.chantier_id)".data(using: String.Encoding.utf8)!)
+        postData.append("&statut=\(status)".data(using: String.Encoding.utf8)!)
+        postData.append("&date=\(date)".data(using: String.Encoding.utf8)!)
+        postData.append("&unite=\(unit)".data(using: String.Encoding.utf8)!)
+        postData.append("&duree=\(duration)".data(using: String.Encoding.utf8)!)
+        
+        let url = serverURL + APIdate + "?" + "chantier_id=\(project.chantier_id)"
+        
+        APIRequests.sendForm(url: url, postData: postData){ response in
+            printResponse(response: response as AnyObject)
+            
+            completion(nil)
+        }
+    }
+    
     class func importProjectDetails(chantierID: String, completion: @escaping (_ project: Project?, _ place: Place?) -> Void){
         
         let postData = NSMutableData(data:"chantier_id=\(chantierID)".data(using: String.Encoding.utf8)!)

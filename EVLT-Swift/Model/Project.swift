@@ -26,7 +26,6 @@ class Project {
     var tva: Float = 0
     var prix_ttc: PriceTCC
     var type: String
-    var date_contact: Date
     var statut_technicien: String
     var client_id: Int
     var contact: String
@@ -35,6 +34,10 @@ class Project {
     var statut_administratif: ProjectAdminStatus
     var prix_ht: Int
     
+    //date
+    var date_contact: Date
+    var unite_temps: String?
+    var duree_chantier: String?
     
     init(tva: Float, prix_ttc: PriceTCC, type: String, date_contact:Date, statut_technicien:String, client_id: Int, contact:String, status: ProjectStatus, chantier_id: Int, statut_administratif: ProjectAdminStatus,  prix_ht: Int ) {
         self.tva = tva
@@ -72,6 +75,10 @@ class Project {
         self.chantier_id = Int(dictionaryObject["chantier_id"] as! String)!
         self.statut_administratif = .toBeProggramed
         self.prix_ttc = PriceTCC.init(rawValue: dictionaryObject["prix_ttc"] as! String) ?? .notAvailable
+        
+        self.date_contact = EVLTDateFormatter.dateFromSring(string: dictionaryObject["date"] as! String)
+        self.unite_temps = dictionaryObject["unite_temps"] as! String
+        self.duree_chantier = dictionaryObject["duree_chantier"] as! String
     }
 }
 
