@@ -10,11 +10,13 @@ target 'EVLT-Swift' do
   pod 'JTCalendar', '~> 2.0'
   pod 'Alamofire', '~> 4.0'
   pod 'DateTools'
-  pod 'SDWebImage', '~>3.8'
   pod 'DGActivityIndicatorView'
   pod 'MXParallaxHeader'
   pod 'Toaster', '~> 2.0'
   pod 'SwiftyJSON'
+  pod 'Firebase/Core'
+  pod 'Firebase/Storage'
+  pod 'SDWebImage'
 
   target 'EVLT-SwiftTests' do
     inherit! :search_paths

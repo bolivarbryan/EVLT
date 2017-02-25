@@ -22,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //  APIRequests.paymentProject(clientID: "314", status: "NOUVEAU", montant: "1000", date: "2016-11-24", mode: "Cheque", info: "this is a test")
         
         BuddyBuildSDK.setup()
-        
-        // Override point for customization after application launch.
+        EVLTStorageManager.sharedInstance.setup()
 
         return true
     }

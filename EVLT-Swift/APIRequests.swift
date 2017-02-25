@@ -609,10 +609,47 @@ class APIRequests: NSObject {
         }
     }
     
-    class func projectPhoto(){
-        APIRequests.simplePost(endpoint: serverURL + APIprojectPhoto, parameters: [:]){ response in
-            printResponse(response: response as AnyObject)
+    class func projectPhoto(projectID: String, status: String, photo: Photo, comment: String, completion:@escaping (_ results: Any) -> Void){
+        let postData = NSMutableData()
+        let imageUrl = photo.url
+        postData.append("chantier_id=\(projectID)".data(using: String.Encoding.utf8)!)
+        postData.append("&statut=\(status)".data(using: String.Encoding.utf8)!)
+        postData.append("&commentaire=\(comment)".data(using: String.Encoding.utf8)!)
+        postData.append("&photo=\(imageUrl)".data(using: String.Encoding.utf8)!)
+        postData.append("&photoID=\(imageUrl)".data(using: String.Encoding.utf8)!)
+
+        if let id = photo.photoID {
+            postData.append("&photoID=\(id)".data(using: String.Encoding.utf8)!)
         }
+        
+        let url = serverURL + APIprojectPhoto + "?"
+        
+        APIRequests.sendForm(url: url, postData: postData){ response in
+            printResponse(response: response as AnyObject)
+            completion("")
+        }
+        
+    }
+    
+    class func listPhotos(projectID: String, completion:@escaping (_ results: [Photo]) -> Void){
+        let postData = NSMutableData()
+        postData.append("chantier_id=\(projectID)".data(using: String.Encoding.utf8)!)
+        postData.append("&statut=OUVRE".data(using: String.Encoding.utf8)!)
+        
+        
+        let url = serverURL + APIprojectPhoto + "?" + "chantier_id=\(projectID)"
+        
+        APIRequests.sendForm(url: url, postData: postData){ response in
+            printResponse(response: response as AnyObject)
+            var photos:[Photo] = []
+            for photoObject in (response["results"] as? Array<Dictionary<String, Any>>)! {
+                var photo = Photo(url: photoObject["url_photo"] as! String , comment: photoObject["commentaire_photo"] as! String)
+                photo.photoID = (photoObject["photos_chantier_id"] as! String)
+                photos.append(photo)
+            }
+            completion(photos)
+        }
+        
     }
     
     class func basicPost(endpoint: String, params:Array<Dictionary<String, Any>>, completion: @escaping (_ result: JSON) -> Void){

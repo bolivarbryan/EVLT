@@ -101,6 +101,20 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
             }
         }
         
+        //photos
+        APIRequests.listPhotos(projectID: "\(self.project.chantier_id)") { (photoObjects) in
+            DispatchQueue.main.async {
+                if photoObjects.count > 0 {
+                    self.photoLabel.text = "\(photoObjects.count) Photo"
+                    if photoObjects.count > 1 {
+                        self.photoLabel.text?.append("s")
+                    }
+                }else{
+                    self.photoLabel.text = "No Photo"
+                }
+                
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -153,6 +167,9 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
                 vc.project = self.project
             case "CommentsSegue":
                 let vc = segue.destination as! TechnicianCommentsViewController
+                vc.project = self.project
+            case "PhotosSegue":
+                let vc = segue.destination as! PhotosViewController
                 vc.project = self.project
 
             default:

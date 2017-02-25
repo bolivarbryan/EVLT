@@ -28,6 +28,11 @@
 		938678901E607BB700BF6BD7 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9386788F1E607BB700BF6BD7 /* DateViewController.swift */; };
 		938678921E60809D00BF6BD7 /* EVLTDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938678911E60809D00BF6BD7 /* EVLTDateFormatter.swift */; };
 		9388A7C51E608E5D00AC7597 /* TechnicianSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9388A7C41E608E5D00AC7597 /* TechnicianSelectionViewController.swift */; };
+		9388A7C91E60B50600AC7597 /* EVLTStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9388A7C81E60B50600AC7597 /* EVLTStorageManager.swift */; };
+		9388A7CB1E60B6CE00AC7597 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9388A7CA1E60B6CE00AC7597 /* GoogleService-Info.plist */; };
+		9388A7CD1E60BB0200AC7597 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9388A7CC1E60BB0200AC7597 /* PhotosViewController.swift */; };
+		9388A7CF1E60BF2600AC7597 /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9388A7CE1E60BF2600AC7597 /* AddPhotoViewController.swift */; };
+		9388A7D11E60E53300AC7597 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9388A7D01E60E53300AC7597 /* Photo.swift */; };
 		93907C261E5D2624004F4216 /* CommercialNoECSListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93907C251E5D2624004F4216 /* CommercialNoECSListViewController.swift */; };
 		93907C281E5D2D01004F4216 /* ECSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93907C271E5D2D01004F4216 /* ECSViewController.swift */; };
 		939E73151E53AB72003197BC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E73141E53AB72003197BC /* SettingsViewController.swift */; };
@@ -120,6 +125,11 @@
 		9386788F1E607BB700BF6BD7 /* DateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateViewController.swift; path = Commercial/DateViewController.swift; sourceTree = "<group>"; };
 		938678911E60809D00BF6BD7 /* EVLTDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EVLTDateFormatter.swift; path = Facade/EVLTDateFormatter.swift; sourceTree = "<group>"; };
 		9388A7C41E608E5D00AC7597 /* TechnicianSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TechnicianSelectionViewController.swift; path = Commercial/TechnicianSelectionViewController.swift; sourceTree = "<group>"; };
+		9388A7C81E60B50600AC7597 /* EVLTStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVLTStorageManager.swift; sourceTree = "<group>"; };
+		9388A7CA1E60B6CE00AC7597 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9388A7CC1E60BB0200AC7597 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosViewController.swift; path = Commercial/PhotosViewController.swift; sourceTree = "<group>"; };
+		9388A7CE1E60BF2600AC7597 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPhotoViewController.swift; path = Commercial/AddPhotoViewController.swift; sourceTree = "<group>"; };
+		9388A7D01E60E53300AC7597 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Photo.swift; path = Model/Photo.swift; sourceTree = "<group>"; };
 		93907C251E5D2624004F4216 /* CommercialNoECSListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommercialNoECSListViewController.swift; path = Commercial/CommercialNoECSListViewController.swift; sourceTree = "<group>"; };
 		93907C271E5D2D01004F4216 /* ECSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ECSViewController.swift; path = Commercial/ECSViewController.swift; sourceTree = "<group>"; };
 		939E73141E53AB72003197BC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				9330976D1E54B771008E0E89 /* EvltLocationManager.swift */,
+				9388A7C81E60B50600AC7597 /* EVLTStorageManager.swift */,
 			);
 			name = Singleton;
 			sourceTree = "<group>";
@@ -222,6 +233,7 @@
 				935C357D1E4963FD00C12449 /* Client.swift */,
 				93D29DB61E58F6FE00B49572 /* Zone.swift */,
 				935FCD391E5A900F0045BAE1 /* Network.swift */,
+				9388A7D01E60E53300AC7597 /* Photo.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -292,6 +304,7 @@
 		93FA55D61DC6962D00C07EB7 /* EVLT-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				9388A7CA1E60B6CE00AC7597 /* GoogleService-Info.plist */,
 				9330976C1E54B754008E0E89 /* Singleton */,
 				939E73161E53B148003197BC /* Facade */,
 				9373DEDF1DF6F93E00321E47 /* Controller */,
@@ -365,6 +378,8 @@
 				93907C271E5D2D01004F4216 /* ECSViewController.swift */,
 				9386788F1E607BB700BF6BD7 /* DateViewController.swift */,
 				9388A7C41E608E5D00AC7597 /* TechnicianSelectionViewController.swift */,
+				9388A7CC1E60BB0200AC7597 /* PhotosViewController.swift */,
+				9388A7CE1E60BF2600AC7597 /* AddPhotoViewController.swift */,
 			);
 			name = Commercial;
 			sourceTree = "<group>";
@@ -500,6 +515,7 @@
 			files = (
 				93FA55E51DC6962D00C07EB7 /* LaunchScreen.storyboard in Resources */,
 				93FA55FB1DC6977500C07EB7 /* Technician.storyboard in Resources */,
+				9388A7CB1E60B6CE00AC7597 /* GoogleService-Info.plist in Resources */,
 				93FA55FD1DC697C100C07EB7 /* Administrative.storyboard in Resources */,
 				93FA561B1DC75C9100C07EB7 /* Commercial.storyboard in Resources */,
 				93FA55DD1DC6962D00C07EB7 /* Main.storyboard in Resources */,
@@ -629,10 +645,13 @@
 				93FA56021DC6983200C07EB7 /* ProjectViewController.swift in Sources */,
 				93FA55DA1DC6962D00C07EB7 /* ViewController.swift in Sources */,
 				93FA55D81DC6962D00C07EB7 /* AppDelegate.swift in Sources */,
+				9388A7CF1E60BF2600AC7597 /* AddPhotoViewController.swift in Sources */,
 				935C35811E49682E00C12449 /* ProductCellTableViewCell.swift in Sources */,
 				93FA561D1DC7A3D400C07EB7 /* CommercialProjectsViewController.swift in Sources */,
 				93FA560A1DC6A23B00C07EB7 /* HeatingNetworlViewController.swift in Sources */,
+				9388A7C91E60B50600AC7597 /* EVLTStorageManager.swift in Sources */,
 				9330976E1E54B771008E0E89 /* EvltLocationManager.swift in Sources */,
+				9388A7CD1E60BB0200AC7597 /* PhotosViewController.swift in Sources */,
 				9373DEE11DF6F95C00321E47 /* LoginViewController.swift in Sources */,
 				939E73181E53B16B003197BC /* ELVTAlert.swift in Sources */,
 				93EE1D641E4DC7B6001CBCF0 /* TabBarController.swift in Sources */,
@@ -650,6 +669,7 @@
 				93FA56191DC75C7700C07EB7 /* ClientsListViewController.swift in Sources */,
 				93FA55E01DC6962D00C07EB7 /* EVLT_Swift.xcdatamodeld in Sources */,
 				93D29DAD1E58B24D00B49572 /* CommercialProjectDetailsViewController.swift in Sources */,
+				9388A7D11E60E53300AC7597 /* Photo.swift in Sources */,
 				935FCD3A1E5A900F0045BAE1 /* Network.swift in Sources */,
 				93D29DAF1E58B51E00B49572 /* CommercialContactInformationViewController.swift in Sources */,
 				93FA560C1DC6A9B200C07EB7 /* ECSNetworkViewController.swift in Sources */,
