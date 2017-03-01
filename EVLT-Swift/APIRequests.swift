@@ -411,6 +411,22 @@ class APIRequests: NSObject {
         }
     }
     
+    class func deleteRecord(query: String, completion: @escaping (_ completed:Bool) -> Void){
+        let postData = NSMutableData()
+        postData.append("requete=\(query)".data(using: String.Encoding.utf8)!)
+        
+        //FIXME: use a dynamic session
+        postData.append("&clientID=ns".data(using: String.Encoding.utf8)!)
+
+        let url = serverURL + "delete_request.php" + "?"
+        
+        APIRequests.sendForm(url: url, postData: postData){ response in
+            printResponse(response: response as AnyObject)
+            
+            completion(true)
+        }
+    }
+    
     class func connect(){
         APIRequests.simplePost(endpoint: serverURL + APIconnect, parameters: [:]){ response in
             printResponse(response: response as AnyObject)

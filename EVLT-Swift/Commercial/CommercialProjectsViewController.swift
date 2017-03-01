@@ -105,7 +105,29 @@ class CommercialProjectsViewController: UIViewController, UITableViewDataSource,
             self.performSegue(withIdentifier: "segue", sender: self)
         }
     }
-
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+            print("delete button tapped")
+            let type = self.chantiers[indexPath.row]["type"] as! String
+            ELVTAlert.showConfirmationMessage(controller: self, message: NSLocalizedString("Are you you sure you want to delete " + type, comment: ""), completion: { (done) in
+                if done == true {
+                    //api call to delete
+                    let query = "DELETE FROM `envertlaevlt`.`chantier` WHERE `chantier`.`chantier_id` = \(self.chantiers[indexPath.row]["chantier_id"]!)"
+                    APIRequests.deleteRecord(query: query , completion: { (done) in
+                        self.reload()
+                    })
+                }
+            })
+        }
+        
+        delete.backgroundColor = .red
+        return [delete]
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 }
 
 extension CommercialProjectsViewController: NewProjectDelegate {

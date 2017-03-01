@@ -47,8 +47,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "783"
             endingLineNumber = "783"
-            landmarkName = "importProjectWithClientID(clientID:completion:)"
-            landmarkType = "7">
+            landmarkName = "APIRequests"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -223,7 +223,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "695"
             endingLineNumber = "695"
-            landmarkName = "listPhotos(projectID:completion:)"
+            landmarkName = "projectPhoto(projectID:status:photo:comment:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -255,7 +255,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "605"
             endingLineNumber = "605"
-            landmarkName = "getClient(clientID:completion:)"
+            landmarkName = "newClient(status:clientID:firstName:lastName:addressNumber:street:postalCode:city:cellphone:phone:email:latidude:longitude:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
