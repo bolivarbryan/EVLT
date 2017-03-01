@@ -77,6 +77,31 @@ struct ELVTAlert {
             
         }
     }
+    
+    static func showCameraPickerOptions(controller: UIViewController, message: String, completion: @escaping (_ done: Int) -> Void) {
         
+        let alertController = UIAlertController(title: "Picture", message: message, preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: kAlertCancel, style: .cancel) { action in
+            completion(0)//none
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "Camera", style: .default) { action in
+            completion(1)//camera
+        }
+        
+        let GalleryAction = UIAlertAction(title: "Gallery", style: .default) { action in
+            completion(2)//gallery
+        }
+        
+        alertController.addAction(OKAction)
+        alertController.addAction(GalleryAction)
+        
+        controller.present(alertController, animated: true) {
+            
+        }
+    }
+    
     
 }

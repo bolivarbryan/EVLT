@@ -13,6 +13,10 @@ class PhotosViewController: UIViewController {
     var project:Project!
     var photoUrls:[Photo] = []
     var selectedPhoto: Photo? = nil
+    fileprivate let itemsPerRow: CGFloat = 3
+    fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 50.0, right: 10.0)
+
+    @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,7 +33,7 @@ class PhotosViewController: UIViewController {
             print(photos)
             self.photoUrls = photos
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.collectionView.reloadData()
             }
         }
     }
@@ -66,6 +70,66 @@ class PhotosViewController: UIViewController {
     }
 }
 
+
+extension PhotosViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photoUrls.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoIdentifier", for: indexPath) as! PhotoCell
+        cell.image.image = UIImage()
+        cell.backgroundColor = UIColor.lightGray
+        
+        EVLTStorageManager.sharedInstance.getImageFromURL(urlString: photoUrls[indexPath.row].url) { (image) in
+            DispatchQueue.main.async {
+                cell.image.sd_setImage(with: image, placeholderImage: UIImage())
+            }
+        }
+        
+        return cell
+    }
+}
+
+extension PhotosViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedPhoto =  photoUrls[indexPath.row]
+        self.performSegue(withIdentifier: "AddPhotoDetails", sender: self)
+    }
+}
+
+extension PhotosViewController : UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //2
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
+    }
+}
+
+class PhotoCell: UICollectionViewCell {
+    @IBOutlet weak var image: UIImageView!
+}
 //MARK: Tableview Protocols
 extension PhotosViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -99,3 +163,4 @@ extension PhotosViewController: UITableViewDelegate {
         self.performSegue(withIdentifier: "AddPhotoDetails", sender: self)
     }
 }
+

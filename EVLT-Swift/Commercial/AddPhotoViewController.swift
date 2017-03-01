@@ -93,11 +93,22 @@ class AddPhotoViewController: UIViewController {
     }
     
     @IBAction func selectPicture(_ sender: Any) {
-        imagePicker = UIImagePickerController()
-        imagePicker.allowsEditing = true
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.delegate = self
-        present(imagePicker, animated: true, completion: nil)
+        ELVTAlert.showCameraPickerOptions(controller: self, message: "Select a source") { (option) in
+            if option == 1 {
+                self.imagePicker = UIImagePickerController()
+                self.imagePicker.allowsEditing = true
+                self.imagePicker.sourceType = .camera
+                self.imagePicker.delegate = self
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }else{
+                self.imagePicker = UIImagePickerController()
+                self.imagePicker.allowsEditing = true
+                self.imagePicker.sourceType = .photoLibrary
+                self.imagePicker.delegate = self
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
