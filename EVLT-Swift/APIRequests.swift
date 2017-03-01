@@ -531,8 +531,6 @@ class APIRequests: NSObject {
         
         let user = User(dictionary: UserDefaults.standard.dictionary(forKey: KSessionData)!)
         
-  
-        
         let postData = NSMutableData(data:"&statut=\(status)".data(using: String.Encoding.utf8)!)
         postData.append("&commercial=\(user.username)".data(using: String.Encoding.utf8)!)
         postData.append("&nom=\(lastName)".data(using: String.Encoding.utf8)!)
@@ -602,13 +600,17 @@ class APIRequests: NSObject {
         }
     }
     
-    class func newProject(edit:Bool, type: String, client: Client, completion:@escaping (_ results: Any) -> Void){
+    class func newProject(projectID: String?, edit:Bool, type: String, client: Client, completion:@escaping (_ results: Any) -> Void){
         
         let postData = NSMutableData(data:"type=\(type)".data(using: String.Encoding.utf8)!)
         postData.append("&client_id=\(client.clientID)".data(using: String.Encoding.utf8)!)
         
+        if let pID = projectID {
+            postData.append("&chantier_id=\(pID)".data(using: String.Encoding.utf8)!)
+        }
+        
         if edit == true {
-            postData.append("&action=EXISTE".data(using: String.Encoding.utf8)!)
+            postData.append("&statut=EXISTE".data(using: String.Encoding.utf8)!)
         }
         
         

@@ -63,6 +63,11 @@ class NewProjectViewController: UIViewController, UITableViewDataSource, UITable
     func save() {
         let edit = (project != nil)
         
+        var pID:String? = nil
+        if let p = project?.chantier_id {
+            pID = "\(p)"
+        }
+        
         if currentSelection != nil {
             //data for create new project
             if self.currentSelection?.value == kAddString {
@@ -73,7 +78,7 @@ class NewProjectViewController: UIViewController, UITableViewDataSource, UITable
                         
                         //FIXME: complete edit
                         
-                        APIRequests.newProject(edit:edit, type: string, client: self.client) { (results) in
+                        APIRequests.newProject(projectID:pID,  edit:edit, type: string, client: self.client) { (results) in
                             print(results)
                             DispatchQueue.main.async {
                                 self.delegate.projectSuccessfullyCreated()
@@ -90,7 +95,8 @@ class NewProjectViewController: UIViewController, UITableViewDataSource, UITable
                 
                 let string = "\(self.currentSelection!.value)"
                 
-                APIRequests.newProject(edit: edit, type: string, client: self.client) { (results) in
+                
+                APIRequests.newProject(projectID:pID,  edit: edit, type: string, client: self.client) { (results) in
                     print(results)
                     DispatchQueue.main.async {
                         self.delegate.projectSuccessfullyCreated()
