@@ -39,6 +39,7 @@ class Project {
     var unite_temps: String?
     var duree_chantier: String?
     var comments: String?
+    var technicians: Array<String>?
     
     init(tva: Float, prix_ttc: PriceTCC, type: String, date_contact:Date, statut_technicien:String, client_id: Int, contact:String, status: ProjectStatus, chantier_id: Int, statut_administratif: ProjectAdminStatus,  prix_ht: Int ) {
         self.tva = tva

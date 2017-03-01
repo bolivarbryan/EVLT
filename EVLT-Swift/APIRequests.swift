@@ -108,8 +108,7 @@ class APIRequests: NSObject {
         aiView.backgroundColor = UIColor(white: 0, alpha: 0.3)
         aiView.addSubview(activityIndicatorView!)
         UIApplication.shared.keyWindow?.addSubview(aiView)
-        aiView.isHidden = false
-        
+        aiView.isHidden = true
         
         let request = NSMutableURLRequest(url: NSURL(string: url)! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
@@ -375,6 +374,23 @@ class APIRequests: NSObject {
             let place = Place(siteID: 0, postalCode: Int(response["code_postal"] as! String) ?? 0, coordinate: emptyCoordinate, number: Int(response["numero"] as! String) ?? 0, street: response["rue"] as! String, city: response["ville"] as! String, coordinateSiteId: 0)
             
             completion(projectObject, place)
+        }
+    }
+    
+    class func importTechnicians(chantierID: String, completion: @escaping (_ technicians: [Technician]) -> Void){
+        
+        let postData = NSMutableData(data:"chantier_id=\(chantierID)".data(using: String.Encoding.utf8)!)
+        
+        APIRequests.sendForm(url:serverURL + APIImportTechinician + "?", postData: postData){ response in
+            printResponse(response: response as AnyObject)
+            //maping object
+            var technicians:[Technician] = []
+            for object in response["results"] as! Array<Dictionary<String, Any>> {
+                let technician = Technician(name: object["nom"] as! String, lastName: object["prenom"] as! String, pictureUrl: object["picture_url"] as! String)
+                technicians.append(technician)
+            }
+            
+            completion(technicians)
         }
     }
     

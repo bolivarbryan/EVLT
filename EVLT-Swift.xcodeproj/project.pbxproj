@@ -17,6 +17,7 @@
 		93353E811DE7629100C69F4E /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353E801DE7629100C69F4E /* Coordinate.swift */; };
 		93353E831DE7698E00C69F4E /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353E821DE7698E00C69F4E /* Serializer.swift */; };
 		93353E851DE76FB200C69F4E /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353E841DE76FB200C69F4E /* Price.swift */; };
+		9356B0EB1E66B66F00E1CD59 /* Technician.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356B0EA1E66B66F00E1CD59 /* Technician.swift */; };
 		935C357E1E4963FD00C12449 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C357D1E4963FD00C12449 /* Client.swift */; };
 		935C35811E49682E00C12449 /* ProductCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C35801E49682E00C12449 /* ProductCellTableViewCell.swift */; };
 		935FCD3A1E5A900F0045BAE1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935FCD391E5A900F0045BAE1 /* Network.swift */; };
@@ -114,6 +115,7 @@
 		93353E801DE7629100C69F4E /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coordinate.swift; path = Model/Coordinate.swift; sourceTree = "<group>"; };
 		93353E821DE7698E00C69F4E /* Serializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Serializer.swift; path = Model/Serializer.swift; sourceTree = "<group>"; };
 		93353E841DE76FB200C69F4E /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Price.swift; path = Model/Price.swift; sourceTree = "<group>"; };
+		9356B0EA1E66B66F00E1CD59 /* Technician.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Technician.swift; path = Model/Technician.swift; sourceTree = "<group>"; };
 		935C357D1E4963FD00C12449 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Client.swift; path = Model/Client.swift; sourceTree = "<group>"; };
 		935C35801E49682E00C12449 /* ProductCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCellTableViewCell.swift; path = Commercial/Cells/ProductCellTableViewCell.swift; sourceTree = "<group>"; };
 		935FCD391E5A900F0045BAE1 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = Model/Network.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				93D29DB61E58F6FE00B49572 /* Zone.swift */,
 				935FCD391E5A900F0045BAE1 /* Network.swift */,
 				9388A7D01E60E53300AC7597 /* Photo.swift */,
+				9356B0EA1E66B66F00E1CD59 /* Technician.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				93706A9D1E5DDF740017670D /* EVLTPicker.swift in Sources */,
 				93FA56151DC71D1300C07EB7 /* AdministrativePaymentViewController.swift in Sources */,
 				93D29DB51E58F56000B49572 /* ZonesViewController.swift in Sources */,
+				9356B0EB1E66B66F00E1CD59 /* Technician.swift in Sources */,
 				93353E811DE7629100C69F4E /* Coordinate.swift in Sources */,
 				93FA56191DC75C7700C07EB7 /* ClientsListViewController.swift in Sources */,
 				93FA55E01DC6962D00C07EB7 /* EVLT_Swift.xcdatamodeld in Sources */,

@@ -15,7 +15,7 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
     var zones:[Zone]!
     var networks: [Network]!
     var ecsObjects: [ECS] = []
-    
+    var technicians: [Technician] = []
     //Contact information
     @IBOutlet weak var streetLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
@@ -112,6 +112,27 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
                 }else{
                     self.photoLabel.text = "No Photo"
                 }
+            }
+        }
+        
+        //technicians
+        APIRequests.importTechnicians(chantierID: "\(self.project.chantier_id)") { (technicians) in
+            self.technicians = technicians
+            DispatchQueue.main.async {
+                if self.technicians.count  > 0 {
+                    self.technicianLabel.text = ""
+                    
+                    for technician in self.technicians {
+                        self.technicianLabel.text = technician.name + ", " + self.technicianLabel.text!
+                    }
+                    //remove comma
+                    for _ in  0...1 {
+                        self.technicianLabel.text =  self.technicianLabel.text?.substring(to: (self.technicianLabel.text?.index(before: (self.technicianLabel.text?.endIndex)!))!)
+                    }
+                }else{
+                    self.technicianLabel.text = NSLocalizedString("No Technicians selected", comment: "")
+                }
+              
             }
         }
     }

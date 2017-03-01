@@ -31,6 +31,9 @@ let APInewClient = "nouveau_client.php"
 let APInewProject = "nouveau_projet.php"
 let APIprojectStatus = "statut_projet.php"
 
+let APIImportTechinician = "import_technicians.php"
+
+
 let kActionTypeNew = "NOUVEAU"
 let kActionTypeUpdate = "EXISTE"
 
