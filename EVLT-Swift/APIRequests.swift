@@ -377,20 +377,37 @@ class APIRequests: NSObject {
         }
     }
     
-    class func importTechnicians(chantierID: String, completion: @escaping (_ technicians: [Technician]) -> Void){
+    class func importTechnicians(statut:String?, chantierID: String, completion: @escaping (_ technicians: [Technician]) -> Void){
         
         let postData = NSMutableData(data:"chantier_id=\(chantierID)".data(using: String.Encoding.utf8)!)
+        if let s = statut {
+            postData.append("&statut=\(s)".data(using: String.Encoding.utf8)!)
+        }
         
         APIRequests.sendForm(url:serverURL + APIImportTechinician + "?", postData: postData){ response in
             printResponse(response: response as AnyObject)
             //maping object
             var technicians:[Technician] = []
             for object in response["results"] as! Array<Dictionary<String, Any>> {
-                let technician = Technician(name: object["nom"] as! String, lastName: object["prenom"] as! String, pictureUrl: object["picture_url"] as! String)
+                let technician = Technician(name: object["nom"] as! String, lastName: object["prenom"] as! String, pictureUrl: object["picture_url"] as! String, id: object["id"] as! String)
                 technicians.append(technician)
             }
             
             completion(technicians)
+        }
+    }
+    
+    class func saveTechnicians(statut:String?, techicianID:String, chantierID: String, completion: @escaping (_ completed:Bool) -> Void){
+        
+        let postData = NSMutableData(data:"chantier_id=\(chantierID)".data(using: String.Encoding.utf8)!)
+        postData.append("&technician_code=\(techicianID)".data(using: String.Encoding.utf8)!)
+        if let s = statut {
+            postData.append("&statut=\(s)".data(using: String.Encoding.utf8)!)
+        }
+        
+        APIRequests.sendForm(url:serverURL + APIImportTechinician + "?", postData: postData){ response in
+            printResponse(response: response as AnyObject)
+            completion(true)
         }
     }
     

@@ -12,4 +12,5 @@ struct Technician {
     var name: String
     var lastName: String
     var pictureUrl: String
+    var id: String
 }

@@ -116,7 +116,7 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
         }
         
         //technicians
-        APIRequests.importTechnicians(chantierID: "\(self.project.chantier_id)") { (technicians) in
+        APIRequests.importTechnicians(statut: nil, chantierID: "\(self.project.chantier_id)") { (technicians) in
             self.technicians = technicians
             DispatchQueue.main.async {
                 if self.technicians.count  > 0 {
@@ -191,7 +191,10 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
             case "PhotosSegue":
                 let vc = segue.destination as! PhotosViewController
                 vc.project = self.project
-
+            case "TechnicianSegue":
+                let vc = segue.destination as! TechnicianSelectionViewController
+                vc.project = self.project
+                vc.selectedTechnicians = technicians
             default:
                 print("no selection")
             }
