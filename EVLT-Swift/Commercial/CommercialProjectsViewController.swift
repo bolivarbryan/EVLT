@@ -26,6 +26,14 @@ class CommercialProjectsViewController: UIViewController, UITableViewDataSource,
         self.configureTableView()
         self.tableView.backgroundView = self.refreshControl
         reload()
+        //TODO: translate "Edit Client"
+        let done = UIBarButtonItem(title: NSLocalizedString("Edit Client", comment: ""), style: .done, target: self, action: #selector(edit))
+        self.navigationItem.rightBarButtonItem = done
+        
+    }
+    func edit() {
+        self.performSegue(withIdentifier: "EditClientSegue", sender: self)
+        
     }
 
     func reload() {
@@ -75,6 +83,9 @@ class CommercialProjectsViewController: UIViewController, UITableViewDataSource,
             let vc = segue.destination as! CommercialProjectDetailsViewController
             vc.project = self.selectedProject
             vc.client = self.client
+        }else if segue.identifier == "EditClientSegue" {
+            let vc = segue.destination as! NewClientViewController
+            vc.selectedClient = self.client
         }
     }
     

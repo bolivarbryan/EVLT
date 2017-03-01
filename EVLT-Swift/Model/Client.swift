@@ -14,7 +14,8 @@ struct Client {
     var clientID: String
     var commercialActice: Bool
     var commercial: String
-    
+    var phone: String? = ""
+    var cellPhone: String? = ""
     init(name: String, lastName: String, clientID: String, commercialActiveString:String, commercial: String) {
         self.name = name
         self.lastName = lastName

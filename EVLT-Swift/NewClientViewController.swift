@@ -25,7 +25,7 @@ class NewClientViewController: UIViewController {
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     var delegate: NewClientDelegate!
-    var selectedClient: Client!
+    var selectedClient: Client? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,31 @@ class NewClientViewController: UIViewController {
         self.phoneTxt.addTarget(self, action: #selector(next(_:)), for: .editingDidEndOnExit)
         self.emailTxt.addTarget(self, action: #selector(next(_:)), for: .editingDidEndOnExit)
         
-
+        if let client = selectedClient {
+            
+            //TODO: Translate this
+            self.title = NSLocalizedString("Edit Client", comment: "")
+            
+            //getting user address
+            APIRequests.getClient(clientID: client.clientID, completion: { (results) in
+                DispatchQueue.main.async {
+                    //getting phones
+                    self.firstNameTxt.text = (results["client"] as! Client).name
+                    self.lastNameTxt.text = (results["client"] as! Client).lastName
+                    self.cellPhoneTxt.text = (results["client"] as! Client).cellPhone
+                    self.phoneTxt.text = (results["client"] as! Client).phone
+                    
+                    //filling other fields
+                    let place = results["place"] as! (lat:String, longitude:String, postal: String, number:String, street:String, city:String, siteID:String, email:String )
+                    
+                    self.address.text = place.number
+                    self.postalCodeTxt.text = place.postal
+                    self.cityTxt.text = place.city
+                    self.streetTxt.text = place.street
+                    self.emailTxt.text = place.email
+                }
+            })
+        }
     }
     
     @IBAction func next(_ sender: UITextField)  {
@@ -86,16 +110,24 @@ class NewClientViewController: UIViewController {
             //proceed to save user
             let formattedAddress = "\(address.text!) \(streetTxt.text!),\(postalCodeTxt.text!) \(cityTxt.text!)"
             EvltLocationManager.forwardGeocoding(address: formattedAddress, completion: { (lat, lng) in
-                APIRequests.newClient(firstName: self.firstNameTxt.text!, lastName: self.lastNameTxt.text!, addressNumber: self.address.text!, street: self.streetTxt.text!, postalCode: self.postalCodeTxt.text!, city: self.cityTxt.text!, cellphone: self.cellPhoneTxt.text!, phone: self.phoneTxt.text!, email: self.emailTxt.text!, latidude: lat, longitude: lng, completion: { (client) in
+                var status = "CREATION"
+                if self.selectedClient != nil {
+                    status = "EXISTE"
+                }
+                APIRequests.newClient(status:status, clientID: self.selectedClient?.clientID, firstName: self.firstNameTxt.text!, lastName: self.lastNameTxt.text!, addressNumber: self.address.text!, street: self.streetTxt.text!, postalCode: self.postalCodeTxt.text!, city: self.cityTxt.text!, cellphone: self.cellPhoneTxt.text!, phone: self.phoneTxt.text!, email: self.emailTxt.text!, latidude: lat, longitude: lng, completion: { (client) in
                     
                     print("created: \(client) ")
-                    //proceed to see new project view
-                    self.selectedClient = client
-                    DispatchQueue.main.async {
+                     DispatchQueue.main.async {
+                    if self.selectedClient != nil {
+                        //client update, just pop
+                        self.navigationController?.popViewController(animated: true)
+                    }else{
+                        //new client
+                         self.selectedClient = client
+                        //proceed to see new project view
                         self.delegate.clientSuccessfullyCreated()
                         self.navigationController?.popViewController(animated: true)
-                        
-                        //self.performSegue(withIdentifier: "projectsSegue", sender: self)
+                    }
                     }
                 })
             })

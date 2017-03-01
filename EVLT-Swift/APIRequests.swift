@@ -527,28 +527,13 @@ class APIRequests: NSObject {
         
     }
     
-    class func newClient(firstName: String, lastName: String, addressNumber: String, street:String, postalCode: String, city: String, cellphone: String, phone: String, email: String, latidude: String, longitude: String, completion: ((_ result : Client ) -> Void)?){
+    class func newClient(status: String, clientID:String?, firstName: String, lastName: String, addressNumber: String, street:String, postalCode: String, city: String, cellphone: String, phone: String, email: String, latidude: String, longitude: String, completion: ((_ result : Client ) -> Void)?){
         
         let user = User(dictionary: UserDefaults.standard.dictionary(forKey: KSessionData)!)
         
-        let params = [
-                      "commercial":user.username,
-                      "client_id":"",
-                      "nom":lastName,
-                      "prenom":firstName,
-                      "numero":addressNumber,
-                      "rue":city,
-                      "codePostal":postalCode,
-                      "ville":city,
-                      "latitude":latidude,
-                      "longitude":longitude,
-                      "telFixe": phone,
-                      "telPortable":cellphone,
-                      "email": email,
-                      "statut": "CREATION"
-                      ]
+  
         
-        let postData = NSMutableData(data:"&statut=CREATION".data(using: String.Encoding.utf8)!)
+        let postData = NSMutableData(data:"&statut=\(status)".data(using: String.Encoding.utf8)!)
         postData.append("&commercial=\(user.username)".data(using: String.Encoding.utf8)!)
         postData.append("&nom=\(lastName)".data(using: String.Encoding.utf8)!)
         postData.append("&prenom=\(firstName)".data(using: String.Encoding.utf8)!)
@@ -560,8 +545,13 @@ class APIRequests: NSObject {
         postData.append("&longitude=\(longitude)".data(using: String.Encoding.utf8)!)
         postData.append("&telFixe=\(phone)".data(using: String.Encoding.utf8)!)
         postData.append("&telPortable=\(cellphone)".data(using: String.Encoding.utf8)!)
-        
-        
+        postData.append("&email=\(email)".data(using: String.Encoding.utf8)!)
+
+        if let c = clientID {
+            postData.append("&client_id=\(c)".data(using: String.Encoding.utf8)!)
+
+        }
+            
      
         print(postData)
         APIRequests.sendForm(url: "http://www.envertlaterre.fr/PHP/nouveau_client.php?", postData: postData){ response in
@@ -571,7 +561,39 @@ class APIRequests: NSObject {
             completion!(client)
         }
         
+    }
+    
+    class func getClient(clientID: String, completion: @escaping (_ result : Dictionary<String, Any>  ) -> Void) {
+        
+        let user = User(dictionary: UserDefaults.standard.dictionary(forKey: KSessionData)!)
+        let postData = NSMutableData(data:"&statut=OUVRE".data(using: String.Encoding.utf8)!)
+        
+        postData.append("&client_id=\(clientID)".data(using: String.Encoding.utf8)!)
 
+        APIRequests.sendForm(url: "http://www.envertlaterre.fr/PHP/nouveau_client.php?", postData: postData){ results in
+            printResponse(response: results as AnyObject)
+            for response in results["results"] as! Array<Dictionary<String, Any>> {
+                var client = Client(name: response["nom"] as! String, lastName: response["prenom"] as! String, clientID: response["client_id"] as! String, commercialActiveString: "OUI", commercial: "")
+                client.phone =  response["tel_fixe"] as! String
+                client.cellPhone =  response["tel_portable"] as! String
+                
+                let latitude = response["latitude"] as! String
+                let longitude = response["longitude"] as! String
+                let postalCode = response["code_postal"] as! String
+                let number = response["numero"] as! String
+                let street = response["rue"] as! String
+                let city = response["ville"] as! String
+                let email = response["email"] as! String
+                let coordinateSiteId = response["coordonnees_client_id"] as! String
+                
+                
+                let place = (lat:latitude, longitude:longitude, postal: postalCode, number:number, street:street, city:city, siteID:coordinateSiteId, email: email )
+                
+                completion(["client": client, "place":place])
+            }
+           
+        }
+        
     }
     
     class func deleteRequest(){

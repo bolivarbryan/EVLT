@@ -112,7 +112,6 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
                 }else{
                     self.photoLabel.text = "No Photo"
                 }
-                
             }
         }
     }
