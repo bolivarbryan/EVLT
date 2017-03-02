@@ -19,11 +19,8 @@ class EvltLocationManager: NSObject {
     }
     
     //MARK: Shared Instance
-    
     static let sharedInstance: EvltLocationManager = EvltLocationManager()
     var currentCoordinate: Coordinate? =  nil
-    //MARK: Local Variable
-    
     var locationManager : CLLocationManager!
     
     class func getLatLngForZip(zipCode: String) {

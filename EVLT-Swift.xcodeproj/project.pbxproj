@@ -486,7 +486,7 @@
 				TargetAttributes = {
 					93FA55D31DC6962D00C07EB7 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 9VV84RNXAK;
+						DevelopmentTeam = K87XPR878Y;
 						ProvisioningStyle = Automatic;
 					};
 					93FA55EA1DC6962D00C07EB7 = {
@@ -848,7 +848,7 @@
 			baseConfigurationReference = 093CC8BF3AFC83036135828D /* Pods-EVLT-Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9VV84RNXAK;
+				DEVELOPMENT_TEAM = K87XPR878Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -867,7 +867,7 @@
 			baseConfigurationReference = 733A5BD0A20F886B5E216704 /* Pods-EVLT-Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9VV84RNXAK;
+				DEVELOPMENT_TEAM = K87XPR878Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

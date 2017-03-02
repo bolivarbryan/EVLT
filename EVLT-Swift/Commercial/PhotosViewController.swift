@@ -13,6 +13,7 @@ class PhotosViewController: UIViewController {
     var project:Project!
     var photoUrls:[Photo] = []
     var selectedPhoto: Photo? = nil
+    var selectedImage: UIImage!
     fileprivate let itemsPerRow: CGFloat = 3
     fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 50.0, right: 10.0)
 
@@ -65,6 +66,7 @@ class PhotosViewController: UIViewController {
                 vc.project = self.project
                 vc.imageCount = self.photoUrls.count
                 vc.photo = self.selectedPhoto
+                vc.selectedImage = self.selectedImage
             }
         }
     }
@@ -88,6 +90,7 @@ extension PhotosViewController: UICollectionViewDataSource {
         EVLTStorageManager.sharedInstance.getImageFromURL(urlString: photoUrls[indexPath.row].url) { (image) in
             DispatchQueue.main.async {
                 cell.image.sd_setImage(with: image, placeholderImage: UIImage())
+                cell.backgroundColor = UIColor.white
             }
         }
         
@@ -98,6 +101,8 @@ extension PhotosViewController: UICollectionViewDataSource {
 extension PhotosViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedPhoto =  photoUrls[indexPath.row]
+        self.selectedImage = (self.collectionView.cellForItem(at: indexPath) as! PhotoCell).image.image!
+
         self.performSegue(withIdentifier: "AddPhotoDetails", sender: self)
     }
 }

@@ -12,11 +12,13 @@ import SDWebImage
 
 class AddPhotoViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
+    var selectedImage: UIImage!
     var project:Project!
     var imageCount:Int!
     //image picker
     var imagePicker: UIImagePickerController!
     var photo: Photo?
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var textView: UITextView!
     private let kErrorMessage = "Please select an image before"
@@ -27,13 +29,25 @@ class AddPhotoViewController: UIViewController {
         super.viewDidLoad()
         let newButton = UIBarButtonItem(title: NSLocalizedString("Save", comment: ""), style: .done, target: self, action: #selector(new))
         self.navigationItem.rightBarButtonItem = newButton
+
         if let p = self.photo {
-            //self.showCommentBox.setTitle(p.comment, for: .normal)
             self.textView.text = p.comment
-            EVLTStorageManager.sharedInstance.getImageFromURL(urlString: p.url) { (image) in
-                self.imageView?.sd_setImage(with: image, completed: { (image, error, cache, URL) in
-                })
-            }
+            self.imageView.image = selectedImage
+            self.scrollView.contentSize = self.imageView.frame.size;
+        }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        if let p = self.photo {
+                self.textView.text = p.comment
+//                EVLTStorageManager.sharedInstance.getImageFromURL(urlString: p.url) { (image) in
+//                    self.imageView?.sd_setImage(with: image, completed: { (image, error, cache, URL) in
+//                    })
+//                }
+                
+                self.scrollView.minimumZoomScale = 1.0;
+                self.scrollView.maximumZoomScale = 6.0;
+                self.scrollView.delegate = self;
         }
     }
     
@@ -68,7 +82,7 @@ class AddPhotoViewController: UIViewController {
             aiView.isHidden = false
             
             
-            EVLTStorageManager.sharedInstance.saveImageReference(name: name, image:image) { (completion) in
+            EVLTStorageManager.sharedInstance.saveImageReference(name: name, image:image.resized(withPercentage: 0.5)!) { (completion) in
                 print(completion)
                 aiView.isHidden = true
                 //Send url to server here
@@ -96,13 +110,13 @@ class AddPhotoViewController: UIViewController {
         ELVTAlert.showCameraPickerOptions(controller: self, message: "Select a source") { (option) in
             if option == 1 {
                 self.imagePicker = UIImagePickerController()
-                self.imagePicker.allowsEditing = true
+                self.imagePicker.allowsEditing = false
                 self.imagePicker.sourceType = .camera
                 self.imagePicker.delegate = self
                 self.present(self.imagePicker, animated: true, completion: nil)
             }else{
                 self.imagePicker = UIImagePickerController()
-                self.imagePicker.allowsEditing = true
+                self.imagePicker.allowsEditing = false
                 self.imagePicker.sourceType = .photoLibrary
                 self.imagePicker.delegate = self
                 self.present(self.imagePicker, animated: true, completion: nil)
@@ -125,7 +139,6 @@ class AddPhotoViewController: UIViewController {
     
 }
 
-
 extension AddPhotoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
  
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -133,7 +146,7 @@ extension AddPhotoViewController: UIImagePickerControllerDelegate, UINavigationC
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let selectedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         // Set photoImageView to display the selected image.
         imageView.image = selectedImage
@@ -142,4 +155,27 @@ extension AddPhotoViewController: UIImagePickerControllerDelegate, UINavigationC
          dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension UIImage {
+    func resized(withPercentage percentage: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: size.width * percentage, height: size.height * percentage)
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+    func resized(toWidth width: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+}
+
+extension AddPhotoViewController: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return self.imageView
+    }
 }

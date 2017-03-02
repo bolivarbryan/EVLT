@@ -45,5 +45,7 @@
 	<string>We need your Current location</string>
 	<key>NSLocationUsageDescription</key>
 	<string>We need your Current location</string>
+    <key>NSCameraUsageDescription</key>
+    <string>We need to access to you camera and photos gallery</string>
 </dict>
 </plist>
