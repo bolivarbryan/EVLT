@@ -195,6 +195,9 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
                 let vc = segue.destination as! TechnicianSelectionViewController
                 vc.project = self.project
                 vc.selectedTechnicians = technicians
+            case "StatusSegue":
+                let vc = segue.destination as! StatusViewController
+                vc.project = self.project
             default:
                 print("no selection")
             }

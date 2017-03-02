@@ -17,6 +17,8 @@
 		93353E811DE7629100C69F4E /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353E801DE7629100C69F4E /* Coordinate.swift */; };
 		93353E831DE7698E00C69F4E /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353E821DE7698E00C69F4E /* Serializer.swift */; };
 		93353E851DE76FB200C69F4E /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353E841DE76FB200C69F4E /* Price.swift */; };
+		934FDE961E6865F7006F1D3E /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934FDE951E6865F7006F1D3E /* StatusViewController.swift */; };
+		934FDE981E686609006F1D3E /* ProjectValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934FDE971E686609006F1D3E /* ProjectValidationViewController.swift */; };
 		9356B0EB1E66B66F00E1CD59 /* Technician.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356B0EA1E66B66F00E1CD59 /* Technician.swift */; };
 		935C357E1E4963FD00C12449 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C357D1E4963FD00C12449 /* Client.swift */; };
 		935C35811E49682E00C12449 /* ProductCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C35801E49682E00C12449 /* ProductCellTableViewCell.swift */; };
@@ -115,6 +117,8 @@
 		93353E801DE7629100C69F4E /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coordinate.swift; path = Model/Coordinate.swift; sourceTree = "<group>"; };
 		93353E821DE7698E00C69F4E /* Serializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Serializer.swift; path = Model/Serializer.swift; sourceTree = "<group>"; };
 		93353E841DE76FB200C69F4E /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Price.swift; path = Model/Price.swift; sourceTree = "<group>"; };
+		934FDE951E6865F7006F1D3E /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusViewController.swift; path = Commercial/StatusViewController.swift; sourceTree = "<group>"; };
+		934FDE971E686609006F1D3E /* ProjectValidationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectValidationViewController.swift; sourceTree = "<group>"; };
 		9356B0EA1E66B66F00E1CD59 /* Technician.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Technician.swift; path = Model/Technician.swift; sourceTree = "<group>"; };
 		935C357D1E4963FD00C12449 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Client.swift; path = Model/Client.swift; sourceTree = "<group>"; };
 		935C35801E49682E00C12449 /* ProductCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCellTableViewCell.swift; path = Commercial/Cells/ProductCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -383,6 +387,8 @@
 				9388A7C41E608E5D00AC7597 /* TechnicianSelectionViewController.swift */,
 				9388A7CC1E60BB0200AC7597 /* PhotosViewController.swift */,
 				9388A7CE1E60BF2600AC7597 /* AddPhotoViewController.swift */,
+				934FDE951E6865F7006F1D3E /* StatusViewController.swift */,
+				934FDE971E686609006F1D3E /* ProjectValidationViewController.swift */,
 			);
 			name = Commercial;
 			sourceTree = "<group>";
@@ -644,6 +650,7 @@
 				935FCD3C1E5A90E20045BAE1 /* HeatingNetworkListViewController.swift in Sources */,
 				93353E831DE7698E00C69F4E /* Serializer.swift in Sources */,
 				939E73151E53AB72003197BC /* SettingsViewController.swift in Sources */,
+				934FDE961E6865F7006F1D3E /* StatusViewController.swift in Sources */,
 				93D8AFA31DC9FFE800F3A4B4 /* APIRequests.swift in Sources */,
 				93FA56021DC6983200C07EB7 /* ProjectViewController.swift in Sources */,
 				93FA55DA1DC6962D00C07EB7 /* ViewController.swift in Sources */,
@@ -651,6 +658,7 @@
 				9388A7CF1E60BF2600AC7597 /* AddPhotoViewController.swift in Sources */,
 				935C35811E49682E00C12449 /* ProductCellTableViewCell.swift in Sources */,
 				93FA561D1DC7A3D400C07EB7 /* CommercialProjectsViewController.swift in Sources */,
+				934FDE981E686609006F1D3E /* ProjectValidationViewController.swift in Sources */,
 				93FA560A1DC6A23B00C07EB7 /* HeatingNetworlViewController.swift in Sources */,
 				9388A7C91E60B50600AC7597 /* EVLTStorageManager.swift in Sources */,
 				9330976E1E54B771008E0E89 /* EvltLocationManager.swift in Sources */,

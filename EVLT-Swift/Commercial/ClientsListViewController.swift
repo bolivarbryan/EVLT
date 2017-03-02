@@ -120,6 +120,36 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
         
         tableView.reloadData()
     }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+            print("delete button tapped")
+            var client: Client? = nil
+            if self.searchController.isActive && self.searchController.searchBar.text != "" {
+                client = self.filteredClients[indexPath.row]
+            } else {
+                client = self.clients[indexPath.row]
+            }
+            
+            ELVTAlert.showConfirmationMessage(controller: self, message: NSLocalizedString("Are you you sure you want to delete " + client!.fullName(), comment: ""), completion: { (done) in
+                if done == true {
+                    //api call to delete
+                    let query = "DELETE FROM `envertlaevlt`.`client` WHERE `client`.`client_id` = \(client!.clientID)"
+                    APIRequests.deleteRecord(query: query , completion: { (done) in
+                        self.searchDisplayController?.setActive(false, animated: true)
+                        self.getCommercialData()
+                    })
+                }
+            })
+        }
+        
+        delete.backgroundColor = .red
+        return [delete]
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 }
 
 
