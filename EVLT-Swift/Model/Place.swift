@@ -16,4 +16,16 @@ struct Place {
     var street = ""
     var city = ""
     var coordinateSiteId = 0
+    var numberString: String?
+    
+    init(siteID: Int,postalCode: Int,coordinate:Coordinate, number: Int, street: String, city: String, coordinateSiteId:Int) {
+        self.siteID = siteID
+        self.postalCode = postalCode
+        self.coordinate = coordinate
+        self.number = number
+        self.street = street
+        self.city = city
+        self.coordinateSiteId = coordinateSiteId
+        self.numberString = "\(number)"
+    }
 }

@@ -19,16 +19,19 @@ class CommercialContactInformationViewController: UIViewController {
     var project: Project!
     override func viewDidLoad() {
         super.viewDidLoad()
+        EvltLocationManager.sharedInstance.startUpdatingLocation()
         let done = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(save))
         self.navigationItem.rightBarButtonItem = done
-        
+        fillData()
+    }
+    
+    func  fillData() {
         self.cityLabel.text = place.city
         self.streetLabel.text = place.street
-        self.numberLabel.text = "\(place.number)"
+        self.numberLabel.text = "\(place.numberString!)"
         self.postalCodeLabel.text = "\(place.postalCode)"
         self.fetchData()
     }
-    
     func save() {
         //saving information in server
         self.place.city = self.cityLabel.text!
@@ -51,7 +54,6 @@ class CommercialContactInformationViewController: UIViewController {
                 })
             }
         })
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,7 +62,12 @@ class CommercialContactInformationViewController: UIViewController {
     
     @IBAction func getCurrentLocation(_ sender: Any) {
      //TODO: use corelocation and reverse geocoding
-        
+        if let testCoordinate = EvltLocationManager.sharedInstance.locationManager.location {
+            EvltLocationManager.reverseGeocoding(coordinate: Coordinate(latitude: testCoordinate.coordinate.latitude, longitude: testCoordinate.coordinate.longitude)) { (place) in
+                self.place = place
+                self.fillData()
+            }
+        }
     }
 
     @IBAction func next(_ sender: UITextField) {
