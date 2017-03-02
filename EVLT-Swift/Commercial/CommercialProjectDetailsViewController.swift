@@ -150,6 +150,7 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
                         self.dateLabel.text = "\(p.duree_chantier!) \(p.unite_temps!), \(date)"
                     }
                     self.commentsLabel.text = p.comments!
+                    self.statusLabel.text = p.status.detailed()
                 }
               
              }

@@ -336,6 +336,26 @@ class APIRequests: NSObject {
         }
       
     }
+
+
+    class func projectStatus(project: Project, completion: @escaping () -> Void){
+
+        let postData = NSMutableData()
+        postData.append("chantier_id=\(project.chantier_id)".data(using: String.Encoding.utf8)!)
+        postData.append("&etat=\(project.status.rawValue)".data(using: String.Encoding.utf8)!)
+        postData.append("&statut=\(project.statut_technicien)".data(using: String.Encoding.utf8)!)
+        postData.append("&prix=\(project.prix_ht)".data(using: String.Encoding.utf8)!)
+        postData.append("&tva=\(project.tva)".data(using: String.Encoding.utf8)!)
+        postData.append("&statutAdmin=\(project.statut_administratif.rawValue)".data(using: String.Encoding.utf8)!)
+
+        let url = serverURL + APIprojectStatus + "?"
+        
+        APIRequests.sendForm(url: url, postData: postData){ response in
+            printResponse(response: response as AnyObject)
+            completion()
+        }
+      
+    }
     
     class func getDate(){
         APIRequests.simplePost(endpoint: serverURL + APIdate, parameters: [:]){ response in
@@ -670,12 +690,7 @@ class APIRequests: NSObject {
         
     }
     
-    class func projectStatus(){
-        APIRequests.simplePost(endpoint: serverURL + APIprojectStatus, parameters: [:]){ response in
-            printResponse(response: response as AnyObject)
-        }
-    }
-    
+   
     class func clientCoordinates(){
         APIRequests.simplePost(endpoint: serverURL + APIclientCoordinates, parameters: [:]){ response in
          printResponse(response: response as AnyObject)

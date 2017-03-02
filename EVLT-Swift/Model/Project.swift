@@ -16,10 +16,35 @@ enum ProjectStatus: String {
     case active = "actif"
     case visitFait = "visite faite"
     case accepted = "accepte"
+    case inactive =  "inactif"
+    static let allValues = [active, visitFait, accepted,inactive ]
+
+    func detailed() -> String {
+        switch self {
+        case .active:
+            return NSLocalizedString("Devis envoyé", comment: "")
+        case .visitFait:
+            return NSLocalizedString("Visite technique faite", comment: "")
+        case .accepted:
+            return NSLocalizedString("Devis accepté", comment: "")
+        case .inactive:
+            return NSLocalizedString("Inactif", comment: "")
+        }
+    } 
+}
+
+enum TechnicianStatus: String {
+    case visiteDone = "Visite faite"
+    case sent = "Actif"
+    case accepted = "Accepte"
+    case inactive = "Inactif"
+    static let allValues = [visiteDone, sent, accepted, inactive ]
+
 }
 
 enum ProjectAdminStatus: String {
     case toBeProggramed = "A programmer"
+    case unspecified = ""
 }
 
 class Project {
@@ -32,7 +57,7 @@ class Project {
     var status: ProjectStatus
     var chantier_id: Int
     var statut_administratif: ProjectAdminStatus
-    var prix_ht: Int
+    var prix_ht: Float
     
     //date
     var date_contact: Date
@@ -41,7 +66,7 @@ class Project {
     var comments: String?
     var technicians: Array<String>?
     
-    init(tva: Float, prix_ttc: PriceTCC, type: String, date_contact:Date, statut_technicien:String, client_id: Int, contact:String, status: ProjectStatus, chantier_id: Int, statut_administratif: ProjectAdminStatus,  prix_ht: Int ) {
+    init(tva: Float, prix_ttc: PriceTCC, type: String, date_contact:Date, statut_technicien:String, client_id: Int, contact:String, status: ProjectStatus, chantier_id: Int, statut_administratif: ProjectAdminStatus,  prix_ht: Float ) {
         self.tva = tva
         self.prix_ht = prix_ht
         self.prix_ttc = prix_ttc
@@ -58,7 +83,7 @@ class Project {
     init(dictionaryObject: Dictionary<String, Any>) {
         print(dictionaryObject)
         self.tva = Float(dictionaryObject["tva"] as! String) ?? 0
-        self.prix_ht = Int(dictionaryObject["prix_ht"] as! String) ?? 0
+        self.prix_ht = Float(dictionaryObject["prix_ht"] as! String) ?? 0
         self.type = dictionaryObject["type"] as! String
         self.date_contact = Date()
         let formatter = DateFormatter()
