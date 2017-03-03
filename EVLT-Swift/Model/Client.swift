@@ -16,6 +16,7 @@ struct Client {
     var commercial: String
     var phone: String? = ""
     var cellPhone: String? = ""
+    var status: ClientStatus? = nil
     init(name: String, lastName: String, clientID: String, commercialActiveString:String, commercial: String) {
         self.name = name
         self.lastName = lastName
@@ -41,5 +42,12 @@ struct Client {
 extension Client {
     func fullName() -> String {
         return "\(self.lastName) \(self.name)".trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    }
+    
+    enum ClientStatus {
+        case visit
+        case appointment
+        case accepted
+        case refuse
     }
 }

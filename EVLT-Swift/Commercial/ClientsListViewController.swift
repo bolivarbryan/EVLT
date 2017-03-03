@@ -12,7 +12,7 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
     var clients: [Client] = []
     var filteredClients: [Client] = []
     let searchController = UISearchController(searchResultsController: nil)
-
+    @IBOutlet weak var clientsSegmentedControl: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
     var selectedClient: Client!
     
@@ -39,6 +39,12 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
     func new() {
         self.performSegue(withIdentifier: "newClientSegue", sender: self)
     }
+    
+    @IBAction func reloadBySection(_ sender: UISegmentedControl) {
+        print(sender.selectedSegmentIndex)
+    }
+    
+    
     override func awakeFromNib() {
         self.navigationController?.tabBarItem.image = UIImage(named: "briefcase")
     }
