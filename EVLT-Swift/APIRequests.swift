@@ -226,6 +226,7 @@ class APIRequests: NSObject {
     class func startFilling(completion: ((_ result : [Client] ) -> Void)?){
         APIRequests.simplePost(endpoint: serverURL + APIstartFilling, parameters: [:]){ response in
             var clients: [Client] = []
+            print(response)
             for clientDictionary in response["response"] as! Array<Dictionary<String, Any>> {
                 let client = Client(dictionary: clientDictionary)
                 clients.append(client)

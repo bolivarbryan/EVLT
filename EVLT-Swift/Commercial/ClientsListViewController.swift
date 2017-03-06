@@ -11,10 +11,12 @@ import UIKit
 class ClientsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var clients: [Client] = []
     var filteredClients: [Client] = []
+     var filteredClientsByStatus: [Client] = []
     let searchController = UISearchController(searchResultsController: nil)
-
+    @IBOutlet weak var clientsSegmentedControl: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
     var selectedClient: Client!
+    var filterClientsStatusString = Client.ClientStatus.visit.rawValue
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -28,7 +30,7 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
         self.configureTableView()
         self.getCommercialData()
         self.setupSearchEngine()
-        
+        filterClientsStatusString = Client.ClientStatus.visit.rawValue
         self.tableView.backgroundView = self.refreshControl
         
         let newButton = UIBarButtonItem(title: kNewClient, style: .done, target: self, action: #selector(new))
@@ -39,6 +41,38 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
     func new() {
         self.performSegue(withIdentifier: "newClientSegue", sender: self)
     }
+    
+    @IBAction func reloadBySection(_ sender: UISegmentedControl) {
+        print()
+        var clients = [Client]()
+        if searchController.isActive && searchController.searchBar.text != "" {
+            clients = self.filteredClients
+        }else{
+            clients = self.clients
+        }
+        
+        var queryString = ""
+        switch sender.selectedSegmentIndex {
+        case 0:
+            queryString = "Visite faite"
+        case 1:
+            queryString = "Actif"
+        case 2:
+            queryString = "Accepte"
+        case 3:
+             queryString = "Inactif"
+        default:
+            queryString = "All"
+        }
+        self.filterClientsStatusString = queryString
+        
+        if queryString != "All" {
+            self.filterClientsByStatus(clients: clients, status: Client.ClientStatus(rawValue: queryString)!)
+        }else {
+            self.filterContentForSearchText(searchText: "")
+        }
+    }
+    
     override func awakeFromNib() {
         self.navigationController?.tabBarItem.image = UIImage(named: "briefcase")
     }
@@ -63,7 +97,8 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
     func getCommercialData() {
         APIRequests.startFilling { (clients) in
             self.clients = clients
-            self.tableView.reloadData()
+            self.filteredClients = self.clients
+            self.filterClientsByStatus(clients: self.clients, status: Client.ClientStatus(rawValue: self.filterClientsStatusString) ?? .visit )
             self.refreshControl.endRefreshing()
         }
     }
@@ -90,47 +125,54 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCellTableViewCell
+        cell.nameLabel.text = filteredClientsByStatus[indexPath.row].fullName().capitalized
+        cell.subtitleLabel.text = filteredClientsByStatus[indexPath.row].address
         
-        if searchController.isActive && searchController.searchBar.text != "" {
-            cell.nameLabel.text = filteredClients[indexPath.row].fullName().capitalized
-        }else{
-            cell.nameLabel.text = clients[indexPath.row].fullName().capitalized
-        }
-        
-        //cell.subtitleLabel.text = clients[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.isActive && searchController.searchBar.text != "" {
-            return filteredClients.count
-        }
-        return clients.count
+        return filteredClientsByStatus.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedClient = clients[indexPath.row]
+        self.selectedClient = filteredClientsByStatus[indexPath.row]
         self.performSegue(withIdentifier: "segue", sender: self)
     }
 
     func filterContentForSearchText(searchText: String, scope: String = "All") {
+        
         filteredClients = clients.filter { client in
             return client.lastName.lowercased().contains(searchText.lowercased())
         }
-        
+        if  self.filterClientsStatusString == "All" {
+            if searchText.isEmpty {
+                filteredClientsByStatus = self.clients
+            }else{
+                filteredClientsByStatus = filteredClients
+            }
+            tableView.reloadData()
+
+        }else{
+            if searchText.isEmpty {
+               filteredClients = clients
+            }
+            filterClientsByStatus(clients: filteredClients, status: Client.ClientStatus(rawValue: self.filterClientsStatusString)!)
+        }
+    }
+    
+    func filterClientsByStatus(clients:[Client] , status: Client.ClientStatus) {
+        filteredClientsByStatus = clients.filter{ client in
+            return (client.status!.rawValue.lowercased() == (self.filterClientsStatusString.lowercased()))
+        }
         tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
-            print("delete button tapped")
             var client: Client? = nil
-            if self.searchController.isActive && self.searchController.searchBar.text != "" {
-                client = self.filteredClients[indexPath.row]
-            } else {
-                client = self.clients[indexPath.row]
-            }
             
+            client = self.filteredClientsByStatus[indexPath.row]
             ELVTAlert.showConfirmationMessage(controller: self, message: NSLocalizedString("Are you you sure you want to delete " + client!.fullName(), comment: ""), completion: { (done) in
                 if done == true {
                     //api call to delete
@@ -156,7 +198,7 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
 
 extension ClientsListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchText: searchController.searchBar.text!)
+       filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
 }
 
@@ -175,7 +217,6 @@ extension ClientsListViewController: NewClientDelegate {
     }
     
     func clientCanceled() {
-        
     }
 }
 

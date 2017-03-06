@@ -37,7 +37,6 @@ let APIImportTechinician = "import_technicians.php"
 let kActionTypeNew = "NOUVEAU"
 let kActionTypeUpdate = "EXISTE"
 
-
 //session Keys
 
 let KSessionData = "UserSession" // user data: login, profil
