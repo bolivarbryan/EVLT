@@ -86,8 +86,8 @@ class AddPhotoViewController: UIViewController {
                 print(completion)
                 aiView.isHidden = true
                 //Send url to server here
-                var status = "CREATION"
-                var photoObject = Photo(url: name, comment: self.showCommentBox.title(for: .normal)!)
+                let status = "CREATION"
+                let photoObject = Photo(url: name, comment: self.showCommentBox.title(for: .normal)!)
                 
                 APIRequests.projectPhoto(projectID: "\(self.project.chantier_id)", status: status, photo: photoObject, comment: self.showCommentBox.title(for: .normal)!, completion: { (done) in
                     DispatchQueue.main.async {
@@ -98,7 +98,6 @@ class AddPhotoViewController: UIViewController {
             }
         }else{
             ELVTAlert.showMessage(controller: self, message: kErrorMessage, completion: { (done) in })
-            
         }
     }
     
@@ -122,12 +121,10 @@ class AddPhotoViewController: UIViewController {
                 self.present(self.imagePicker, animated: true, completion: nil)
             }
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBOutlet weak var showCommentBox: UIButton!
