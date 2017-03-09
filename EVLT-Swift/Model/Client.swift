@@ -45,7 +45,7 @@ struct Client {
         self.address = self.address! + (dictionary["code_postal"] as? String ?? "") + " "
         self.address = self.address! + (dictionary["ville"] as? String ?? "")
         
-        let statusString = dictionary["statut"] as? String ?? "Visite faite"
+        let statusString = dictionary["statut"] as? String ?? "All"
         self.status = ClientStatus.init(rawValue: statusString)
     }
 }

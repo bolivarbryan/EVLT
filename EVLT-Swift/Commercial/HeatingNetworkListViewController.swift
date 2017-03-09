@@ -13,13 +13,17 @@ class HeatingNetworkListViewController: UIViewController {
     var selectedNetwork: Network? = nil
     var networks: [Network]! = []
     @IBOutlet weak var tableView: UITableView!
+    var isTechincianParentController: Bool? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        let newButton = UIBarButtonItem(title: NSLocalizedString("New", comment: ""), style: .done, target: self, action: #selector(new))
-        self.navigationItem.rightBarButtonItem = newButton
+        if isTechincianParentController == nil {
+            let newButton = UIBarButtonItem(title: NSLocalizedString("New", comment: ""), style: .done, target: self, action: #selector(new))
+            self.navigationItem.rightBarButtonItem = newButton
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,8 +85,11 @@ extension HeatingNetworkListViewController: UITableViewDataSource {
 
 extension HeatingNetworkListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if isTechincianParentController == nil {
         self.selectedNetwork = networks[indexPath.row]
-        self.performSegue(withIdentifier: "NewNetWorkSegue", sender: self)
+            self.performSegue(withIdentifier: "NewNetWorkSegue", sender: self)
+        }
     }
 }
 

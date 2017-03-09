@@ -89,8 +89,13 @@ class Project {
         let formatter = DateFormatter()
         
         formatter.dateFormat = "yyyy-MM-dd"
-        if let date = formatter.date(from: dictionaryObject["date"] as! String){
-            self.date_contact = date
+        
+        if let dateString = dictionaryObject["date"] as? String {
+            if let date = formatter.date(from: dateString){
+                self.date_contact = date
+            }
+        }else{
+            self.date_contact = Date()
         }
         
         self.statut_technicien = dictionaryObject["statut"] as! String
@@ -102,11 +107,23 @@ class Project {
         self.chantier_id = Int(dictionaryObject["chantier_id"] as! String)!
         self.statut_administratif = .toBeProggramed
         self.prix_ttc = PriceTCC.init(rawValue: dictionaryObject["prix_ttc"] as! String) ?? .notAvailable
+
+        if let dateString = dictionaryObject["date"] as? String {
+            self.date_contact = EVLTDateFormatter.dateFromSring(string: dateString)
+        }
         
-        self.date_contact = EVLTDateFormatter.dateFromSring(string: dictionaryObject["date"] as! String)
-        self.unite_temps = dictionaryObject["unite_temps"] as! String
-        self.duree_chantier = dictionaryObject["duree_chantier"] as! String
-        self.comments = dictionaryObject["commentaire"] as! String
+        if let unitTempsString = dictionaryObject["unite_temps"] as? String {
+            self.unite_temps = unitTempsString
+        }
+        
+        if let duree_chantier = dictionaryObject["duree_chantier"] as? String {
+            self.duree_chantier = duree_chantier
+        }
+        
+        if let commentaire = dictionaryObject["commentaire"] as? String {
+            self.comments = commentaire
+        }
+        
     }
 }
 

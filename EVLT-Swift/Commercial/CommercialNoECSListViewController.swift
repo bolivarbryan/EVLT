@@ -14,10 +14,14 @@ class CommercialNoECSListViewController: UIViewController {
     var ecsObjects: [ECS]! = []
     var project: Project!
     @IBOutlet weak var tableView: UITableView!
+    var isTechincianParentController: Bool? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        let newButton = UIBarButtonItem(title: NSLocalizedString("New", comment: ""), style: .done, target: self, action: #selector(new))
-        self.navigationItem.rightBarButtonItem = newButton
+        
+        if isTechincianParentController == nil {
+            let newButton = UIBarButtonItem(title: NSLocalizedString("New", comment: ""), style: .done, target: self, action: #selector(new))
+            self.navigationItem.rightBarButtonItem = newButton
+        }
     }
     
     func new() {
@@ -75,10 +79,12 @@ extension CommercialNoECSListViewController: UITableViewDataSource {
 
 extension CommercialNoECSListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //details
         tableView.deselectRow(at: indexPath, animated: true)
+        if isTechincianParentController == nil {
+        //details
         self.ecs = ecsObjects[indexPath.row]
-        self.performSegue(withIdentifier: "NewECSSegue", sender: self)
+            self.performSegue(withIdentifier: "NewECSSegue", sender: self)
+        }
     }
 }
 

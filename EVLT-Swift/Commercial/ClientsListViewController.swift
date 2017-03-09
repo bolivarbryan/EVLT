@@ -99,7 +99,7 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
             self.clients = clients
             self.filteredClients = self.clients
             self.filteredClientsByStatus = self.filteredClients
-            self.filterClientsByStatus(clients: self.clients, status: Client.ClientStatus(rawValue: self.filterClientsStatusString) ?? .visit )
+            self.filterClientsByStatus(clients: self.clients, status: Client.ClientStatus(rawValue: self.filterClientsStatusString) ?? .all )
             self.refreshControl.endRefreshing()
         }
     }
@@ -164,7 +164,7 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
     
     func filterClientsByStatus(clients:[Client] , status: Client.ClientStatus) {
         filteredClientsByStatus = clients.filter{ client in
-            let status = client.status?.rawValue.lowercased() ?? ""
+            let status = client.status?.rawValue.lowercased() ?? "all"
             return (status == (self.filterClientsStatusString.lowercased()))
         }
         tableView.reloadData()
