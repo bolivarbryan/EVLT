@@ -828,6 +828,15 @@ class APIRequests: NSObject {
         
     }
     
+    class func importAllProjects(completion: @escaping (_ result: Dictionary<String, Any>) -> Void){
+   
+        let url = "http://www.envertlaterre.fr/PHP/import_projet.php"
+        
+        basicPost(endpoint: url, params: [["name":"", "value":""]]) { (result) in
+            completion(result.dictionaryObject!)
+        }
+    }
+    
     class func importProject(){
         let headers = [
             "cache-control": "no-cache",
