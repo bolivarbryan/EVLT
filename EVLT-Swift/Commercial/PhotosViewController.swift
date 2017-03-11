@@ -166,10 +166,10 @@ extension PhotosViewController: UITableViewDataSource {
 extension PhotosViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if isTechincianParentController == nil {
+        //if isTechincianParentController == nil {
         self.selectedPhoto =  photoUrls[indexPath.row]
             self.performSegue(withIdentifier: "AddPhotoDetails", sender: self)
-        }
+        //}
     }
 }
 

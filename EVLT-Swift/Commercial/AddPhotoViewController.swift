@@ -27,13 +27,15 @@ class AddPhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let newButton = UIBarButtonItem(title: NSLocalizedString("Save", comment: ""), style: .done, target: self, action: #selector(new))
-        self.navigationItem.rightBarButtonItem = newButton
-
+    
         if let p = self.photo {
             self.textView.text = p.comment
             self.imageView.image = selectedImage
             self.scrollView.contentSize = self.imageView.frame.size;
+            
+        }else {
+            let newButton = UIBarButtonItem(title: NSLocalizedString("Save", comment: ""), style: .done, target: self, action: #selector(new))
+            self.navigationItem.rightBarButtonItem = newButton
         }
     }
     override func viewDidAppear(_ animated: Bool) {
