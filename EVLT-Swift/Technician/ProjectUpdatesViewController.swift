@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TGPControls
 
 class ProjectUpdatesViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -14,18 +15,32 @@ class ProjectUpdatesViewController:  UIViewController, UITableViewDataSource, UI
     var networks = [Network]()
     var ecsObjects = [ECS]()
     var photos = [Photo]()
+    @IBOutlet weak var oneTo10Labels: TGPCamelLabels!
+    @IBOutlet weak var oneTo10Slider: TGPDiscreteSlider!
+
+    
+    @IBOutlet weak var streetLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var heatingLabel: UILabel!
+    @IBOutlet weak var ecsLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureTableView()
+        //self.configureTableView()
         fetchProjectDetails()
         //get ecs, heating, photos and comments
+        oneTo10Labels.names = ["0", "20", "40", "60", "80", "100"]
+        oneTo10Slider.ticksListener = oneTo10Labels
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     func fetchProjectDetails() {
         //Heating network
@@ -41,7 +56,7 @@ class ProjectUpdatesViewController:  UIViewController, UITableViewDataSource, UI
                         APIRequests.listPhotos(projectID: "\(self.projectAddress.project.chantier_id)") { (photoObjects) in
                             self.photos = photoObjects
                               DispatchQueue.main.async {
-                                self.tableView.reloadData()
+                                //self.tableView.reloadData()
                             }
                         }
                     }

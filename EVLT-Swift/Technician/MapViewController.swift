@@ -58,7 +58,9 @@ class MapViewController: UIViewController {
                     if "\(project.chantier_id)" == addressObject["chantier_id"] as! String {
                         //create address instance and combine it with project and add pin to map
                         let address = Place(dictionary: addressObject)
-                        self.drawPoint(project: project, address: address)
+                        DispatchQueue.main.async {
+                            self.drawPoint(project: project, address: address)
+                        }
                         self.projectAddressArray.append((project: project, address: address))
                     }else{
                         continue
@@ -77,8 +79,8 @@ class MapViewController: UIViewController {
     func centerMapInCoordinate(coordinate: CLLocationCoordinate2D)  {
         var region = MKCoordinateRegion()
         region.center = coordinate
-        region.span.latitudeDelta = 0.5;
-        region.span.longitudeDelta = 0.5;
+        region.span.latitudeDelta = 2.0;
+        region.span.longitudeDelta = 2.0;
         mapView.region = region;
     }
     
