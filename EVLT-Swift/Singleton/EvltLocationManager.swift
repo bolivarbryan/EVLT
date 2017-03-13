@@ -90,6 +90,7 @@ class EvltLocationManager: NSObject {
         }
     }
     
+    
     func startUpdatingLocation()  {
         locationManager.requestWhenInUseAuthorization()
     }

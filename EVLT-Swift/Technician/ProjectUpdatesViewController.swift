@@ -10,15 +10,13 @@ import UIKit
 import TGPControls
 
 class ProjectUpdatesViewController:  UIViewController {
-    
+    //MARK: PROPERTIES
     var projectAddress: (project: Project, address: Place)!
     var networks = [Network]()
     var ecsObjects = [ECS]()
     var photos = [Photo]()
     @IBOutlet weak var oneTo10Labels: TGPCamelLabels!
     @IBOutlet weak var oneTo10Slider: TGPDiscreteSlider!
-
-    
     @IBOutlet weak var streetLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -46,7 +44,6 @@ class ProjectUpdatesViewController:  UIViewController {
 
     func fetchProjectDetails() {
         //Heating network
-        print(self.projectAddress.project.chantier_id)
         APIRequests.getHeatingNetwork(type: "chauffage", projectID: "\(self.projectAddress.project.chantier_id)") { (response) in
             DispatchQueue.main.async {
                 self.networks = response
@@ -63,7 +60,6 @@ class ProjectUpdatesViewController:  UIViewController {
                                 self.addressLabel?.text = self.projectAddress.address.formattedAddress()
                                 self.heatingLabel?.text = "\(self.networks.count) " + NSLocalizedString("Heating networks", comment: "")
                                 self.ecsLabel.text = "\(self.ecsObjects.count) " + NSLocalizedString("ECS networks", comment: "")
-                                
                                 self.photosLabel.text = "\(self.photos.count) " + "Photos"
                             }
                         }
@@ -115,5 +111,11 @@ class ProjectUpdatesViewController:  UIViewController {
         self.performSegue(withIdentifier: "commentsSegue", sender: self)
     }
     
+    @IBAction func showNavigationMap(_ sender: Any) {
+        let vc = MapRouteViewController()
+        vc.address = self.projectAddress.address
+        vc.project = self.projectAddress.project
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 

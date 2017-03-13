@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         BuddyBuildSDK.setup()
         EVLTStorageManager.sharedInstance.setup()
-
+        GMSServices.provideAPIKey("AIzaSyCGillSQqptoIa94nu36dT8oqKlo45FgZU")
+        
         return true
     }
 

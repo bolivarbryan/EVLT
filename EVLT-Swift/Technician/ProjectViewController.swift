@@ -9,8 +9,10 @@
 import UIKit
 
 class ProjectViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    //MARK: PROPERTIES
     var projectAddressArray: [(project: Project, address: Place)] = []
     var selectedProjectAddress: (project: Project, address: Place)!
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +31,8 @@ class ProjectViewController: UIViewController, UITableViewDataSource, UITableVie
             vc.projectAddress = selectedProjectAddress
         }
     }
- //MARK: tableview
-    @IBOutlet weak var tableView: UITableView!
+    
+    //MARK: TABLEVIEW
 
     func configureTableView() {
         self.tableView.delegate = self

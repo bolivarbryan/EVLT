@@ -24,6 +24,11 @@ PODS:
     - GTMSessionFetcher/Core (~> 1.1)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
+  - GoogleMaps (2.1.1):
+    - GoogleMaps/Maps (= 2.1.1)
+  - GoogleMaps/Base (2.1.1)
+  - GoogleMaps/Maps (2.1.1):
+    - GoogleMaps/Base
   - GoogleSymbolUtilities (1.1.2)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
@@ -44,6 +49,7 @@ DEPENDENCIES:
   - DGActivityIndicatorView
   - Firebase/Core
   - Firebase/Storage
+  - GoogleMaps
   - JTCalendar (~> 2.0)
   - MXParallaxHeader
   - SDWebImage
@@ -61,6 +67,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FirebaseStorage: 5738284835edb57f0e81d4ae5832bb17c1e4b5fa
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
@@ -71,6 +78,6 @@ SPEC CHECKSUMS:
   TGPControls: feb3210f617691690994d0ddfe37884150b6de9a
   Toaster: be65cd48e93a525b2a9cc4bd25a2bfc900e02d9f
 
-PODFILE CHECKSUM: 278e746b710c73c24d2927308b5c5788aa8070a4
+PODFILE CHECKSUM: 999644a482d7de771fdc4c014067465cecfc764e
 
 COCOAPODS: 1.1.1

@@ -18,6 +18,7 @@ target 'EVLT-Swift' do
   pod 'Firebase/Storage'
   pod 'SDWebImage'
   pod 'TGPControls'
+  pod 'GoogleMaps'
 
   target 'EVLT-SwiftTests' do
     inherit! :search_paths

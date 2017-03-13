@@ -687,10 +687,8 @@ class APIRequests: NSObject {
         APIRequests.sendForm(url:serverURL + APInewProject + "?", postData: postData){ response in
             printResponse(response: response as AnyObject)
             completion(response as AnyObject)
-        }
-        
+        }   
     }
-    
    
     class func clientCoordinates(){
         APIRequests.simplePost(endpoint: serverURL + APIclientCoordinates, parameters: [:]){ response in
@@ -863,6 +861,40 @@ class APIRequests: NSObject {
     }
     
 
+    class func getDirections(origin:Coordinate, destiny: Coordinate, completion: @escaping (_ results: String) -> Void ) {
+        //TODO: Encrypt this key
+        let code = "AIzaSyCGillSQqptoIa94nu36dT8oqKlo45FgZU"
+        let headers = [
+            "cache-control": "no-cache",
+            "postman-token": "092b0e6c-b01d-1ad0-a5ea-422ebf677891"
+        ]
+        let formattedOriginString = "\(origin.latitude),\(origin.longitude)"
+        let formattedDestinyString = "\(destiny.latitude),\(destiny.longitude)"
+        let request = NSMutableURLRequest(url: NSURL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(formattedOriginString)&destination=\(formattedDestinyString)&key=\(code)")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+            } else {
+                let json = JSON(data: data!)
+                print(json)
+                
+                //filtering directions
+                guard let routeObjects = json.dictionaryObject?["routes"] as? Array<Dictionary<String, Any>> else {
+                    return
+                }
+                
+                completion((routeObjects[0]["overview_polyline"] as! Dictionary<String, Any>)["points"] as! String)   
+            }
+        })
+        
+        dataTask.resume()
+    }
+    
     // MARK: - CoreData methods
     
     class func getContext () -> NSManagedObjectContext {
