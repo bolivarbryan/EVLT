@@ -887,8 +887,11 @@ class APIRequests: NSObject {
                 guard let routeObjects = json.dictionaryObject?["routes"] as? Array<Dictionary<String, Any>> else {
                     return
                 }
-                
-                completion((routeObjects[0]["overview_polyline"] as! Dictionary<String, Any>)["points"] as! String)   
+                if routeObjects.count > 0 {
+                    completion((routeObjects[0]["overview_polyline"] as! Dictionary<String, Any>)["points"] as! String)
+                }else {
+                    completion("")
+                }
             }
         })
         

@@ -16,6 +16,7 @@ final class MapRouteViewController: UIViewController {
     var address: Place! = nil
     var mapView: GMSMapView? = nil
     let locationManager: CLLocationManager = CLLocationManager()
+    var label:UILabel! = nil
     
     // MARK: - View Life Cycle
 
@@ -27,6 +28,7 @@ final class MapRouteViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.distanceFilter = 50.0
         locationManager.startUpdatingLocation()
+     
         
         configureMapView()
         placeDestinationMarker()
@@ -39,11 +41,20 @@ final class MapRouteViewController: UIViewController {
     
     //MARK: MAP
     func configureMapView() {
-        let camera = GMSCameraPosition(target: coordinateFromAddress(), zoom: 8.0, bearing: 0, viewingAngle: 0.0)
         mapView = GMSMapView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+
+        let camera = GMSCameraPosition(target: coordinateFromAddress(), zoom: 9.0, bearing: 0, viewingAngle: 0.0)
         mapView?.camera = camera
         mapView?.isMyLocationEnabled = true
         self.view = mapView
+        
+        label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 60))
+        label.backgroundColor = UIColor.white
+        label.font = UIFont(name: "Helvetica-Neue", size: 11.0)
+        label.numberOfLines = 0
+        label.textColor = UIColor.black
+        
+        self.view.addSubview(label)
     }
     
     func placeDestinationMarker() {
@@ -54,14 +65,15 @@ final class MapRouteViewController: UIViewController {
     }
     
     func drawRoute(encondedPath: String) {
+        self.mapView?.clear()
+        self.placeDestinationMarker()
         //encondedPath is a encoded string of the route
         let path = GMSPath.init(fromEncodedPath: encondedPath)
         let singleLine = GMSPolyline.init(path: path)
         
-        singleLine.strokeWidth = 7
-        singleLine.strokeColor = UIColor.green
+        singleLine.strokeWidth = 5
+        singleLine.strokeColor = UIColor.blue
         singleLine.map = self.mapView
-        self.view = self.mapView
     }
     
     func coordinateFromAddress() -> CLLocationCoordinate2D {
@@ -80,8 +92,13 @@ extension MapRouteViewController: CLLocationManagerDelegate {
         let destiny = address.coordinate
         
         APIRequests.getDirections(origin: origin, destiny: destiny) { (encondedPath) in
+            let formattedOriginString = "\(origin.latitude),\(origin.longitude)"
+            let formattedDestinyString = "\(destiny.latitude),\(destiny.longitude)"
+
             DispatchQueue.main.async {
                 self.drawRoute(encondedPath: encondedPath)
+                self.label.text = " Origin: " + formattedOriginString + "\n Destiny: " + formattedDestinyString
+
             }
         }
     }

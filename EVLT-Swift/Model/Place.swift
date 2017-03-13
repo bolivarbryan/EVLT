@@ -46,9 +46,17 @@ struct Place {
                 self.coordinate = Coordinate(latitude: dictionary["latitude"] as! Double, longitude: dictionary["longitude"] as! Double)
         }else{
             let numberFormmater = NumberFormatter()
-            let lat = numberFormmater.number(from: dictionary["latitude"] as! String)
-            let longitude = numberFormmater.number(from: dictionary["longitude"] as! String)
-            self.coordinate = Coordinate(latitude: (lat?.doubleValue)!, longitude: (longitude?.doubleValue)!)
+            var latObject = NSNumber(value: 0)
+            var longObject = NSNumber(value: 0)
+            if let lat = numberFormmater.number(from: dictionary["latitude"] as! String) {
+                latObject = lat
+            }
+            
+            if let longitude = numberFormmater.number(from: dictionary["longitude"] as! String) {
+                longObject = longitude
+            }
+            
+            self.coordinate = Coordinate(latitude: (latObject.doubleValue), longitude: (longObject.doubleValue))
         }
     }
 }
