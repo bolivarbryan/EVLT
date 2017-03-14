@@ -15,7 +15,7 @@ final class MapRouteViewController: UIViewController {
     var project: Project! = nil
     var address: Place! = nil
     var mapView: GMSMapView? = nil
-    let locationManager: CLLocationManager = CLLocationManager()
+    var locationManager: CLLocationManager = CLLocationManager()
     var label:UILabel! = nil
     
     // MARK: - View Life Cycle
@@ -23,21 +23,28 @@ final class MapRouteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = project.type
-        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.locationManager.stopUpdatingLocation()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.distanceFilter = 50.0
         locationManager.startUpdatingLocation()
-     
         
         configureMapView()
         placeDestinationMarker()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-    }
     
     //MARK: MAP
     func configureMapView() {

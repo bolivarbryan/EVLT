@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Client {
+class Client: Hashable {
     var name:String
     var lastName: String
     var clientID: String
@@ -48,6 +48,12 @@ struct Client {
         let statusString = dictionary["statut"] as? String ?? "All"
         self.status = ClientStatus.init(rawValue: statusString)
     }
+    
+    var hashValue: Int { get {
+            return Int(self.clientID) ?? 0
+        }
+    }
+    
 }
 
 extension Client {
@@ -62,4 +68,21 @@ extension Client {
         case refuse = "Inactif"
         case all = "All"
     }
+}
+
+
+extension Array where Element: Equatable {
+  var unique: [Element] {
+        var uniqueValues: [Element] = []
+        forEach { item in
+            if !uniqueValues.contains(item) {
+                uniqueValues += [item]
+            }
+        }
+        return uniqueValues
+    }
+}
+
+func ==(lhs: Client, rhs: Client) -> Bool {
+    return lhs.clientID == rhs.clientID
 }

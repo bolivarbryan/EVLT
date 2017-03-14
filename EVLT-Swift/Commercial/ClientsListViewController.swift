@@ -28,7 +28,6 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureTableView()
-        self.getCommercialData()
         self.setupSearchEngine()
         filterClientsStatusString = Client.ClientStatus.visit.rawValue
         self.tableView.backgroundView = self.refreshControl
@@ -36,6 +35,12 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
         let newButton = UIBarButtonItem(title: kNewClient, style: .done, target: self, action: #selector(new))
         self.navigationItem.rightBarButtonItem = newButton
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.getCommercialData()
+
     }
     
     func new() {
@@ -99,7 +104,23 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
             self.clients = clients
             self.filteredClients = self.clients
             self.filteredClientsByStatus = self.filteredClients
-            self.filterClientsByStatus(clients: self.clients, status: Client.ClientStatus(rawValue: self.filterClientsStatusString) ?? .all )
+            switch self.clientsSegmentedControl.selectedSegmentIndex {
+            case 0:
+                self.filterClientsStatusString = "Visite faite"
+            case 1:
+                self.filterClientsStatusString = "Actif"
+            case 2:
+                self.filterClientsStatusString = "Accepte"
+            case 3:
+                self.filterClientsStatusString = "Inactif"
+            default:
+                self.filterClientsStatusString = "All"
+            }
+            
+            
+            self.filterContentForSearchText(searchText: "", scope: self.filterClientsStatusString)
+            
+            //self.filterClientsByStatus(clients: self.clients, status: Client.ClientStatus(rawValue: self.filterClientsStatusString) ?? .all )
             self.refreshControl.endRefreshing()
         }
     }
@@ -152,6 +173,8 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
             }else{
                 filteredClientsByStatus = filteredClients
             }
+            let clientsSet = Set(filteredClientsByStatus)
+            filteredClientsByStatus = Array(clientsSet)
             tableView.reloadData()
 
         }else{
@@ -163,10 +186,16 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func filterClientsByStatus(clients:[Client] , status: Client.ClientStatus) {
-        filteredClientsByStatus = clients.filter{ client in
+        //creating a set
+        
+        filteredClientsByStatus = clients.filter { client in
             let status = client.status?.rawValue.lowercased() ?? "all"
             return (status == (self.filterClientsStatusString.lowercased()))
         }
+    
+        let clientsSet = Set(filteredClientsByStatus)
+        print(clientsSet)
+        filteredClientsByStatus = Array(clientsSet)
         tableView.reloadData()
     }
     
@@ -207,6 +236,8 @@ extension ClientsListViewController: UISearchResultsUpdating {
 extension ClientsListViewController: NewClientDelegate {
     
     func clientSuccessfullyCreated() {
+        self.clientsSegmentedControl.selectedSegmentIndex = 4
+        self.reloadBySection(self.clientsSegmentedControl)
         //reload data and select the last item from array of clients
         APIRequests.startFilling { (clients) in
             self.clients = clients
