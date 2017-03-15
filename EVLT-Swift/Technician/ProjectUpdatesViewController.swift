@@ -35,8 +35,15 @@ class ProjectUpdatesViewController:  UIViewController {
         oneTo10Slider.ticksListener = oneTo10Labels
         self.title = projectAddress.project.type
         
-    }
 
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Medium", size: 16)!]
+
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Medium", size: 17)!]
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -61,6 +68,25 @@ class ProjectUpdatesViewController:  UIViewController {
                                 self.heatingLabel?.text = "\(self.networks.count) " + NSLocalizedString("Heating networks", comment: "")
                                 self.ecsLabel.text = "\(self.ecsObjects.count) " + NSLocalizedString("ECS networks", comment: "")
                                 self.photosLabel.text = "\(self.photos.count) " + "Photos"
+                                
+                                //Project Details
+                                APIRequests.importProjectDetails(chantierID: "\(self.projectAddress.project.chantier_id)") { (projectObject) in
+                                    DispatchQueue.main.async {
+                                    let projectObj = projectObject.0! as Project
+                                        print(projectObj)
+                                        if let duration = projectObj.duree_chantier {
+                                            if duration.isEmpty {
+                                                self.timeLabel.text = NSLocalizedString("No duration", comment: "")
+                                            }else{
+                                             self.timeLabel.text = "\(duration) \(projectObj.unite_temps!)"
+                                            }
+                                        } else {
+                                            self.timeLabel.text = NSLocalizedString("No duration", comment: "")
+                                        }
+                                    }
+                                }
+                                
+                                
                             }
                         }
                     }
