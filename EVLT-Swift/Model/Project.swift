@@ -65,6 +65,7 @@ class Project {
     var duree_chantier: String?
     var comments: String?
     var technicians: Array<String>?
+    var clientName: String?
     
     init(tva: Float, prix_ttc: PriceTCC, type: String, date_contact:Date, statut_technicien:String, client_id: Int, contact:String, status: ProjectStatus, chantier_id: Int, statut_administratif: ProjectAdminStatus,  prix_ht: Float ) {
         self.tva = tva
@@ -124,6 +125,16 @@ class Project {
             self.comments = commentaire
         }
         
+        guard let name = dictionaryObject["nom"] as? String else {
+            return
+        }
+        
+        self.clientName = name
+        
+        guard let firstName = dictionaryObject["prenom"] as? String else {
+            return
+        }
+        self.clientName = name + " " + firstName
     }
 }
 

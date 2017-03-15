@@ -20,9 +20,12 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.centerMapInCoordinate(coordinate: yvetotCoordinate)
-        getProjects()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getProjects()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -42,7 +45,6 @@ class MapViewController: UIViewController {
         }else if segue.identifier == "ProjectListSegue" {
             let vc = segue.destination as! ProjectViewController
             vc.projectAddressArray = self.projectAddressArray
-
         }
     }
  
@@ -51,6 +53,8 @@ class MapViewController: UIViewController {
         APIRequests.importAllProjects { (projects) in
             print(projects)
             self.projectAddressArray = []
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            
             for projectObject in projects["chantiers"] as! Array<Dictionary<String, Any>> {
                 let project = Project(dictionaryObject: projectObject)
                 //got project, getting addresses

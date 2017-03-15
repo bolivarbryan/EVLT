@@ -41,8 +41,9 @@ class ProjectViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCellTableViewCell
-        cell.nameLabel?.text = projectAddressArray[indexPath.row].project.type
-        cell.subtitleLabel?.text = projectAddressArray[indexPath.row].address.formattedAddress()
+        cell.nameLabel?.text = projectAddressArray[indexPath.row].project.clientName
+        cell.subtitleLabel?.text = "\(projectAddressArray[indexPath.row].project.type) -  \(projectAddressArray[indexPath.row].project.status)"
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
 
@@ -51,6 +52,8 @@ class ProjectViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
         self.selectedProjectAddress = projectAddressArray[indexPath.row]
         self.performSegue(withIdentifier: "segue", sender: self)
     }

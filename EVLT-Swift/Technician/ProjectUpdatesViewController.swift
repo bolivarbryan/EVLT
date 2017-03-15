@@ -72,7 +72,7 @@ class ProjectUpdatesViewController:  UIViewController {
                                 self.heatingLabel?.text = "\(self.networks.count) " + NSLocalizedString("Heating networks", comment: "")
                                 self.ecsLabel.text = "\(self.ecsObjects.count) " + NSLocalizedString("ECS networks", comment: "")
                                 self.photosLabel.text = "\(self.photos.count) " + "Photos"
-                                
+                                self.nameLabel.text = self.projectAddress.project.clientName
                                 //Project Details
                                 APIRequests.importProjectDetails(chantierID: "\(self.projectAddress.project.chantier_id)") { (projectObject) in
                                     DispatchQueue.main.async {
