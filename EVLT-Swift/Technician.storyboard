@@ -790,7 +790,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ldr-x2-Jb5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Technician" id="rbd-Li-Fv6"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="97v-Zg-OWw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="97v-Zg-OWw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1018,6 +1018,7 @@
                         <segue destination="Lgh-PS-HmA" kind="show" identifier="AddPhotoDetails" id="Ly4-xb-Yqd">
                             <nil key="action"/>
                         </segue>
+                        <segue destination="bcR-HC-yFY" kind="show" identifier="AddPhoto" id="HTG-KJ-DEu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNq-XO-kgO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1175,6 +1176,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBx-lS-VuM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7798" y="-817"/>
+        </scene>
+        <!--Add Photo-->
+        <scene sceneID="w5B-7e-SLE">
+            <objects>
+                <viewController title="Add Photo" id="bcR-HC-yFY" customClass="AddPhotoViewController" customModule="EVLT_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bPT-FJ-w0l"/>
+                        <viewControllerLayoutGuide type="bottom" id="dpa-OF-ETH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i2V-40-cwK">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZbR-YE-FI1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oqe-oh-YpI">
+                                <rect key="frame" x="0.0" y="553" width="375" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="0.3325539173" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="LM4-5K-PIS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="Comment">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="displayCommentBox:" destination="bcR-HC-yFY" eventType="touchUpInside" id="xD0-g5-BpW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rbp-n3-7IA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
+                                <state key="normal" title="Touch to change photo"/>
+                                <connections>
+                                    <action selector="selectPicture:" destination="bcR-HC-yFY" eventType="touchUpInside" id="CGr-Cr-Uo6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dpa-OF-ETH" firstAttribute="top" secondItem="Oqe-oh-YpI" secondAttribute="bottom" id="1Rj-OZ-dVB"/>
+                            <constraint firstItem="ZbR-YE-FI1" firstAttribute="top" secondItem="bPT-FJ-w0l" secondAttribute="bottom" id="1UR-Jf-56w"/>
+                            <constraint firstItem="Oqe-oh-YpI" firstAttribute="top" secondItem="Rbp-n3-7IA" secondAttribute="bottom" id="5kn-dR-7yt"/>
+                            <constraint firstItem="ZbR-YE-FI1" firstAttribute="leading" secondItem="i2V-40-cwK" secondAttribute="leading" id="B64-vj-Exs"/>
+                            <constraint firstItem="Oqe-oh-YpI" firstAttribute="leading" secondItem="i2V-40-cwK" secondAttribute="leading" id="LZg-To-qMd"/>
+                            <constraint firstAttribute="trailing" secondItem="Rbp-n3-7IA" secondAttribute="trailing" id="Lg9-rs-mGZ"/>
+                            <constraint firstItem="Rbp-n3-7IA" firstAttribute="top" secondItem="bPT-FJ-w0l" secondAttribute="bottom" id="M3S-ma-DRW"/>
+                            <constraint firstAttribute="trailing" secondItem="Oqe-oh-YpI" secondAttribute="trailing" id="c7j-T1-fuK"/>
+                            <constraint firstItem="dpa-OF-ETH" firstAttribute="top" secondItem="ZbR-YE-FI1" secondAttribute="bottom" id="nMS-xM-IYS"/>
+                            <constraint firstAttribute="trailing" secondItem="ZbR-YE-FI1" secondAttribute="trailing" id="uMP-no-ReQ"/>
+                            <constraint firstItem="Rbp-n3-7IA" firstAttribute="leading" secondItem="i2V-40-cwK" secondAttribute="leading" id="wrG-x1-lyn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="ZbR-YE-FI1" id="er6-qu-u8t"/>
+                        <outlet property="showCommentBox" destination="Oqe-oh-YpI" id="Xhp-Vv-VKO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fzs-CG-DBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8585" y="1773"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

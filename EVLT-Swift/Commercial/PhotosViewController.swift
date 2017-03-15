@@ -17,17 +17,13 @@ class PhotosViewController: UIViewController {
     fileprivate let itemsPerRow: CGFloat = 3
     fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 50.0, right: 10.0)
     var isTechincianParentController: Bool? = nil
-
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if isTechincianParentController == nil {
             let newButton = UIBarButtonItem(title: NSLocalizedString("Add...", comment: ""), style: .done, target: self, action: #selector(new))
             self.navigationItem.rightBarButtonItem = newButton
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -166,10 +162,8 @@ extension PhotosViewController: UITableViewDataSource {
 extension PhotosViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        //if isTechincianParentController == nil {
         self.selectedPhoto =  photoUrls[indexPath.row]
             self.performSegue(withIdentifier: "AddPhotoDetails", sender: self)
-        //}
     }
 }
 

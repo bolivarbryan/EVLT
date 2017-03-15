@@ -29,7 +29,6 @@ class ProjectUpdatesViewController:  UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.configureTableView()
-        fetchProjectDetails()
         //get ecs, heating, photos and comments
         oneTo10Labels.names = ["0", "20", "40", "60", "80", "100"]
         oneTo10Slider.ticksListener = oneTo10Labels
@@ -37,8 +36,13 @@ class ProjectUpdatesViewController:  UIViewController {
         
 
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Medium", size: 16)!]
-
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchProjectDetails()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Medium", size: 17)!]
