@@ -67,12 +67,12 @@ class ProjectUpdatesViewController:  UIViewController {
                             self.photos = photoObjects
                               DispatchQueue.main.async {
                                 //self.tableView.reloadData()
-                                self.streetLabel?.text = self.projectAddress.project.type
-                                self.addressLabel?.text = self.projectAddress.address.formattedAddress()
+                                self.streetLabel?.text = self.projectAddress.project.clientName
+                                self.addressLabel?.text = "\(self.projectAddress.address.numberString!), \(self.projectAddress.address.street)"
                                 self.heatingLabel?.text = "\(self.networks.count) " + NSLocalizedString("Heating networks", comment: "")
                                 self.ecsLabel.text = "\(self.ecsObjects.count) " + NSLocalizedString("ECS networks", comment: "")
                                 self.photosLabel.text = "\(self.photos.count) " + "Photos"
-                                self.nameLabel.text = self.projectAddress.project.clientName
+                                self.nameLabel.text = "\(self.projectAddress.address.postalCode), \(self.projectAddress.address.city)"
                                 //Project Details
                                 APIRequests.importProjectDetails(chantierID: "\(self.projectAddress.project.chantier_id)") { (projectObject) in
                                     DispatchQueue.main.async {
@@ -82,7 +82,8 @@ class ProjectUpdatesViewController:  UIViewController {
                                             if duration.isEmpty {
                                                 self.timeLabel.text = NSLocalizedString("No duration", comment: "")
                                             }else{
-                                             self.timeLabel.text = "\(duration) \(projectObj.unite_temps!)"
+                                                let expectedDuration = NSLocalizedString("expected duration", comment: "")
+                                             self.timeLabel.text = "\(expectedDuration): \(duration) \(projectObj.unite_temps!)"
                                             }
                                         } else {
                                             self.timeLabel.text = NSLocalizedString("No duration", comment: "")

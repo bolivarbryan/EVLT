@@ -168,14 +168,15 @@ class EVLTAnnotation: NSObject, MKAnnotation {
     
     init(projectAddress: (project: Project, address: Place)) {
         self.projectAddress = projectAddress
-        switch projectAddress.project.status {
-        case .accepted:
-            self.status = .finished
-        case .active:
+        switch projectAddress.project.statut_technicien {
+        case "urgence":
+            //self.status = .finished
+        //case .active:
             self.status = .urgency
-        case .inactive:
-            self.status = .planned
-        case .visitFait:
+        //case .inactive:
+        //    self.status = .planned
+       // case .visitFait:
+        default:
             self.status = .inProggress
         }
         self.title = projectAddress.project.type

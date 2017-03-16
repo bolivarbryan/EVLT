@@ -341,13 +341,21 @@ class APIRequests: NSObject {
 
     class func projectStatus(project: Project, completion: @escaping () -> Void){
 
+        var etat = project.status.rawValue
+        etat = etat.capitalizingFirstLetter()
+        
         let postData = NSMutableData()
         postData.append("chantier_id=\(project.chantier_id)".data(using: String.Encoding.utf8)!)
-        postData.append("&etat=\(project.status.rawValue)".data(using: String.Encoding.utf8)!)
+        postData.append("&etat=\(etat)".data(using: String.Encoding.utf8)!)
         postData.append("&statut=\(project.statut_technicien)".data(using: String.Encoding.utf8)!)
         postData.append("&prix=\(project.prix_ht)".data(using: String.Encoding.utf8)!)
         postData.append("&tva=\(project.tva)".data(using: String.Encoding.utf8)!)
         postData.append("&statutAdmin=\(project.statut_administratif.rawValue)".data(using: String.Encoding.utf8)!)
+        
+        
+        if etat == "Accepte" {
+            postData.append("&statut_technicien=prevú".data(using: String.Encoding.utf8)!)
+        }
 
         let url = serverURL + APIprojectStatus + "?"
         
@@ -921,5 +929,16 @@ class APIRequests: NSObject {
         }
     }
     
+}
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        let first = String(characters.prefix(1)).capitalized
+        let other = String(characters.dropFirst())
+        return first + other
+    }
     
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
 }

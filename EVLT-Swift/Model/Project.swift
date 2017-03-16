@@ -99,7 +99,12 @@ class Project {
             self.date_contact = Date()
         }
         
-        self.statut_technicien = dictionaryObject["statut"] as! String
+        if let _ = dictionaryObject["statut_technicien"] as? String {
+            self.statut_technicien = dictionaryObject["statut_technicien"] as! String
+        }else {
+            self.statut_technicien = ""
+        }
+        
         
         self.client_id = 0
         self.contact = ""

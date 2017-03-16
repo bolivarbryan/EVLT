@@ -22,8 +22,6 @@ class TechnicianCommentsViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = newButton
     }
     
-    
-    
     func new() {
         if let comment = self.textView.text {
             // api request
