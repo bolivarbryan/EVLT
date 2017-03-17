@@ -339,7 +339,7 @@ class APIRequests: NSObject {
     }
 
 
-    class func projectStatus(project: Project, completion: @escaping () -> Void){
+    class func projectStatus(project: Project, statusTechnician: String, completion: @escaping () -> Void){
 
         var etat = project.status.rawValue
         etat = etat.capitalizingFirstLetter()
@@ -354,7 +354,9 @@ class APIRequests: NSObject {
         
         
         if etat == "Accepte" {
-            postData.append("&statut_technicien=prevú".data(using: String.Encoding.utf8)!)
+            //prevú
+            
+            postData.append("&statut_technicien=\(statusTechnician)".data(using: String.Encoding.utf8)!)
         }
 
         let url = serverURL + APIprojectStatus + "?"

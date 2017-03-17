@@ -41,7 +41,7 @@ class ProjectViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCellTableViewCell
         cell.nameLabel?.text = projectAddressArray[indexPath.row].project.clientName
-        cell.subtitleLabel?.text = "\(projectAddressArray[indexPath.row].project.type) -  \(projectAddressArray[indexPath.row].project.statut_technicien)"
+        cell.subtitleLabel?.text = "\(projectAddressArray[indexPath.row].project.type) - \(projectAddressArray[indexPath.row].project.statut_technicien)"
         cell.accessoryType = .disclosureIndicator
         return cell
     }

@@ -32,6 +32,7 @@ class CommercialContactInformationViewController: UIViewController {
         self.postalCodeLabel.text = "\(place.postalCode)"
         self.fetchData()
     }
+    
     func save() {
         //saving information in server
         self.place.city = self.cityLabel.text!

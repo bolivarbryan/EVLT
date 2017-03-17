@@ -62,10 +62,13 @@ class MapViewController: UIViewController {
                     if "\(project.chantier_id)" == addressObject["chantier_id"] as! String {
                         //create address instance and combine it with project and add pin to map
                         let address = Place(dictionary: addressObject)
-                        DispatchQueue.main.async {
-                            self.drawPoint(project: project, address: address)
+                        
+                        if (project.statut_technicien != "") {
+                            DispatchQueue.main.async {
+                                self.drawPoint(project: project, address: address)
+                            }
+                            self.projectAddressArray.append((project: project, address: address))
                         }
-                        self.projectAddressArray.append((project: project, address: address))
                     }else{
                         continue
                     }
@@ -179,8 +182,8 @@ class EVLTAnnotation: NSObject, MKAnnotation {
         default:
             self.status = .inProggress
         }
-        self.title = projectAddress.project.type
-        self.subtitle = "\(projectAddress.address.numberString!), \(projectAddress.address.street), \(projectAddress.address.postalCode) \(projectAddress.address.city)"
+        self.title = projectAddress.project.clientName
+        self.subtitle = "\(projectAddress.project.type), \(projectAddress.project.statut_technicien)"
         self.coordinate = CLLocationCoordinate2D(latitude: projectAddress.address.coordinate.latitude, longitude:  projectAddress.address.coordinate.longitude)
     }
 }

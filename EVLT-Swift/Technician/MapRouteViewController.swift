@@ -55,13 +55,12 @@ final class MapRouteViewController: UIViewController {
         mapView?.isMyLocationEnabled = true
         self.view = mapView
         
-        label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 60))
-        label.backgroundColor = UIColor.white
-        label.font = UIFont(name: "Helvetica-Neue", size: 11.0)
-        label.numberOfLines = 0
-        label.textColor = UIColor.black
-        
-        self.view.addSubview(label)
+//        label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 60))
+//        label.backgroundColor = UIColor.white
+//        label.font = UIFont(name: "Helvetica-Neue", size: 11.0)
+//        label.numberOfLines = 0
+//        label.textColor = UIColor.black
+//        self.view.addSubview(label)
     }
     
     func placeDestinationMarker() {

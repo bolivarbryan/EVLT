@@ -432,7 +432,7 @@
                                                             <constraint firstAttribute="height" constant="1" id="nL7-Gy-EKE"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQI-kd-z6y">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQI-kd-z6y">
                                                         <rect key="frame" x="10" y="11" width="355" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -451,7 +451,6 @@
                                                     <constraint firstItem="iQI-kd-z6y" firstAttribute="top" secondItem="jpN-R3-snh" secondAttribute="bottom" constant="10" id="dTf-Vx-2qd"/>
                                                     <constraint firstAttribute="bottom" secondItem="du9-D3-OFl" secondAttribute="bottom" id="rEi-rE-dVH"/>
                                                     <constraint firstAttribute="trailing" secondItem="jpN-R3-snh" secondAttribute="trailing" id="v9j-18-1R7"/>
-                                                    <constraint firstItem="iQI-kd-z6y" firstAttribute="top" secondItem="jpN-R3-snh" secondAttribute="bottom" constant="10" id="y8a-XI-mIh"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wq8-c5-TEL" userLabel="Installation">
@@ -479,6 +478,9 @@
                                                         <state key="normal" title="ALERT">
                                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="setProjectAsUrgency" destination="BUb-gH-uip" eventType="touchUpInside" id="UfS-gz-jyS"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -31,9 +31,9 @@ class ProjectValidationViewController: UIViewController {
     func edit() {
         let numberFormatter = NumberFormatter()
         
-        self.project.prix_ht = numberFormatter.number(from: priceTxt.text!)!.floatValue
-        self.project.tva = numberFormatter.number(from: tvaTxt.text!)!.floatValue
-        self.delegate.didValidate(total: numberFormatter.number(from: priceTxt.text!)!.floatValue, tax: self.project.tva)
+        self.project.prix_ht = numberFormatter.number(from: priceTxt.text!)?.floatValue ?? 0.0
+        self.project.tva = numberFormatter.number(from: tvaTxt.text!)?.floatValue ?? 0.0
+        self.delegate.didValidate(total: numberFormatter.number(from: priceTxt.text!)?.floatValue ?? 0.0, tax: self.project.tva)
         _ = self.navigationController?.popViewController(animated: true)
     }
         
