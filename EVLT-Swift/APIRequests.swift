@@ -227,7 +227,12 @@ class APIRequests: NSObject {
         APIRequests.simplePost(endpoint: serverURL + APIstartFilling, parameters: [:]){ response in
             var clients: [Client] = []
             print(response)
-            for clientDictionary in response["response"] as! Array<Dictionary<String, Any>> {
+            guard let array = response["response"] as? Array<Dictionary<String, Any>> else {
+                completion!(clients)
+                return
+            }
+            
+            for clientDictionary in array {
                 let client = Client(dictionary: clientDictionary)
                 clients.append(client)
             }

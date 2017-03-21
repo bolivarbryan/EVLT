@@ -26,7 +26,8 @@ class NewClientViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     var delegate: NewClientDelegate!
     var selectedClient: Client? = nil
-    
+    var place: Place!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = kNewClient
@@ -297,4 +298,40 @@ extension NewClientViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
+    
+
+}
+
+
+extension NewClientViewController {
+    //MARK: Location
+    @IBAction func getCurrentLocation(_ sender: Any) {
+        //TODO: use corelocation and reverse geocoding
+        if let testCoordinate = EvltLocationManager.sharedInstance.locationManager.location {
+            EvltLocationManager.reverseGeocoding(coordinate: Coordinate(latitude: testCoordinate.coordinate.latitude, longitude: testCoordinate.coordinate.longitude)) { (place) in
+                self.place = place
+                self.fillData()
+            }
+        }
+    }
+    
+    func  fillData() {
+        self.cityTxt.text = place.city
+        self.streetTxt.text = place.street
+        self.address.text = "\(place.numberString!)"
+        self.postalCodeTxt.text = "\(place.postalCode)"
+        self.fetchData()
+    }
+ 
+    func fetchData() {
+        //reverse geocoding from current place
+        let formattedAddress = "\(place.number) \(place.street),\(place.postalCode) \(place.city)"
+        EvltLocationManager.forwardGeocoding(address: formattedAddress, completion: { (lat, lng) in
+            print(lat)
+            print(lng)
+            self.place.coordinate.latitude = Double(lat) ?? 0
+            self.place.coordinate.longitude = Double(lng) ?? 0
+        })
+    }
+    
 }
