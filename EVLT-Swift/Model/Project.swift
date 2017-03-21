@@ -140,6 +140,13 @@ class Project {
             return
         }
         self.clientName = name + " " + firstName
+        
+        guard let clientID = dictionaryObject["client_id"] as? String else {
+            return
+        }
+        
+        //TODO: Make a number formatter here
+        self.client_id = Int(clientID)!
     }
 }
 

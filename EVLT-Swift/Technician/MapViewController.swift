@@ -47,7 +47,6 @@ class MapViewController: UIViewController {
             vc.projectAddressArray = self.projectAddressArray
         }
     }
- 
 
     func getProjects() {
         APIRequests.importAllProjects { (projects) in

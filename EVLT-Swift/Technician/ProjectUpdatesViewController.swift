@@ -16,7 +16,8 @@ class ProjectUpdatesViewController:  UIViewController {
     var ecsObjects = [ECS]()
     var photos = [Photo]()
     var technicians: [Technician] = []
-
+    var clientID:String!
+    
     @IBOutlet weak var oneTo10Labels: TGPCamelLabels!
     @IBOutlet weak var oneTo10Slider: TGPDiscreteSlider!
     @IBOutlet weak var streetLabel: UILabel!
@@ -43,6 +44,7 @@ class ProjectUpdatesViewController:  UIViewController {
                                  for: .valueChanged)
         
         self.reloadStatus()
+        self.clientID = "\(self.projectAddress.project.client_id)"
     }
     
     func reloadStatus() {
@@ -264,5 +266,26 @@ class ProjectUpdatesViewController:  UIViewController {
         }
     }
 
+}
+
+extension ProjectUpdatesViewController {
+    @IBAction func callContact() {
+        //getting phone number from contact
+        APIRequests.getClient(clientID: self.clientID) { (client) in
+            DispatchQueue.main.async {
+                print((client["client"] as! Client).cellPhone!)
+                
+                guard let phone = (client["client"] as! Client).cellPhone else {
+                    ELVTAlert.showMessage(controller: self, message: NSLocalizedString("This client does not have a valid phone number", comment: ""), completion: { (done) in })
+                    return
+                }
+                
+                //calling...
+                if let url = URL(string: "telprompt://\(phone)") {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        }
+    }
 }
 
