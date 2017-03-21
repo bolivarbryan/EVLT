@@ -132,12 +132,12 @@ class NewClientViewController: UIViewController {
                 })
             })
         }else{
-            if !isValidEmail(testStr: self.emailTxt.text!) {
-                ELVTAlert.showMessage(controller: self, message: kInvalidEmail, completion: { (done) in  
-                })
-            }else{
+//            if !isValidEmail(testStr: self.emailTxt.text!) {
+//                ELVTAlert.showMessage(controller: self, message: kInvalidEmail, completion: { (done) in  
+//                })
+//            }else{
                 ELVTAlert.showMessage(controller: self, message: kEmptyForm, completion: { (done) in })
-            }
+//            }
         }
     }
     
@@ -162,10 +162,13 @@ class NewClientViewController: UIViewController {
         isValid = (self.streetTxt.text?.characters.count)! > 0
         isValid = (self.postalCodeTxt.text?.characters.count)! > 0
         isValid = (self.cityTxt.text?.characters.count)! > 0
-        isValid = (self.cellPhoneTxt.text?.characters.count)! > 0
-        isValid = (self.phoneTxt.text?.characters.count)! > 0
-        isValid = (self.emailTxt.text?.characters.count)! > 0
-        isValid = isValidEmail(testStr: self.emailTxt.text!)
+        //isValid = (self.cellPhoneTxt.text?.characters.count)! > 0
+        //isValid = (self.phoneTxt.text?.characters.count)! > 0
+        
+        //only verify if email is valid if there is a string, now email will not be compulsory
+        if (self.emailTxt.text?.characters.count)! > 0 {
+            isValid = isValidEmail(testStr: self.emailTxt.text!)
+        }
         
         return isValid
     }
