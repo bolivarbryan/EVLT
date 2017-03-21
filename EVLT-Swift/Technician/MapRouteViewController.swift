@@ -98,13 +98,8 @@ extension MapRouteViewController: CLLocationManagerDelegate {
         let destiny = address.coordinate
         
         APIRequests.getDirections(origin: origin, destiny: destiny) { (encondedPath) in
-            let formattedOriginString = "\(origin.latitude),\(origin.longitude)"
-            let formattedDestinyString = "\(destiny.latitude),\(destiny.longitude)"
-
             DispatchQueue.main.async {
                 self.drawRoute(encondedPath: encondedPath)
-                self.label.text = " Origin: " + formattedOriginString + "\n Destiny: " + formattedDestinyString
-
             }
         }
     }
