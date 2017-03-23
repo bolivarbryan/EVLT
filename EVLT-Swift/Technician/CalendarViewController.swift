@@ -35,6 +35,10 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
         self.configureDate(date: NSDate())
         calendarManager.setDate(todayDate as Date!)
         
+        //call google calendar api
+        EVLTCalendarManager.sharedInstance.setup(controller: self)
+        
+        
     }
     
     func configureDate(date: NSDate) {

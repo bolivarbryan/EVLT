@@ -50,6 +50,7 @@
 		93D29DB91E5901B800B49572 /* ZoneDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29DB81E5901B800B49572 /* ZoneDetailsViewController.swift */; };
 		93D2C25F1E54821000DC8321 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D2C25E1E54821000DC8321 /* Assets.xcassets */; };
 		93D2C2611E5482EB00DC8321 /* NewClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D2C2601E5482EB00DC8321 /* NewClientViewController.swift */; };
+		93D63ABC1E81BD1700DD72D8 /* EVLTCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D63ABB1E81BD1700DD72D8 /* EVLTCalendarManager.swift */; };
 		93D8AFA31DC9FFE800F3A4B4 /* APIRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D8AFA21DC9FFE800F3A4B4 /* APIRequests.swift */; };
 		93D8AFA51DCA004200F3A4B4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D8AFA41DCA004200F3A4B4 /* Constants.swift */; };
 		93E35DCB1E0191D600D6ED5E /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E35DCA1E0191D600D6ED5E /* PersistencyManager.swift */; };
@@ -152,6 +153,7 @@
 		93D29DB81E5901B800B49572 /* ZoneDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZoneDetailsViewController.swift; path = Commercial/ZoneDetailsViewController.swift; sourceTree = "<group>"; };
 		93D2C25E1E54821000DC8321 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93D2C2601E5482EB00DC8321 /* NewClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewClientViewController.swift; sourceTree = "<group>"; };
+		93D63ABB1E81BD1700DD72D8 /* EVLTCalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EVLTCalendarManager.swift; path = Singleton/EVLTCalendarManager.swift; sourceTree = "<group>"; };
 		93D8AFA21DC9FFE800F3A4B4 /* APIRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequests.swift; sourceTree = "<group>"; };
 		93D8AFA41DCA004200F3A4B4 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		93E35DCA1E0191D600D6ED5E /* PersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistencyManager.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			children = (
 				9330976D1E54B771008E0E89 /* EvltLocationManager.swift */,
 				9388A7C81E60B50600AC7597 /* EVLTStorageManager.swift */,
+				93D63ABB1E81BD1700DD72D8 /* EVLTCalendarManager.swift */,
 			);
 			name = Singleton;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				9388A7D11E60E53300AC7597 /* Photo.swift in Sources */,
 				935FCD3A1E5A900F0045BAE1 /* Network.swift in Sources */,
 				93D29DAF1E58B51E00B49572 /* CommercialContactInformationViewController.swift in Sources */,
+				93D63ABC1E81BD1700DD72D8 /* EVLTCalendarManager.swift in Sources */,
 				93FA560C1DC6A9B200C07EB7 /* ECSNetworkViewController.swift in Sources */,
 				935C357E1E4963FD00C12449 /* Client.swift in Sources */,
 				93FA56001DC697FD00C07EB7 /* MapViewController.swift in Sources */,

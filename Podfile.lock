@@ -22,6 +22,11 @@ PODS:
   - FirebaseStorage (1.0.5):
     - FirebaseAnalytics (~> 3.5)
     - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleAPIClient/Calendar (1.0.5):
+    - GoogleAPIClient/Core
+    - GTMSessionFetcher (~> 1.1)
+  - GoogleAPIClient/Core (1.0.5):
+    - GTMSessionFetcher (~> 1.1)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
   - GoogleMaps (2.1.1):
@@ -33,7 +38,13 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GTMOAuth2 (1.1.4):
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.1.8):
+    - GTMSessionFetcher/Full (= 1.1.8)
   - GTMSessionFetcher/Core (1.1.8)
+  - GTMSessionFetcher/Full (1.1.8):
+    - GTMSessionFetcher/Core (= 1.1.8)
   - JTCalendar (2.1.9)
   - MXParallaxHeader (0.5.2)
   - SDWebImage (3.8.2):
@@ -49,7 +60,9 @@ DEPENDENCIES:
   - DGActivityIndicatorView
   - Firebase/Core
   - Firebase/Storage
+  - GoogleAPIClient/Calendar (~> 1.0.2)
   - GoogleMaps
+  - GTMOAuth2 (~> 1.1.0)
   - JTCalendar (~> 2.0)
   - MXParallaxHeader
   - SDWebImage
@@ -66,10 +79,12 @@ SPEC CHECKSUMS:
   FirebaseCore: 46afaf2c2e0419ea7d3acfb08cf26a461a75fe85
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FirebaseStorage: 5738284835edb57f0e81d4ae5832bb17c1e4b5fa
+  GoogleAPIClient: 4a6b0b807de8b1115a2835180b25dd93dc60f1ea
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   JTCalendar: beb2f4c1b639bf6880f680b4858227acf83a049c
   MXParallaxHeader: 5070ba8e8af27ec793c0d32ae82cfd2318e59635
@@ -78,6 +93,6 @@ SPEC CHECKSUMS:
   TGPControls: feb3210f617691690994d0ddfe37884150b6de9a
   Toaster: be65cd48e93a525b2a9cc4bd25a2bfc900e02d9f
 
-PODFILE CHECKSUM: 999644a482d7de771fdc4c014067465cecfc764e
+PODFILE CHECKSUM: 68e95d4c20a6fa2cb080a5a2a24e0fd831c0a9e1
 
 COCOAPODS: 1.1.1
