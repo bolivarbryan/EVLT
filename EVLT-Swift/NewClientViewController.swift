@@ -299,7 +299,12 @@ extension NewClientViewController: UITextFieldDelegate {
         return true
     }
     
-
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        if (textField == self.firstNameTxt) || (textField == self.lastNameTxt) {
+            textField.text = textField.text?.capitalized
+        }
+    }
+    
 }
 
 

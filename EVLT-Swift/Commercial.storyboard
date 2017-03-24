@@ -2730,24 +2730,35 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="656"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ARB-EW-cN0">
-                                <rect key="frame" x="10" y="20" width="355" height="636"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sBt-fF-lPf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="656"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellID" id="7hj-I8-Ufe">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7hj-I8-Ufe" id="7Ij-6g-BPa">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="anX-F7-UMB" id="KZz-yc-PSt"/>
+                                    <outlet property="delegate" destination="anX-F7-UMB" id="oIE-KL-9tg"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ARB-EW-cN0" firstAttribute="top" secondItem="Gy5-3b-rMt" secondAttribute="bottom" constant="20" id="PFc-u9-Dct"/>
-                            <constraint firstItem="ARB-EW-cN0" firstAttribute="leading" secondItem="XqO-zJ-YxB" secondAttribute="leading" constant="10" id="VNL-RZ-wmb"/>
-                            <constraint firstItem="gTI-qH-XdI" firstAttribute="top" secondItem="ARB-EW-cN0" secondAttribute="bottom" id="WRZ-2v-L50"/>
-                            <constraint firstAttribute="trailing" secondItem="ARB-EW-cN0" secondAttribute="trailing" constant="10" id="vJ5-tq-uiz"/>
+                            <constraint firstItem="gTI-qH-XdI" firstAttribute="top" secondItem="sBt-fF-lPf" secondAttribute="bottom" id="38B-XE-KUk"/>
+                            <constraint firstAttribute="trailing" secondItem="sBt-fF-lPf" secondAttribute="trailing" id="IRO-dK-0EH"/>
+                            <constraint firstItem="sBt-fF-lPf" firstAttribute="top" secondItem="Gy5-3b-rMt" secondAttribute="bottom" id="ij2-ta-6Ma"/>
+                            <constraint firstItem="sBt-fF-lPf" firstAttribute="leading" secondItem="XqO-zJ-YxB" secondAttribute="leading" id="oA4-rg-RcJ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="textView" destination="ARB-EW-cN0" id="jHl-bt-N2P"/>
+                        <outlet property="tableView" destination="sBt-fF-lPf" id="4SH-mX-Bi5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B73-mp-8hW" userLabel="First Responder" sceneMemberID="firstResponder"/>

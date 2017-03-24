@@ -28,6 +28,7 @@ class ProjectUpdatesViewController:  UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var photosLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
+    @IBOutlet weak var alertSwitch: UISwitch!
     
     //MARK: view controller life cycle
     override func viewDidLoad() {
@@ -53,9 +54,13 @@ class ProjectUpdatesViewController:  UIViewController {
         case "fini":
             //if status is finished that means project has a 100% of proggress
             self.oneTo10Slider.value = 6.0
+            self.alertSwitch.isOn = false
         case "prevu":
             let newButton = UIBarButtonItem(title: NSLocalizedString("Start", comment: ""), style: .done, target: self, action: #selector(setProjectAsStarted))
             self.navigationItem.rightBarButtonItem = newButton
+            self.alertSwitch.isOn = false
+        case "urgence":
+            self.alertSwitch.isOn = true
         default:
             print("en cours")
             self.navigationItem.rightBarButtonItem = nil
@@ -158,22 +163,29 @@ class ProjectUpdatesViewController:  UIViewController {
         
     }
     
-    @IBAction func setProjectAsUrgency() {
-        ELVTAlert.showConfirmationMessage(controller: self, message: NSLocalizedString("Set as urgency?", comment: "")) { (done) in
-            if done == true {
-                
-                ELVTAlert.showFormWithFields(controller: self, message: NSLocalizedString("Insert a comment", comment: ""), fields: ["Message"], completion: { (results) in
+    @IBAction func setProjectAsUrgency(sender: UISwitch) {
+        if sender.isOn {
+            ELVTAlert.showConfirmationMessage(controller: self, message: NSLocalizedString("Set as urgency?", comment: "")) { (done) in
+                if done == true {
                     
-                    //getting comment
-                    print(results[0])
+                    ELVTAlert.showFormWithFields(controller: self, message: NSLocalizedString("Insert a comment", comment: ""), fields: ["Message"], completion: { (results) in
+                        
+                        //getting comment
+                        print(results[0])
+                        
+                        self.updateTechnianStatus(value: "urgence")
+                        
+                    })
                     
-                    self.updateTechnianStatus(value: "urgence")
-
-                })
-                
+                } else {
+                    sender.isOn = false
+                }
             }
+        } else {
+            self.updateTechnianStatus(value: "en cours")
         }
     }
+    
     func updateTechnianStatus(value: String) {
         DispatchQueue.main.async {
             APIRequests.projectStatus(project: self.projectAddress.project, statusTechnician:  value) {

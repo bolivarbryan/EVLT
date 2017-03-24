@@ -119,8 +119,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2XI-Cn-wsX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8NE-rF-ama">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="653"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8NE-rF-ama">
+                                        <rect key="frame" x="0.0" y="-100" width="375" height="653"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kud-9E-oww" userLabel="ECS">
                                                 <rect key="frame" x="0.0" y="218" width="375" height="44"/>
@@ -500,32 +500,33 @@
                                                             <constraint firstAttribute="height" constant="1" id="RLr-KV-ge7"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lq1-1h-YJu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal" title="ALERT">
-                                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHu-3N-cT2">
+                                                        <rect key="frame" x="10" y="11" width="37" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Ue-Dm-b2c">
+                                                        <rect key="frame" x="316" y="6" width="51" height="31"/>
+                                                        <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
-                                                            <action selector="setProjectAsUrgency" destination="BUb-gH-uip" eventType="touchUpInside" id="UfS-gz-jyS"/>
+                                                            <action selector="setProjectAsUrgencyWithSender:" destination="BUb-gH-uip" eventType="valueChanged" id="ORo-bZ-P63"/>
                                                         </connections>
-                                                    </button>
+                                                    </switch>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="Lq1-1h-YJu" firstAttribute="leading" secondItem="Wq8-c5-TEL" secondAttribute="leading" id="B2V-jD-Vis"/>
                                                     <constraint firstItem="bgx-Cb-F42" firstAttribute="leading" secondItem="Wq8-c5-TEL" secondAttribute="leading" id="Cny-WD-dso"/>
                                                     <constraint firstItem="76z-5T-8uI" firstAttribute="leading" secondItem="Wq8-c5-TEL" secondAttribute="leading" id="Gdm-EK-CEg"/>
-                                                    <constraint firstItem="bgx-Cb-F42" firstAttribute="top" secondItem="Lq1-1h-YJu" secondAttribute="bottom" id="QqY-sb-y2b"/>
+                                                    <constraint firstAttribute="trailing" secondItem="8Ue-Dm-b2c" secondAttribute="trailing" constant="10" id="HiB-xI-kRD"/>
                                                     <constraint firstAttribute="height" constant="44" id="SU9-TM-zX6"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Lq1-1h-YJu" secondAttribute="trailing" id="aov-DF-qar"/>
+                                                    <constraint firstItem="mHu-3N-cT2" firstAttribute="top" secondItem="76z-5T-8uI" secondAttribute="bottom" constant="10" id="XKU-Lg-4TP"/>
                                                     <constraint firstItem="76z-5T-8uI" firstAttribute="top" secondItem="Wq8-c5-TEL" secondAttribute="top" id="dtf-uB-xrA"/>
+                                                    <constraint firstItem="mHu-3N-cT2" firstAttribute="leading" secondItem="Wq8-c5-TEL" secondAttribute="leading" constant="10" id="kh6-T3-Fqa"/>
                                                     <constraint firstAttribute="bottom" secondItem="bgx-Cb-F42" secondAttribute="bottom" id="lJm-5u-hFJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="bgx-Cb-F42" secondAttribute="trailing" id="omh-8a-tAH"/>
-                                                    <constraint firstItem="Lq1-1h-YJu" firstAttribute="top" secondItem="Wq8-c5-TEL" secondAttribute="top" id="rdW-Gq-LZv"/>
+                                                    <constraint firstItem="8Ue-Dm-b2c" firstAttribute="centerY" secondItem="Wq8-c5-TEL" secondAttribute="centerY" id="pWG-68-X9L"/>
                                                     <constraint firstAttribute="trailing" secondItem="76z-5T-8uI" secondAttribute="trailing" id="xaS-96-74h"/>
-                                                    <constraint firstItem="bgx-Cb-F42" firstAttribute="top" secondItem="Lq1-1h-YJu" secondAttribute="bottom" id="zMU-Is-W1I"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CkS-ry-ZXf" userLabel="ECS">
@@ -690,6 +691,7 @@
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="M4g-EY-6Vw" id="cMp-xm-Pbg"/>
+                        <outlet property="alertSwitch" destination="8Ue-Dm-b2c" id="DcI-0X-Kgo"/>
                         <outlet property="commentsLabel" destination="MVb-da-KHc" id="RpY-qF-NXV"/>
                         <outlet property="ecsLabel" destination="vbp-Jv-Ji8" id="hsr-c3-Kjx"/>
                         <outlet property="heatingLabel" destination="sVc-rA-lOA" id="PqT-oY-cP8"/>
