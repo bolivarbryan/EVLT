@@ -46,10 +46,12 @@ class ProjectUpdatesViewController:  UIViewController {
         
         self.reloadStatus()
         self.clientID = "\(self.projectAddress.project.client_id)"
+        self.streetLabel?.text = self.projectAddress.project.clientName
+
     }
     
     func reloadStatus() {
-        
+        print()
         switch self.projectAddress.project.statut_technicien {
         case "fini":
             //if status is finished that means project has a 100% of proggress
@@ -63,23 +65,55 @@ class ProjectUpdatesViewController:  UIViewController {
             self.alertSwitch.isOn = true
         default:
             print("en cours")
+            self.alertSwitch.isOn = false
             self.navigationItem.rightBarButtonItem = nil
+        }
+        
+        guard let progress = self.projectAddress.project.progress else {
+            return
+        }
+        
+        switch progress {
+        case "0":
+            self.oneTo10Slider.value = 0
+        case "20":
+            self.oneTo10Slider.value = 1
+        case "40":
+            self.oneTo10Slider.value = 2
+        case "60":
+            self.oneTo10Slider.value = 3
+        case "80":
+            self.oneTo10Slider.value = 4
+        case "100":
+            self.oneTo10Slider.value = 5
+        default: break
         }
     }
 
     func valueChanged(_ sender: TGPDiscreteSlider, event:UIEvent) {
-        print(Double(sender.value))
-        
+        var status: (value: String, percentage:String)!
         switch Double(sender.value) {
+        case 0.0:
+            status = ("en cours", "0")
+        case 1.0:
+            status = ("en cours", "20")
+        case 2.0:
+            status = ("en cours", "40")
+        case 3.0:
+            status = ("en cours", "60")
+        case 4.0:
+            status = ("en cours", "80")
         case 5.0:
-            print("100%")
+            status = ("fini", "100")
             //Save As Finished
-            self.updateTechnianStatus(value: "fini")
-        default:
-            self.updateTechnianStatus(value: "en cours")
+        default: break
         }
+        
+        self.updateTechnianStatus(value: status.value, percetage: status.percentage)
+
     }
 
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -155,7 +189,7 @@ class ProjectUpdatesViewController:  UIViewController {
         //update project to set as started,
         //if the project if different of accepted or emtpy this action should not being showed
         if self.technicians.count > 0 {
-            self.updateTechnianStatus(value: "en cours")
+            self.updateTechnianStatus(value: "en cours", percetage:"0")
         }else {
             ELVTAlert.showMessage(controller: self, message: NSLocalizedString("This project does not have any technicians assigned.", comment: ""), completion: { (done) in
                 
@@ -165,31 +199,45 @@ class ProjectUpdatesViewController:  UIViewController {
     }
     
     @IBAction func setProjectAsUrgency(sender: UISwitch) {
+        var string = "urgence"
         if sender.isOn {
             ELVTAlert.showConfirmationMessage(controller: self, message: NSLocalizedString("Set as urgency?", comment: "")) { (done) in
                 if done == true {
-                    
                     ELVTAlert.showFormWithFields(controller: self, message: NSLocalizedString("Insert a comment", comment: ""), fields: ["Message"], completion: { (results) in
-                        
-                        //getting comment
-                        print(results[0])
-                        
-                        self.updateTechnianStatus(value: "urgence")
-                        
+                        string = "urgence"
                     })
-                    
                 } else {
                     sender.isOn = false
                 }
             }
         } else {
-            self.updateTechnianStatus(value: "en cours")
+            string = "en cours"
         }
+        
+        var status: (value: String, percentage:String)!
+        switch Double(self.oneTo10Slider.value) {
+        case 0.0:
+            status = (string, "0")
+        case 1.0:
+            status = (string, "20")
+        case 2.0:
+            status = (string, "40")
+        case 3.0:
+            status = (string, "60")
+        case 4.0:
+            status = (string, "80")
+        case 5.0:
+            status = (string, "100")
+        default:
+            self.updateTechnianStatus(value: string, percetage: status.percentage)
+        }
+        self.updateTechnianStatus(value: string, percetage:  status.percentage)
+
     }
     
-    func updateTechnianStatus(value: String) {
+    func updateTechnianStatus(value: String, percetage: String) {
         DispatchQueue.main.async {
-            APIRequests.projectStatus(project: self.projectAddress.project, statusTechnician:  value) {
+            APIRequests.projectStatus(project: self.projectAddress.project, statusTechnician:  value, percentage: percetage) {
                 DispatchQueue.main.async {
                     self.projectAddress.project.statut_technicien = value
                     self.reloadStatus()
@@ -212,7 +260,8 @@ class ProjectUpdatesViewController:  UIViewController {
                             self.photos = photoObjects
                               DispatchQueue.main.async {
                                 //self.tableView.reloadData()
-                                self.streetLabel?.text = self.projectAddress.project.clientName
+                                
+                                
                                 self.addressLabel?.text = "\(self.projectAddress.address.numberString!), \(self.projectAddress.address.street)"
                                 self.heatingLabel?.text = "\(self.networks.count) " + NSLocalizedString("Heating networks", comment: "")
                                 self.ecsLabel.text = "\(self.ecsObjects.count) " + NSLocalizedString("ECS networks", comment: "")

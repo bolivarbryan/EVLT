@@ -66,6 +66,7 @@ class Project {
     var comments: [Comment]?
     var technicians: Array<String>?
     var clientName: String?
+    var progress: String?
     
     init(tva: Float, prix_ttc: PriceTCC, type: String, date_contact:Date, statut_technicien:String, client_id: Int, contact:String, status: ProjectStatus, chantier_id: Int, statut_administratif: ProjectAdminStatus,  prix_ht: Float ) {
         self.tva = tva
@@ -140,9 +141,13 @@ class Project {
         guard let clientID = dictionaryObject["client_id"] as? String else {
             return
         }
-        
-        //TODO: Make a number formatter here
         self.client_id = Int(clientID)!
+
+        guard let progress = dictionaryObject["proggress"] as? String else {
+            return
+        }
+        self.progress = progress
+        //TODO: Make a number formatter here
         self.comments = []
     }
 }

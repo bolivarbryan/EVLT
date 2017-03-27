@@ -359,7 +359,7 @@ class APIRequests: NSObject {
     }
 
 
-    class func projectStatus(project: Project, statusTechnician: String, completion: @escaping () -> Void){
+    class func projectStatus(project: Project, statusTechnician: String, percentage: String, completion: @escaping () -> Void){
 
         var etat = project.status.rawValue
         etat = etat.capitalizingFirstLetter()
@@ -371,7 +371,7 @@ class APIRequests: NSObject {
         postData.append("&prix=\(project.prix_ht)".data(using: String.Encoding.utf8)!)
         postData.append("&tva=\(project.tva)".data(using: String.Encoding.utf8)!)
         postData.append("&statutAdmin=\(project.statut_administratif.rawValue)".data(using: String.Encoding.utf8)!)
-        
+        postData.append("&proggress=\(percentage)".data(using: String.Encoding.utf8)!)
         
         if etat == "Accepte" {
             //prevú

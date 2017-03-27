@@ -23,7 +23,7 @@ class StatusViewController: UIViewController {
     }
    
     func rightAction() {
-        APIRequests.projectStatus(project: self.project, statusTechnician:  "prevú") {
+        APIRequests.projectStatus(project: self.project, statusTechnician:  "prevú", percentage: "0") {
             DispatchQueue.main.async {
                 _ = self.navigationController?.popViewController(animated: true)
             }
