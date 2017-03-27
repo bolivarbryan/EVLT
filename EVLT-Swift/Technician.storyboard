@@ -701,51 +701,15 @@
                         <outlet property="photosLabel" destination="XXY-2f-z8I" id="Lec-mi-3QY"/>
                         <outlet property="streetLabel" destination="DyI-pu-8P3" id="EF9-s6-Acc"/>
                         <outlet property="timeLabel" destination="iQI-kd-z6y" id="sCV-SC-pKU"/>
-                        <segue destination="3dS-zT-e1n" kind="show" identifier="commentsSegue" id="vxh-iu-ZDb"/>
                         <segue destination="Bpx-Vw-gxU" kind="show" identifier="photosSegue" id="aG3-z6-IYx"/>
                         <segue destination="DEh-bV-7M6" kind="show" identifier="ecsSegue" id="ngz-AP-hJE"/>
                         <segue destination="CuW-Lz-rDm" kind="show" identifier="heatingSegue" id="HR6-4R-VN5"/>
+                        <segue destination="URD-kb-jdM" kind="show" identifier="commentsSegue" id="nH1-fF-TgY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNJ-ye-MhJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5901.6000000000004" y="-570.76461769115451"/>
-        </scene>
-        <!--Technician Comments View Controller-->
-        <scene sceneID="qx4-gj-Q83">
-            <objects>
-                <viewController id="3dS-zT-e1n" customClass="TechnicianCommentsViewController" customModule="EVLT_Swift" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NPH-jL-t05"/>
-                        <viewControllerLayoutGuide type="bottom" id="HtO-1s-59P"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="y8I-qq-09F">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uQW-yf-bCb">
-                                <rect key="frame" x="10" y="20" width="355" height="583"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="HtO-1s-59P" firstAttribute="top" secondItem="uQW-yf-bCb" secondAttribute="bottom" id="LUl-u9-WXN"/>
-                            <constraint firstAttribute="trailing" secondItem="uQW-yf-bCb" secondAttribute="trailing" constant="10" id="TYg-yf-cvV"/>
-                            <constraint firstItem="uQW-yf-bCb" firstAttribute="leading" secondItem="y8I-qq-09F" secondAttribute="leading" constant="10" id="g4T-fq-s3B"/>
-                            <constraint firstItem="uQW-yf-bCb" firstAttribute="top" secondItem="NPH-jL-t05" secondAttribute="bottom" constant="20" id="sD9-QD-ron"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="textView" destination="uQW-yf-bCb" id="8KK-jE-jsT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uxL-r6-86x" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7798" y="-1703"/>
         </scene>
         <!--Project View Controller-->
         <scene sceneID="eqk-c5-fKS">
@@ -1270,6 +1234,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fzs-CG-DBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8585" y="1773"/>
+        </scene>
+        <!--Comments-->
+        <scene sceneID="1CX-oS-BrQ">
+            <objects>
+                <viewController title="Comments" id="URD-kb-jdM" customClass="TechnicianCommentsViewController" customModule="EVLT_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="724-Qr-JeF"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZRY-4Z-yGX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JGY-Qd-Z5T">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rtL-Mn-6yH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellID" id="2II-gT-kq1">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2II-gT-kq1" id="psG-f7-NsR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="URD-kb-jdM" id="nui-re-WjL"/>
+                                    <outlet property="delegate" destination="URD-kb-jdM" id="cQQ-P6-8M5"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rtL-Mn-6yH" firstAttribute="top" secondItem="724-Qr-JeF" secondAttribute="bottom" id="Afh-tP-MNU"/>
+                            <constraint firstAttribute="trailing" secondItem="rtL-Mn-6yH" secondAttribute="trailing" id="gr6-Hb-TJp"/>
+                            <constraint firstItem="ZRY-4Z-yGX" firstAttribute="top" secondItem="rtL-Mn-6yH" secondAttribute="bottom" id="pWb-Tw-tNF"/>
+                            <constraint firstItem="rtL-Mn-6yH" firstAttribute="leading" secondItem="JGY-Qd-Z5T" secondAttribute="leading" id="tbJ-Ti-fxt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="rtL-Mn-6yH" id="iLI-PC-RHw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vtw-Wc-bvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5902" y="356"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

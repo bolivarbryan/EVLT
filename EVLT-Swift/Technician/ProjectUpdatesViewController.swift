@@ -118,6 +118,7 @@ class ProjectUpdatesViewController:  UIViewController {
         case "commentsSegue":
             let vc = segue.destination as! TechnicianCommentsViewController
             vc.project = self.projectAddress.project
+            vc.authorString = "Technician"
         default:
             print("no segue")
         }

@@ -273,15 +273,30 @@ class APIRequests: NSObject {
         }
     }
     
-    class func saveComment(project: Project, comment: String, completion: @escaping (_ results: Any) -> Void ) {
+    class func saveComment(project: Project, comment: String,author: String, completion: @escaping (_ results: Any) -> Void ) {
         
         let postData = NSMutableData()
         postData.append("chantier_id=\(project.chantier_id)".data(using: String.Encoding.utf8)!)
         postData.append("&statut=FERME".data(using: String.Encoding.utf8)!)
         postData.append("&commentaire=\(comment)".data(using: String.Encoding.utf8)!)
+        postData.append("&auteur=\(author)".data(using: String.Encoding.utf8)!)
         
-        let url = serverURL + APIcommentaires + "?"
+        let url = serverURL + APIComments + "?"
        
+        APIRequests.sendForm(url: url, postData: postData){ response in
+            printResponse(response: response as AnyObject)
+            completion(response as AnyObject)
+        }
+        
+    }
+    
+    class func getComments(project: Project, completion: @escaping (_ results: Any) -> Void ) {
+        
+        let postData = NSMutableData()
+        postData.append("chantier_id=\(project.chantier_id)".data(using: String.Encoding.utf8)!)
+        postData.append("&statut=OUVRE".data(using: String.Encoding.utf8)!)
+        let url = serverURL + APIComments + "?"
+        
         APIRequests.sendForm(url: url, postData: postData){ response in
             printResponse(response: response as AnyObject)
             completion(response as AnyObject)
@@ -766,6 +781,7 @@ class APIRequests: NSObject {
         
         var body = ""
         var error: NSError? = nil
+        print(params)
         for param in params {
             let paramName = param["name"]!
             body += "--\(boundary)\r\n"
@@ -820,25 +836,25 @@ class APIRequests: NSObject {
         ]
         
         let url = "http://www.envertlaterre.fr/PHP/import_projet.php"
-        
-        basicPost(endpoint: url, params: parameters) { (result) in
-            print(result.dictionaryValue["chantiers"]?.arrayObject )
-            
-            if  let chantiers = result.dictionaryValue["chantiers"]?.arrayObject {
-                print(chantiers)
+        DispatchQueue.main.async {
+            basicPost(endpoint: url, params: parameters) { (result) in
+                print(result.dictionaryValue["chantiers"]?.arrayObject )
                 
-                //get my own chantier
-                var chantierObjects:[Dictionary<String, Any>] = []
-                for chantier in chantiers as! Array<Dictionary<String, Any>> {
-                    print(chantier)
-                    if chantier["client_id"] as! String == clientID {
-                        chantierObjects.append(chantier)
+                if  let chantiers = result.dictionaryValue["chantiers"]?.arrayObject {
+                    print(chantiers)
+                    
+                    //get my own chantier
+                    var chantierObjects:[Dictionary<String, Any>] = []
+                    for chantier in chantiers as! Array<Dictionary<String, Any>> {
+                        print(chantier)
+                        if chantier["client_id"] as! String == clientID {
+                            chantierObjects.append(chantier)
+                        }
                     }
+                    completion(chantierObjects)
                 }
-                completion(chantierObjects)
             }
         }
-        
     }
     
     class func importAllProjects(completion: @escaping (_ result: Dictionary<String, Any>) -> Void){

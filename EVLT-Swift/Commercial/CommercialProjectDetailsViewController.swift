@@ -149,7 +149,8 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
                         let date = EVLTDateFormatter.stringFromDate(date: p.date_contact)
                         self.dateLabel.text = "\(p.duree_chantier!) \(p.unite_temps!), \(date)"
                     }
-                    self.commentsLabel.text = p.comments!
+                    //self.commentsLabel.text = p.comments!
+                    self.commentsLabel.text = NSLocalizedString("Comments", comment: "")
                     self.statusLabel.text = p.status.detailed()
                 }
               
@@ -189,6 +190,7 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
             case "CommentsSegue":
                 let vc = segue.destination as! TechnicianCommentsViewController
                 vc.project = self.project
+                vc.authorString = "Commercial"
             case "PhotosSegue":
                 let vc = segue.destination as! PhotosViewController
                 vc.project = self.project

@@ -7,3 +7,23 @@
 //
 
 import Foundation
+
+
+
+struct Comment {
+    var type: CommentType
+    var comment: String
+    var projectId: Int
+    
+    init(type: CommentType, comment: String, projectId: Int) {
+        self.type = type
+        self.comment = comment
+        self.projectId = projectId
+    }
+    
+     enum CommentType: String {
+        case Technician = "Technicien"
+        case Administrative = "Administrative"
+        case Commercial = "Commercial"
+    }
+}

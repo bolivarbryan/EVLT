@@ -63,7 +63,7 @@ class Project {
     var date_contact: Date
     var unite_temps: String?
     var duree_chantier: String?
-    var comments: String?
+    var comments: [Comment]?
     var technicians: Array<String>?
     var clientName: String?
     
@@ -126,10 +126,6 @@ class Project {
             self.duree_chantier = duree_chantier
         }
         
-        if let commentaire = dictionaryObject["commentaire"] as? String {
-            self.comments = commentaire
-        }
-        
         guard let name = dictionaryObject["nom"] as? String else {
             return
         }
@@ -147,6 +143,7 @@ class Project {
         
         //TODO: Make a number formatter here
         self.client_id = Int(clientID)!
+        self.comments = []
     }
 }
 
