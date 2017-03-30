@@ -172,15 +172,15 @@ class EVLTAnnotation: NSObject, MKAnnotation {
         self.projectAddress = projectAddress
         switch projectAddress.project.statut_technicien {
         case "urgence":
-            //self.status = .finished
-        //case .active:
             self.status = .urgency
-        //case .inactive:
-        //    self.status = .planned
-       // case .visitFait:
-        default:
+        case "en cours":
             self.status = .inProggress
+        case "fini":
+            self.status = .finished
+        default:
+            self.status = .planned
         }
+        
         self.title = projectAddress.project.clientName
         self.subtitle = "\(projectAddress.project.type), \(projectAddress.project.statut_technicien)"
         self.coordinate = CLLocationCoordinate2D(latitude: projectAddress.address.coordinate.latitude, longitude:  projectAddress.address.coordinate.longitude)

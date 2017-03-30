@@ -12,12 +12,25 @@ class ProjectViewController: UIViewController, UITableViewDataSource, UITableVie
     //MARK: PROPERTIES
     var projectAddressArray: [(project: Project, address: Place)] = []
     var selectedProjectAddress: (project: Project, address: Place)!
+    var parentVC: UIViewController? = nil
+    var hasParentVC: Bool {
+        get {
+            if let _ = self.parentVC {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+    
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureTableView()
         self.title = NSLocalizedString("Projects", comment: "")
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,7 +54,14 @@ class ProjectViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCellTableViewCell
         cell.nameLabel?.text = projectAddressArray[indexPath.row].project.clientName
-        cell.subtitleLabel?.text = "\(projectAddressArray[indexPath.row].project.type) - \(projectAddressArray[indexPath.row].project.statut_technicien)"
+        
+        if hasParentVC == true {
+            cell.subtitleLabel?.text = "\(projectAddressArray[indexPath.row].address.formattedAddress())"
+        }else {
+            cell.subtitleLabel?.text = "\(projectAddressArray[indexPath.row].project.type) - \(projectAddressArray[indexPath.row].project.statut_technicien)"
+        }
+        
+        
         cell.accessoryType = .disclosureIndicator
         return cell
     }
@@ -51,9 +71,10 @@ class ProjectViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-
-        self.selectedProjectAddress = projectAddressArray[indexPath.row]
-        self.performSegue(withIdentifier: "segue", sender: self)
+        if hasParentVC == false {
+            tableView.deselectRow(at: indexPath, animated: true)
+            self.selectedProjectAddress = projectAddressArray[indexPath.row]
+            self.performSegue(withIdentifier: "segue", sender: self)
+        }
     }
 }

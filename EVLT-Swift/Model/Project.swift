@@ -136,7 +136,7 @@ class Project {
         guard let firstName = dictionaryObject["prenom"] as? String else {
             return
         }
-        self.clientName = name + " " + firstName
+        self.clientName = name.uppercased() + " " + firstName
         
         guard let clientID = dictionaryObject["client_id"] as? String else {
             return

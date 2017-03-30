@@ -25,6 +25,7 @@
 		09FF02A67FD3FCD2242B2A0CB21890B9 /* MXScrollViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = CF850BEF98E9691AACA315E46FD5BAF2 /* MXScrollViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A00E9FC53548E4D2437CF0DCCE92BFA /* DTTimePeriod.h in Headers */ = {isa = PBXBuildFile; fileRef = 866F6A31F31A536204CFF32673A60E2A /* DTTimePeriod.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A91F25DA9C312FA24A76A5D230C5C72 /* TGPCamelLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6BB01C56DB00CD5878995208A3E4C0 /* TGPCamelLabels.m */; };
+		0A9D3095E727FA1A877F8EC4CDDB6B66 /* Pods-EVLT-SwiftTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 569BC5F35426B754563FAF8FCE3DF8BD /* Pods-EVLT-SwiftTests-dummy.m */; };
 		0AF083176D0022B716B7189007364DB5 /* Toaster-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 991C9331F80180AED97ABD545CB1AA4B /* Toaster-dummy.m */; };
 		0C5AB624EEC8AE64A37F21A873D8E820 /* GTLCalendarChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0912845EB18071BCBE4AD7E126C31FD7 /* GTLCalendarChannel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0F06EA48120919DB18F8BCA358A4C180 /* GTMSessionFetcherService.h in Headers */ = {isa = PBXBuildFile; fileRef = B44B1B7FDFD32AC443288AD73516CFE0 /* GTMSessionFetcherService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,7 +53,6 @@
 		231017E31477DBA38914962ECB2C6627 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A3B6D9A78959D6666E9502C7A7B34C /* DGActivityIndicatorBallZigZagDeflectAnimation.m */; };
 		243B9FA63C5E0497B5E37531A449C4BB /* JTCalendar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E41697B33DBEBA15BE98FD7DCAFE4BEF /* JTCalendar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24E7045FE00566A3B8E7F56BC5EC3F0B /* GTLCalendarEventDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = D186760ACE9234DCA31499B1A5CD3EE9 /* GTLCalendarEventDateTime.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2538CC5543287DA0EF7796B95D3468BA /* Pods-EVLT-SwiftTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 569BC5F35426B754563FAF8FCE3DF8BD /* Pods-EVLT-SwiftTests-dummy.m */; };
 		25FC874907226084BCBA83CA038246C9 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37989E176683D690DCEF464449D283A /* ImageIO.framework */; };
 		266EE6DC55074B9E275222CB5FE75EDD /* GTLCalendarFreeBusyCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 279709522511E7B65A639A358741E21C /* GTLCalendarFreeBusyCalendar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2697D6AB47FBE7671461ADB73277E3D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D23D987D175A3B8D5FB1DEB3354CDD /* Foundation.framework */; };
@@ -118,7 +118,6 @@
 		52EB7F2237393D9F18F148A85B9844AA /* GTLCalendarCalendarListEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = E2CE92E117D6C19140A136CB9C970331 /* GTLCalendarCalendarListEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DFEE724987675285A48AA6E8866A05 /* Request.swift */; };
 		53AC740EEA1B1CD1C55B70B01A9BE2AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D23D987D175A3B8D5FB1DEB3354CDD /* Foundation.framework */; };
-		53B09C05EC168E335B6C9727AC0AB13A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D23D987D175A3B8D5FB1DEB3354CDD /* Foundation.framework */; };
 		53E00D60DDEC98667156F65B2179CFE4 /* Pods-EVLT-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E6E70508785C17D5437E77ABDB114EC /* Pods-EVLT-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		541C5362289CC44D4F067D097F231250 /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E8618A3F43C522021D754BF774F472CF /* GTMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		555105D4B067A2EFB5E02BD2001EDFFB /* DGActivityIndicatorBallSpinFadeLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 118EAE71FA3D6E02937BF435D96A7B20 /* DGActivityIndicatorBallSpinFadeLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -178,6 +177,7 @@
 		818F73C2311D50852F512BE84D819E58 /* DTConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D7D2B4830A3B1AA588CCA0031EC173 /* DTConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81E4B6988FF26F9249B79C6C8CC667B4 /* GoogleToolboxForMac-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 92BB765F8DA9BFE921ABF3FCFF191749 /* GoogleToolboxForMac-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		82130596A879833EDC8573F4102D192B /* DGActivityIndicatorBallPulseSyncAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AADF1DC77D673387923446E8A9C918 /* DGActivityIndicatorBallPulseSyncAnimation.m */; };
+		82E17144722A35CF24E1BD7BEC7C6401 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D23D987D175A3B8D5FB1DEB3354CDD /* Foundation.framework */; };
 		8319A9CB0FE296F0B3C1E77AF1846486 /* TGPControls-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 241AE941D69026691DFB16E2E416E583 /* TGPControls-dummy.m */; };
 		83F734B8423D57CFC0E064A2D2BF638E /* Toaster.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FA105800BFD0DBDB0FE833B50D4D426 /* Toaster.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		88AAB46B8FAF59FE6563C9D5BC9C153A /* DTTimePeriodGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = DF68D0535AD0583588A260DC7CA587D1 /* DTTimePeriodGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -206,6 +206,7 @@
 		96F082A9300515C630F999FB7827703A /* JTCalendarDay.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AB9B127DA8B50C4610A2CF988B3E31C /* JTCalendarDay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97EA76FA3D25BE981550B5FA457C83FF /* JTDateHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3857767A8D5831217464242D40B3D50B /* JTDateHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		98ACD289F11A39229799C37B797A0065 /* DGActivityIndicatorLineScaleAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 815AE3ED4EC736E1101D3E22F9EDEF16 /* DGActivityIndicatorLineScaleAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99C4F12BCDF4991A26F58E8D2B2E8FB8 /* Pods-EVLT-SwiftTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C75B057AA96DC9A88E90C5F238D34466 /* Pods-EVLT-SwiftTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A2B80AE50EC1185034E39EA0B3DDCAC /* JTCalendarWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91144C3B3B16A108A49E34E48B75640C /* JTCalendarWeekView.m */; };
 		9C06176E7C7CEF175C6D414C2471BBAB /* JTCalendarManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B95019A95B6A974975380B87F4BEB34 /* JTCalendarManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C0B77FFC4199444BB386192DDF3D156 /* DGActivityIndicatorLineScalePartyAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 437D6D551B2D9A713E9525A64120E473 /* DGActivityIndicatorLineScalePartyAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -287,7 +288,6 @@
 		D1AE1C1C29836A4C9BE54E8CDFB948C0 /* JTContent.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0EB566B8D146B2B57A3921C117FD28 /* JTContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D23207372C37DFFAFFC99303622EF61D /* GTMSessionFetcherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 351CCB55B79E87A36DFEA308B4A6BE00 /* GTMSessionFetcherService.m */; };
 		D46D5440CB4A191D69D652F29DB95039 /* GTLService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D369DE20F30D261127D4A15AF56168E /* GTLService.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		D5D346E400B38599EE13CEDA1FDD3E1C /* Pods-EVLT-SwiftTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C75B057AA96DC9A88E90C5F238D34466 /* Pods-EVLT-SwiftTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D65F04E91A199C439DD45C892BFFABAF /* SDWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 977563B00410138637F5B7B1915DE976 /* SDWebImagePrefetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6855F74E4866446B37327DB76C3591D /* GTLUploadParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 86728F58687670D728A17508973BF4CE /* GTLUploadParameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D686DAA2B825532D0AA878FC360A276C /* DGActivityIndicatorView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F6A3C7A4F3E6102AE0EEA4E8BFF726E /* DGActivityIndicatorView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -398,6 +398,20 @@
 			remoteGlobalIDString = 8C4423287B2D8A916E082C50DD3A1F63;
 			remoteInfo = SwiftyJSON;
 		};
+		22EFF038B7B807B5FBF8C283ABFDD9CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91D0AFD51BF2D04784321D0DCD086326;
+			remoteInfo = JTCalendar;
+		};
+		267749C03CE6CEF5298C3B3DEFC062E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3814077B60A225441E135CD435F07186;
+			remoteInfo = DGActivityIndicatorView;
+		};
 		3728B400BBEA4068AE6DAB0A5CB7F758 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -412,12 +426,26 @@
 			remoteGlobalIDString = B1C4AAFAF49036C7007633DAA3C806AD;
 			remoteInfo = GTMOAuth2;
 		};
+		3EC81FE8E8B83A10B33EEDBD517DA0F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72FBFDDC7006D34B1DE62CBE409622C7;
+			remoteInfo = TGPControls;
+		};
 		4104F56D52DE34CB2F282EFB1CF736D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3814077B60A225441E135CD435F07186;
 			remoteInfo = DGActivityIndicatorView;
+		};
+		45704C02CA50B981F573601904454C4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 138EFBBA21AE761D8444A30268B15EBA;
+			remoteInfo = Toaster;
 		};
 		55C9BFC5CB082CF5DD26115A44D5CE2D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -426,6 +454,20 @@
 			remoteGlobalIDString = 20C101155E9F5E994103381E67EB0313;
 			remoteInfo = GTMSessionFetcher;
 		};
+		5FB686A3A38B20BD904FCBA29CBC81A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9C01ACED2978423B67BA2FAC5CC4A99;
+			remoteInfo = GoogleAPIClient;
+		};
+		7DD7DD6C298E77CD6C45D26131CD0A04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D9B26BA1ED0FF4D791F9B4A96E97E32;
+			remoteInfo = SDWebImage;
+		};
 		7F045A086106C20CFC4563FE3CA9EF2F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -433,12 +475,33 @@
 			remoteGlobalIDString = 5D9B26BA1ED0FF4D791F9B4A96E97E32;
 			remoteInfo = SDWebImage;
 		};
+		8460A252BB1F2C865E30E06447C8FEC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E75E5BAC0FE6E4C6A5E5F95EA6807F8A;
+			remoteInfo = MXParallaxHeader;
+		};
+		8B1CB01BB326549FDE0C7ABE0691E414 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 20C101155E9F5E994103381E67EB0313;
+			remoteInfo = GTMSessionFetcher;
+		};
 		93A4B41C14172982200C3255916F5981 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 91D0AFD51BF2D04784321D0DCD086326;
 			remoteInfo = JTCalendar;
+		};
+		9B19F512973C382919837E67AC3C82FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
+			remoteInfo = Alamofire;
 		};
 		9D13AE0F88AD84A6228B03BC216E06DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -448,6 +511,34 @@
 			remoteInfo = Toaster;
 		};
 		A19F92F7D66999A252113305D9F23AAD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00103D6C821BE85971C563025527BA5D;
+			remoteInfo = GoogleToolboxForMac;
+		};
+		A5CDEDA79D9A90F2EDC35527B722E086 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C4423287B2D8A916E082C50DD3A1F63;
+			remoteInfo = SwiftyJSON;
+		};
+		B8DC8A29A1C274340F7772AC147A978A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 019B8DD7F9406148F9C695DB96EBC4A3;
+			remoteInfo = DateTools;
+		};
+		D97F57077613634414519BCBF5E85A36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1C4AAFAF49036C7007633DAA3C806AD;
+			remoteInfo = GTMOAuth2;
+		};
+		FD9CABAE9063923CDA9B9EA382440892 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -878,6 +969,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1451641F6AC2374AA77938C3C0BF139D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82E17144722A35CF24E1BD7BEC7C6401 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D06D270CAAC80D0979D3DDCEB0A5C6C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -956,14 +1055,6 @@
 				CB8DEAB39CEA8CBFA79C0EE66C0B119A /* GTMSessionFetcher.framework in Frameworks */,
 				9C1546ABC2078575C674FC82B99C9C2F /* Security.framework in Frameworks */,
 				3BF2CBA7E2FBD47B9BCA0194FE394621 /* SystemConfiguration.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8CAEA0DDCC596237C1D408D1C16972F8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				53B09C05EC168E335B6C9727AC0AB13A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2142,14 +2233,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9F197E54BF591AE1F3C9C70DD7D78EA6 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D5D346E400B38599EE13CEDA1FDD3E1C /* Pods-EVLT-SwiftTests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B4002B6E97835FDCCAA5963EFE09A3E0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -2171,6 +2254,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9051F6CDF36B6745A47C4FC74F36B28F /* SwiftyJSON-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA04DD0265500BD28588A50B4AAD7D6E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99C4F12BCDF4991A26F58E8D2B2E8FB8 /* Pods-EVLT-SwiftTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2307,6 +2398,36 @@
 			name = DGActivityIndicatorView;
 			productName = DGActivityIndicatorView;
 			productReference = C7449DC2AF5F9FAE0E0623E4A56C78A0 /* DGActivityIndicatorView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4597933B4D84521B76EA8C28EE26A121 /* Pods-EVLT-SwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D00695752FA3CD5572981BF329DD6FDB /* Build configuration list for PBXNativeTarget "Pods-EVLT-SwiftTests" */;
+			buildPhases = (
+				277C10C6B2A96590C3557D5612718DB7 /* Sources */,
+				1451641F6AC2374AA77938C3C0BF139D /* Frameworks */,
+				CA04DD0265500BD28588A50B4AAD7D6E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C36C669B5C348BA876EEFBE359060D08 /* PBXTargetDependency */,
+				B22722BA683291FA323201E408DA45BD /* PBXTargetDependency */,
+				9C7354C73B6F4DBCA0AF1553294AD53D /* PBXTargetDependency */,
+				911BD9D002DA9875615D7A0D57C5845F /* PBXTargetDependency */,
+				8CEDF0A41B8D9486B4D2AF291D808B95 /* PBXTargetDependency */,
+				AAA04E7E66897EEF403B255DD8D1C17B /* PBXTargetDependency */,
+				D65B0E5ECEDF25328FFC37E67775E25D /* PBXTargetDependency */,
+				FBD8D9208E09A9E2721D8F18F06B8714 /* PBXTargetDependency */,
+				8C411582FB8B9CBAD635D23C44B0C39A /* PBXTargetDependency */,
+				11C47000B1141F247B104EAF69924472 /* PBXTargetDependency */,
+				C1DB6A28F26F6E302D3D37EE7F554C15 /* PBXTargetDependency */,
+				5AD7A7D1ABE71ECF6327A51CC62277E1 /* PBXTargetDependency */,
+				88C11C1CAC3CE18219A3B398AB56A6C1 /* PBXTargetDependency */,
+			);
+			name = "Pods-EVLT-SwiftTests";
+			productName = "Pods-EVLT-SwiftTests";
+			productReference = 13143F7AD80606F9DFDB30A828FA7C73 /* Pods_EVLT_SwiftTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		5D9B26BA1ED0FF4D791F9B4A96E97E32 /* SDWebImage */ = {
@@ -2478,23 +2599,6 @@
 			productReference = 4D164AD447421D3061A44A012B8224C2 /* MXParallaxHeader.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		F343526B8216CB74D9776F1CA46FCDEA /* Pods-EVLT-SwiftTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E6C22C98E3E7749786D472DE9BABBCFD /* Build configuration list for PBXNativeTarget "Pods-EVLT-SwiftTests" */;
-			buildPhases = (
-				DA807B0AE745C8EEF0F59B895AB1BDC5 /* Sources */,
-				8CAEA0DDCC596237C1D408D1C16972F8 /* Frameworks */,
-				9F197E54BF591AE1F3C9C70DD7D78EA6 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-EVLT-SwiftTests";
-			productName = "Pods-EVLT-SwiftTests";
-			productReference = 13143F7AD80606F9DFDB30A828FA7C73 /* Pods_EVLT_SwiftTests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2526,7 +2630,7 @@
 				91D0AFD51BF2D04784321D0DCD086326 /* JTCalendar */,
 				E75E5BAC0FE6E4C6A5E5F95EA6807F8A /* MXParallaxHeader */,
 				8AB5E2FFBF98306ACC6BE615641736E6 /* Pods-EVLT-Swift */,
-				F343526B8216CB74D9776F1CA46FCDEA /* Pods-EVLT-SwiftTests */,
+				4597933B4D84521B76EA8C28EE26A121 /* Pods-EVLT-SwiftTests */,
 				5D9B26BA1ED0FF4D791F9B4A96E97E32 /* SDWebImage */,
 				8C4423287B2D8A916E082C50DD3A1F63 /* SwiftyJSON */,
 				72FBFDDC7006D34B1DE62CBE409622C7 /* TGPControls */,
@@ -2593,6 +2697,14 @@
 				F5CA91D7F8A6A6E4CE6DF14D39731776 /* UIImageView+HighlightedWebCache.m in Sources */,
 				435DC3EE70A8086FEF24F4608F88CBDD /* UIImageView+WebCache.m in Sources */,
 				ADDBAEB1D95CC8E54586B719C020755F /* UIView+WebCacheOperation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		277C10C6B2A96590C3557D5612718DB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A9D3095E727FA1A877F8EC4CDDB6B66 /* Pods-EVLT-SwiftTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2732,14 +2844,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DA807B0AE745C8EEF0F59B895AB1BDC5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2538CC5543287DA0EF7796B95D3468BA /* Pods-EVLT-SwiftTests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E125331388181D18A030CBE8DC6DE95F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2822,6 +2926,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		11C47000B1141F247B104EAF69924472 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SDWebImage;
+			target = 5D9B26BA1ED0FF4D791F9B4A96E97E32 /* SDWebImage */;
+			targetProxy = 7DD7DD6C298E77CD6C45D26131CD0A04 /* PBXContainerItemProxy */;
+		};
 		11C7B113D1000577FA85E1D9573CA0E0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GTMSessionFetcher;
@@ -2876,6 +2986,12 @@
 			target = 5D9B26BA1ED0FF4D791F9B4A96E97E32 /* SDWebImage */;
 			targetProxy = 7F045A086106C20CFC4563FE3CA9EF2F /* PBXContainerItemProxy */;
 		};
+		5AD7A7D1ABE71ECF6327A51CC62277E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TGPControls;
+			target = 72FBFDDC7006D34B1DE62CBE409622C7 /* TGPControls */;
+			targetProxy = 3EC81FE8E8B83A10B33EEDBD517DA0F9 /* PBXContainerItemProxy */;
+		};
 		6C85B066C11B464B3DDD6F756EF4DA42 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = DateTools;
@@ -2894,6 +3010,36 @@
 			target = E75E5BAC0FE6E4C6A5E5F95EA6807F8A /* MXParallaxHeader */;
 			targetProxy = 13AB3732A22953AA83BB5E14D1AAFEF3 /* PBXContainerItemProxy */;
 		};
+		88C11C1CAC3CE18219A3B398AB56A6C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Toaster;
+			target = 138EFBBA21AE761D8444A30268B15EBA /* Toaster */;
+			targetProxy = 45704C02CA50B981F573601904454C4E /* PBXContainerItemProxy */;
+		};
+		8C411582FB8B9CBAD635D23C44B0C39A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MXParallaxHeader;
+			target = E75E5BAC0FE6E4C6A5E5F95EA6807F8A /* MXParallaxHeader */;
+			targetProxy = 8460A252BB1F2C865E30E06447C8FEC6 /* PBXContainerItemProxy */;
+		};
+		8CEDF0A41B8D9486B4D2AF291D808B95 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GTMSessionFetcher;
+			target = 20C101155E9F5E994103381E67EB0313 /* GTMSessionFetcher */;
+			targetProxy = 8B1CB01BB326549FDE0C7ABE0691E414 /* PBXContainerItemProxy */;
+		};
+		911BD9D002DA9875615D7A0D57C5845F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GTMOAuth2;
+			target = B1C4AAFAF49036C7007633DAA3C806AD /* GTMOAuth2 */;
+			targetProxy = D97F57077613634414519BCBF5E85A36 /* PBXContainerItemProxy */;
+		};
+		9C7354C73B6F4DBCA0AF1553294AD53D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DateTools;
+			target = 019B8DD7F9406148F9C695DB96EBC4A3 /* DateTools */;
+			targetProxy = B8DC8A29A1C274340F7772AC147A978A /* PBXContainerItemProxy */;
+		};
 		9D629B75211D1BBFFE3C68D0E54573F2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Toaster;
@@ -2905,6 +3051,42 @@
 			name = DGActivityIndicatorView;
 			target = 3814077B60A225441E135CD435F07186 /* DGActivityIndicatorView */;
 			targetProxy = 4104F56D52DE34CB2F282EFB1CF736D7 /* PBXContainerItemProxy */;
+		};
+		AAA04E7E66897EEF403B255DD8D1C17B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleAPIClient;
+			target = C9C01ACED2978423B67BA2FAC5CC4A99 /* GoogleAPIClient */;
+			targetProxy = 5FB686A3A38B20BD904FCBA29CBC81A1 /* PBXContainerItemProxy */;
+		};
+		B22722BA683291FA323201E408DA45BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DGActivityIndicatorView;
+			target = 3814077B60A225441E135CD435F07186 /* DGActivityIndicatorView */;
+			targetProxy = 267749C03CE6CEF5298C3B3DEFC062E4 /* PBXContainerItemProxy */;
+		};
+		C1DB6A28F26F6E302D3D37EE7F554C15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyJSON;
+			target = 8C4423287B2D8A916E082C50DD3A1F63 /* SwiftyJSON */;
+			targetProxy = A5CDEDA79D9A90F2EDC35527B722E086 /* PBXContainerItemProxy */;
+		};
+		C36C669B5C348BA876EEFBE359060D08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
+			targetProxy = 9B19F512973C382919837E67AC3C82FA /* PBXContainerItemProxy */;
+		};
+		D65B0E5ECEDF25328FFC37E67775E25D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleToolboxForMac;
+			target = 00103D6C821BE85971C563025527BA5D /* GoogleToolboxForMac */;
+			targetProxy = FD9CABAE9063923CDA9B9EA382440892 /* PBXContainerItemProxy */;
+		};
+		FBD8D9208E09A9E2721D8F18F06B8714 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JTCalendar;
+			target = 91D0AFD51BF2D04784321D0DCD086326 /* JTCalendar */;
+			targetProxy = 22EFF038B7B807B5FBF8C283ABFDD9CF /* PBXContainerItemProxy */;
 		};
 		FDFDD8F5F3F643F6538AE48CA63B7B2A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2946,6 +3128,42 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		108A84B54967EBB1C77A17823B22169C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A827901361C9597467FA924FDA6E25C /* Pods-EVLT-SwiftTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-EVLT-SwiftTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EVLT-SwiftTests/Pods-EVLT-SwiftTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_EVLT_SwiftTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		12914D756594D15C6F2CA12FE5F89F1B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -3189,6 +3407,41 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		53243174E1EB1095FF382D60DC9C856C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B766104D0F761731D24E14F77D5AEBAB /* Pods-EVLT-SwiftTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-EVLT-SwiftTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EVLT-SwiftTests/Pods-EVLT-SwiftTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_EVLT_SwiftTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		532617707A0293B418A290D8C69E202C /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -3537,41 +3790,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		930296843A59A1117F8311115F15822F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A827901361C9597467FA924FDA6E25C /* Pods-EVLT-SwiftTests.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-EVLT-SwiftTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-EVLT-SwiftTests/Pods-EVLT-SwiftTests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_EVLT_SwiftTests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -3940,41 +4158,6 @@
 			};
 			name = Debug;
 		};
-		F3B7AF8098AB7D8EDFDE2E7F474ACAF5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B766104D0F761731D24E14F77D5AEBAB /* Pods-EVLT-SwiftTests.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-EVLT-SwiftTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-EVLT-SwiftTests/Pods-EVLT-SwiftTests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_EVLT_SwiftTests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -4095,20 +4278,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		D00695752FA3CD5572981BF329DD6FDB /* Build configuration list for PBXNativeTarget "Pods-EVLT-SwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				108A84B54967EBB1C77A17823B22169C /* Debug */,
+				53243174E1EB1095FF382D60DC9C856C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DD0D8D917145162B72462141FE4C16A9 /* Build configuration list for PBXNativeTarget "GTMSessionFetcher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B4D8414B317F5A007B0EC013BD6807C7 /* Debug */,
 				207348A474B56D69C7298479B90FD082 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E6C22C98E3E7749786D472DE9BABBCFD /* Build configuration list for PBXNativeTarget "Pods-EVLT-SwiftTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				930296843A59A1117F8311115F15822F /* Debug */,
-				F3B7AF8098AB7D8EDFDE2E7F474ACAF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

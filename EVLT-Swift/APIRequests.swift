@@ -290,6 +290,30 @@ class APIRequests: NSObject {
         
     }
     
+    class func editComment(comment:String, commentID: String, completion: @escaping (_ results: Any) -> Void ) {
+        let postData = NSMutableData()
+        postData.append("&commentaire=\(comment)".data(using: String.Encoding.utf8)!)
+        postData.append("&id=\(commentID)".data(using: String.Encoding.utf8)!)
+        postData.append("&statut=EDIT".data(using: String.Encoding.utf8)!)
+
+        let url = serverURL + APIComments + "?"
+        APIRequests.sendForm(url: url, postData: postData){ response in
+            printResponse(response: response as AnyObject)
+            completion(response as AnyObject)
+        }
+    }
+    
+    class func deleteComment(id: String, completion: @escaping (_ results: Any) -> Void ) {
+        let postData = NSMutableData()
+        postData.append("id=\(id)".data(using: String.Encoding.utf8)!)
+        postData.append("&statut=DELETE".data(using: String.Encoding.utf8)!)
+        let url = serverURL + APIComments + "?"
+        APIRequests.sendForm(url: url, postData: postData){ response in
+            printResponse(response: response as AnyObject)
+            completion(response as AnyObject)
+        }
+    }
+    
     class func getComments(project: Project, completion: @escaping (_ results: Any) -> Void ) {
         
         let postData = NSMutableData()
@@ -866,7 +890,7 @@ class APIRequests: NSObject {
         }
     }
     
-    class func importProject(){
+    class func importProject() {
         let headers = [
             "cache-control": "no-cache",
             "postman-token": "b6a0be50-b13d-d0fc-6e7c-6839fa72b636",

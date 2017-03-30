@@ -24,7 +24,20 @@ target 'EVLT-Swift' do
 
   target 'EVLT-SwiftTests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'JTCalendar', '~> 2.0'
+    pod 'Alamofire', '~> 4.0'
+    pod 'DateTools'
+    pod 'DGActivityIndicatorView'
+    pod 'MXParallaxHeader'
+    pod 'Toaster', '~> 2.0'
+    pod 'SwiftyJSON'
+    pod 'Firebase/Core'
+    pod 'Firebase/Storage'
+    pod 'SDWebImage'
+    pod 'TGPControls'
+    pod 'GoogleMaps'
+    pod 'GoogleAPIClient/Calendar', '~> 1.0.2'
+    pod 'GTMOAuth2', '~> 1.1.0'
   end
 
 end

@@ -13,50 +13,43 @@ class TechnicianCommentsViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var tableView: UITableView!
     var authorString: String! = nil
-    var paragraphs:[(name: String, values: [String])] = []
+    var paragraphs:[(name: String, values: [(id: String, value:String)])] = []
     //JSON: ["comments": ["technician":["comment 1", "comment 2", "comment 3"], "administrative": "comment 1"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if self.project.comments != nil {
-            //self.textView.text = project.comments!
-        }
         let newButton = UIBarButtonItem(title: NSLocalizedString("Add", comment: ""), style: .done, target: self, action: #selector(new))
+        
         self.navigationItem.rightBarButtonItem = newButton
-        
-        self.tableView.rowHeight = UITableViewAutomaticDimension;
-        
-  
-        //paragraphs.append(comment)
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         
         //getting comments from api
         APIRequests.getComments(project: self.project) { (results) in
             print(results)
             //filtering comments
-            var commercialComments = [String]()
-            var adminComments = [String]()
-            var techComments = [String]()
+            var commercialComments = [(id: String, value:String)]()
+            var adminComments = [(id: String, value:String)]()
+            var techComments = [(id: String, value:String)]()
             
             for comment in (results as! Dictionary<String, Any>)["results"] as! Array<Dictionary<String, Any >> {
                 switch comment["auteur"] as! String {
                 case "Commercial":
-                    commercialComments.append(comment["commentaire"] as! String)
+                    commercialComments.append( (id:comment["id"] as! String, value: comment["commentaire"] as! String))
                 case "Administrative":
-                    adminComments.append(comment["commentaire"] as! String)
+                    adminComments.append( (id:comment["id"] as! String, value: comment["commentaire"] as! String))
                 default:
-                    techComments.append(comment["commentaire"] as! String)
+                    techComments.append( (id:comment["id"] as! String, value: comment["commentaire"] as! String))
                 }
             }
+            
             self.paragraphs.append((name: "Commercial", values: commercialComments))
             self.paragraphs.append((name: "Administrative", values: adminComments))
             self.paragraphs.append((name: "Technician", values: techComments))
+            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
-        
-        
     }
     
     func new() {
@@ -86,7 +79,7 @@ extension TechnicianCommentsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
         if paragraphs[indexPath.section].values.count > 0 {
-            cell.textLabel?.attributedText =  makeAttributedString(subtitle: "• " + paragraphs[indexPath.section].values[indexPath.row])
+            cell.textLabel?.attributedText =  makeAttributedString(subtitle: "• " + paragraphs[indexPath.section].values[indexPath.row].value)
         } else {
             cell.textLabel?.attributedText = makeAttributedString(subtitle: "• " + NSLocalizedString("No Comments.", comment: ""))
         }
@@ -132,6 +125,55 @@ extension TechnicianCommentsViewController: UITableViewDataSource {
         return subtitleString
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+            ELVTAlert.showConfirmationMessage(controller: self, message: NSLocalizedString("Are you you sure you want to delete this comment?", comment: ""), completion: { (done) in
+                if done == true {
+                    APIRequests.deleteComment(id: self.paragraphs[indexPath.section].values[indexPath.row].id, completion: { (results) in
+                        DispatchQueue.main.async {
+                            self.paragraphs[indexPath.section].values.remove(at: indexPath.row)
+                            self.tableView.reloadData()
+                        }
+                    })
+                }
+            })
+        }
+        
+        delete.backgroundColor = .red
+        
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
+            ELVTAlert.showFormEditField(controller: self, message: NSLocalizedString("Edit Comment", comment: ""), field: "Comment", currentValue: self.paragraphs[indexPath.section].values[indexPath.row].value, completion: { (result) in
+                self.paragraphs[indexPath.section].values[indexPath.row].value = result[0]
+
+                APIRequests.editComment(comment: result[0], commentID: self.paragraphs[indexPath.section].values[indexPath.row].id, completion: { (results) in
+                    //updating value
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                })
+                
+            })
+        }
+        
+        edit.backgroundColor = .orange
+        
+        return [delete, edit]
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        var canEdit = true
+        
+        if paragraphs[indexPath.section].values.count > 0 {
+            //validate if is a technician, commercial o admin
+            if self.authorString != self.paragraphs[indexPath.section].name {
+                canEdit = false
+            }
+        }else{
+            canEdit = false
+        }
+        
+        return canEdit
+    }
 }
 
 extension TechnicianCommentsViewController: UITableViewDelegate {

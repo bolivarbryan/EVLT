@@ -11,7 +11,7 @@ import UIKit
 class ClientsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var clients: [Client] = []
     var filteredClients: [Client] = []
-     var filteredClientsByStatus: [Client] = []
+    var filteredClientsByStatus: [Client] = []
     let searchController = UISearchController(searchResultsController: nil)
     @IBOutlet weak var clientsSegmentedControl: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -147,7 +147,7 @@ class ClientsListViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCellTableViewCell
-        cell.nameLabel.text = filteredClientsByStatus[indexPath.row].fullName().capitalized
+        cell.nameLabel.text = filteredClientsByStatus[indexPath.row].fullName()
         cell.subtitleLabel.text = filteredClientsByStatus[indexPath.row].address
         
         return cell

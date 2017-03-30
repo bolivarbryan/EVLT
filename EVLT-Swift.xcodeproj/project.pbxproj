@@ -31,6 +31,7 @@
 		93706A9D1E5DDF740017670D /* EVLTPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93706A9C1E5DDF740017670D /* EVLTPicker.swift */; };
 		9373DEE11DF6F95C00321E47 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373DEE01DF6F95C00321E47 /* LoginViewController.swift */; };
 		9373DEE31DF6FA8500321E47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373DEE21DF6FA8500321E47 /* User.swift */; };
+		93814AE61E8BFD2000545A86 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C357D1E4963FD00C12449 /* Client.swift */; };
 		938678901E607BB700BF6BD7 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9386788F1E607BB700BF6BD7 /* DateViewController.swift */; };
 		938678921E60809D00BF6BD7 /* EVLTDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938678911E60809D00BF6BD7 /* EVLTDateFormatter.swift */; };
 		9388A7C51E608E5D00AC7597 /* TechnicianSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9388A7C41E608E5D00AC7597 /* TechnicianSelectionViewController.swift */; };
@@ -728,6 +729,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93814AE61E8BFD2000545A86 /* Client.swift in Sources */,
 				93FA55F01DC6962D00C07EB7 /* EVLT_SwiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

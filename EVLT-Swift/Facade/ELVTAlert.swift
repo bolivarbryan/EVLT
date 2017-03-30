@@ -78,6 +78,38 @@ struct ELVTAlert {
         }
     }
     
+    static func showFormEditField(controller: UIViewController, message:String,  field: String, currentValue: String, completion: @escaping  (_ results: Array<String>) -> Void) {
+        let alertController = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        
+        let loginAction = UIAlertAction(title: NSLocalizedString("Save", comment: ""), style: .default) { [weak alertController] _ in
+            if let alertController = alertController {
+                var fieldObjects:[String] = []
+                for field in alertController.textFields! {
+                    fieldObjects.append(field.text!)
+                }
+                
+                completion(fieldObjects)
+            }
+        }
+        
+        alertController.addTextField { textField in
+            textField.placeholder = field
+            textField.text = currentValue
+            NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { notification in
+                loginAction.isEnabled = textField.text != ""
+            }
+        }
+        
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
+        
+        alertController.addAction(loginAction)
+        alertController.addAction(cancelAction)
+        controller.present(alertController, animated: true) {
+            
+        }
+    }
+    
     static func showCameraPickerOptions(controller: UIViewController, message: String, completion: @escaping (_ done: Int) -> Void) {
         
         let alertController = UIAlertController(title: "Picture", message: message, preferredStyle: .actionSheet)

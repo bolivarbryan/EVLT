@@ -19,6 +19,12 @@ class Client: Hashable {
     var status: ClientStatus? = nil
     var address: String? = ""
     
+    var formattedLastName: String {
+        get{
+            return lastName.uppercased()
+        }
+    }
+    
     init(name: String, lastName: String, clientID: String, commercialActiveString:String, commercial: String) {
         self.name = name
         self.lastName = lastName
@@ -58,7 +64,7 @@ class Client: Hashable {
 
 extension Client {
     func fullName() -> String {
-        return "\(self.lastName) \(self.name)".trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        return "\(self.formattedLastName) \(self.name)".trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
     enum ClientStatus: String{
