@@ -38,11 +38,11 @@ struct Place {
             let codePostal = numberFormmater.number(from: dictionary["code_postal"] as! String)
             self.postalCode = (codePostal?.intValue)!
         }
-        self.numberString = dictionary["numero"] as! String
+        self.numberString = dictionary["numero"] as? String
         self.city = dictionary["ville"] as! String
         self.street = dictionary["rue"] as! String
         
-        if let lat = dictionary["latitude"] as? Double {
+        if (dictionary["latitude"] as? Double) != nil {
                 self.coordinate = Coordinate(latitude: dictionary["latitude"] as! Double, longitude: dictionary["longitude"] as! Double)
         }else{
             let numberFormmater = NumberFormatter()

@@ -28,6 +28,7 @@
 		935FCD3A1E5A900F0045BAE1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935FCD391E5A900F0045BAE1 /* Network.swift */; };
 		935FCD3C1E5A90E20045BAE1 /* HeatingNetworkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935FCD3B1E5A90E20045BAE1 /* HeatingNetworkListViewController.swift */; };
 		935FCD3E1E5A90F80045BAE1 /* HeatingNetworkDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935FCD3D1E5A90F80045BAE1 /* HeatingNetworkDetailsViewController.swift */; };
+		936DB7F91E8EE37800707CBF /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DB7F81E8EE37800707CBF /* History.swift */; };
 		93706A9D1E5DDF740017670D /* EVLTPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93706A9C1E5DDF740017670D /* EVLTPicker.swift */; };
 		9373DEE11DF6F95C00321E47 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373DEE01DF6F95C00321E47 /* LoginViewController.swift */; };
 		9373DEE31DF6FA8500321E47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9373DEE21DF6FA8500321E47 /* User.swift */; };
@@ -133,6 +134,7 @@
 		935FCD391E5A900F0045BAE1 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = Model/Network.swift; sourceTree = "<group>"; };
 		935FCD3B1E5A90E20045BAE1 /* HeatingNetworkListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeatingNetworkListViewController.swift; path = Commercial/HeatingNetworkListViewController.swift; sourceTree = "<group>"; };
 		935FCD3D1E5A90F80045BAE1 /* HeatingNetworkDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeatingNetworkDetailsViewController.swift; path = Commercial/HeatingNetworkDetailsViewController.swift; sourceTree = "<group>"; };
+		936DB7F81E8EE37800707CBF /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = History.swift; path = Model/History.swift; sourceTree = "<group>"; };
 		93706A9C1E5DDF740017670D /* EVLTPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EVLTPicker.swift; path = Facade/EVLTPicker.swift; sourceTree = "<group>"; };
 		9373DEE01DF6F95C00321E47 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controller/LoginViewController.swift; sourceTree = "<group>"; };
 		9373DEE21DF6FA8500321E47 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				9388A7D01E60E53300AC7597 /* Photo.swift */,
 				9356B0EA1E66B66F00E1CD59 /* Technician.swift */,
 				93452A5A1E89776D00D7C1BA /* Comment.swift */,
+				936DB7F81E8EE37800707CBF /* History.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				93D29DB91E5901B800B49572 /* ZoneDetailsViewController.swift in Sources */,
 				935FCD3E1E5A90F80045BAE1 /* HeatingNetworkDetailsViewController.swift in Sources */,
 				938678901E607BB700BF6BD7 /* DateViewController.swift in Sources */,
+				936DB7F91E8EE37800707CBF /* History.swift in Sources */,
 				93EE1D621E4DC73F001CBCF0 /* SAVViewController.swift in Sources */,
 				93353E7F1DE761A000C69F4E /* Place.swift in Sources */,
 				93B741A61E3974D600DDB4FA /* Project.swift in Sources */,
