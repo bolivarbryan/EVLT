@@ -346,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EVLT-Swift/Technician/ProjectUpdatesViewController.swift"
-            timestampString = "512348343.854331"
+            timestampString = "512890793.285589"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
             landmarkName = "fetchProjectDetails()"
             landmarkType = "7">
             <Locations>

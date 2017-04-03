@@ -153,6 +153,10 @@ class ProjectUpdatesViewController:  UIViewController {
             let vc = segue.destination as! TechnicianCommentsViewController
             vc.project = self.projectAddress.project
             vc.authorString = "Technician"
+        case "HistorySegue":
+            let vc = segue.destination as! HistoryViewController
+            vc.project = self.projectAddress.project
+            
         default:
             print("no segue")
         }
@@ -180,6 +184,11 @@ class ProjectUpdatesViewController:  UIViewController {
         vc.project = self.projectAddress.project
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func showHistory(_ sender: Any) {
+        self.performSegue(withIdentifier: "HistorySegue", sender: self)
+    }
+    
     
     
     //MARK: api updates

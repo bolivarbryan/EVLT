@@ -141,7 +141,7 @@ extension SAVViewController: MKMapViewDelegate {
         print(view.annotation as! EVLTAnnotation)
         //ProjectDetailsSegue
         self.selectedProjectAddress = (view.annotation as! EVLTAnnotation).projectAddress
-        //self.performSegue(withIdentifier: "ProjectDetailsSegue", sender: self)
+        self.performSegue(withIdentifier: "ProjectDetailsSegue", sender: self)
     }
 }
 

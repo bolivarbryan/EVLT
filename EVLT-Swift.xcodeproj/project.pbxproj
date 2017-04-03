@@ -23,6 +23,7 @@
 		934FDE961E6865F7006F1D3E /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934FDE951E6865F7006F1D3E /* StatusViewController.swift */; };
 		934FDE981E686609006F1D3E /* ProjectValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934FDE971E686609006F1D3E /* ProjectValidationViewController.swift */; };
 		9356B0EB1E66B66F00E1CD59 /* Technician.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356B0EA1E66B66F00E1CD59 /* Technician.swift */; };
+		935827441E920FBD00E9A091 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935827431E920FBD00E9A091 /* HistoryViewController.swift */; };
 		935C357E1E4963FD00C12449 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C357D1E4963FD00C12449 /* Client.swift */; };
 		935C35811E49682E00C12449 /* ProductCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C35801E49682E00C12449 /* ProductCellTableViewCell.swift */; };
 		935FCD3A1E5A900F0045BAE1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935FCD391E5A900F0045BAE1 /* Network.swift */; };
@@ -129,6 +130,7 @@
 		934FDE951E6865F7006F1D3E /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusViewController.swift; path = Commercial/StatusViewController.swift; sourceTree = "<group>"; };
 		934FDE971E686609006F1D3E /* ProjectValidationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectValidationViewController.swift; sourceTree = "<group>"; };
 		9356B0EA1E66B66F00E1CD59 /* Technician.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Technician.swift; path = Model/Technician.swift; sourceTree = "<group>"; };
+		935827431E920FBD00E9A091 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryViewController.swift; path = Controller/SAV/HistoryViewController.swift; sourceTree = "<group>"; };
 		935C357D1E4963FD00C12449 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Client.swift; path = Model/Client.swift; sourceTree = "<group>"; };
 		935C35801E49682E00C12449 /* ProductCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCellTableViewCell.swift; path = Commercial/Cells/ProductCellTableViewCell.swift; sourceTree = "<group>"; };
 		935FCD391E5A900F0045BAE1 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = Model/Network.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				93EE1D611E4DC73F001CBCF0 /* SAVViewController.swift */,
+				935827431E920FBD00E9A091 /* HistoryViewController.swift */,
 			);
 			name = SAV;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				93D29DAD1E58B24D00B49572 /* CommercialProjectDetailsViewController.swift in Sources */,
 				9388A7D11E60E53300AC7597 /* Photo.swift in Sources */,
 				935FCD3A1E5A900F0045BAE1 /* Network.swift in Sources */,
+				935827441E920FBD00E9A091 /* HistoryViewController.swift in Sources */,
 				93D29DAF1E58B51E00B49572 /* CommercialContactInformationViewController.swift in Sources */,
 				93D63ABC1E81BD1700DD72D8 /* EVLTCalendarManager.swift in Sources */,
 				93FA560C1DC6A9B200C07EB7 /* ECSNetworkViewController.swift in Sources */,

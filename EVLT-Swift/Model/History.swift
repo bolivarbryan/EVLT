@@ -32,7 +32,7 @@ struct History {
         self.historyDescription = historyDescription
         self.timestamp = timestamp
         self.price = price
-        self.isPaid = true
+        self.isPaid = isPaid
     }
 }
 

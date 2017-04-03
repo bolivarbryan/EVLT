@@ -71,10 +71,10 @@ class ProjectViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if hasParentVC == false {
+        //if hasParentVC == false {
             tableView.deselectRow(at: indexPath, animated: true)
             self.selectedProjectAddress = projectAddressArray[indexPath.row]
             self.performSegue(withIdentifier: "segue", sender: self)
-        }
+        //}
     }
 }
