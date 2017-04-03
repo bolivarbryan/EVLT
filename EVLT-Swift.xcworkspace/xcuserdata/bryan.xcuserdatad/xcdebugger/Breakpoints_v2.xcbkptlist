@@ -531,5 +531,85 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EVLT-Swift/Model/Project.swift"
+            timestampString = "512920027.256817"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "init(dictionaryObject:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EVLT-Swift/APIRequests.swift"
+            timestampString = "512920131.930179"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "443"
+            endingLineNumber = "443"
+            landmarkName = "importProjectDetails(chantierID:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static EVLT_Swift.APIRequests.importProjectDetails (chantierID : Swift.String, completion : (Swift.Optional&lt;EVLT_Swift.Project&gt;, Swift.Optional&lt;EVLT_Swift.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "EVLT-Swift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bryan/Documents/Projects/EVLT-Github/EVLT/EVLT-Swift/APIRequests.swift"
+                  timestampString = "512922179.504389"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "443"
+                  endingLineNumber = "443"
+                  offsetFromSymbolStart = "541">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static EVLT_Swift.APIRequests.(importProjectDetails (chantierID : Swift.String, completion : (Swift.Optional&lt;EVLT_Swift.Project&gt;, Swift.Optional&lt;EVLT_Swift.Place&gt;) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "EVLT-Swift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bryan/Documents/Projects/EVLT-Github/EVLT/EVLT-Swift/APIRequests.swift"
+                  timestampString = "512922179.506787"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "444"
+                  endingLineNumber = "444"
+                  offsetFromSymbolStart = "49">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EVLT-Swift/APIRequests.swift"
+            timestampString = "512920173.799907"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "444"
+            endingLineNumber = "444"
+            landmarkName = "importProjectDetails(chantierID:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
