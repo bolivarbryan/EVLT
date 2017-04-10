@@ -61,7 +61,7 @@ class CommercialNoECSListViewController: UIViewController {
 
 extension CommercialNoECSListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "AnexeCellID") as! ESCCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AnexeCellID") as! ESCCell
         
         cell.diameterLabel.text = ecsObjects[indexPath.row].name
         cell.materialLabel.text = ecsObjects[indexPath.row].material

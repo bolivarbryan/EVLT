@@ -43,10 +43,12 @@ class SAVViewController: UIViewController {
         if segue.identifier == "ProjectDetailsSegue" {
             let vc = segue.destination as! ProjectUpdatesViewController
             vc.projectAddress = self.selectedProjectAddress
+            vc.parentController = "SAV"
         }else if segue.identifier == "ProjectListSegue" {
             let vc = segue.destination as! ProjectViewController
             vc.projectAddressArray = self.projectAddressArray
             vc.parentVC = self
+            vc.parentController = "SAV"
         }
     }
 

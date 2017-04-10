@@ -24,6 +24,9 @@ class NewClientViewController: UIViewController {
     @IBOutlet weak var phoneTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    var fromVC: String?
+    
     var delegate: NewClientDelegate!
     var selectedClient: Client? = nil
     var place: Place!
@@ -72,6 +75,8 @@ class NewClientViewController: UIViewController {
                 }
             })
         }
+        
+ 
     }
     
     @IBAction func next(_ sender: UITextField)  {
@@ -126,7 +131,9 @@ class NewClientViewController: UIViewController {
                         //new client
                          self.selectedClient = client
                         //proceed to see new project view
-                        self.delegate.clientSuccessfullyCreated()
+                        if self.fromVC == nil {
+                            self.delegate.clientSuccessfullyCreated()
+                        }
                         self.navigationController?.popViewController(animated: true)
                     }
                     }

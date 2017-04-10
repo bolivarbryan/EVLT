@@ -45,6 +45,7 @@ class MapViewController: UIViewController {
         }else if segue.identifier == "ProjectListSegue" {
             let vc = segue.destination as! ProjectViewController
             vc.projectAddressArray = self.projectAddressArray
+            vc.parentController = "Technician"
         }
     }
 

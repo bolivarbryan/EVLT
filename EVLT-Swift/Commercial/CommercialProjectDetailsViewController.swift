@@ -191,6 +191,7 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
                 let vc = segue.destination as! TechnicianCommentsViewController
                 vc.project = self.project
                 vc.authorString = "Commercial"
+                vc
             case "PhotosSegue":
                 let vc = segue.destination as! PhotosViewController
                 vc.project = self.project

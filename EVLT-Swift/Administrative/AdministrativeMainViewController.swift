@@ -9,10 +9,15 @@
 import UIKit
 
 class AdministrativeMainViewController: UIViewController {
+    
     @IBOutlet weak var count: UILabel!
+    @IBOutlet weak var plannificationLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.getAdministrativeData()
+        getAcceptedProjects()
+        self.count.text = "# Workshops to be programmed"
     }
     
     override func awakeFromNib() {
@@ -23,11 +28,37 @@ class AdministrativeMainViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    
-    func getAdministrativeData() {
-        APIRequests.importProject()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newclientSegue" {
+            let vc = segue.destination as! NewClientViewController
+            vc.fromVC = "Administrative"
+        }
     }
+}
 
+
+extension AdministrativeMainViewController {
     
+    func getAcceptedProjects() {
+        
+        APIRequests.importProject { (results) in
+            print(results)
+            
+            var projects = [Project]()
+            for projectObject in results as! Array<Dictionary<String, Any>> {
+                let project = Project(dictionaryObject: projectObject)
+                projects.append(project)
+            }
+            
+            let projectsFiltered = projects.filter { po in
+                return po.status == ProjectStatus.accepted
+            }
+            
+            DispatchQueue.main.async {
+                self.count.text = "\(projectsFiltered.count) Workshops to be programmed"
+            }
+            
+        }
 
+    }
 }

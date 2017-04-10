@@ -119,7 +119,6 @@ class APIRequests: NSObject {
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             if (error != nil) {
-                print(error)
                 aiView.isHidden = true
                 DispatchQueue.main.async {
                     activityIndicatorView?.removeFromSuperview()
@@ -127,7 +126,7 @@ class APIRequests: NSObject {
                 } else {
                 let json = JSON(data: data!)
                 print(json)
-                if let dict = json.dictionaryObject {
+                if json.dictionaryObject != nil {
                     completion!(json.dictionaryObject! as [String : AnyObject])
                 }else{
                     completion!(["results": json.arrayObject as AnyObject])
@@ -890,7 +889,7 @@ class APIRequests: NSObject {
         }
     }
     
-    class func importProject() {
+    class func importProject(completion: @escaping (_ results: Any) -> Void) {
         let headers = [
             "cache-control": "no-cache",
             "postman-token": "b6a0be50-b13d-d0fc-6e7c-6839fa72b636",
@@ -909,6 +908,7 @@ class APIRequests: NSObject {
             } else {
                 let json = JSON(data: data!)
                 print(json)
+                completion((json.dictionaryObject as! Dictionary<String, Any>)["chantiers"] as! Array<Dictionary<String, Any>>)
             }
         })
         

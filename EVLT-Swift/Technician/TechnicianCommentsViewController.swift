@@ -29,6 +29,7 @@ class TechnicianCommentsViewController: UIViewController {
             //filtering comments
             var commercialComments = [(id: String, value:String)]()
             var adminComments = [(id: String, value:String)]()
+            var savComments = [(id: String, value:String)]()
             var techComments = [(id: String, value:String)]()
             
             for comment in (results as! Dictionary<String, Any>)["results"] as! Array<Dictionary<String, Any >> {
@@ -37,6 +38,8 @@ class TechnicianCommentsViewController: UIViewController {
                     commercialComments.append( (id:comment["id"] as! String, value: comment["commentaire"] as! String))
                 case "Administrative":
                     adminComments.append( (id:comment["id"] as! String, value: comment["commentaire"] as! String))
+                case "SAV":
+                    savComments.append( (id:comment["id"] as! String, value: comment["commentaire"] as! String))
                 default:
                     techComments.append( (id:comment["id"] as! String, value: comment["commentaire"] as! String))
                 }
@@ -44,6 +47,7 @@ class TechnicianCommentsViewController: UIViewController {
             
             self.paragraphs.append((name: "Commercial", values: commercialComments))
             self.paragraphs.append((name: "Administrative", values: adminComments))
+            self.paragraphs.append((name: "SAV", values: savComments))
             self.paragraphs.append((name: "Technician", values: techComments))
             
             DispatchQueue.main.async {

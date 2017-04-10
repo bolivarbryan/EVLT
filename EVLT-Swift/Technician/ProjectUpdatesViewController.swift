@@ -17,6 +17,7 @@ class ProjectUpdatesViewController:  UIViewController {
     var photos = [Photo]()
     var technicians: [Technician] = []
     var clientID:String!
+    var parentController: String? = nil
     
     @IBOutlet weak var oneTo10Labels: TGPCamelLabels!
     @IBOutlet weak var oneTo10Slider: TGPDiscreteSlider!
@@ -112,8 +113,6 @@ class ProjectUpdatesViewController:  UIViewController {
         self.updateTechnianStatus(value: status.value, percetage: status.percentage)
 
     }
-
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -152,7 +151,7 @@ class ProjectUpdatesViewController:  UIViewController {
         case "commentsSegue":
             let vc = segue.destination as! TechnicianCommentsViewController
             vc.project = self.projectAddress.project
-            vc.authorString = "Technician"
+            vc.authorString = parentController
         case "HistorySegue":
             let vc = segue.destination as! HistoryViewController
             vc.project = self.projectAddress.project
