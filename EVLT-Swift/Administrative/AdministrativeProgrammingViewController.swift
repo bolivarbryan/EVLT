@@ -10,10 +10,14 @@ import UIKit
 
 class AdministrativeProgrammingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    var projectAddressArray: [(project: Project, address: Place)] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureTableView()
-        
+        self.title = NSLocalizedString("Projects to be proggrammed", comment: "")
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 135
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,17 +34,37 @@ class AdministrativeProgrammingViewController: UIViewController, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath)
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! AdministrativeTableViewCell
+        let p = projectAddressArray[indexPath.row].project
+        let a = projectAddressArray[indexPath.row].address
+        
+        cell.projectTextField?.text = "\(p.clientName!) - \(p.type)"
+
+        if p.duree_chantier != nil {
+            cell.addressTimeLabel?.text = "\(a.formattedAddress()) - \(p.duree_chantier!) \(String(describing: p.unite_temps))"
+
+        }else {
+            cell.addressTimeLabel?.text = a.formattedAddress()
+        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.projectAddressArray.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
     }
 
+}
+
+class AdministrativeTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var projectTextField: UILabel!
+    @IBOutlet weak var clientButton: UIButton!
+    @IBOutlet weak var companyButton: UIButton!
+    @IBOutlet weak var addressTimeLabel: UILabel!
+    
 }

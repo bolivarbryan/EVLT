@@ -132,7 +132,6 @@ class CommercialProjectDetailsViewController: UIViewController, NewProjectDelega
                 }else{
                     self.technicianLabel.text = NSLocalizedString("No Technicians selected", comment: "")
                 }
-              
             }
         }
     }
