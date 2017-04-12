@@ -42,9 +42,6 @@ class AdministrativeMainViewController: UIViewController {
     
 }
 
-
-
-
 extension AdministrativeMainViewController {
     
     func getAcceptedProjects() {

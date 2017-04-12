@@ -908,7 +908,7 @@ class APIRequests: NSObject {
             } else {
                 let json = JSON(data: data!)
                 print(json)
-                completion((json.dictionaryObject as! Dictionary<String, Any>)["chantiers"] as! Array<Dictionary<String, Any>>)
+                completion((json.dictionaryObject!)["chantiers"] as! Array<Dictionary<String, Any>>)
             }
         })
         
