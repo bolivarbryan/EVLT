@@ -184,6 +184,18 @@ class APIRequests: NSObject {
         
     }
     
+    class func importAllPayments(completion: @escaping (_ result: [Payment]) ->  Void) {
+        APIRequests.simplePost(endpoint: serverURL + APIImportAllPayments, parameters: [:]){ response in
+            printResponse(response: response as AnyObject)
+            
+            let payments = (response["response"] as! Array<Dictionary<String, Any>>).map { paymentObject in
+                return Payment(dictionary: paymentObject)
+            }
+            
+            completion(payments)
+        }
+    }
+    
     class func importAllPrices(completion: ((_ result : [Price] ) -> Void)?){
         APIRequests.simplePost(endpoint: serverURL + APIimportAllPrices, parameters: [:]){ response in
             printResponse(response: response as AnyObject)
@@ -192,8 +204,8 @@ class APIRequests: NSObject {
             
             for priceObject in arrayOfPrices {
                 let siteID = Serializer.convertStringToInteger(string: (priceObject as! NSDictionary).object(forKey: "chantier_id") as! String)
-                let lessCapital = Serializer.convertStringToInteger(string: (priceObject as! NSDictionary).object(forKey: "moins_values") as! String)
-                let plusValues =  Serializer.convertStringToInteger(string: (priceObject as! NSDictionary).object(forKey: "plus_values") as! String)
+                let lessCapital = Serializer.convertStringToDouble(string: (priceObject as! NSDictionary).object(forKey: "moins_values") as! String)
+                let plusValues =  Serializer.convertStringToDouble(string: (priceObject as! NSDictionary).object(forKey: "plus_values") as! String)
                 let percentageDue = (priceObject as! NSDictionary).object(forKey: "pourcentage_exigible") as! String
                 let priceSiteID = Serializer.convertStringToInteger(string: (priceObject as! NSDictionary).object(forKey: "prix_chantier_id") as! String)
                 let priceHT = (priceObject as! NSDictionary).object(forKey: "prix_ht") as! String
@@ -201,7 +213,7 @@ class APIRequests: NSObject {
                 let statusPayment = (priceObject as! NSDictionary).object(forKey: "statut_paiement") as! String
                 let tva = Serializer.convertStringToDouble(string: (priceObject as! NSDictionary).object(forKey: "prix_chantier_id") as! String)
                 
-                let price = Price(siteID: siteID, lessCapital: lessCapital, plusValues: plusValues, percentageDue: percentageDue, priceSiteID: priceSiteID, priceHT: priceHT, priceTCC: priceTCC, statusPayment: statusPayment, tva: tva)
+                let price = Price(siteID: siteID, lessCapital: Float(lessCapital), plusValues: Float(plusValues), percentageDue: percentageDue, priceSiteID: priceSiteID, priceHT: priceHT, priceTCC: priceTCC, statusPayment: statusPayment, tva: tva)
                 
                 prices.append(price)
                 

@@ -34,6 +34,8 @@ let APIprojectStatus = "statut_projet.php"
 let APIImportTechinician = "import_technicians.php"
 let APIComments = "new_comments.php"
 
+let APIImportAllPayments = "import_allPaiements.php"
+
 let kActionTypeNew = "NOUVEAU"
 let kActionTypeUpdate = "EXISTE"
 

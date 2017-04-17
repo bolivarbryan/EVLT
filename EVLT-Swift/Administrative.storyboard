@@ -218,11 +218,11 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="298" id="o8E-ax-CoR">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="298" id="o8E-ax-CoR" customClass="PaymentTableViewCell" customModule="EVLT_Swift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="298"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o8E-ax-CoR" id="UnG-vx-SbD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="298"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="297.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIR-S9-r0F">
@@ -335,6 +335,9 @@
                                                                 <constraint firstAttribute="height" constant="40" id="r4p-QP-iwp"/>
                                                             </constraints>
                                                             <state key="normal" image="paiement"/>
+                                                            <connections>
+                                                                <action selector="didPressPayment:" destination="o8E-ax-CoR" eventType="touchUpInside" id="jo4-P5-vve"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="payment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5X-xd-Qf3">
                                                             <rect key="frame" x="299" y="133" width="52" height="21"/>
@@ -393,6 +396,18 @@
                                                 <constraint firstAttribute="trailing" secondItem="DIR-S9-r0F" secondAttribute="trailing" constant="10" id="zBf-XY-41z"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ammountLabel" destination="Fee-89-rHI" id="pGL-AH-lUR"/>
+                                            <outlet property="clientNameLabel" destination="DIR-S9-r0F" id="1Gz-Bp-tEb"/>
+                                            <outlet property="estimatedAmmountLabel" destination="Qjz-Z8-n4C" id="ry6-Q0-K3H"/>
+                                            <outlet property="greenValueLabel" destination="D6C-fD-pbU" id="ei2-km-sUa"/>
+                                            <outlet property="leftToPayLabel" destination="qM6-2I-87R" id="9TK-LS-Nqk"/>
+                                            <outlet property="notPayableLabel" destination="4Lb-HT-4Ku" id="Rpl-TA-FbF"/>
+                                            <outlet property="paymentButton" destination="jtd-oP-MRL" id="66n-50-4Lg"/>
+                                            <outlet property="redValueLabel" destination="yeZ-eJ-iP4" id="bPx-T0-vur"/>
+                                            <outlet property="totalHTLabel" destination="lpn-7i-Bgp" id="9rj-CP-WTr"/>
+                                            <outlet property="totalTCCLabel" destination="Ad9-gV-YEu" id="t7k-zX-Ozy"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -657,7 +672,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="abO-q1-oj0" id="W1y-2g-ylY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="134.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDd-ih-SRl">
