@@ -15,9 +15,21 @@ class AdministrativeReceiptsViewController: UIViewController, UITableViewDataSou
     var composedPayments = [ComposedPayment]()
     var selectedIndex: Int!
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(AdministrativeReceiptsViewController.getInformation), for: UIControlEvents.valueChanged)
+        
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureTableView()
+        self.tableView.backgroundView = self.refreshControl
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         self.getInformation()
     }
     
@@ -157,6 +169,7 @@ class AdministrativeReceiptsViewController: UIViewController, UITableViewDataSou
                         }
                         
                         DispatchQueue.main.async {
+                            self.refreshControl.endRefreshing()
                             self.tableView.reloadData()
                         }
                     })

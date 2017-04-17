@@ -224,14 +224,30 @@ class APIRequests: NSObject {
         }
     }
     
-    class func paymentProject(clientID:String, status:String, montant:String, date:String, mode:String, info:String){
+    class func paymentProject(clientID:String, status:String, montant:String, date:String, mode:String, info:String, completion: @escaping (_ done: Bool) -> Void){
         
+//        let params = "client_id=\(clientID)&statut=\(status)&montant=\(montant)&date=\(date)&mode=\(mode)&info=\(info)"
+//        
+//        APIRequests.simplePost(endpoint: serverURL + APIpaymentProject + params , parameters: [:]){ response in
+//            printResponse(response: response as AnyObject)
+//            completion(true)
+//        }
+//
+        let postData = NSMutableData()
+        postData.append("client_id=\(clientID)".data(using: String.Encoding.utf8)!)
+        postData.append("&statut=\(status)".data(using: String.Encoding.utf8)!)
+        postData.append("&montant=\(montant)".data(using: String.Encoding.utf8)!)
+        postData.append("&date=\(date)".data(using: String.Encoding.utf8)!)
+        postData.append("&mode=\(mode)".data(using: String.Encoding.utf8)!)
+        postData.append("&info=\(info)".data(using: String.Encoding.utf8)!)
         
-        let params = "client_id=\(clientID)&statut=\(status)&montant=\(montant)&date=\(date)&mode=\(mode)&info=\(info)"
+        let url = serverURL + APIpaymentProject + "?"
         
-        APIRequests.simplePost(endpoint: serverURL + APIpaymentProject + params , parameters: [:]){ response in
+        APIRequests.sendForm(url: url, postData: postData){ response in
             printResponse(response: response as AnyObject)
+            completion(true)
         }
+        
     }
     
     class func startFilling(completion: ((_ result : [Client] ) -> Void)?){
