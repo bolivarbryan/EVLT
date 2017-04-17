@@ -8,11 +8,34 @@
 
 import UIKit
 
+extension AdministrativeReceiptsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        
+        filteredComposedPayments = composedPayments.filter { composedPayment in
+            return (composedPayment.client.fullName().lowercased().contains(searchText.lowercased()))
+        }
+        
+        if searchText.isEmpty {
+            filteredComposedPayments = self.composedPayments
+        }
+        
+        tableView.reloadData()
+        
+    }
+    
+}
+
 class AdministrativeReceiptsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var prices = [Price]()
     var payments = [Payment]()
     var clients = [Client]()
     var composedPayments = [ComposedPayment]()
+    var filteredComposedPayments = [ComposedPayment]()
+    
     var selectedIndex: Int!
     
     lazy var refreshControl: UIRefreshControl = {
@@ -22,14 +45,32 @@ class AdministrativeReceiptsViewController: UIViewController, UITableViewDataSou
         return refreshControl
     }()
     
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    
+    func setupSearchEngine(){
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.backgroundColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 255/255.0, alpha: 1.0)
+        searchController.searchBar.barTintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 255/255.0, alpha: 1.0)
+        searchController.searchBar.tintColor = UIColor.white
+        searchController.searchBar.isTranslucent = false
+        
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureTableView()
         self.tableView.backgroundView = self.refreshControl
+        self.setupSearchEngine()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.searchController.isActive = false
         self.getInformation()
     }
     
@@ -41,7 +82,7 @@ class AdministrativeReceiptsViewController: UIViewController, UITableViewDataSou
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segue" {
             let vc = segue.destination as! AdministrativePaymentViewController
-            vc.composedPaymentInfo = composedPayments[selectedIndex]
+            vc.composedPaymentInfo = filteredComposedPayments[selectedIndex]
         }
     }
     
@@ -57,7 +98,7 @@ class AdministrativeReceiptsViewController: UIViewController, UITableViewDataSou
         let cell =  tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! PaymentTableViewCell
         cell.index = indexPath.row
         cell.delegate = self
-        let c = composedPayments[indexPath.row]
+        let c = filteredComposedPayments[indexPath.row]
         cell.clientNameLabel.text = c.client.fullName()
         
         cell.estimatedAmmountLabel.text = NSLocalizedString("Initial estimated amount (HT):", comment: "") + " \(c.totalAmmount) €"
@@ -79,7 +120,7 @@ class AdministrativeReceiptsViewController: UIViewController, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.composedPayments.count
+        return self.filteredComposedPayments.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -167,7 +208,7 @@ class AdministrativeReceiptsViewController: UIViewController, UITableViewDataSou
                             
                             
                         }
-                        
+                        self.filteredComposedPayments = self.composedPayments
                         DispatchQueue.main.async {
                             self.refreshControl.endRefreshing()
                             self.tableView.reloadData()

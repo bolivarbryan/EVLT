@@ -214,15 +214,15 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="298" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eEg-eT-Geg">
-                                <rect key="frame" x="0.0" y="44" width="375" height="559"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="298" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eEg-eT-Geg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="298" id="o8E-ax-CoR" customClass="PaymentTableViewCell" customModule="EVLT_Swift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="298"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o8E-ax-CoR" id="UnG-vx-SbD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="298"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="297.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIR-S9-r0F">
@@ -411,19 +411,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="wQM-Hf-hbE">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wQM-Hf-hbE" firstAttribute="top" secondItem="Ys3-Kj-Ywx" secondAttribute="bottom" id="GnZ-CS-mbf"/>
                             <constraint firstAttribute="trailing" secondItem="eEg-eT-Geg" secondAttribute="trailing" id="LWH-Yp-Yj9"/>
                             <constraint firstItem="Zsq-Sf-Uv1" firstAttribute="top" secondItem="eEg-eT-Geg" secondAttribute="bottom" id="WGK-BW-sGL"/>
-                            <constraint firstItem="wQM-Hf-hbE" firstAttribute="leading" secondItem="7OF-RM-gE0" secondAttribute="leading" id="Wx4-XU-zyN"/>
-                            <constraint firstItem="eEg-eT-Geg" firstAttribute="top" secondItem="Ys3-Kj-Ywx" secondAttribute="bottom" constant="44" id="cPE-Qo-qbp"/>
-                            <constraint firstAttribute="trailing" secondItem="wQM-Hf-hbE" secondAttribute="trailing" id="qAb-zT-aIL"/>
+                            <constraint firstItem="eEg-eT-Geg" firstAttribute="top" secondItem="Ys3-Kj-Ywx" secondAttribute="bottom" id="cPE-Qo-qbp"/>
                             <constraint firstItem="eEg-eT-Geg" firstAttribute="leading" secondItem="7OF-RM-gE0" secondAttribute="leading" id="yub-ks-mXt"/>
                         </constraints>
                     </view>
@@ -720,7 +713,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="abO-q1-oj0" id="W1y-2g-ylY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="134.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDd-ih-SRl">
@@ -809,7 +802,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MYb-EF-b5J" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Administrative" id="qre-HQ-b8p"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="uXM-Sq-s2K">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="uXM-Sq-s2K">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

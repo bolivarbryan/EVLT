@@ -25,7 +25,6 @@ class AdministrativePaymentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,8 +32,6 @@ class AdministrativePaymentViewController: UIViewController {
     }
     
     @IBAction func doValidation(_ sender: Any) {
-     
-        
         let paymentOption = (selectedPaymentIndex != nil) ? selectedPaymentIndex! : 0
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -47,20 +44,14 @@ class AdministrativePaymentViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)
                 }
-    
         })
     }
     
-    @IBAction func amountEditTextFieldHAsBegun(_ sender: Any) {
-        
-    }
-    
+    @IBAction func amountEditTextFieldHAsBegun(_ sender: Any) { }
     
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             let keyboardHeight = keyboardSize.height
-            print(keyboardHeight)
-            
             self.scrollViewBottomConstraint.constant = keyboardHeight - 50
             self.scrollView.layoutIfNeeded()
         }
