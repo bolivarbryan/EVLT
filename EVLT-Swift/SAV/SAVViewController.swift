@@ -68,16 +68,17 @@ class SAVViewController: UIViewController {
                         
                         if (project.statut_technicien != "") {
                             DispatchQueue.main.async {
-                                self.drawPoint(project: project, address: address)
+                                if (project.statut_technicien == "fini") || (project.statut_technicien == "prévu") || (project.statut_technicien == "prv0075") {
+                                    self.drawPoint(project: project, address: address)
+                                    self.projectAddressArray.append((project: project, address: address))
+                                }
                             }
-                            self.projectAddressArray.append((project: project, address: address))
                         }
                     }else{
                         continue
                     }
                     
                 }
-                
             }
             
             // dictionary projects, addresses
@@ -97,9 +98,10 @@ class SAVViewController: UIViewController {
     func drawPoint(project: Project, address: Place) {
         //draw here pins
         let annotation = EVLTAnnotation(projectAddress: (project: project, address: address))
-        self.mapView.addAnnotation(annotation)
+        if (annotation.status == .finished) || (annotation.status == .planned) {
+            self.mapView.addAnnotation(annotation)
+        }
     }
-    
 }
 
 

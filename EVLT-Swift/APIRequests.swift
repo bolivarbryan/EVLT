@@ -219,6 +219,7 @@ class APIRequests: NSObject {
                 
             }
 
+            print(prices)
             completion!(prices)
 
         }

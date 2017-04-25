@@ -19,6 +19,8 @@
 		93353E811DE7629100C69F4E /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353E801DE7629100C69F4E /* Coordinate.swift */; };
 		93353E831DE7698E00C69F4E /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353E821DE7698E00C69F4E /* Serializer.swift */; };
 		93353E851DE76FB200C69F4E /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93353E841DE76FB200C69F4E /* Price.swift */; };
+		933A742D1EADAB9300B626E1 /* TotalExigibleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A742C1EADAB9300B626E1 /* TotalExigibleHeaderView.swift */; };
+		933A742F1EADAFE700B626E1 /* AdministrativeTotalExigibleByCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A742E1EADAFE700B626E1 /* AdministrativeTotalExigibleByCustomerViewController.swift */; };
 		93452A5B1E89776D00D7C1BA /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93452A5A1E89776D00D7C1BA /* Comment.swift */; };
 		934FDE961E6865F7006F1D3E /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934FDE951E6865F7006F1D3E /* StatusViewController.swift */; };
 		934FDE981E686609006F1D3E /* ProjectValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934FDE971E686609006F1D3E /* ProjectValidationViewController.swift */; };
@@ -127,6 +129,8 @@
 		93353E801DE7629100C69F4E /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coordinate.swift; path = Model/Coordinate.swift; sourceTree = "<group>"; };
 		93353E821DE7698E00C69F4E /* Serializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Serializer.swift; path = Model/Serializer.swift; sourceTree = "<group>"; };
 		93353E841DE76FB200C69F4E /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Price.swift; path = Model/Price.swift; sourceTree = "<group>"; };
+		933A742C1EADAB9300B626E1 /* TotalExigibleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TotalExigibleHeaderView.swift; path = View/TotalExigibleHeaderView.swift; sourceTree = "<group>"; };
+		933A742E1EADAFE700B626E1 /* AdministrativeTotalExigibleByCustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdministrativeTotalExigibleByCustomerViewController.swift; path = Administrative/AdministrativeTotalExigibleByCustomerViewController.swift; sourceTree = "<group>"; };
 		93452A5A1E89776D00D7C1BA /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = Model/Comment.swift; sourceTree = "<group>"; };
 		934FDE951E6865F7006F1D3E /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusViewController.swift; path = Commercial/StatusViewController.swift; sourceTree = "<group>"; };
 		934FDE971E686609006F1D3E /* ProjectValidationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectValidationViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +276,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		933A742B1EADAB5800B626E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				933A742C1EADAB9300B626E1 /* TotalExigibleHeaderView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		935C357F1E49680A00C12449 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +352,7 @@
 		93FA55D61DC6962D00C07EB7 /* EVLT-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				933A742B1EADAB5800B626E1 /* View */,
 				9388A7CA1E60B6CE00AC7597 /* GoogleService-Info.plist */,
 				9330976C1E54B754008E0E89 /* Singleton */,
 				939E73161E53B148003197BC /* Facade */,
@@ -392,6 +405,7 @@
 				93FA56101DC71A6F00C07EB7 /* AdministrativeProgrammingViewController.swift */,
 				93FA56121DC71B9E00C07EB7 /* AdministrativeReceiptsViewController.swift */,
 				93FA56141DC71D1300C07EB7 /* AdministrativePaymentViewController.swift */,
+				933A742E1EADAFE700B626E1 /* AdministrativeTotalExigibleByCustomerViewController.swift */,
 			);
 			name = Administrative;
 			sourceTree = "<group>";
@@ -689,6 +703,7 @@
 				93FA55D81DC6962D00C07EB7 /* AppDelegate.swift in Sources */,
 				9388A7CF1E60BF2600AC7597 /* AddPhotoViewController.swift in Sources */,
 				935C35811E49682E00C12449 /* ProductCellTableViewCell.swift in Sources */,
+				933A742F1EADAFE700B626E1 /* AdministrativeTotalExigibleByCustomerViewController.swift in Sources */,
 				93452A5B1E89776D00D7C1BA /* Comment.swift in Sources */,
 				93FA561D1DC7A3D400C07EB7 /* CommercialProjectsViewController.swift in Sources */,
 				934FDE981E686609006F1D3E /* ProjectValidationViewController.swift in Sources */,
@@ -698,6 +713,7 @@
 				9388A7CD1E60BB0200AC7597 /* PhotosViewController.swift in Sources */,
 				9373DEE11DF6F95C00321E47 /* LoginViewController.swift in Sources */,
 				939E73181E53B16B003197BC /* ELVTAlert.swift in Sources */,
+				933A742D1EADAB9300B626E1 /* TotalExigibleHeaderView.swift in Sources */,
 				93EE1D641E4DC7B6001CBCF0 /* TabBarController.swift in Sources */,
 				93D2C2611E5482EB00DC8321 /* NewClientViewController.swift in Sources */,
 				93907C281E5D2D01004F4216 /* ECSViewController.swift in Sources */,
