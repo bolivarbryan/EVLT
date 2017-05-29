@@ -21,6 +21,7 @@ target 'EVLT-Swift' do
   pod 'GoogleMaps'
   pod 'GoogleAPIClient/Calendar', '~> 1.0.2'
   pod 'GTMOAuth2', '~> 1.1.0'
+  pod "GLCalendarView", "~> 1.0.0"
 
   target 'EVLT-SwiftTests' do
     inherit! :search_paths
