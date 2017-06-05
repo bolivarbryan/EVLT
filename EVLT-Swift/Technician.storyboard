@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ldr-x2-Jb5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ldr-x2-Jb5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -787,7 +787,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ldr-x2-Jb5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Technician" id="rbd-Li-Fv6"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="97v-Zg-OWw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="97v-Zg-OWw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -805,7 +805,7 @@
         <!--Delegate-->
         <scene sceneID="3My-dt-e6V">
             <objects>
-                <viewController id="fHY-Og-OW8" customClass="CalendarViewController" customModule="EVLT_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Calendar" id="fHY-Og-OW8" customClass="CalendarViewController" customModule="EVLT_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yJA-6Z-hhG"/>
                         <viewControllerLayoutGuide type="bottom" id="lHv-OZ-Mc7"/>
@@ -815,20 +815,58 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkF-Wu-rTk" customClass="JTHorizontalCalendarView">
-                                <rect key="frame" x="0.0" y="40" width="375" height="250"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="nyD-zN-0Ep"/>
+                                    <constraint firstAttribute="height" constant="220" id="nyD-zN-0Ep"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="fHY-Og-OW8" id="Qz5-QO-AEt"/>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7b-d8-BzX" customClass="JTCalendarMenuView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                <color key="backgroundColor" red="0.91772216558456421" green="0.91351532936096191" blue="0.92550301551818848" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="xsE-mi-Rz3"/>
+                                    <constraint firstAttribute="height" id="xsE-mi-Rz3"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VEV-xW-uGY">
+                                <rect key="frame" x="0.0" y="220" width="375" height="383"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rL2-lT-3bJ">
+                                        <rect key="frame" x="0.0" y="37" width="375" height="346"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="fHY-Og-OW8" id="k9g-Ec-fJz"/>
+                                            <outlet property="delegate" destination="fHY-Og-OW8" id="05d-Oe-FLa"/>
+                                        </connections>
+                                    </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Events for day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70j-22-D0Y">
+                                        <rect key="frame" x="8" y="8" width="111.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FXq-hL-3Hn">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.83532774448394775" green="0.8352961540222168" blue="0.83531761169433594" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="4ia-as-bGt"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="rL2-lT-3bJ" firstAttribute="leading" secondItem="VEV-xW-uGY" secondAttribute="leading" id="2XP-bH-9bE"/>
+                                    <constraint firstItem="FXq-hL-3Hn" firstAttribute="leading" secondItem="VEV-xW-uGY" secondAttribute="leading" id="7Hs-ml-k1t"/>
+                                    <constraint firstAttribute="trailing" secondItem="FXq-hL-3Hn" secondAttribute="trailing" id="A85-nb-VJO"/>
+                                    <constraint firstItem="70j-22-D0Y" firstAttribute="top" secondItem="VEV-xW-uGY" secondAttribute="top" constant="8" id="E7R-0o-8Qy"/>
+                                    <constraint firstAttribute="trailing" secondItem="rL2-lT-3bJ" secondAttribute="trailing" id="RuF-mU-uL4"/>
+                                    <constraint firstItem="FXq-hL-3Hn" firstAttribute="top" secondItem="VEV-xW-uGY" secondAttribute="top" id="XbD-yh-Fwr"/>
+                                    <constraint firstItem="rL2-lT-3bJ" firstAttribute="top" secondItem="70j-22-D0Y" secondAttribute="bottom" constant="8" id="ou0-Vw-Fvb"/>
+                                    <constraint firstAttribute="bottom" secondItem="rL2-lT-3bJ" secondAttribute="bottom" id="r5t-Mh-fQs"/>
+                                    <constraint firstItem="70j-22-D0Y" firstAttribute="leading" secondItem="VEV-xW-uGY" secondAttribute="leading" constant="8" id="tjt-SZ-lH9"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -836,9 +874,13 @@
                         <constraints>
                             <constraint firstItem="TkF-Wu-rTk" firstAttribute="top" secondItem="D7b-d8-BzX" secondAttribute="bottom" id="3BC-mW-L3c"/>
                             <constraint firstItem="D7b-d8-BzX" firstAttribute="leading" secondItem="VQk-oZ-7K8" secondAttribute="leading" id="3cJ-f6-ykY"/>
+                            <constraint firstItem="VEV-xW-uGY" firstAttribute="leading" secondItem="VQk-oZ-7K8" secondAttribute="leading" id="3g1-ff-DOm"/>
                             <constraint firstAttribute="trailing" secondItem="TkF-Wu-rTk" secondAttribute="trailing" id="BS2-mv-IVG"/>
                             <constraint firstAttribute="trailing" secondItem="D7b-d8-BzX" secondAttribute="trailing" id="GDi-P4-Ebh"/>
+                            <constraint firstAttribute="trailing" secondItem="VEV-xW-uGY" secondAttribute="trailing" id="ObV-Lr-kfX"/>
+                            <constraint firstItem="VEV-xW-uGY" firstAttribute="top" secondItem="TkF-Wu-rTk" secondAttribute="bottom" id="OiJ-PN-FK8"/>
                             <constraint firstItem="D7b-d8-BzX" firstAttribute="top" secondItem="yJA-6Z-hhG" secondAttribute="bottom" id="TDC-X1-BGj"/>
+                            <constraint firstItem="lHv-OZ-Mc7" firstAttribute="top" secondItem="VEV-xW-uGY" secondAttribute="bottom" id="cFe-sQ-R52"/>
                             <constraint firstItem="TkF-Wu-rTk" firstAttribute="top" secondItem="yJA-6Z-hhG" secondAttribute="bottom" constant="40" id="mSC-cM-5Mm"/>
                             <constraint firstItem="TkF-Wu-rTk" firstAttribute="leading" secondItem="VQk-oZ-7K8" secondAttribute="leading" id="pQ7-8E-zv3"/>
                         </constraints>

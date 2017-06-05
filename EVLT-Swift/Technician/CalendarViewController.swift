@@ -9,6 +9,7 @@
 import UIKit
 import JTCalendar
 import CoreFoundation
+import DateTools
 
 class CalendarViewController: UIViewController, JTCalendarDelegate {
     @IBOutlet weak var calendarContentView: JTHorizontalCalendarView!
@@ -21,7 +22,7 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
     var minDate = NSDate()
     var maxDate = NSDate()
     
-    var dateSelected:NSDate?
+    var dateSelected:NSDate? = NSDate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +37,13 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
         calendarManager.setDate(todayDate as Date!)
         
         //call google calendar api
-        EVLTCalendarManager.sharedInstance.setup(controller: self)
+        //EVLTCalendarManager.sharedInstance.setup(controller: self)
         
+        //Loading dates from server
         
+        //update UI
+        refreshTitleMonthFromCurrentCalendarPage()
+
     }
     
     func configureDate(date: NSDate) {
@@ -52,6 +57,28 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
     }
     
     //MARK: calendar
+    func refreshTitleMonthFromCurrentCalendarPage() {
+        let formatter  = DateFormatter()
+        formatter.dateFormat = "MMMM"
+        self.title = formatter.string(from: calendarMenuView.manager.date())
+    }
+    
+    func calendarDidLoadNextPage(_ calendar: JTCalendarManager!) {
+        refreshTitleMonthFromCurrentCalendarPage()
+    }
+    
+    func calendarDidLoadPreviousPage(_ calendar: JTCalendarManager!) {
+        refreshTitleMonthFromCurrentCalendarPage()
+    }
+    
+    func calendar(_ calendar: JTCalendarManager!, didTouchDayView dayView: UIView!) {
+        
+    }
+    
+    func calendar(_ calendar: JTCalendarManager!, canDisplayPageWith date: Date!) -> Bool {
+        return calendarManager.dateHelper.date(self.dateSelected as! Date, isEqualOrAfter: self.minDate as! Date, andEqualOrBefore: self.maxDate as! Date)
+    }
+    
     func calendar(_ calendar: JTCalendarManager!, prepareDayView dayView: UIView!) {
         // Today
         if calendarManager.dateHelper.date(NSDate() as Date!, isTheSameDayThan: (dayView as! JTCalendarDayView).date) {
@@ -74,9 +101,9 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
         else if(!(calendarManager.dateHelper.date(calendarContentView.date, isTheSameMonthThan: (dayView as! JTCalendarDayView).date))) {
             
             (dayView as! JTCalendarDayView).circleView.isHidden = false;
-            (dayView as!JTCalendarDayView).circleView.backgroundColor = UIColor.red
+            (dayView as!JTCalendarDayView).circleView.backgroundColor = UIColor.white
             (dayView as! JTCalendarDayView).dotView.backgroundColor = UIColor.white
-            (dayView as! JTCalendarDayView).textLabel.textColor = UIColor.white
+            (dayView as! JTCalendarDayView).textLabel.textColor = UIColor.lightGray
         }
         
             // Another day of the current month
@@ -110,4 +137,19 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
     }
     
 
+}
+
+extension CalendarViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "CellID")
+        cell.textLabel?.text = "Joffrey Baratheon"
+        cell.detailTextLabel?.text = "12:00"
+        return cell
+    }
+    
 }
