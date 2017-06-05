@@ -40,10 +40,17 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
         //EVLTCalendarManager.sharedInstance.setup(controller: self)
         
         //Loading dates from server
-        
+        fetchEventsForDate(date: Date())
         //update UI
         refreshTitleMonthFromCurrentCalendarPage()
 
+    }
+    
+    //Load from api
+    func fetchEventsForDate(date: Date) {
+        APIRequests.getDate(date: date) { (results) in
+            print(results)
+        }
     }
     
     func configureDate(date: NSDate) {

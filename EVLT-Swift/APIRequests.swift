@@ -439,9 +439,23 @@ class APIRequests: NSObject {
 
     }
 
-    class func getDate(){
-        APIRequests.simplePost(endpoint: serverURL + APIdate, parameters: [:]){ response in
+    class func getDate(date: Date, completion: @escaping (_ result: Any?) -> Void) {
+        let postData = NSMutableData()
+        //Format for date: yyyy-mm-dd
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyy-mm-dd"
+        
+        postData.append("&statut=LIST".data(using: String.Encoding.utf8)!)
+        postData.append("&date=\(formatter.string(from: date))".data(using: String.Encoding.utf8)!)
+        
+        let url = serverURL + APIdate
+        
+        APIRequests.sendForm(url: url, postData: postData){ response in
             printResponse(response: response as AnyObject)
+            
+            completion(response as [String:
+                Any])
         }
     }
 
