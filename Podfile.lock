@@ -48,6 +48,9 @@ PODS:
     - GTMSessionFetcher/Core (= 1.1.8)
   - JTCalendar (2.1.9)
   - MXParallaxHeader (0.5.2)
+  - RxCocoa (3.4.1):
+    - RxSwift (~> 3.4)
+  - RxSwift (3.4.1)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -67,6 +70,8 @@ DEPENDENCIES:
   - GTMOAuth2 (~> 1.1.0)
   - JTCalendar (~> 2.0)
   - MXParallaxHeader
+  - RxCocoa
+  - RxSwift
   - SDWebImage
   - SwiftyJSON
   - TGPControls
@@ -91,11 +96,13 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   JTCalendar: beb2f4c1b639bf6880f680b4858227acf83a049c
   MXParallaxHeader: 5070ba8e8af27ec793c0d32ae82cfd2318e59635
+  RxCocoa: a8a5f1d061d0043e28f56976829f31ce63e8eb09
+  RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
   TGPControls: feb3210f617691690994d0ddfe37884150b6de9a
   Toaster: be65cd48e93a525b2a9cc4bd25a2bfc900e02d9f
 
-PODFILE CHECKSUM: eacb5f5730bee7fdda1bf55ba3b225c456c48634
+PODFILE CHECKSUM: 0b2673507fca259f2ee0edcd0432f8be0d8f0a3d
 
 COCOAPODS: 1.2.1

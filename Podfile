@@ -22,7 +22,9 @@ target 'EVLT-Swift' do
   pod 'GoogleAPIClient/Calendar', '~> 1.0.2'
   pod 'GTMOAuth2', '~> 1.1.0'
   pod "GLCalendarView", "~> 1.0.0"
-
+  pod "RxSwift"
+  pod "RxCocoa"
+  
   target 'EVLT-SwiftTests' do
     inherit! :search_paths
     pod 'JTCalendar', '~> 2.0'
