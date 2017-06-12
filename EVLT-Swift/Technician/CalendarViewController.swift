@@ -15,8 +15,9 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
     @IBOutlet weak var calendarContentView: JTHorizontalCalendarView!
     @IBOutlet weak var calendarMenuView: JTCalendarMenuView!
     var calendarManager:JTCalendarManager!
-    
+    @IBOutlet weak var tableView: UITableView!
     let eventsByDate:NSMutableDictionary = NSMutableDictionary()
+    var calendarEvents = [EVLTCalendar]()
     
     let todayDate = NSDate()
     var minDate = NSDate()
@@ -51,12 +52,15 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
     func fetchEventsForDate(date: Date) {
         APIRequests.getDate(date: date) { (results) in
             let calendarObjects = (results as! [String: Any])["results"] as! [[String: Any]]
-            let calendars = calendarObjects.map { calendar -> EVLTCalendar in
+            self.calendarEvents = calendarObjects.map { calendar -> EVLTCalendar in
                 print(calendar)
                return EVLTCalendar(dictionary: calendar)
             }
             
-            print(calendars)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
         }
     }
     
@@ -150,19 +154,19 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
         return df
     }
     
-
 }
 
 extension CalendarViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return calendarEvents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "CellID")
-        cell.textLabel?.text = "Joffrey Baratheon"
-        cell.detailTextLabel?.text = "12:00"
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "CellID")
+        let calendarEvent = calendarEvents[indexPath.row]
+        cell.textLabel?.text = "ChantierID: \(calendarEvent.chantierID)"
+        cell.detailTextLabel?.text = "Duration: \(calendarEvent.duration!) \(calendarEvent.unit)"
         return cell
     }
     

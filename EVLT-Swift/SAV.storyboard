@@ -1653,6 +1653,7 @@
                     <connections>
                         <outlet property="calendarContentView" destination="vpS-kc-ige" id="SmL-pK-LWo"/>
                         <outlet property="calendarMenuView" destination="tzh-Ev-hO3" id="Lp4-2m-Tx4"/>
+                        <outlet property="tableView" destination="WsV-nM-P70" id="n6l-s5-vcS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xm4-fM-rwS" userLabel="First Responder" sceneMemberID="firstResponder"/>
