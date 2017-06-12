@@ -787,7 +787,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ldr-x2-Jb5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Technician" id="rbd-Li-Fv6"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="97v-Zg-OWw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="97v-Zg-OWw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
