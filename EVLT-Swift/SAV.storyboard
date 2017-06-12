@@ -193,7 +193,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FSX-6N-wyO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="SAV" id="pby-ab-PsE"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Q2I-gq-wzZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Q2I-gq-wzZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -377,7 +377,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MLB-aR-QdO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="SAV" id="ox8-F1-5jh"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="JqR-qR-0HU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="JqR-qR-0HU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

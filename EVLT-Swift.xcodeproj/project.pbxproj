@@ -91,6 +91,7 @@
 		94C7AFB52777C91D443CED45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7F92321BB3C4B9A3B4165B /* SystemConfiguration.framework */; };
 		9E905B3945163EFEE1DEE201 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A90C8F072A4DA9CBBBB0FB8 /* CoreText.framework */; };
 		BDFB8CE71AB46E8A9A0E4417 /* Pods_EVLT_SwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7D7A5EC6884FAB3852BE81 /* Pods_EVLT_SwiftTests.framework */; };
+		BE0894061EEE4B0700290297 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0894051EEE4B0700290297 /* Calendar.swift */; };
 		C0CE02D78324FEB1D82E8290 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CCDD66A6E795CDCA3F716F9 /* AVFoundation.framework */; };
 		C7641F35995CB212FE241AFD /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62F0AB678D9C8C1DD5686E6E /* AssetsLibrary.framework */; };
 		F43AFE21DECDDF52133718ED /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3962BE2E785FD2B610999E /* CoreVideo.framework */; };
@@ -206,6 +207,7 @@
 		93FA561E1DC7A50800C07EB7 /* NewProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewProjectViewController.swift; path = Commercial/NewProjectViewController.swift; sourceTree = "<group>"; };
 		93FA56211DC7AA8900C07EB7 /* SAV.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SAV.storyboard; sourceTree = "<group>"; };
 		A1CC57C176B62CB1D413F1B8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		BE0894051EEE4B0700290297 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Calendar.swift; path = Model/Calendar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +274,7 @@
 				93452A5A1E89776D00D7C1BA /* Comment.swift */,
 				936DB7F81E8EE37800707CBF /* History.swift */,
 				93C0586E1EA48C99005F21E0 /* Payment.swift */,
+				BE0894051EEE4B0700290297 /* Calendar.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -695,6 +698,7 @@
 				935FCD3C1E5A90E20045BAE1 /* HeatingNetworkListViewController.swift in Sources */,
 				931D3CB51E76DA5F00F86B70 /* MapRouteViewController.swift in Sources */,
 				93353E831DE7698E00C69F4E /* Serializer.swift in Sources */,
+				BE0894061EEE4B0700290297 /* Calendar.swift in Sources */,
 				939E73151E53AB72003197BC /* SettingsViewController.swift in Sources */,
 				934FDE961E6865F7006F1D3E /* StatusViewController.swift in Sources */,
 				93D8AFA31DC9FFE800F3A4B4 /* APIRequests.swift in Sources */,

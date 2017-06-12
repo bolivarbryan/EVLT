@@ -409,7 +409,6 @@ class APIRequests: NSObject {
 
     }
 
-
     class func projectStatus(project: Project, statusTechnician: String, percentage: String, completion: @escaping () -> Void){
 
         var etat = project.status.rawValue
@@ -436,7 +435,6 @@ class APIRequests: NSObject {
             printResponse(response: response as AnyObject)
             completion()
         }
-
     }
 
     class func getDate(date: Date, completion: @escaping (_ result: Any?) -> Void) {

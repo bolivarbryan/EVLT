@@ -51,6 +51,7 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
     func fetchEventsForDate(date: Date) {
         APIRequests.getDate(date: date) { (results) in
             print(results)
+            
         }
     }
     
