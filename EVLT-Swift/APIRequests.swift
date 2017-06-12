@@ -444,10 +444,11 @@ class APIRequests: NSObject {
         //Format for date: yyyy-mm-dd
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyy-mm-dd"
+        formatter.dateFormat = "yyyy-MM-dd"
         
-        postData.append("&statut=LIST".data(using: String.Encoding.utf8)!)
-        postData.append("&date=\(formatter.string(from: date))".data(using: String.Encoding.utf8)!)
+        let dateString = formatter.string(from: date)
+        postData.append("statut=LIST".data(using: String.Encoding.utf8)!)
+        postData.append("&date=\(dateString)".data(using: String.Encoding.utf8)!)
         
         let url = serverURL + APIdate
         

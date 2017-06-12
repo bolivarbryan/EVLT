@@ -41,6 +41,7 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
         
         //Loading dates from server
         fetchEventsForDate(date: Date())
+        
         //update UI
         refreshTitleMonthFromCurrentCalendarPage()
 
