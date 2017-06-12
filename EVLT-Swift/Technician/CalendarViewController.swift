@@ -23,7 +23,7 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
     var minDate = NSDate()
     var maxDate = NSDate()
     
-    var dateSelected:NSDate? = NSDate()
+    var dateSelected:Date? = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
         //EVLTCalendarManager.sharedInstance.setup(controller: self)
         
         //Loading dates from server
-        fetchEventsForDate(date: Date())
+        fetchEventsForDate(date: dateSelected!)
         
         //update UI
         refreshTitleMonthFromCurrentCalendarPage()
@@ -90,7 +90,9 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
     }
     
     func calendar(_ calendar: JTCalendarManager!, didTouchDayView dayView: UIView!) {
-        
+         self.calendarManager.setDate((dayView as! JTCalendarDayView).date)
+        self.dateSelected = (dayView as! JTCalendarDayView).date
+        fetchEventsForDate(date: self.dateSelected!)
     }
     
     func calendar(_ calendar: JTCalendarManager!, canDisplayPageWith date: Date!) -> Bool {
@@ -137,6 +139,7 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
         else{
             (dayView as! JTCalendarDayView).dotView.isHidden = true;
         }
+        
     }
     
     func haveEventForDay(date:NSDate) -> Bool {
