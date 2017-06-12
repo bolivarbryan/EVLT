@@ -50,8 +50,13 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
     //Load from api
     func fetchEventsForDate(date: Date) {
         APIRequests.getDate(date: date) { (results) in
-            print(results)
+            let calendarObjects = (results as! [String: Any])["results"] as! [[String: Any]]
+            let calendars = calendarObjects.map { calendar -> EVLTCalendar in
+                print(calendar)
+               return EVLTCalendar(dictionary: calendar)
+            }
             
+            print(calendars)
         }
     }
     
