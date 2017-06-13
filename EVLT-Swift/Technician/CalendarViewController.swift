@@ -96,7 +96,7 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
     }
     
     func calendar(_ calendar: JTCalendarManager!, canDisplayPageWith date: Date!) -> Bool {
-        return calendarManager.dateHelper.date(self.dateSelected as! Date, isEqualOrAfter: self.minDate as! Date, andEqualOrBefore: self.maxDate as! Date)
+        return calendarManager.dateHelper.date(self.dateSelected!, isEqualOrAfter: self.minDate as! Date, andEqualOrBefore: self.maxDate as Date)
     }
     
     func calendar(_ calendar: JTCalendarManager!, prepareDayView dayView: UIView!) {
