@@ -894,6 +894,7 @@
                     <connections>
                         <outlet property="calendarContentView" destination="TkF-Wu-rTk" id="M0p-Mr-w6A"/>
                         <outlet property="calendarMenuView" destination="D7b-d8-BzX" id="IZw-jk-Rpe"/>
+                        <outlet property="tableView" destination="rL2-lT-3bJ" id="02d-Cf-osq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPm-9g-DEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
