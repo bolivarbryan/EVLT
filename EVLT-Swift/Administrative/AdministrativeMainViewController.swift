@@ -105,6 +105,4 @@ extension AdministrativeMainViewController {
             //getting
         }
     }
-    
-    
 }

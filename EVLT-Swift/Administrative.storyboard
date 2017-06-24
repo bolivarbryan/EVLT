@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MYb-EF-b5J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MYb-EF-b5J">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1311,11 +1311,60 @@
                         <outlet property="postalCodeTxt" destination="kDo-wt-7cH" id="QPG-f2-N4F"/>
                         <outlet property="scrollView" destination="lRB-0w-hML" id="4XA-FK-SfA"/>
                         <outlet property="streetTxt" destination="i0x-1S-xHi" id="Jgz-N8-f6O"/>
+                        <segue destination="LKv-nX-KvP" kind="show" identifier="projectsSegue" id="K0R-dM-mqb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BRn-m6-joC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1209" y="567"/>
+        </scene>
+        <!--New Project-->
+        <scene sceneID="BWB-74-6qD">
+            <objects>
+                <viewController title="New Project" id="LKv-nX-KvP" customClass="NewProjectViewController" customModule="EVLT_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MYN-xm-c3O"/>
+                        <viewControllerLayoutGuide type="bottom" id="SSY-CH-fYw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bvF-Dy-is5">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kn9-ow-Mla">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" id="HST-4V-RuJ">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HST-4V-RuJ" id="qU6-fr-0jm">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="LKv-nX-KvP" id="fpS-dc-3DA"/>
+                                    <outlet property="delegate" destination="LKv-nX-KvP" id="ocG-pr-cYO"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kn9-ow-Mla" firstAttribute="top" secondItem="MYN-xm-c3O" secondAttribute="bottom" id="J2Z-LB-BxL"/>
+                            <constraint firstAttribute="trailing" secondItem="kn9-ow-Mla" secondAttribute="trailing" id="NzY-yx-B1x"/>
+                            <constraint firstItem="kn9-ow-Mla" firstAttribute="leading" secondItem="bvF-Dy-is5" secondAttribute="leading" id="RfJ-rV-eI5"/>
+                            <constraint firstItem="SSY-CH-fYw" firstAttribute="top" secondItem="kn9-ow-Mla" secondAttribute="bottom" id="T1K-iQ-sf2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Project" id="exY-am-L7i"/>
+                    <connections>
+                        <outlet property="tableView" destination="kn9-ow-Mla" id="FGP-nw-R5M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qgb-lA-qvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1209" y="1390"/>
         </scene>
     </scenes>
     <resources>

@@ -133,8 +133,10 @@ class NewClientViewController: UIViewController {
                         //proceed to see new project view
                         if self.fromVC == nil {
                             self.delegate.clientSuccessfullyCreated()
+                            self.navigationController?.popViewController(animated: true)
+                        } else {
+                            self.performSegue(withIdentifier: "projectsSegue", sender: self)
                         }
-                        self.navigationController?.popViewController(animated: true)
                     }
                     }
                 })
@@ -260,16 +262,14 @@ class NewClientViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "projectsSegue" {
-//            let vc = segue.destination as! NewProjectViewController
-//            vc.client = selectedClient
-//        }
+        if segue.identifier == "projectsSegue" {
+            let vc = segue.destination as! NewProjectViewController
+            vc.client = selectedClient
+            vc.delegate = self
+        }
         
     }
 
-
-    
-    
 }
 
 extension NewClientViewController: UITextFieldDelegate {
@@ -346,4 +346,14 @@ extension NewClientViewController {
         })
     }
     
+}
+
+extension NewClientViewController: NewProjectDelegate {
+    func projectSuccessfullyCreated() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func projectCanceled() {
+        
+    }
 }
